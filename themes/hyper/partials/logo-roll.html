@@ -1,0 +1,37 @@
+<section id='logo-roll' hyper-if='data.customers'>
+    <grid-container>
+        <logo-roll>
+            <a hyper-template='company:data.customers' hyper-attrs='href:company.href' href='#' target='_blank'>
+                <img hyper-attrs='src:company.logo.src;style:company.logo.style' data-grayscale='100'>
+            </a>
+        </logo-roll>
+    </grid-container>
+    <style>
+        #logo-roll {
+            padding: var(--gutter-2x, 30px) 0 0 0;
+        }
+        logo-roll {
+            display: grid;
+            width: 100%;
+            height: min(60px, 7vh);
+            grid-auto-flow: column;
+            grid-auto-columns: 1fr;
+            gap: var(--gutter-2x);
+            align-items: center;
+            justify-items: center;
+            justify-content: center;
+            overflow-x: scroll;
+        }
+        logo-roll :is(a, a:hover) {
+            box-shadow: none;
+        }
+        logo-roll > :not(style):not(script) {
+            display: block;
+            height: inherit;
+        }
+        logo-roll img {
+            height: inherit;
+            object-fit: contain;
+        }
+    </style>
+</section>

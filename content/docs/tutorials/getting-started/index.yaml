@@ -1,0 +1,223 @@
+---
+created_at: 2024-12-16T14:00:00-0700
+canonical_url: https://hypertemplates.net/getting-started
+title: Getting Started
+layout: guide
+description: Quick start guide to a delightful web authoring experience, powered by HyperTemplates.
+summary: >-
+    Rediscover the joy of website development with this interactive quick start guide to HyperTemplates, the pure-HTML templating system for the modern web.
+content: >-
+    Hello, world.
+guide:
+    overview: |
+        Rediscover the joy of website development & content publishing with this interactive quick start guide to HyperTemplates, the pure-HTML templating system for the modern web.
+    steps:
+        - title: Install HyperTemplates
+          description: Get started with HyperTemplates by installing the `hyperctl` command line interface (CLI) tool.
+          instructions: |
+            Install the `hyperctl` CLI tool.
+
+            ```
+            curl -LO https://hypertemplates.net/downloads/macos/hyperctl
+            chmod +x hyperctl
+            sudo install hyperctl /usr/local/bin/
+            ```
+
+            Create a new website.
+
+            ```
+            mkdir ${HOME}/hyper-tutorial/
+            cd ${HOME}/hyper-tutorial/
+            mkdir -p content/ layouts/
+            touch content/index.md layouts/default.html
+            ```
+
+        - title: Introduction to content templating
+          description: Write layout templates in pure HTML, no frameworks required.
+          instructions: |
+            Add some content to `content/index.md`.
+
+            ```markdown
+            ## Hello, world
+
+            This is my first HyperTemplates content!
+            ```
+
+            Add a basic layout to `layouts/default.html`.
+
+            ```html
+            <html>
+                <head>
+                    <meta charset='utf-8'>
+                    <title>Hello, world</title>
+                </head>
+                <body>
+                    <article>
+                        <hyper-templates hyper-content='markdown:content'></hyper-templates>
+                    </article>
+                </body>
+            </html>
+            ```
+
+            Render your first page using HyperTemplates.
+
+            ```shell
+            hyperctl render -d content/index.mx -l layouts/default.html > index.html
+            ```
+
+        - title: Introduction to attribute templating
+          description: Hydrate layout template directives with dynamic content.
+          instructions: |
+            Add a `description` field to `content/index.md`. 
+
+            ```markdown
+            ---
+            description: My first HyperTemplates page
+            ---
+
+            ## Hello, world
+
+            This is my first HyperTemplates content!
+            ```
+
+            Add a description meta tag to `layouts/default.html`.
+
+            ```html
+            <html>
+                <head>
+                    <meta charset='utf-8'>
+                    <title>Hello, world</title>
+                    <meta name='description' hyper-attrs='content:description'>
+                </head>
+                <body>
+                    <article>
+                        <hyper-templates hyper-content='markdown:content'></hyper-templates>
+                    </article>
+                </body>
+            </html>
+            ```
+
+            Render the page to see the description meta tag populated.
+
+            ```shell
+            hyperctl render -d content/index.mx -l layouts/default.html
+            ```
+
+        - title: Introduction to template conditionals
+          description: Conditionally render layouts based on dynamic content.
+          instructions: |
+            Optionally show a title if a title field is present in the page data. 
+
+            ```html
+            <html>
+                <head>
+                    <meta charset='utf-8'>
+                    <title hyper-content='title'>Hello, world</title>
+                    <meta name='description' hyper-attrs='content:description'>
+                </head>
+                <body>
+                    <header hyper-if='title'>
+                        <h1 hyper-content='title'></h1>
+                    </header>
+                    <article hyper-content='markdown:content'></article>
+                    <footer hyper-if='copyright' hyper-content='markdown:copyright'></footer>
+                </body>
+            </html>
+            ```
+
+            Render the page to see the title conditionally displayed.
+
+            ```shell
+            hyperctl render -d content/index.mx -l layouts/default.html
+            ```
+
+            Notice that the h1 and footer tags were removed from the rendered HTML!
+            Now let's add the missing fields to the page.
+
+            ```markdown
+            ---
+            title: Hello, hypertemplates world!
+            description: My first HyperTemplates page
+            copyright: &copy; Me 2024
+            ---
+
+            ## Hello, world
+
+            This is my first HyperTemplates content!
+            ```
+
+            Now let's render the page again.
+
+            ```shell
+            hyperctl render -d content/index.mx -l layouts/default.html
+            ```
+
+
+
+        - title: Introduction to template includes.
+          description: Reuse template components across multiple layouts.
+          instructions: |
+            
+            As our layout starts to become more complex, it would be nice if we could split up the layout code into individual components. Let's see how that works with the hypertemplates hyper-include attribute. 
+
+            ```shell
+            # add files
+            mkdir -p partials static/css
+            touch partials/header.html partials/footer.html
+            ```
+
+            `layouts/default.html`
+
+            ```html
+            <html>
+                <head>
+                    <meta charset='utf-8'>
+                    <title>Hello, world</title>
+                    <meta name='description' hyper-attrs='content:description'>
+                </head>
+                <body>
+                    <header hyper-include='partials/header'></header>
+                    <article hyper-content='markdown:content'></article>
+                    <footer hyper-include='partials/footer'></footer>
+                </body>
+            </html>
+            ```
+
+            NOTE: you may have noticed that the hyper-include attributes look like a path, but they don't have the .html extension on the end. That's because hypertemplates assumes that all layout code is HTML 
+
+            `partials/header.html`
+
+            ```html
+            <header hyper-if='title'>
+                <nav>
+                    <menu>
+                        <a href='/'>Home</a>
+                        <a href='/about'>About</a>
+                    </menu>
+                </nav>
+                <h1 hyper-content='title'></h1>
+            </header>
+            ```
+
+            `partials/footer.html`
+
+            ```html
+            <footer hyper-if='copyright'>
+                <span hyper-content='markdown:copyright'></span>
+                <span>Powered by HyperTemplates:trade;</span>
+            </footer>
+            ```
+
+            ```shell
+            hyperctl render -d content/index.md -l layouts/default.html > index.html
+            ```
+
+        - title: Introduction to template iterators.
+          description: Iterate over dynamic content to render lists and tables.
+          instructions: |
+            ...
+        - title: Introduction to template shortcodes.
+          description: Define custom template components to enrigch your content.
+          instructions: |
+            ...
+

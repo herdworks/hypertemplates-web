@@ -1,0 +1,33 @@
+<section id='newsletter' data-color-scheme='gray'>
+    <grid-container>
+        <grid-row>
+            <grid-column>
+                <h3 hyper-content='text:data.newsletter.title'></h3>
+                <p hyper-content='text:data.newsletter.description'></p>
+            </grid-column>
+            <grid-column>
+                <uni-form hyper-include='partials/uni-form' hyper-template='form:data.newsletter.form'></uni-form>
+            </grid-column>
+        </grid-row>
+    </grid-container>
+    <style>
+        #newsletter {
+            padding: 50px 0;
+        }
+        #newsletter grid-row {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gutter-2x, 30px);
+        }
+        #newsletter grid-column:last-child {
+            width: 100%;
+            align-self: center;
+        }
+        @media screen and (max-width: 679px) {
+            #newsletter grid-row {
+                grid-template-columns: 100%;
+                grid-auto-flow: row;
+            }
+        }
+    </style>
+    <script></script>
+</section>

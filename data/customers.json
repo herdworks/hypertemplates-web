@@ -1,0 +1,47 @@
+{
+    "customers": [
+        {
+            "name": "Microsoft",
+            "href": "https://www.microsoft.com",
+            "logo": {
+                "src": "https://www.microsoft.com/favicon.ico"
+            }
+        },
+        {
+            "name": "Apple Inc",
+            "href": "https://www.apple.com",
+            "logo": {
+                "src": "https://www.apple.com/ac/structured-data/images/open_graph_logo.png"
+            }
+        },
+        {
+            "name": "The Verge",
+            "href": "https://www.theverge.com",
+            "logo": {
+                "src": "https://cdn.cookielaw.org/logos/451d8686-ff0b-4065-9afa-6289c6cb87c3/8ab3bfb1-b2e2-46dd-b96a-c25a457b231f/9812319a-c53f-4a49-8a96-f6f71fb51088/verge-ot-logo.png"
+            }
+        },
+        {
+            "name": "Iantrek Inc",
+            "href": "https://iantrekmed.com",
+            "logo": {
+                "src": "https://iantrekmed.com/wp-content/uploads/2024/07/iantrek-logo.svg"
+            }
+        },
+        {
+            "name": "Herd Works",
+            "href": "https://herd.works",
+            "logo": {
+                "src": "https://herd.works/favicon_1024x1024.png"
+            }
+        },
+        {
+            "name": "John L Scott Realtors",
+            "href": "https://www.johnlscott.com",
+            "logo": {
+                "src": "https://assets.jlscontent.com/images/corp/john-l-scott-logo.png",
+                "style": "background: #006341; padding: 15px;"
+            }
+        }
+    ]
+}

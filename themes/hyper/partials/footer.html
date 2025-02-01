@@ -1,0 +1,18 @@
+<footer id='footer' data-color-scheme='dark'>
+    <grid-container>
+        <footer-menu hyper-include='partials/footer-menu'></footer-menu>
+        <p>
+            &copy;
+            <span hyper-content='text:site.author.name'></span>
+            <span hyper-content='text:site.copyright'>2024</span>
+            &bullet;
+            <span hyper-content='text:site.byline'>Made with <red-heart>&hearts;</red-heart> in Portland, Oregon.</span>
+        </p>
+    </grid-container>
+    <style>
+        footer footer-menu {
+            margin-bottom: var(--gutter-2x, 30px);
+        }
+    </style>
+</footer>
+<section hyper-include='partials/tail.html'></section>

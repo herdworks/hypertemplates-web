@@ -1,0 +1,10 @@
+{
+    "created_at": "2024-11-13T09:00:00-0700",
+    "title": "Contact Us",
+    "description": "Leave a message and we’ll follow-up ASAP. Usually the same day. Oh.",
+    "summary": "<p>Leave a message and we’ll follow-up ASAP. Usually the same day. <strong>Oh.</strong></p>",
+    "favicon": "/favicon.ico",
+    "layout": "contact",
+    "unlisted": true,
+    "content": "<h3>Leave us a message</h3><p>Fill out the form to send us a message and we’ll get back to you as soon as possible.</p><h3 id='hours'>Hours</h3><dl><dt>Walk-ins (first-come, first-serve)</dt><dd>Monday–Friday 6:00AM–10:00AM</dd><dt>By Reservation Only</dt><dd>Monday-Friday 10:00AM–2:00PM</dd></dl>"
+}

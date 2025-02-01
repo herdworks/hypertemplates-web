@@ -1,0 +1,75 @@
+<place-card itemscope itemtype="https://schema.org/Place" data-message-hidden='true'>
+    <place-icons>
+        <a href='' rel='message' hyper-if='data.address.message_href' hyper-attrs='href:data.address.message_href'>
+            <svg height='36' width='36' hyper-include='static/icons/messages-light.svg'></svg>
+        </a>
+        <a href='' rel='directions' hyper-if='data.address.directions_href' hyper-attrs='href:data.address.directions_href' target='_blank'>
+            <svg height='36' width='36' hyper-include='static/icons/map-location-dot-light.svg'></svg>
+        </a>
+    </place-icons>
+    <address itemscope itemtype="https://schema.org/PostalAddress" hyper-if='data.address'>
+        <span itemprop='name' hyper-if='data.address.name' hyper-content='text:data.address.name'></span>
+        <span itemprop='streetAddress' hyper-if='data.address.street1' hyper-content='text:data.address.street1'></span>
+        <span itemprop='streetAddress' hyper-if='data.address.street2' hyper-content='text:data.address.street2'></span>
+        <span itemprop='addressLocality' hyper-if='data.address.city' hyper-content='text:data.address.city'></span><span>,</span>
+        <span itemprop='addressRegion' hyper-if='data.address.state' hyper-content='text:data.address.state'></span>
+        <span itemprop='postalCode' hyper-if='data.address.zip' hyper-content='text:data.address.zip'></span>
+    </address>
+    <a itemprop='telephone' hyper-if='data.address.phone' hyper-attrs='href:data.address.phone_href' hyper-content='text:data.address.phone'></a>
+    <style>
+        place-card {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            justify-content: end;
+        }
+        place-card place-icons {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        place-card place-icons svg {
+            margin-left: 10px;
+        }
+        place-card[data-message-hidden='true'] place-icons a[rel='message'] {
+            display: none;
+        }
+        place-card a,
+        place-card a:hover {
+            color: inherit;
+            box-shadow: none;
+        }
+        address,
+        address[position='right'] {
+            width: 100%;
+            text-align: right;
+            font-style: normal;
+        }
+        address[position='left'] {
+            text-align: left;
+        }
+        address span[itemprop='streetAddress'],
+        address span[itemprop='telephone'] {
+            display: block;
+        }
+        address span[itemprop='addressLocality'],
+        address span[itemprop='addressRegion'],
+        address span[itemprop='postalCode'] {
+            display: inline-block;
+        }
+        address svg,
+        address.right svg {
+            margin-left: auto;
+            margin-bottom: 10px;
+        }
+        address.left svg {
+            margin-left: unset;
+            margin-right: auto;
+        }
+        address .name {
+            font-weight: 700;
+        }
+    </style>
+</place-card>

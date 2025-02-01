@@ -1,0 +1,231 @@
+html {
+    /* Color Palette */
+    --color-1: rgba(246, 246, 246);
+    --color-2: rgba(246, 237, 228);
+    --color-3: rgba(236, 120, 184);
+    --color-3-alt: rgba(236, 120, 184, 0.50);
+    --color-4: rgba(152, 147, 143);
+    --color-5: rgba(36, 36, 36);
+
+    /* Gradients */
+    --gradient-bg-1: linear-gradient(90deg, #f6ede4, #ec78b8);
+
+    /* Other Colors */
+    --color-transparent: rgba(0,0,0,0.0);
+    --color-link-blue: rgba(0, 213, 255, 0.75);
+    --color-red: rgba(255, 59, 48,0.75);
+    --color-green: rgba(76, 217, 100, 1.0);
+
+    --color-blinky-pink: rgba(236, 127, 255, 1.0);
+    --color-blinky-pink-light: rgba(236, 127, 255, 0.5);
+    --color-blinky-pink-lighter: rgba(236, 127, 255, 0.25);
+
+    --color-eggplant-purple: rgba(125,84,137,1.0);
+    --color-eggplant-purple-light: rgba(125,84,137,0.75);
+    --color-eggplant-purple-lighter: rgba(125,84,137,0.5);
+
+    --alert-yellow-bg: rgba(255,243,205,1.0); /* #fff3cd */
+    --alert-yellow-accent: rgba(255,230,156,0.5); /* #ffe69c */
+
+    --color-transition: 500ms;
+}
+
+/* Color Schemes */
+/* Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#color-scheme */
+/* Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color */
+[data-color-scheme='light'] {
+    --background-color: var(--color-1);
+    --accent-color: var(--color-3);
+    --accent-tint: rgba(255,255,255,0.20);
+    --accent-shade: rgba(0,0,0,0.25);
+    --outline-color: rgba(0,0,0,0.25);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: rgba(0,0,0,0.9);
+    --subheading-color: rgba(0,0,0,0.6);
+    --text-color: rgba(0,0,0,0.9);
+    --text-color-alt: rgba(0,0,0,0.7);
+    --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --form-input-background-color: rgba(255, 255, 255, 1.0);
+    --form-input-text-color: rgba(0,0,0,0.9);
+    --button-background-color: var(--color-3);
+    --button-background-color-hover: var(--color-1);
+    --button-text-color: rgba(255,255,255,0.9);
+    --button-text-color-hover: rgba(0,0,0,0.9);
+}
+
+[data-color-scheme='dark'] {
+    --background-color: rgba(0,0,0,1.0);
+    --accent-color: var(--color-3);
+    --accent-tint: rgba(255,255,255,0.25);
+    --accent-shade: rgba(0,0,0,0.15);
+    --outline-color: rgba(255,255,255,0.50);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: rgba(255,255,255,0.75);
+    --subheading-color: rgba(255,255,255,0.50);
+    --text-color: rgba(255,255,255,0.75);
+    --link-underline-color: var(--color-3);
+    --form-input-background-color: var(--color-2);
+    --form-input-text-color: rgba(0,0,0,0.9);
+    --button-background-color: var(--color-1);
+    --button-background-color-hover: var(--color-3);
+    --button-text-color: rgba(0,0,0,0.9);
+    --button-text-color-hover: rgba(255,255,255,0.9);
+}
+
+[data-color-scheme='primary'] {
+    --background-color: var(--color-2);
+    --accent-color: var(--color-3);
+    --accent-tint: rgba(255,255,255,0.25);
+    --accent-shade: rgba(0,0,0,0.15);
+    --outline-color: rgba(255,255,255,1.0);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: rgba(0,0,0,0.9);
+    --subheading-color: rgba(0,0,0,0.7);
+    --text-color: rgba(0,0,0,0.7);
+    --link-underline-color: rgba(0,0,0,0.0);
+    --form-input-background-color: rgba(255,255,255,0.50);
+    --form-input-text-color: rgba(0,0,0,0.5);
+    --button-background-color: var(--color-3);
+    --button-background-color-hover: rgba(255,255,255,0.75);
+    --button-text-color: rgba(255,255,255,0.9);
+    --button-text-color-hover: rgba(0,0,0,0.9);
+}
+
+[data-color-scheme='gray'] {
+    --background-color: var(--color-2);
+    --accent-color: var(--color-3);
+    --accent-tint: rgba(255,255,255,0.25);
+    --accent-shade: rgba(0,0,0,0.15);
+    --outline-color: var(--color-3);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: rgba(0,0,0,0.9);
+    --subheading-color: rgba(0,0,0,0.7);
+    --text-color: rgba(0,0,0,0.7);
+    --link-underline-color: var(--color-3);
+    --form-input-background-color: rgba(0,0,0,1.0);
+    --form-input-text-color: rgba(255,255,255,0.7);
+    --button-background-color: var(--color-1);
+    --button-background-color-hover: var(--color-3);
+    --button-text-color: rgba(0,0,0,0.9);
+    --button-text-color-hover: rgba(255,255,255,0.9);
+}
+
+[data-color-scheme='blur'] {
+    --background-color: rgba(0,0,0,0.50);
+    --accent-color: var(--color-3);
+    --accent-tint: rgba(255,255,255,0.25);
+    --accent-shade: rgba(0,0,0,0.15);
+    --outline-color: rgba(255,255,255,0.5);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: rgba(255,255,255,0.75);
+    --subheading-color: rgba(255,255,255,0.50);
+    --text-color: rgba(255,255,255,0.75);
+    --link-underline-color: none;
+    --form-input-background-color: var(--color-2);
+    --form-input-text-color: rgba(0,0,0,0.9);
+    --button-background-color: rgba(255,255,255,0.25);
+    --button-background-color-hover: rgba(255,255,255,0.25);
+    --button-text-color: rgba(0,0,0,0.9);
+    --button-text-color-hover: rgba(255,255,255,0.9);
+
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+[data-color-scheme='gradient'] {
+    --background-color: var(--gradient-bg-1);
+    --accent-color: var(--color-5);
+    --accent-tint: rgba(255,255,255,0.25);
+    --accent-shade: rgba(0,0,0,0.15);
+    --outline-color: rgba(0,0,0,1.0);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: rgba(0,0,0,0.75);
+    --subheading-color: rgba(255,255,255,0.50);
+    --text-color: rgba(0,0,0,0.75);
+    --link-underline-color: none;
+    --form-input-background-color: rgba(0,0,0,1.0);
+    --form-input-text-color: rgba(255,255,255,0.9);
+    --button-background-color: rgba(255,255,255,0.25);
+    --button-background-color-hover: rgba(255,255,255,0.25);
+    --button-text-color: rgba(0,0,0,0.9);
+    --button-text-color-hover: rgba(255,255,255,0.9);
+
+    /* --text-heading-color: var(--color-5);
+    --text-color: var(--text-color-1);
+    --link-underline-color: var(--color-3);
+    --form-input-background-color: rgba(0,0,0,1.0);
+    --form-input-text-color: var(--text-color-5);
+    --button-primary-border-color: var(--color-1);
+    --button-primary-background-color: var(--color-1);
+    --button-primary-background-color-hover: var(--color-3);
+    --button-primary-text-color: var(--text-color-1);
+    --button-primary-text-color-hover: var(--text-color-4);
+    --button-alt-border-color: var(--color-1);
+    --button-alt-background-color: var(--color-1);
+    --button-alt-background-color-hover: var(--color-3);
+    --button-alt-text-color: var(--text-color-1);
+    --button-alt-text-color-hover: var(--text-color-4);
+    --img-border-color: rgba(0,0,0,0.25); */
+
+    background-image: var(--gradient-bg-1);
+}
+
+/* Applied colors */
+[data-color-scheme] {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+[data-color-scheme] :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--heading-color);
+}
+
+[data-color-scheme] :where(p, a, a:hover, code, svg, time, li) {
+    color: inherit;
+}
+
+[data-color-scheme] :where(mark) {
+    background-color: var(--highlight-color);
+}
+
+[data-color-scheme] :where(code:not(pre code)) {
+    background-color: color-mix(in srgb, var(--accent-shade) 50%, transparent);
+}
+
+[data-color-scheme] form form-group input {
+    background-color: var(--form-input-background-color);
+    color: var(--form-input-text-color);
+}
+
+/* Defaults & non-themed styles */
+.draft {
+    color: var(--color-red);
+}
+
+/* Defaults & non-themed styles */
+.draft {
+    color: var(--color-red);
+}
+red-heart {
+    color: var(--color-red);
+}
+
+/* Grayscales */
+[data-grayscale] {
+    transition: filter var(--color-transition);
+}
+[data-grayscale]:hover {
+    transition: filter var(--color-transition);
+    filter: grayscale(0.0);
+}
+[data-grayscale='50'] {
+    filter: grayscale(0.50);
+}
+[data-grayscale='75'] {
+    filter: grayscale(0.75);
+}
+[data-grayscale='100'] {
+    filter: grayscale(1.00);
+}
+

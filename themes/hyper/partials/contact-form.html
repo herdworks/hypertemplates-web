@@ -1,0 +1,61 @@
+<contact-form data-color-scheme='light'>
+    <form action='' hyper-attrs='action:data.contact.mailto' method='post' enctype='text/plain' autocomplete='on' redirect='/thank-you' accept-charset='utf-8'>
+        <form-group>
+            <label for='name'>Name</label>
+            <input type='text' id='name' name='name' placeholder='Name' required>
+        </form-group>
+        <form-group>
+            <label for='email'>Email</label>
+            <input type='email' id='email' name='email' placeholder='you@example.com'>
+        </form-group>
+        <form-group>
+            <label for='phone'>Phone</label>
+            <input type='tel' id='phone' name='phone' placeholder='503-555-1234' required>
+        </form-group>
+        <form-group>
+            <input type='hidden' id='subject' name='subject' placeholder='New contact form submission' required></input>
+        </form-group>
+        <form-group>
+            <label for='message'>Message</label>
+            <textarea id='message' name='message' rows='8' placeholder='Can I get a VIP cut tomorrow?' required></textarea>
+        </form-group>
+        <form-group>
+            <button type='submit'>Send</button>
+        </form-group>
+    </form>
+    <style>
+        contact-form {
+            display: block;
+            width: 100%;
+        }
+        contact-form form-group {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+
+            & label {
+                display: block;
+                font-weight: 600;
+                width: 100%;
+                margin-bottom: 5px;
+            };
+
+            & input,
+            & textarea {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                border: 1px solid rgba(0,0,0,0.25);
+                border-radius: 5px;
+            }
+            & button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+            }
+        }
+    </style>
+    <script src='/components/contact-form.js'></script>
+</contact-form>

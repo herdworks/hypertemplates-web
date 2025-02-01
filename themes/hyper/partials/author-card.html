@@ -1,0 +1,51 @@
+<author-card>
+    <a href='#' itemprop='author' hyper-attrs='href:site.author.href'>
+        <img itemprop='favicon' hyper-attrs='src:site.author.favicon'></img>
+        <span itemprop='title' hyper-content='text:site.author.name'></span>
+        <span itemprop='subtitle' hyper-content='text:site.author.username'></span>
+    </a>
+    <style>
+        author-card {
+            display: block;
+            width: inherit;
+        }
+        author-card a,
+        author-card a:hover {
+            display: grid;
+            width: inherit;
+            grid-template-areas:
+                "img . title title"
+                "img . subtitle details";
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 60px 10px 1fr 1fr;
+            text-decoration: none;
+            box-shadow: none;
+            color: inherit;
+        }
+        author-card a img {
+            grid-area: img;
+            border-radius: 50%;
+            border: var(--img-border-color) solid 3px;
+            width: inherit;
+            height: auto;
+            align-self: center;
+        }
+        author-card a [itemprop=title] {
+            grid-area: title;
+            font-weight: 700;
+            font-size: 1.2em;
+            align-self: end;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        author-card a [itemprop=subtitle] {
+            grid-area: subtitle;
+            align-self: start;
+        }
+        author-card a [itemprop=details] {
+            grid-area: details;
+            align-self: start;
+        }
+    </style>
+</author-card>

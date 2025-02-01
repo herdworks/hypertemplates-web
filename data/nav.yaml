@@ -1,0 +1,68 @@
+---
+namespace: nav
+learn:
+  - label: Home
+    href: /
+  - label: Features
+    href: /features
+develop:
+  - label: Docs
+    href: /docs/
+  - label: CLI
+    href: /docs/reference/cli/
+sidebar:
+  - label: Home
+    href: /
+  - label: Features
+    href: /features
+  - label: Docs
+    href: /docs/
+  - label: CLI
+    href: /docs/reference/cli/
+footer:
+  # HyperTemplates
+  - group: HyperTemplates
+    label: Home
+    href: /
+  - group: HyperTemplates
+    label: Docs
+    href: /docs
+  - group: HyperTemplates
+    label: Search
+    href: /docs/search
+  - group: HyperTemplates
+    label: Blog
+    href: /blog
+
+  # Getting Started
+  - group: Getting Started
+    label: Docs
+    href: /docs/latest
+  - group: Getting Started
+    label: CLI
+    href: /docs/latest/cli
+  - group: Getting Started
+    label: Reference
+    href: /docs/latest/reference
+
+  # Contributing
+  - group: Contributing
+    label: libhypertemplates
+    href: https://github.com/herdworks/hypertemplates-kit
+  - group: Contributing
+    label: hyperctl
+    href: https://github.com/herdworks/hyperctl
+  - group: Contributing
+    label: Themes
+    href: /themes
+  - group: Contributing
+    label: Sponsors
+    href: /sponsors
+
+  # Community
+  - group: Community
+    label: GitHub
+    href: https://github.com/herdworks/hypertemplates-kit/community
+  - group: Community
+    label: Forums
+    href: /community

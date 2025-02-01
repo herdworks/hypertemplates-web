@@ -1,0 +1,38 @@
+<doc-breadcrumbs>
+    <style>
+        doc-breadcrumbs {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-bottom: var(--whitespace);
+        }
+        doc-breadcrumbs doc-breadcrumb {
+            display: flex;
+            flex-direction: row;
+            color: rgba(0,0,0,0.65);
+            align-items: center;
+            align-content: center;
+            overflow: hidden;
+
+            & svg {
+                display: inline;
+                height: 1.0rem;
+                margin: 0 var(--gutter-1x, 15px);
+            }
+
+            & a {
+                display: inline;
+                color: inherit !important;
+            }
+        }
+        doc-breadcrumb:last-of-type svg {
+            display: none;
+        }
+    </style>
+    <template>
+        <doc-breadcrumb>
+            <a href='#'></a>
+            <svg hyper-include='static/icons/chevron-right-thin.svg'></svg>
+        </doc-breadcrumb>
+    </template>
+</doc-breadcrumbs>

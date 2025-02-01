@@ -1,0 +1,81 @@
+---
+created_at: 2024-11-12T10:00:00-0700
+canonical_url: https://hypertemplates.net/
+title: Hyper Templates
+description: A pure-HTML templating system for the modern web.
+summary: |
+    The pure-HTML templating system for the modern web.
+    Rediscover the simple joy of making websites.
+    No Javascript frameworks required.
+layout: home
+unlisted: true
+banner: banner.jpg
+ctas:
+    - title: Get started
+      href: /docs/tutorials/getting-started
+      theme: primary
+    - title: Docs
+      href: /docs
+      theme: light
+code:
+    title: layout.html
+    sample: |
+        <!DOCTYPE html>
+        <html lang='en-US'>
+            <head>
+                <meta charset='utf-8'>
+                <title hyper-content='page.title'></title>
+                <meta name='description' hyper-attrs='content:page.description,site.description'>
+            </head>
+            <body>
+                <header>
+                    <h1 hyper-content='page.title'>Placeholder title</h1>
+                </header>
+                <article id='article' hyper-content='markdown:page.content'></article>
+                <footer>
+                    <p>&copy; 2024 HyperTemplates</p>
+                </footer>
+            </body>
+        </html>
+features:
+    title: What is HyperTemplates?
+    overview: |
+        HyperTemplates are a pure-HTML templating system for the modern web.
+        **No Javascript frameworks required.**
+        Rediscover the simple joy of _building websites as nature intended_... with HTML, CSS, and a sprinkling of vanilla Javascript. :sparkles: 
+    highlights:
+        - title: Specification
+          description: |
+              The HyperTemplates specification is a new system for HTML templating.
+          width: 4
+          height: 2
+          href: /docs/reference/layouts/
+        - title: Library
+          description: At the core of HyperTemplates is a library called `libhypertemplates` that offers C bindings for HTML templating in native applications.
+          width: 4
+          height: 2
+          href: /docs/reference/library/
+        - title: Static site generator
+          description: The HyperTemplates CLI (`hyperctl`) is a lightning fast static site generator. Batteries included.
+          width: 4
+          height: 2
+          href: /docs/reference/cli/
+        - title: Workflow
+          description: |
+              HyperTemplates is a pure-HTML templating system, which means you can use the skills and tools you already know and love.
+              HyperTemplates websites are easy to develop, maintain, and update &mdash; and they can be hosted anywhere!
+          width: 12
+          height: 2
+          href: /docs/tutorials/getting-started/
+        # - title: Customizable
+        #   description: Something something custom something.
+        #   width: 6
+        #   height: 2
+        # - title: Lightweight
+        #   description: HyperTemplates is a pure-HTML templating system, which means it's lightweight by default.
+        #   width: 6
+        #   height: 1
+        # - title: Modern
+        #   description: Something something modern something.
+        #   width: 6
+        #   height: 1

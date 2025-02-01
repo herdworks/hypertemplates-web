@@ -1,0 +1,86 @@
+<gallery-carousel data-topic="thread" rel="attachments" data-conditions="{}">
+    <gallery-container hyper-if='page.gallery'>
+        <gallery-image class='fit-height contained' hyper-template='image:page.gallery'>
+            <img src="" hyper-attrs='src:image.src'>
+        </gallery-image>
+    </gallery-container>
+    <style>
+        gallery-carousel:empty {
+            display: none;
+        }
+        gallery-carousel::-webkit-scrollbar {
+            display: none;
+        }
+        gallery-carousel {
+            display: block;
+            width: 100vw;
+            height: 40vh;
+            overflow-x: scroll;
+            scrollbar-color: transparent transparent;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: var(--container-offset);
+            transition: scroll-behavior 1.5s ease-in-out;
+
+            & gallery-container {
+                display: flex;
+                box-sizing: content-box;
+                flex-direction: row;
+                width: fit-content;
+                height: inherit;
+                padding-left: var(--container-offset); 
+                padding-right: 100vw; 
+                /* ...or calculate width: ...calc(2 * var(--item-width)); */
+            }
+            & gallery-container > * {
+                position: relative;
+                height: inherit;
+                scroll-snap-align: start;
+                margin-right: var(--gutter-1x);
+                border-radius: 10px;
+            }
+        }
+        gallery-image {
+            display: block;
+            width: inherit;
+            height: inherit;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            align-items: center;
+            justify-items: center;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        gallery-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 100%;
+            padding: 0;
+            margin: 0;
+            object-fit: cover;
+            object-position: 50% 50%;
+            transition: opacity;
+        }
+        gallery-image.fit-width img {
+            width: inherit;
+            height: auto;
+        }
+        gallery-image.fit-height img {
+            height: inherit;
+            width: auto;
+            max-width: var(--container-width);
+        }
+        gallery-image.contained img {
+            object-fit: contain;
+        }
+        gallery-image.grayscale img {
+            -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+            filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+        }
+        gallery-image.grayscale img:hover {
+            -webkit-filter: grayscale(0);
+            filter: none;
+        }
+    </style>
+</gallery-carousel>

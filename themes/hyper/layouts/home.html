@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <meta hyper-include='partials/head.html'></meta>
+    </head>
+    <body>
+        <header hyper-include='partials/hero.html'></header>
+        <!-- <section hyper-include='partials/logo-roll.html' data-color-scheme='light'></section> -->
+        <section id='features' data-color-scheme='light'>
+            <grid-container>
+                <bento-overview>
+                    <h2 hyper-content='html:page.features.title'></h2>
+                    <content-block hyper-content='markdown:page.features.overview'></content-block>
+                </bento-overview>
+                <bento-box hyper-include='partials/bento-box'></bento-box>
+            </grid-container>
+            <style>
+                bento-overview {
+                    display: grid;
+                    width: 100%;
+                    justify-content: center;
+                    justify-items: center;
+                    text-align: center;
+                    margin-bottom: var(--gutter-2x, 30px);
+                }
+                bento-overview h2 {
+                    margin-bottom: 15px;
+                }
+                bento-overview p:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+            </style>
+        </section>
+        <grid-whitespace></grid-whitespace>
+        <section hyper-include='partials/newsletter.html' data-color-scheme='gradient'></section>
+        <footer hyper-include='partials/footer.html'></footer>
+    </body>
+</html>

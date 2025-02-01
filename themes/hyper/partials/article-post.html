@@ -1,0 +1,78 @@
+<article>
+    <article-meta>
+        <a href='#' itemprop='favicon' hyper-attrs='href:page.author.href,site.author.href'>
+            <img src='' hyper-attrs='src:page.author.favicon,site.author.favicon'></img>
+        </a>
+        <a href='#' itemprop='displayname' hyper-attrs='href:page.author.href,site.author.href'>
+            <span hyper-content='text:page.author.name,site.author.name'></span>
+        </a>
+        <a href='#' itemprop='details' hyper-attrs='href:page.author.href,site.author.href'>
+            <span hyper-content='text:page.author.username,site.author.username'></span>
+            <span>•</span>
+            <date-time hyper-include='partials/date-time' hyper-attrs='data-timestamp:page.created_at'></date-time>
+        </a>
+    </article-meta>
+    <article-body hyper-content='markdown:page.content'></article-body>
+    <style>
+        article {
+            display: grid;
+            width: 100%;
+            grid-template-areas:
+                "img . title"
+                "img . details"
+                ".   . ."
+                ".   . content";
+            grid-template-rows: 30px 30px 10px 1fr;
+            grid-template-columns: 60px 10px 1fr;
+        }
+        article a[rel] {
+            text-decoration: none;
+            box-shadow: none;
+            color: inherit;
+        }
+        article article-meta {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-template-rows: subgrid;
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+        article article-meta [itemprop=favicon] {
+            grid-area: img;
+
+            & img {
+                border-radius: 50%;
+                border: var(--img-border-color) solid 3px;
+                width: auto;
+                height: 60px;
+                align-self: center;
+            }
+        }
+        article article-meta [itemprop=displayname] {
+            grid-area: title;
+            font-weight: 700;
+            font-size: 1.2em;
+            align-self: end;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        article article-meta [itemprop=details] {
+            grid-area: details;
+            align-self: start;
+
+            & span,
+            & date-time {
+                align-self: start;
+            }
+        }
+        article article-body {
+            grid-area: content;
+            width: inherit;
+
+            & p {
+                margin-bottom: 0.5em;
+            }
+        }
+    </style>
+</article>

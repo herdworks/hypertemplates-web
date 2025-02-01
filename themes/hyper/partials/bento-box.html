@@ -1,0 +1,99 @@
+<bento-box columns='12'>
+    <bento-card hyper-template='card:page.features.highlights' hyper-attrs='width:card.width;height:card.height'>
+        <h3 hyper-if='card.title' hyper-content='html:card.title'></h3>
+        <p hyper-if='card.description' hyper-content='markdown:card.description'></p>
+        <learn-more hyper-if='card.href' hyper-template='href:card.href' hyper-include='codes/learn-more'></learn-more>
+    </bento-card>
+    <style>
+        bento-box {
+            display: grid;
+            width: 100%;
+            grid-auto-rows: 1fr;
+            grid-template-columns: var(--bento-box-columns);
+            grid-auto-flow: dense;
+            gap: var(--gutter-1x);
+        }
+        bento-box bento-card {
+            display: block;
+            width: 100%;
+            height: 100%;
+            grid-row: var(--bento-card-rows, span 4);
+            grid-column: var(--bento-card-columns, span 1);
+            border: 1px solid color-mix(in srgb, var(--outline-color), transparent 50%);
+            border-radius: var(--gutter-1x);
+            overflow: hidden;
+        }
+        bento-box > :not(bento-card) {
+            display: none;
+        }
+        bento-card h3 {
+            margin: var(--gutter-1x);
+        }
+        bento-card p {
+            margin: 0 15px 15px 15px;
+        }
+        bento-card learn-more {
+            margin: 0 15px 15px;
+        }
+
+        bento-box:not([columns]),
+        bento-box[columns='12'] {
+            --bento-box-columns: repeat(12, 1fr);
+            --bento-card-columns: span 4;
+        }
+        bento-box[columns='15'] {
+            --bento-box-columns: repeat(15, 1fr);
+            --bento-card-columns: span 5;
+        }
+        bento-box[columns='16'] {
+            --bento-box-columns: repeat(16, 1fr);
+            --bento-card-columns: span 4;
+        }
+        bento-box > bento-card[width='1'] { --bento-card-columns: span 1; }
+        bento-box > bento-card[width='2'] { --bento-card-columns: span 2; }
+        bento-box > bento-card[width='3'] { --bento-card-columns: span 3; }
+        bento-box > bento-card[width='4'] { --bento-card-columns: span 4; }
+        bento-box > bento-card[width='5'] { --bento-card-columns: span 5; }
+        bento-box > bento-card[width='6'] { --bento-card-columns: span 6; }
+        bento-box > bento-card[width='7'] { --bento-card-columns: span 7; }
+        bento-box > bento-card[width='8'] { --bento-card-columns: span 8; }
+        bento-box > bento-card[width='9'] { --bento-card-columns: span 9; }
+        bento-box > bento-card[width='10'] { --bento-card-columns: span 10; }
+        bento-box > bento-card[width='11'] { --bento-card-columns: span 11; }
+        bento-box > bento-card[width='12'] { --bento-card-columns: span 12; }
+        bento-box > bento-card[width='13'] { --bento-card-columns: span 13; }
+        bento-box > bento-card[width='14'] { --bento-card-columns: span 14; }
+        bento-box > bento-card[width='15'] { --bento-card-columns: span 15; }
+        bento-box > bento-card[width='16'] { --bento-card-columns: span 16; }
+        bento-box > bento-card[height='1'] { --bento-card-rows: span 1; }
+        bento-box > bento-card[height='2'] { --bento-card-rows: span 2; }
+        bento-box > bento-card[height='3'] { --bento-card-rows: span 3; }
+        bento-box > bento-card[height='4'] { --bento-card-rows: span 4; }
+        bento-box > bento-card[height='5'] { --bento-card-rows: span 5; }
+        bento-box > bento-card[height='6'] { --bento-card-rows: span 6; }
+        bento-box > bento-card[height='7'] { --bento-card-rows: span 7; }
+        bento-box > bento-card[height='8'] { --bento-card-rows: span 8; }
+        bento-box > bento-card[height='9'] { --bento-card-rows: span 9; }
+        bento-box > bento-card[height='10'] { --bento-card-rows: span 10; }
+        @media screen and (max-width: 679px) {
+            bento-box,
+            bento-box[columns] {
+                --bento-box-columns: repeat(10, 1fr);
+            }
+            bento-box > bento-card[width~='12'] {
+                --bento-card-columns: span 6 !important;
+            }
+        }
+        @media screen and (min-width: 680px) and (max-width: 991px) {
+            bento-box,
+            bento-box[columns] {
+                --bento-box-columns: repeat(10, 1fr);
+            }
+            bento-box > bento-card[width~='12'] {
+                --bento-card-columns: span 6 !important;
+            }
+        }
+        @media screen and (min-width: 992px) and (max-width: 1379px) {}
+        @media screen and (min-width: 1380px) {}
+    </style>
+</bento-box>

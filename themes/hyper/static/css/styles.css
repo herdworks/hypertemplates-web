@@ -1,0 +1,36 @@
+[hidden],[hidden="true"],[type="hidden"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+button,
+link-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: var(--accent-shade);
+    background-color: rgba(255,255,255,0.80);
+    color: rgba(0,0,0,0.75);
+    box-shadow: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Buttons */
+button:first-of-type,
+link-button:first-of-type a {
+    border-color: var(--accent-shade);
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+}
+button,
+button:hover,
+link-button a,
+link-button:hover a {
+    transition:
+        color var(--color-transition),
+        background-color var(--color-transition),
+        border-color var(--color-transition);
+}

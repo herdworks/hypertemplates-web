@@ -1,0 +1,16 @@
+{
+    "created_at": "2024-11-13T09:00:00-0700",
+    "author": {
+        "name": "Caleb Hailey",
+        "username": "@calebhailey.com",
+        "favicon": "https://calebhailey.com/theme/media/favicon.jpeg",
+        "href": "https://calebhailey.com"
+    },
+    "title": "About HyperTemplates",
+    "description": "The HyperTemplates background story.",
+    "summary": "How I always wanted to build websites.",
+    "favicon": "/favicon.ico",
+    "layout": "default",
+    "unlisted": false,
+    "content": "# About HyperTemplates\nThe journey of a thousand miles begins with a single _build_ step."
+}

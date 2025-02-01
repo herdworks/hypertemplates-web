@@ -1,0 +1,26 @@
+<hyper-finder src='/index.xml' scope='article, main'>
+    <form method='get' onsubmit='event.preventDefault();'>
+        <form-group group='q'>
+            <input name='q' id='q' tabindex='1' type='search' placeholder='HyperTemplates' required autofocus>
+        </form-group>
+    </form>
+    <style>
+        hyper-finder {
+            display: block;
+            height: 60px;
+            overflow: hidden;
+            width: 100%;
+        }
+        hyper-finder form-group label {
+            display: none;
+        }
+        hyper-finder form-group :where(input, input:focus, input:focus) {
+            outline: none;
+        }
+        hyper-finder form-group input {
+            border-radius: var(--border-radius, 7.5px);
+            padding: 7.5px 15px;
+        }
+    </style>
+    <script src='/components/hyper-finder.js'></script>
+</hyper-finder>

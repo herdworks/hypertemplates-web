@@ -1,0 +1,18 @@
+<header id='header' data-color-scheme='primary'>
+    <style>
+        header > grid-container {
+            display: grid;
+            justify-items: center;
+            margin-top: var(--whitespace, 50px);
+
+            & h1, p {
+                text-align: center;
+            }
+        }
+    </style>
+    <nav hyper-include='partials/nav'></nav>
+    <sidebar-menu hyper-include='partials/sidebar-menu'></sidebar-menu>
+    <grid-container hyper-if='page.title' hyper-content='markdown:page.summary'>
+        <h1 rel='title' hyper-content='text:page.title'>Title</h1>
+    </grid-container>
+</header>

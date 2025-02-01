@@ -1,0 +1,48 @@
+/* CSS Variables */
+html {
+    /* Responsive Breakpoints */
+    --breakpoint-xxs: 374px;
+    --breakpoint-xs: 576px;
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 992px;
+    --breakpoint-lg: 1200px;
+    --breakpoint-xl: 1400px;
+
+    /* Text Defaults */
+    --underline-offset: -0.2em;
+    --underline-offset-hover: -0.5em;
+
+    /* Whitespace Defaults */
+    --whitespace: 50px;
+    --gutter-width: 15px;
+    --gutter-1x: var(--gutter-width);
+    --gutter-2x: calc(var(--gutter-width) * 2);
+    --gutter-3x: calc(var(--gutter-width) * 3);
+    --gutter-4x: calc(var(--gutter-width) * 4);
+
+    /* Border Radius */
+    --border-radius: calc(var(--gutter-width) / 2);
+    --border-radius: calc(var(--gutter-width) / 2);
+
+    /* Z index scales */
+    --z-index-0: 0;
+    --z-index-1: 100;
+    --z-index-2: 200;
+    --z-index-3: 300;
+    --z-index-4: 400;
+    --z-index-5: 500; /* default body content */
+    --z-index-6: 600;
+    --z-index-7: 700;
+    --z-index-8: 800;
+    --z-index-9: 900;
+    --z-index-10: 1000;
+
+    /* Grid System Defaults */
+    /* --container-width: 1080px; /* default */
+    --container-width: 960px; /* default */
+    --container-offset: calc((100vw - var(--container-width)) / 2);
+    --container-padding: 45px;
+    --column-margin: 30px;
+    --footer-depth: 500px;
+}
+

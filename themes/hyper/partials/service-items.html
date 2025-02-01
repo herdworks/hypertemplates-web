@@ -1,0 +1,29 @@
+<service-items>
+    <grid-row columns='2'>
+        <service-item itemtype="https://schema.org/Service" hyper-template='service:data.services'>
+            <h3>
+                <span itemprop='name' hyper-content='text:service.name'></span>
+                <span itemprop='price' data-price='' hyper-attrs='data-price:service.price' hyper-content='text:service.price'></span>
+            </h3>
+            <p hyper-content='html:service.description'></p>
+        </service-item>
+    </grid-row>
+    <style>
+        service-items {
+            display: block;
+            margin-top: var(--gutter-2x, 30px);
+        }
+        service-items > grid-row[columns] {
+            grid-column-gap: var(--gutter-2x, 30px);
+        }
+        service-item {
+            display: block;
+            width: 100%;
+            margin-bottom: var(--gutter-2x, 30px);
+        }
+        service-item span[itemprop='price'] {
+            float: right;
+        }
+    </style>
+    <script src="/components/service-items.js"></script>
+</service-items>

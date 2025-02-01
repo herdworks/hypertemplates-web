@@ -1,0 +1,100 @@
+---
+# fields that support templating: spec.data.path, spec.prompts[].default, spec.patches[].value.template
+kind: ContentType
+api_version: v1
+metadata:
+    theme: hypertemplates.com/hyper
+    name: Tweet
+    labels: {} # map[string]string
+    annotations: # map[string]map[string]string
+        hub:
+            class: supported
+            name: Home
+            version: "0.1.0"
+            contributors: "@herd.works, @calebhailey.com"
+spec:
+    name: QuickPost
+    description: Make a quick post to your website
+    layout: post.html
+    data:
+        format: json # supported formats: json, yaml, markdown
+        path: /blog/{{timestamp}}/ # available template variables: {{uuid}}, {{timestamp}}, {{datetime}}, {{year}}, {{month}}, {{date}}, {{title}}
+        template: # map[string]any
+            opengraph:
+                image: /opengraph.png
+            tags:
+                - quickpost
+    prompts: # clients should split prompts into three panes: defaults, optional, and required
+        - name: created_at
+          label: Timestamp
+          type: string
+          format: plaintext
+          default: "{{datetime}}"
+        - name: summary
+          label: Summary
+          type: string
+          default: "{{summary}}"
+        - name: tags
+          label: Tags
+          type: list
+          format: string
+          required: false
+          default:
+              - quickpost
+          prompts: # list type prompts must have prompts defined
+              - name: tag
+                label: Tag
+                type: string
+                required: true
+        - name: attachments
+          label: Attachments
+          type: list
+          format: file
+          required: false
+          prompts:
+              - name: attachment
+                label: Attachment
+                type: file
+                required: true
+        - name: preview_image
+          label: Preview Image
+          type: file
+          required: false
+        - name: body
+          label: What's up?
+          type: string
+          format: markdown # TODO: should the markdown editor provide support for attachments?
+          required: true
+    patches:
+        - name: timestamps
+          required: true
+          patchset:
+              - op: add
+                path: /created_at
+                value:
+                    prompt: created_at
+              - op: add
+                path: /updated_at
+                value:
+                    prompt: created_at
+        - name: title
+          required: true
+          patcheset:
+              - op: replace
+                path: /title
+                value:
+                    template: "From {{ site.author.username }}: {{ prompts.body, prompts.summary }}"
+        - name: metadata
+          required: true
+          patchset:
+              - op: replace
+                path: /opengraph/preview
+                value:
+                    prompt: preview_image
+        - name: content
+          required: true
+          patchset:
+              - op: replace
+                path: /body
+                value:
+                    prompt: content.body

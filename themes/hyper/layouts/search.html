@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <meta hyper-include='partials/head.html'></meta>
+    </head>
+    <body>
+        <header hyper-include='partials/header.html'></header>
+        <section id='search'>
+            <grid-container>
+                <hyper-finder hyper-include='partials/hyper-finder.html' src='/atom.xml' scope='main'></hyper-finder>
+                <search-results>
+                    <p itemprop='placeholder'>Your search results will appear here.</p>
+                </search-results>
+            </grid-container>
+            <style>
+                hyper-finder form,form-group,input {
+                    width: 100%;
+                }
+                search-results {
+                    display: grid;
+                    width: 100%;
+                    grid-template-columns: 1fr;
+                }
+                search-results search-result {
+                    margin-bottom: var(--gutter-2x, 30px);
+
+                    & a {
+                        color: inherit;
+                    }
+
+                    & :where(h3, small) {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                }
+                search-results p:not(:last-child) {
+                    display: none;
+                }
+            </style>
+        </section>
+        <grid-whitespace></grid-whitespace>
+        <footer hyper-include='partials/footer.html'></footer>
+        <section hyper-include='partials/tail.html'></section>
+    </body>
+</html>
