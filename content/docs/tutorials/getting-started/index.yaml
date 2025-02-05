@@ -17,17 +17,15 @@ guide:
           instructions: |
             Install the `hyperctl` CLI tool.
 
-            ```
-            curl -LO https://hypertemplates.net/downloads/macos/hyperctl
-            chmod +x hyperctl
-            sudo install hyperctl /usr/local/bin/
+            ```shell
+            # Coming soon...
             ```
 
             Create a new website.
 
             ```
-            mkdir ${HOME}/hyper-tutorial/
-            cd ${HOME}/hyper-tutorial/
+            mkdir ${HOME}/ht-tutorial/
+            cd ${HOME}/ht-tutorial/
             mkdir -p content/ layouts/
             touch content/index.md layouts/default.html
             ```
@@ -37,7 +35,7 @@ guide:
           instructions: |
             Add some content to `content/index.md`.
 
-            ```markdown
+            ```none
             ## Hello, world
 
             This is my first HyperTemplates content!
@@ -46,33 +44,44 @@ guide:
             Add a basic layout to `layouts/default.html`.
 
             ```html
-            <html>
+            <html lang='en-US'>
                 <head>
                     <meta charset='utf-8'>
-                    <title>Hello, world</title>
+                    <title>Hello, world.</title>
                 </head>
                 <body>
-                    <article>
-                        <hyper-templates hyper-content='markdown:content'></hyper-templates>
-                    </article>
+                    <main>
+                        <article ht-content='markdown:content'></article>
+                    </main>
                 </body>
             </html>
             ```
 
-            Render your first page using HyperTemplates.
+            The body of a markdown document (e.g. `index.md`) is accessible to HyperTemplates as the [template data](/docs/reference/data/) `content` field.
+            This layout templates the `<article>` element using the [`ht-content` attribute](/docs/reference/attributes/ht-content/).
+            The `markdown:content` value tells HyperTemplates to [format](/docs/reference/attributes/ht-content/#content-formats) the `content` from `index.md` as [Markdown](/docs/reference/markdown/).
+
+            OK, let's render your first page using HyperTemplates.
 
             ```shell
-            hyperctl render -d content/index.mx -l layouts/default.html > index.html
+            hyperctl render --data content/index.md --layout layouts/default.html > index.html
+            ```
+
+            Now let's look at our humble web page in a browser!
+
+            ```none
+            open file://${HOME}/ht-tutorial/index.html
             ```
 
         - title: Introduction to attribute templating
           description: Hydrate layout template directives with dynamic content.
           instructions: |
-            Add a `description` field to `content/index.md`. 
+            Let's add `title` and `description` fields to `content/index.md`.
 
-            ```markdown
+            ```none
             ---
-            description: My first HyperTemplates page
+            title: Introduction to HTML templating
+            description: My first HyperTemplates page!
             ---
 
             ## Hello, world
@@ -80,65 +89,78 @@ guide:
             This is my first HyperTemplates content!
             ```
 
-            Add a description meta tag to `layouts/default.html`.
+            Add a description `<meta>` tag to `layouts/default.html`.
+            And let's go ahead and template the `<title>` tag while we're at it.
 
             ```html
-            <html>
+            <html lang='en-US'>
                 <head>
                     <meta charset='utf-8'>
-                    <title>Hello, world</title>
-                    <meta name='description' hyper-attrs='content:description'>
+                    <title ht-content='title'>Hello, world.</title>
+                    <meta name='description' ht-attrs='content:description'>
                 </head>
                 <body>
-                    <article>
-                        <hyper-templates hyper-content='markdown:content'></hyper-templates>
-                    </article>
+                    <main>
+                        <article ht-content='markdown:content'></article>
+                    </main>
                 </body>
             </html>
             ```
 
-            Render the page to see the description meta tag populated.
+            [Frontmatter](/docs/reference/markdown/#frontmatter) properties a markdown document are accessible to HyperTemplates as [template data properties](/docs/reference/data/#template-data-properties).
+            In this examlpe we have templated the `<meta>` element using the [`ht-attrs` attribute](/docs/reference/attributes/ht-attrs/).
+            The `content:description` value tells HyperTemplates to add an attribute named `content` with the value of the `description` property to the `<meta>` element.
+
+            Render the page to see the description `<meta>` tag populated, then refresh your browser to see the updated page.
 
             ```shell
-            hyperctl render -d content/index.mx -l layouts/default.html
+            hyperctl render -d content/index.md -l layouts/default.html > index.html
             ```
+
+            To view the description in a browser, hover over the browser tab, or use "view source" to inspect the rendered HTML.
+            Otherwise, just open `index.html` in your text editor.
 
         - title: Introduction to template conditionals
           description: Conditionally render layouts based on dynamic content.
           instructions: |
-            Optionally show a title if a title field is present in the page data. 
+            Show a header and footer if `title` and `copyright` properties are present in the template data.
 
             ```html
-            <html>
+            <html lang='en-US'>
                 <head>
                     <meta charset='utf-8'>
-                    <title hyper-content='title'>Hello, world</title>
-                    <meta name='description' hyper-attrs='content:description'>
+                    <title ht-content='title'>Hello, world.</title>
+                    <meta name='description' ht-attrs='content:description'>
                 </head>
                 <body>
-                    <header hyper-if='title'>
-                        <h1 hyper-content='title'></h1>
+                    <header ht-if='title'>
+                        <h1 ht-content='title'></h1>
                     </header>
-                    <article hyper-content='markdown:content'></article>
-                    <footer hyper-if='copyright' hyper-content='markdown:copyright'></footer>
+                    <main>
+                        <article ht-content='markdown:content'></article>
+                    </main>
+                    <footer ht-if='copyright'>
+                        <span ht-content='html:copyright'>Powered by HyperTemplates&trade;</span>
+                    </footer>
                 </body>
             </html>
             ```
 
-            Render the page to see the title conditionally displayed.
+            Let's render the page to see what happens.
 
             ```shell
-            hyperctl render -d content/index.mx -l layouts/default.html
+            hyperctl render -d content/index.md -l layouts/default.html > index.html
             ```
 
-            Notice that the h1 and footer tags were removed from the rendered HTML!
-            Now let's add the missing fields to the page.
+            Notice that the `<header>` element was retained in the rendered HTML, but the `<footer>` element was removed!
+            That's because our template data (`index.md`) only has a `title` property, but no `copyright` property.
+            Now let's add the missing `copyright` property.
 
-            ```markdown
+            ```none
             ---
-            title: Hello, hypertemplates world!
-            description: My first HyperTemplates page
-            copyright: &copy; Me 2024
+            title: Introduction to HTML templating
+            description: My first HyperTemplates page!
+            copyright: &copy; Me 2025
             ---
 
             ## Hello, world
@@ -149,16 +171,17 @@ guide:
             Now let's render the page again.
 
             ```shell
-            hyperctl render -d content/index.mx -l layouts/default.html
+            hyperctl render -d content/index.md -l layouts/default.html > index.html
             ```
-
-
 
         - title: Introduction to template includes.
           description: Reuse template components across multiple layouts.
           instructions: |
-            
-            As our layout starts to become more complex, it would be nice if we could split up the layout code into individual components. Let's see how that works with the hypertemplates hyper-include attribute. 
+
+            As our layout starts to become more complex, it would be nice if we could split up the layout code into individual components. 
+            Let's see how that works with the hypertemplates [`ht-include` attribute](/docs/reference/attributes/ht-include/). 
+
+            First let's create two new files.
 
             ```shell
             # add files
@@ -166,58 +189,126 @@ guide:
             touch partials/header.html partials/footer.html
             ```
 
-            `layouts/default.html`
+            Now let's update `layouts/default.html` to include the header and footer components.
 
             ```html
-            <html>
+            <html lang='en-US'>
                 <head>
                     <meta charset='utf-8'>
-                    <title>Hello, world</title>
-                    <meta name='description' hyper-attrs='content:description'>
+                    <title ht-content='title'>Hello, world.</title>
+                    <meta name='description' ht-attrs='content:description'>
                 </head>
                 <body>
-                    <header hyper-include='partials/header'></header>
-                    <article hyper-content='markdown:content'></article>
-                    <footer hyper-include='partials/footer'></footer>
+                    <header ht-include='partials/header.html' id='header'></header>
+                    <main>
+                        <article ht-content='markdown:content'></article>
+                    </main>
+                    <footer ht-include='partials/footer.html' id='footer'></footer>
                 </body>
             </html>
             ```
 
-            NOTE: you may have noticed that the hyper-include attributes look like a path, but they don't have the .html extension on the end. That's because hypertemplates assumes that all layout code is HTML 
-
-            `partials/header.html`
+            Now let's flesh out our `<header>` template in `partials/header.html`.
 
             ```html
-            <header hyper-if='title'>
+            <header ht-if='title'>
                 <nav>
                     <menu>
                         <a href='/'>Home</a>
                         <a href='/about'>About</a>
                     </menu>
                 </nav>
-                <h1 hyper-content='title'></h1>
+                <h1 ht-content='title'></h1>
             </header>
             ```
 
-            `partials/footer.html`
+            And let's restore our `<footer>` template in `partials/footer.html`.
 
             ```html
-            <footer hyper-if='copyright'>
-                <span hyper-content='markdown:copyright'></span>
-                <span>Powered by HyperTemplates:trade;</span>
+            <footer ht-if='copyright'>
+                <span ht-content='html:copyright'>Powered by HyperTemplates&trade;</span>
             </footer>
             ```
+
+            Render the page to see our `ht-include`s in action.
 
             ```shell
             hyperctl render -d content/index.md -l layouts/default.html > index.html
             ```
 
+            HyperTemplates replaced our placeholder `<header>` and `<footer>` elements with the contents of `partials/header.html` and `partials/footer.html`, respectively.
+            The order of HyperTemplates template [pipeline operations](/docs/reference/pipeline/) is important here: `ht-include` attributes are processed before all other templating steps, so our components are effectively inserted into our layout _before_ content and attribute templating.
+
+            Oh and there's one more thing: did you notice that the `id` attributes on the `<header>` and `<footer>` elements were retained in the rendered HTML?
+            This is called [attribute forwarding](/docs/reference/attributes/ht-include/#attribute-forwarding), and it's one of the many more subtle features of HyperTemplates that facilitate _progressive enhancement_.
+
         - title: Introduction to template iterators.
           description: Iterate over dynamic content to render lists and tables.
           instructions: |
-            ...
+            You might have noticed that we hard-coded some navigation links in the previous step, and you might already be thinking that you'd like to change those links.
+            Let's use HyperTemplates' namesake attribute for this: the `ht-template`.
+
+            The `ht-template` attribute is a template iterator – it renders the target element tree once per matching template data value.
+            If the template data is an array, the element tree is rendered once per item in the array.
+            If the data is a single value (e.g. a string), the element tree is rendered once.
+
+            Let's improve our `<nav>` template in `partials/header.html`.
+
+            ```html
+            <header ht-if='title'>
+                <nav>
+                    <menu>
+                        <a ht-template='link:nav' ht-attrs='href:link.href,link.url'>
+                            <span ht-content='text:link.label,link.title'></span>
+                        </a>
+                    </menu>
+                </nav>
+                <h1 ht-content='text:title'></h1>
+            </header>
+            ```
+
+            The `ht-template` attribute tells HyperTemplates to clone the `<a>` element for each item in the `nav` property.
+            Let's add some navigation links to `content/index.md` to see how this works.
+
+            ```none
+            ---
+            title: Introduction to HTML templating
+            description: My first HyperTemplates page!
+            copyright: &copy; Me 2025
+            nav:
+              - label: Home
+                href: /
+              - label: About
+                url: /about/
+              - title: Contact
+                href: /contact/
+            ---
+
+            ## Hello, world
+
+            This is my first HyperTemplates content!
+            ```
+
+            Run the render command again:
+
+            ```none
+            hyperctl render -d content/index.md -l layouts/default.html > index.html
+            ```
+
+            Pretty cool, right? :blush:
+            The `ht-template` attribute creates a new [template data object](/docs/reference/data/#template-data-object) from the parent template data.
+            For each item in the `nav` array, HyperTemplates assigns the value to a variable named `link`, then clones the `<a>` element and runs it through the entire [rendering pipeline](/docs/reference/pipeline/).
+            
+            We also introduced another feature in this step: the `ht-content` attributes in the `<a>` element are referencing multiple properties!
+            It's a good thing because our `nav` array had a mix of `label` and `title` properties, and `href` and `url` properties.
+            Oops!
+            This is a silly example that shows how HyperTemplates components can be used with a variety of data structures.
+
+            OK, this is already a pretty useful starting point for a real template.
+            But there's one more thing...
+
         - title: Introduction to template shortcodes.
           description: Define custom template components to enrigch your content.
           instructions: |
-            ...
+            Coming soon...
 

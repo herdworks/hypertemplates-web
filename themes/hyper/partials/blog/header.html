@@ -1,0 +1,15 @@
+<header id='header'>
+    <style>
+        header > grid-container {
+            display: grid;
+            justify-items: center;
+            margin-top: var(--whitespace, 50px);
+
+            & h1, p {
+                text-align: center;
+            }
+        }
+    </style>
+    <nav ht-include='partials/nav'></nav>
+    <sidebar-menu ht-include='partials/sidebar-menu'></sidebar-menu>
+</header>

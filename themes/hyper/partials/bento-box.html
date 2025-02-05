@@ -1,9 +1,4 @@
 <bento-box columns='12'>
-    <bento-card hyper-template='card:page.features.highlights' hyper-attrs='width:card.width;height:card.height'>
-        <h3 hyper-if='card.title' hyper-content='html:card.title'></h3>
-        <p hyper-if='card.description' hyper-content='markdown:card.description'></p>
-        <learn-more hyper-if='card.href' hyper-template='href:card.href' hyper-include='codes/learn-more'></learn-more>
-    </bento-card>
     <style>
         bento-box {
             display: grid;
@@ -80,8 +75,8 @@
             bento-box[columns] {
                 --bento-box-columns: repeat(10, 1fr);
             }
-            bento-box > bento-card[width~='12'] {
-                --bento-card-columns: span 6 !important;
+            bento-box > bento-card {
+                --bento-card-columns: span 10 !important;
             }
         }
         @media screen and (min-width: 680px) and (max-width: 991px) {
@@ -89,11 +84,17 @@
             bento-box[columns] {
                 --bento-box-columns: repeat(10, 1fr);
             }
-            bento-box > bento-card[width~='12'] {
-                --bento-card-columns: span 6 !important;
+            bento-box > bento-card {
+                --bento-card-columns: span 5 !important;
             }
         }
         @media screen and (min-width: 992px) and (max-width: 1379px) {}
         @media screen and (min-width: 1380px) {}
     </style>
+    <bento-card ht-template='card:page.features.highlights' ht-attrs='width:card.width;height:card.height'>
+        <span hidden ht-content='card'></span>
+        <h3 ht-if='card.title' ht-content='html:card.title'></h3>
+        <p ht-if='card.description' ht-content='markdown:card.description'></p>
+        <learn-more ht-if='card.href' ht-template='href:card.href' ht-include='elements/learn-more'></learn-more>
+    </bento-card>
 </bento-box>

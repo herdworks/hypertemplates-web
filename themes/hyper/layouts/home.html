@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta hyper-include='partials/head.html'></meta>
+        <meta ht-include='partials/head.html'></meta>
     </head>
     <body>
-        <header hyper-include='partials/hero.html'></header>
-        <!-- <section hyper-include='partials/logo-roll.html' data-color-scheme='light'></section> -->
+        <header ht-include='partials/hero.html'></header>
+        <!-- <section ht-include='partials/logo-roll.html' data-color-scheme='light'></section> -->
         <section id='features' data-color-scheme='light'>
             <grid-container>
                 <bento-overview>
-                    <h2 hyper-content='html:page.features.title'></h2>
-                    <content-block hyper-content='markdown:page.features.overview'></content-block>
+                    <h2 ht-content='html:page.features.title'></h2>
+                    <content-block ht-content='markdown:page.features.overview'></content-block>
                 </bento-overview>
-                <bento-box hyper-include='partials/bento-box'></bento-box>
+                <bento-box ht-include='partials/bento-box'></bento-box>
             </grid-container>
             <style>
                 bento-overview {
@@ -32,7 +32,7 @@
             </style>
         </section>
         <grid-whitespace></grid-whitespace>
-        <section hyper-include='partials/newsletter.html' data-color-scheme='gradient'></section>
-        <footer hyper-include='partials/footer.html'></footer>
+        <section ht-include='partials/newsletter.html' data-color-scheme='gradient'></section>
+        <footer ht-include='partials/footer.html'></footer>
     </body>
 </html>

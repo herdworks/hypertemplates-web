@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta hyper-include='partials/head.html'></meta>
+        <meta ht-include='partials/head.html'></meta>
     </head>
     <body>
         <section id='documentation' data-color-scheme='light'>
@@ -105,19 +105,19 @@
                 }
             </style>
             <grid-row>
-                <documentation-overview hyper-content='markdown:page.overview'>
+                <documentation-overview ht-content='markdown:page.overview'>
                 </documentation-overview>
-                <documentation-section hyper-template='item:page.sections'>
-                    <h3 hyper-content='text:item.heading'></h3>
-                    <documentation-content hyper-content='markdown:item.content'></documentation-content>
+                <documentation-section ht-template='item:page.sections'>
+                    <h3 ht-content='text:item.heading'></h3>
+                    <documentation-content ht-content='markdown:item.content'></documentation-content>
                     <documentation-sample>
-                        <code-snippet hyper-if='item.sample,code.sample' hyper-include='partials/code-snippet.html' hyper-template='code:item'></code-snippet>
+                        <code-snippet ht-if='item.sample,code.sample' ht-include='partials/code-snippet.html' ht-template='code:item'></code-snippet>
                     </documentation-sample>
                 </documentation-section>
             </grid-row>
         </section>
         <grid-whitespace></grid-whitespace>
-        <footer hyper-include='partials/footer.html'></footer>
-        <section hyper-include='partials/tail.html'></section>
+        <footer ht-include='partials/footer.html'></footer>
+        <section ht-include='partials/tail.html'></section>
     </body>
 </html>

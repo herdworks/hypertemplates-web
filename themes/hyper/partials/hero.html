@@ -1,5 +1,8 @@
 <header id='hero' data-color-scheme='primary'>
     <style>
+        header {
+            --link-underline-color: none !important;
+        }
         header nav {
             display: grid;
             grid-template-areas: "logo button";
@@ -66,8 +69,12 @@
                 width: auto;
             }
         }
-        header code-snippet window-content {
+        header grid-column:last-of-type {
             margin-bottom: calc(var(--whitespace, 50px) * -1);
+        }
+        header code-snippet {
+            margin: 0;
+            height: 100%;
         }
         header code-snippet pre,
         header code-snippet code {
@@ -89,27 +96,25 @@
     <grid-container>
         <grid-row>
             <grid-column>
-                <!-- <h1 hyper-content='text:page.title'>Title</h1> -->
+                <!-- <h1 ht-content='text:page.title'>Title</h1> -->
                 <nav>
-                    <svg hyper-include='static/img/hypertemplates-logo-duo.svg'></svg>
+                    <svg ht-include='static/img/hypertemplates-logo-duo.svg'></svg>
                     <nav-button>
                         <button>
-                            <svg hyper-include='static/icons/bars.svg'></svg>
+                            <svg ht-include='static/icons/bars.svg'></svg>
                         </button>
                     </nav-button>
                 </nav>
-                <p hyper-content='markdown:page.summary'>Summary</p>
-                <link-button hyper-template='button:page.ctas' hyper-include='partials/link-button'></link-button>
+                <p ht-content='markdown:page.hero.summary,page.summary'>Summary</p>
+                <link-button ht-template='button:page.hero.ctas,page.ctas' ht-include='partials/link-button'></link-button>
                 <a href='/download' rel='downloads'>
-                    <svg hyper-include='static/icons/cloud-arrow-down-solid.svg'></svg>
+                    <svg ht-include='static/icons/cloud-arrow-down-solid.svg'></svg>
                     Download version
-                    <span hyper-content='text:data.downloads.latest'></span>
+                    <span ht-content='text:data.downloads.latest'></span>
                 </a>
             </grid-column>
-            <grid-column>
-                <code-snippet hyper-include='partials/code-snippet' hyper-template='code:page.code'></code-snippet>
-            </grid-column>
+            <grid-column ht-content='markdown:page.hero.sample'></grid-column>
         </grid-row>
     </grid-container>
-    <sidebar-menu hyper-include='partials/sidebar-menu'></sidebar-menu>
+    <sidebar-menu ht-include='partials/sidebar-menu'></sidebar-menu>
 </header>

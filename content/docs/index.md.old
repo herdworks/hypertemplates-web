@@ -20,7 +20,7 @@ overview: |
 
     [HTML5 data attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*
 sections:
-    - heading: Includes (data-hyper-include)
+    - heading: Includes (ht-include)
       content: |
           Something something data something.
 
@@ -30,27 +30,18 @@ sections:
       title: example.html
       sample: |
           <body>
-                <header data-hyper-include="partials/header.html">
+                <header ht-include="partials/header.html">
                     <h1>Placeholder</h1>
                 </header>
           </body>
-    - heading: Conditionals (data-hyper-if)
+    - heading: Conditionals (ht-if)
       content: |
           Something something data something.
 
           Another paragraph.
 
           And another paragraph.
-    - heading: Templates (data-hyper-template)
-      content: |
-          Something something data something.
-
-          Another paragraph.
-
-          And another paragraph.
-      sample: |
-          hyperctl --help
-    - heading: Attributes (data-hyper-attrs)
+    - heading: Templates (ht-template)
       content: |
           Something something data something.
 
@@ -59,7 +50,16 @@ sections:
           And another paragraph.
       sample: |
           hyperctl --help
-    - heading: Content (data-hyper-content)
+    - heading: Attributes (ht-attrs)
+      content: |
+          Something something data something.
+
+          Another paragraph.
+
+          And another paragraph.
+      sample: |
+          hyperctl --help
+    - heading: Content (ht-content)
       content: |
           Something something data something.
 

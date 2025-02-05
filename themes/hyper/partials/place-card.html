@@ -1,21 +1,21 @@
 <place-card itemscope itemtype="https://schema.org/Place" data-message-hidden='true'>
     <place-icons>
-        <a href='' rel='message' hyper-if='data.address.message_href' hyper-attrs='href:data.address.message_href'>
-            <svg height='36' width='36' hyper-include='static/icons/messages-light.svg'></svg>
+        <a href='' rel='message' ht-if='data.address.message_href' ht-attrs='href:data.address.message_href'>
+            <svg height='36' width='36' ht-include='static/icons/messages-light.svg'></svg>
         </a>
-        <a href='' rel='directions' hyper-if='data.address.directions_href' hyper-attrs='href:data.address.directions_href' target='_blank'>
-            <svg height='36' width='36' hyper-include='static/icons/map-location-dot-light.svg'></svg>
+        <a href='' rel='directions' ht-if='data.address.directions_href' ht-attrs='href:data.address.directions_href' target='_blank'>
+            <svg height='36' width='36' ht-include='static/icons/map-location-dot-light.svg'></svg>
         </a>
     </place-icons>
-    <address itemscope itemtype="https://schema.org/PostalAddress" hyper-if='data.address'>
-        <span itemprop='name' hyper-if='data.address.name' hyper-content='text:data.address.name'></span>
-        <span itemprop='streetAddress' hyper-if='data.address.street1' hyper-content='text:data.address.street1'></span>
-        <span itemprop='streetAddress' hyper-if='data.address.street2' hyper-content='text:data.address.street2'></span>
-        <span itemprop='addressLocality' hyper-if='data.address.city' hyper-content='text:data.address.city'></span><span>,</span>
-        <span itemprop='addressRegion' hyper-if='data.address.state' hyper-content='text:data.address.state'></span>
-        <span itemprop='postalCode' hyper-if='data.address.zip' hyper-content='text:data.address.zip'></span>
+    <address itemscope itemtype="https://schema.org/PostalAddress" ht-if='data.address'>
+        <span itemprop='name' ht-if='data.address.name' ht-content='text:data.address.name'></span>
+        <span itemprop='streetAddress' ht-if='data.address.street1' ht-content='text:data.address.street1'></span>
+        <span itemprop='streetAddress' ht-if='data.address.street2' ht-content='text:data.address.street2'></span>
+        <span itemprop='addressLocality' ht-if='data.address.city' ht-content='text:data.address.city'></span><span>,</span>
+        <span itemprop='addressRegion' ht-if='data.address.state' ht-content='text:data.address.state'></span>
+        <span itemprop='postalCode' ht-if='data.address.zip' ht-content='text:data.address.zip'></span>
     </address>
-    <a itemprop='telephone' hyper-if='data.address.phone' hyper-attrs='href:data.address.phone_href' hyper-content='text:data.address.phone'></a>
+    <a itemprop='telephone' ht-if='data.address.phone' ht-attrs='href:data.address.phone_href' ht-content='text:data.address.phone'></a>
     <style>
         place-card {
             display: flex;

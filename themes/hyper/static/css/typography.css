@@ -6,22 +6,6 @@
     src: url('/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: "NeonSans";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/fonts/neon-sans/NeonSans.ttf')
-}
-
-@font-face {
-    font-family: "RetroGaming";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/fonts/Retro Gaming.ttf')
-}
-
 body {
     font-family: '-apple-system', 'Helvetica', sans-serif;
     font-size: 18px;
@@ -58,10 +42,14 @@ a {
     text-decoration: none;
     box-shadow: inset 0 var(--underline-offset, -0.2em) var(--link-underline-color);
     transition: box-shadow 0.25s ease-in-out;
+    cursor: hand;
+    pointer-events: auto;
 }
 a:hover {
     box-shadow: inset 0 var(--underline-offset-hover, -0.5em) var(--link-underline-color);
     transition: box-shadow 0.25s ease-in-out;
+    cursor: pointer;
+    pointer-events: auto;
 }
 a[rel='anchor'], a[rel='anchor']:hover {
     text-decoration: none;
@@ -92,9 +80,21 @@ ol li {
     margin-bottom: var(--gutter-1x, 15px);
 }
 
-sup, sub {
-    line-height: 0;
+blockquote {
+    background-color: var(--accent-color);
+    margin: var(--gutter-default, 15px) 0;
+    padding: var(--gutter-width) calc(var(--gutter-width) * 2);
+    border-left: var(--gutter-width) solid var(--accent-shade);
 }
+blockquote p:last-of-type {
+    margin-bottom: 0;
+}
+blockquote :is(a, a:hover) {
+    font-weight: 600;
+    box-shadow: none;
+}
+
+sup, sub { line-height: 0; }
 sup {
     vertical-align: super;
 
@@ -105,9 +105,7 @@ sup {
     }
 }
 
-pre {
-    tab-size: 4;
-}
+pre { tab-size: 4; }
 pre:has(code),
 [no-highlights] pre:has(code) {
     font-size: 1.0rem;
@@ -121,48 +119,55 @@ pre:has(code),
     background-color: rgba(0,0,0,0.75);
     color: rgba(255,255,255,1.0);
 }
-code {
-    white-space: pre;
-    tab-size: inherit;
-}
-code:not(pre code) {
-    padding: 0 0.20em;
-    border-radius: 0.10em;
-}
-pre code .ln {
-    display: none;
-}
+code { white-space: pre; tab-size: inherit; }
+code:not(pre code) { padding: 0 0.20em; border-radius: 0.10em; }
+pre code span:last-child { margin-right: var(--padding-1x, 15px); }
+pre code .ln { display: none }
 
-/* pre {
-    font-size: 1.0rem;
-    tab-size: 4;
-}
-pre:has(code) {
-    font-size: 1.0rem;
-    -webkit-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+details { margin: var(--gutter-2x, 30px) 0 }
+details summary { color: color-mix(in srgb, var(--text-color), transparent 50%); margin-bottom: var(--gutter-default, 15px); }
+
+dl {
+    display: grid;
+    width: 100%;
     max-width: var(--max-width, 100%);
-    overflow-x: scroll;
-}
-code {
-    white-space: pre;
-    tab-size: inherit;
-    background-color: inherit;
-}
-pre code span {
-    font-size: var(--code-font-size);
-    -webkit-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-} */
-
-dl, dl * {
-    color: inherit;
-    margin-bottom: var(--gutter-1x, 15px);
+    grid-template-areas: "term definition";
+    grid-template-columns: 1fr 3fr;
+    gap: var(--gutter-1x, 15px);
+    margin: var(--gutter-2x, 30px) 0;
 }
 dl dt {
+    display: block;
+    min-width: 0; /* magic */
     font-weight: 600;
-    margin-bottom: 10px;
+}
+dl dd {
+    display: block;
+    min-width: 0; /* magic */
 }
 
+embed[type='application/pdf'] {
+    display: block;
+    width: 40%;
+    height: auto;
+    aspect-ratio: 8.5/11;
+    margin: var(--gutter-2x, 30px) auto;
+}
+
+.footnotes {
+    margin: var(--gutter-2x, 30px) 0;
+}
+
+@media screen and (max-width: 679px) {
+    dl {
+        grid-template-areas: 
+            "term"
+            "definition";
+        grid-template-columns: 1fr;
+    }
+
+    embed[type='application/pdf'] {
+        width: 75%;
+        height: auto;
+    }
+}

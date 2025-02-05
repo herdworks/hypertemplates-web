@@ -1,0 +1,66 @@
+<post-card itemscope itemtype='https://schema.org/Person' ht-template='entity:page.author,page.contributors,site.author' ht-attrs='itemtype:entity.kind'>
+    <style>
+        post-card :is(a, a:hover) {
+            text-decoration: none;
+            box-shadow: none;
+        }
+        post-card {
+            display: grid;
+            grid-column: 2;
+            grid-template-areas:
+                "favicon . name"
+                "favicon . details";
+            grid-template-columns: 60px var(--gutter-default, 15px) 1fr;
+            grid-template-rows: 30px 30px;
+        }
+        post-card [itemprop=favicon] {
+            grid-area: favicon;
+
+            & img {
+                border-radius: 50%;
+                border: var(--outline-color) solid 3px;
+                width: 100%;
+                height: 100%;
+                align-self: center;
+                object-fit: contain;
+            }
+        }
+        post-card [itemprop=name] {
+            grid-area: name;
+            font-weight: 700;
+            font-size: 1.2rem;
+            align-self: end;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        post-card [itemprop=details] {
+            grid-area: details;
+            align-self: start;
+            display: flex;
+            justify-content: space-between;
+
+            & span,
+            & relative-time {
+                align-self: start;
+            }
+        }
+        post-card + post-card {
+            display: none;
+        }
+    </style>
+    <a href='#' itemprop='favicon' ht-attrs='href:entity.href'>
+        <img src='' itemprop='image' ht-attrs='src:entity.favicon'></img>
+    </a>
+    <a href='#' itemprop='name' ht-attrs='href:entity.href' ht-content='text:entity.name'></a>
+    <span itemprop='details'>
+        <a ht-attrs='href:entity.href'>
+            <span itemprop='username' ht-content='text:entity.username'></span>
+        </a>
+        <a href='.'>
+            <relative-time>
+                <time ht-attrs='datetime:page.updated_at,page.created_at' ht-content='text:page.updated_at,page.created_at'></time>
+            </relative-time>
+        </a>
+    </span>
+</post-card>

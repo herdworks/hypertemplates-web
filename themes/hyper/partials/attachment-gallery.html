@@ -1,0 +1,67 @@
+<attachment-gallery ht-if='page.attachments'>
+    <style>
+        attachment-gallery:has(attachment-item) {
+            display: block;
+            font-size: 0.9rem;
+            width: 100vw;
+            height: var(--max-height);
+            overflow-x: scroll;
+            scrollbar-color: transparent transparent;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: var(--container-gutter-left); /* scroll-snap alignment */
+            transition: scroll-behavior 1.5s ease-in-out;
+        }
+        attachment-gallery::-webkit-scrollbar {
+            display: none;
+        }
+        attachment-gallery:not(:has(attachment-item)) {
+            display: none;
+        }
+        attachment-slider {
+            display: flex;
+            position: relative;
+            box-sizing: content-box;
+            flex-direction: row;
+            width: fit-content;
+            height: inherit;
+            padding-left: var(--container-gutter-left); /* initial offset (for the first attachment-item) */
+            padding-right: 100vw;
+            gap: var(--gutter-default, 15px);
+            /* ...or calculate width: ...calc(2 * var(--item-width)); */
+        }
+        attachment-item {
+            display: block;
+            position: relative;
+            width: fit-content;
+            min-width: 100px;
+            max-width: var(--max-width);
+            height: inherit;
+            scroll-snap-align: start;
+            border-radius: 10px;
+            overflow: hidden;
+            align-items: center;
+            justify-items: center;
+            background: var(--accent-shade);
+        }
+        attachment-item > img {
+            display: block;
+            height: inherit;
+            width: auto;
+            max-width: var(--max-width);
+            opacity: 100%;
+            padding: 0;
+            margin: 0;
+            object-fit: contain;
+            object-position: 50% 50%;
+            transition: opacity;
+        }
+    </style>
+    <attachment-slider>
+        <attachment-item ht-template='attachment:page.attachments' ht-attrs='href:attachment.href'>
+            <link-attachment ht-include='partials/link-attachment' ht-if='attachment.data.hypergraph'></link-attachment>
+            <file-attachment ht-if='attachment.data.metadata.content-type'></file-attachment>
+            <img ht-if='attachment.data.src,attachment.data.srcset' ht-attrs='src:attachment.data.src' loading='lazy' />
+        </attachment-item>
+    </attachment-slider>
+</attachment-gallery>

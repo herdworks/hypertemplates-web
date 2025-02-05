@@ -32,13 +32,13 @@ spec:
                     <!DOCTYPE html>
                     <html lang='en-US'>
                         <head>
-                            <title data-hyper-content='page.title'></title>
-                            <meta name='description' content='' data-hyper-attrs='content:page.description,site.description'>
+                            <title ht-content='page.title'></title>
+                            <meta name='description' content='' ht-attrs='content:page.description,site.description'>
                         </head>
                         <body>
                             <section id='article'>
-                                <h1 data-hyper-content='page.title'>Placeholder title</h1>
-                                <p data-hyper-content='text:page.description'>Placeholder content.</p>
+                                <h1 ht-content='page.title'>Placeholder title</h1>
+                                <p ht-content='text:page.description'>Placeholder content.</p>
                             </section>
                         </body>
                     </html>
@@ -61,13 +61,13 @@ spec:
                   <!DOCTYPE html>
                   <html lang='en-US'>
                       <head>
-                          <title data-hyper-content='page.title'></title>
-                          <meta name='description' content='' data-hyper-attrs='content:page.description,site.description'>
+                          <title ht-content='page.title'></title>
+                          <meta name='description' content='' ht-attrs='content:page.description,site.description'>
                       </head>
                       <body>
                           <section id='article'>
-                              <h1 data-hyper-content='page.title'>Placeholder title</h1>
-                              <p data-hyper-content='text:page.description'>Placeholder content.</p>
+                              <h1 ht-content='page.title'>Placeholder title</h1>
+                              <p ht-content='text:page.description'>Placeholder content.</p>
                           </section>
                       </body>
                   </html>

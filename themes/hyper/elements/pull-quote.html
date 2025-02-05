@@ -1,0 +1,32 @@
+<pull-quote>
+    <!-- https://css-irl.info/ive-been-doing-blockquotes-wrong/ -->
+    <style>
+        pull-quote blockquote {
+            background-color: inherit;
+            font-weight: 500;
+            border-left: none;
+            border-right: var(--gutter-width) solid var(--accent-shade);
+            text-align: right;
+            padding-left: 30%;
+        }
+        pull-quote blockquote > span {
+            display: block;
+            font-style: italic;
+        }
+        pull-quote blockquote cite:not(:empty)::before {
+            content: "— "
+        }
+        pull-quote blockquote cite {
+            display: block;
+            font-weight: bold;
+            padding-top: var(--gutter-1x, 15px);
+        }
+    </style>
+    <blockquote>
+        <span ht-content='html:content'></span>
+        <cite ht-if='cite'>
+            <span ht-not='href' ht-content='text:cite'></span>
+            <a ht-if='href' ht-attrs='href:href' ht-content='text:cite'></a>
+        </cite>
+    </blockquote>
+</pull-quote>

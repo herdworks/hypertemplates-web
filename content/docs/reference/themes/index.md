@@ -1,29 +1,34 @@
 ---
 created_at: "2024-11-12T10:00:00-0700"
-title: HyperThemes
-description: Learn more about the HyperTemplates theme engine.
-layout: docs
-overview: |
-    ## HyperThemes
-    
-    Learn more about the HyperTemplates theme engine.
-sections: []
+title: Themes
+summary: |
+    HyperTemplates theme reference documentation.
 ---
 
 ## HyperTemplates Themes
 
-A HyperTemplates theme is a collection of [Layouts] and associated resource files.
-HyperTemplates themes must have a subdirectory named `layouts/` and a default layout file named `layouts/default.html`.
-This is the only requirement.
+* [Overview](#overview)
+* [Example](#example)
+* [Specification](#specification)
+  * [Configuration](#configuration)
 
-<!-- Example template -->
+### Overview
+
+A HyperTemplates theme is a collection of layouts and associated resource files.
+HyperTemplates themes must have a subdirectory named `layouts/` and a default layout file named `layouts/default.html`.
+
 ```shell
 layouts/default.html
 ```
 
-An example HyperTemplates theme typically contains additional resources organized into subdirectories such as `partials/`, and `static/` but the actual directory structure is up to theme developers.
+<mark>This is the only requirement</mark>.
+
+### Example
+
+An example HyperTemplates theme typically contains additional resources organized into subdirectories such as `partials/`, and `static/` but the actual directory structure beyond the `layouts` folder is up to theme developers.
 
 ```shell
+elements/
 layouts/
     home.html
     default.html
@@ -40,26 +45,30 @@ static/
         styles.css
     fonts/
     img/
+        logo.svg
+        favicon.png
     js/
         main.js
 ```
 
-#### Theme Configuration
+### Specification
 
-A theme configuration file may optionally be provided to configure which theme assets should be included in website builds.
-By default HyperTemplates themes will include files matching `css/*.css` and `js/*.js`, but this can be configured via the `published` configuration parameter.
+#### Configuration
+
+Work in progress...
 
 ```json
 {
     "name": "HyperTexting",
-    "published": [
-        "css/*",
-        "js/*"
-    ]
+    "version": "0.1.0"
 }
 ```
 
-_NOTE: Additional configuration parameters may be added in future releases._
+<doc-quote ht-element warning>
+
+**NOTE:** Additional configuration parameters may be added in future releases.
+
+</doc-quote>
 
 <!-- Links -->
-[Layouts]: /docs/reference/layouts/
+

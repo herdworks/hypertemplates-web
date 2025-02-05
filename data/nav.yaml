@@ -5,16 +5,20 @@ learn:
     href: /
   - label: Features
     href: /features
+  - label: Blog
+    href: /blog/
 develop:
+  - label: Reference
+    href: /docs/reference/attributes/
   - label: Docs
     href: /docs/
-  - label: CLI
-    href: /docs/reference/cli/
 sidebar:
   - label: Home
     href: /
   - label: Features
     href: /features
+  - label: Blog
+    href: /blog/
   - label: Docs
     href: /docs/
   - label: CLI
@@ -26,24 +30,24 @@ footer:
     href: /
   - group: HyperTemplates
     label: Docs
-    href: /docs
+    href: /docs/
   - group: HyperTemplates
     label: Search
-    href: /docs/search
+    href: /docs/search/
   - group: HyperTemplates
     label: Blog
-    href: /blog
+    href: /blog/
 
   # Getting Started
   - group: Getting Started
     label: Docs
-    href: /docs/latest
-  - group: Getting Started
-    label: CLI
-    href: /docs/latest/cli
+    href: /docs/
   - group: Getting Started
     label: Reference
-    href: /docs/latest/reference
+    href: /docs/reference/attributes/
+  - group: Getting Started
+    label: CLI
+    href: /docs/reference/cli/
 
   # Contributing
   - group: Contributing

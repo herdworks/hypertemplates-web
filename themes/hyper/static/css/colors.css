@@ -33,7 +33,7 @@ html {
 /* Color Schemes */
 /* Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#color-scheme */
 /* Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color */
-[data-color-scheme='light'] {
+[data-color-scheme], [data-color-scheme='light'] {
     --background-color: var(--color-1);
     --accent-color: var(--color-3);
     --accent-tint: rgba(255,255,255,0.20);
@@ -82,7 +82,7 @@ html {
     --heading-color: rgba(0,0,0,0.9);
     --subheading-color: rgba(0,0,0,0.7);
     --text-color: rgba(0,0,0,0.7);
-    --link-underline-color: rgba(0,0,0,0.0);
+    --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
     --form-input-background-color: rgba(255,255,255,0.50);
     --form-input-text-color: rgba(0,0,0,0.5);
     --button-background-color: var(--color-3);
@@ -101,7 +101,7 @@ html {
     --heading-color: rgba(0,0,0,0.9);
     --subheading-color: rgba(0,0,0,0.7);
     --text-color: rgba(0,0,0,0.7);
-    --link-underline-color: var(--color-3);
+    --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
     --form-input-background-color: rgba(0,0,0,1.0);
     --form-input-text-color: rgba(255,255,255,0.7);
     --button-background-color: var(--color-1);

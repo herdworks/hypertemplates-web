@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta hyper-include='partials/head.html'></meta>
+        <meta ht-include='partials/head.html'></meta>
 
         <!-- Web Components -->
         <script src='/components/doc-breadcrumbs.js' defer></script>
         <script src='/components/auto-anchor.js' defer></script>
     </head>
     <body>
-        <header hyper-include='partials/header.html'></header>
+        <header ht-include='partials/header.html'></header>
         <section data-color-scheme='light'>
             <grid-container>
-                <doc-breadcrumbs hyper-include='partials/breadcrumbs'></doc-breadcrumbs>
-                <main hyper-content='markdown:page.content'></main>
+                <doc-breadcrumbs ht-include='partials/breadcrumbs'></doc-breadcrumbs>
+                <main ht-content='markdown:page.content'></main>
                 <auto-anchor></auto-anchor>
             </grid-container>
         </section>
         <grid-whitespace></grid-whitespace>
-        <section hyper-include='partials/newsletter.html'></section>
-        <footer hyper-include='partials/footer.html' data-color-scheme='dark'></footer>
+        <section ht-include='partials/newsletter.html'></section>
+        <footer ht-include='partials/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>

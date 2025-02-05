@@ -1,0 +1,22 @@
+<learn-more>
+    <style>
+        learn-more {
+            display: block;
+        }
+        learn-more :is(a,a:hover) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: var(--accent-color);
+            box-shadow: none;
+        }
+        learn-more svg {
+            padding-left: 10px;
+            height: 1rem;
+        }
+    </style>
+    <a href='' ht-attrs='href:href'>
+        <span>Learn more</span>
+        <svg ht-include='static/icons/arrow-right-sharp-solid.svg'></svg>
+    </a>
+</learn-more>

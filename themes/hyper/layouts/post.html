@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta hyper-include='partials/head.html'></meta>
+        <meta ht-include='partials/head.html'></meta>
+        <meta itemprop='template.name' content='default'>
+        <meta name='layout:newsletter_title' content='The Newsletter'>
+        <meta name='layout:newsletter_description' content='Get this and other posts delivered to your inbox. No more than one email per week, no fewer than one email per month.'>
+
+        <!-- Redirect? -->
+        <meta http-equiv="refresh" content="0; url=/" ht-attrs='content:page.refresh' ht-if='page.content==' />
+
+        <!-- Web Components -->
+        <script src='/components/relative-time.js' defer></script>
+        <script src='/components/auto-anchor.js' defer></script>
     </head>
-    <body>
-        <header>
-            <nav hyper-include='partials/nav.html'></nav>
-        </header>
+    <body data-color-scheme='light'>
+        <header ht-include='partials/blog/header.html'></header>
         <grid-whitespace></grid-whitespace>
         <section id='post' data-color-scheme='light'>
-            <article hyper-include='partials/article-post'></article>
-            <script src='/components/date-time.js'></script>
+            <style>
+                #post post-card {
+                    margin-bottom: var(--gutter-2x, 30px);
+                }
+            </style>
+            <grid-container>
+                <article itemscope itemtype='https://schema.org/Article'>
+                    <article-meta>
+                        <post-card ht-include='partials/hyper/post-card' ht-template='entity:page.author,site.author;page:page' ht-not='page.content=='></post-card>
+                        <post-card ht-include='partials/hyper/post-card' ht-template='entity:page.author,page.contributors,site.author;page:page' ht-if='page.content=='></post-card>
+                    </article-meta>
+                    <article-body ht-content='markdown:page.summary,page.content' summary></article-body>
+                    <article-attachments>
+                        <attachment-gallery ht-include='partials/attachment-gallery'></attachment-gallery>
+                    </article-attachments>
+                    <article-body ht-content='markdown:page.more' more></article-body>
+                </article>
+            </grid-container>
+            <auto-anchor scope='article'></auto-anchor>
         </section>
         <grid-whitespace></grid-whitespace>
-        <section hyper-include='partials/footer.html' data-color-scheme='dark'></section>
-        <section hyper-include='partials/tail.html'></section>
+        <section ht-include='partials/newsletter.html'></section>
+        <footer ht-include='partials/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>
