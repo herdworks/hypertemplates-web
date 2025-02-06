@@ -3,8 +3,8 @@ created_at: 2024-11-12T10:00:00-0700
 layout: home
 unlisted: true
 canonical_url: https://hypertemplates.net/
-title: Hyper Templates
-description: A pure-HTML templating system for the modern web.
+title: HyperTemplates
+description: The pure-HTML templating system for the modern web.
 hero:
     summary: |
         The pure-HTML templating system for the modern web.

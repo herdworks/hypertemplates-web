@@ -108,7 +108,7 @@ guide:
             ```
 
             [Frontmatter](/docs/reference/markdown/#frontmatter) properties a markdown document are accessible to HyperTemplates as [template data properties](/docs/reference/data/#template-data-properties).
-            In this examlpe we have templated the `<meta>` element using the [`ht-attrs` attribute](/docs/reference/attributes/ht-attrs/).
+            In this example we have templated the `<meta>` element using the [`ht-attrs` attribute](/docs/reference/attributes/ht-attrs/).
             The `content:description` value tells HyperTemplates to add an attribute named `content` with the value of the `description` property to the `<meta>` element.
 
             Render the page to see the description `<meta>` tag populated, then refresh your browser to see the updated page.
@@ -160,7 +160,7 @@ guide:
             ---
             title: Introduction to HTML templating
             description: My first HyperTemplates page!
-            copyright: &copy; Me 2025
+            copyright: "&copy; Me 2025"
             ---
 
             ## Hello, world
@@ -274,7 +274,7 @@ guide:
             ---
             title: Introduction to HTML templating
             description: My first HyperTemplates page!
-            copyright: &copy; Me 2025
+            copyright: "&copy; Me 2025"
             nav:
               - label: Home
                 href: /

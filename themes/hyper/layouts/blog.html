@@ -5,15 +5,15 @@
         <link rel='preload' fetchpriority='high' href='/atom.xml' as='fetch' crossorigin='anonymous' />
 
         <!-- Web Components -->
-        <script src='/components/ht-feed.js' defer></script>
-        <script src='/components/relative-time.js' defer></script>
+        <script src='/js/components/ht-feed.js' defer></script>
+        <script src='/js/components/relative-time.js' defer></script>
     </head>
     <body>
         <header ht-include='partials/blog/hero'></header>
         <section ht-include='partials/blog/feed' data-color-scheme='light'></section>
         <grid-whitespace></grid-whitespace>
         <section ht-include='partials/newsletter'></section>
-        <footer ht-include='partials/footer'></footer>
+        <footer ht-include='partials/sections/footer.html'></footer>
         <section ht-include='partials/tail'></section>
     </body>
 </html>

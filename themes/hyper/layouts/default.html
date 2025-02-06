@@ -4,11 +4,11 @@
         <meta ht-include='partials/head.html'></meta>
 
         <!-- Web Components -->
-        <script src='/components/doc-breadcrumbs.js' defer></script>
-        <script src='/components/auto-anchor.js' defer></script>
+        <script src='/js/components/doc-breadcrumbs.js' defer></script>
+        <script src='/js/components/auto-anchor.js' defer></script>
     </head>
     <body>
-        <header ht-include='partials/header.html'></header>
+        <header ht-include='partials/sections/header.html'></header>
         <section data-color-scheme='light'>
             <grid-container>
                 <doc-breadcrumbs ht-include='partials/breadcrumbs'></doc-breadcrumbs>
@@ -18,6 +18,6 @@
         </section>
         <grid-whitespace></grid-whitespace>
         <section ht-include='partials/newsletter.html'></section>
-        <footer ht-include='partials/footer.html' data-color-scheme='dark'></footer>
+        <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>

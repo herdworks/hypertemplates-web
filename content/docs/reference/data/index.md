@@ -11,6 +11,10 @@ description: Learn more about the HyperTemplates data model.
 * [Specification](#specification)
   * [Template data object](#template-data-object)
   * [Template data sources](#template-data-sources)
+    * [Markdown](#markdown)
+    * [YAML](#yaml)
+    * [JSON](#json)
+    * [Layout data](#layout-data)
   * [Template data keys](#template-data-keys)
   * [Template data values](#template-data-values)
 
@@ -21,11 +25,12 @@ Template data is generally managed as content files in Markdown, YAML, or JSON f
 
 ### Example
 
-The following example content files will generate identical template data.
+This example shows the an approximation of a [template data object](#template-data-object).
 
 ```javascript
 {
     created_at: "2025-01-27T17:00:00-08:00",
+    updated_at: "2025-01-27T17:00:00-08:00",
     title: "Template Data",
     description: "HyperTemplates generates template data from content files",
     author: {
@@ -43,12 +48,14 @@ In this sample, `title` and `author.name` are valid template data keys (property
 <details><summary><strong>Example template data source files</strong></summary>
 
 The example template data provided above could be managed via any one of the following source files in Markdown, YAML, or JSON format.
+The following example content files will generate identical template data.
 
 <code-snippet ht-element filename='index.md'>
 
 ```markdown
 ---
 created_at: 2025-01-27T17:00:00-08:00
+updated_at: 2025-01-27T17:00:00-08:00
 title: Template Data
 description: HyperTemplates generates template data from content files
 author:
@@ -67,6 +74,7 @@ Lorem ipsum, hipsters get some.
 
 ```yaml
 created_at: "2025-01-27T17:00:00-08:00"
+updated_at: "2025-01-27T17:00:00-08:00"
 title: Template Data
 description: HyperTemplates generates template data from content files
 author:
@@ -85,6 +93,7 @@ content: |
 ```json
 {
     "created_at": "2025-01-27T17:00:00-08:00",
+    "updated_at": "2025-01-27T17:00:00-08:00",
     "title": "Template Data",
     "description": "HyperTemplates generates template data from content files",
     "author": {
@@ -101,7 +110,7 @@ content: |
 
 ### Specification
 
-#### The template data object
+#### Template data object
 
 The HyperTemplates rendering system always expects a single template data input to hydrate a layout with.
 This singular input is referred to as the "template data object".
@@ -137,7 +146,31 @@ The resulting template data object maps the website configuration template data 
 
 The HyperTemplates CLI and libraries have built-in support for parsing template data from files in Markdown, YAML, and JSON formats.
 In some cases, multiple data sources are combined into a single template data object. 
-Template data sources may still be considered valid if "empty". 
+Template data sources may still be considered valid if "empty".
+
+##### Markdown
+
+Coming soon...
+
+##### YAML
+
+Coming soon...
+
+##### JSON
+
+Coming soon...
+
+##### Layout data
+
+Additional layout-scoped data can be added to any layout or other layout fragment as `<meta>` elements.
+
+<!-- Layout data is useful for providing fallback values for template slots in strict mode. -->
+
+```html
+<meta name='layout:name' content='default'>
+<meta name='layout:copyright' content='Herd Works Inc'>
+<meta name='layout:copyyear' content='2024'>
+```
 
 <doc-quote ht-element notice>
 

@@ -4,7 +4,7 @@
         <meta ht-include='partials/head.html'></meta>
     </head>
     <body>
-        <header ht-include='partials/header.html'></header>
+        <header ht-include='partials/sections/header.html'></header>
         <section id='feed' data-color-scheme='light'>
             <grid-row>
                 <ht-feed feed-src='index.xml' feed-selector='article' feed-limit='3'></ht-feed>
@@ -30,12 +30,12 @@
                         text-decoration: none;
                     }
                 </style>
-                <script src='/components/ht-feed.js'></script>
-                <script src='/components/date-time.js'></script>
+                <script src='/js/components/ht-feed.js'></script>
+                <script src='/js/components/date-time.js'></script>
             </grid-row>
         </section>
         <grid-whitespace></grid-whitespace>
         <section ht-include='partials/newsletter.html'></section>
-        <footer ht-include='partials/footer.html' data-color-scheme='dark'></footer>
+        <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>
