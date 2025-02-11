@@ -23,20 +23,15 @@ title: Configuration
 
 ### Example
 
+Static sites managed with `hyperctl` are configured via a configuration file in YAML or JSON format.
+
 <code-snippet ht-element filename='site.yaml (example)'>
 
 ```yaml
 ---
 base_url: https://preview.hypertemplates.net
-theme: hyper
 title: HyperTemplates
 description: A pure-HTML templating system for the modern web.
-author:
-  username: "@hypertemplates.net"
-  name: HyperTemplates
-  href: /
-  favicon: /img/favicon-512x512.png
-  email: contact@hypertemplates.net
 favicons:
   - href: /img/apple-touch-icon.png
     sizes: 180x180
@@ -49,22 +44,35 @@ favicons:
     sizes: 256x256
   - href: /img/favicon-512x512.png
     sizes: 512x512
+author:
+  username: "@hypertemplates.net"
+  name: HyperTemplates
+  href: /
+  favicon: /img/favicon-512x512.png
+  email: contact@hypertemplates.net
+
 feeds:
   - link: /
+
+provider:
+    kind: s3
+    uri: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com
+    store: hypertemplates-web-preview
+    secrets:
+        - name: access_key_id
+          provider: env
+          key: AWS_ACCESS_KEY_ID
+        - name: secret_access_key
+          provider: env
+          key: AWS_SECRET_ACCESS_KEY
+
 config:
     tidy_mode: true
-    provider:
-        kind: s3
-        uri: https://5a8b6c901ff20ee02892cf121b1ead54.r2.cloudflarestorage.com
-        store: hypertemplates-web-preview
-        secrets:
-            - name: access_key_id
-              provider: env
-              key: AWS_ACCESS_KEY_ID
-            - name: secret_access_key
-              provider: env
-              key: AWS_SECRET_ACCESS_KEY
+    theme:
+        settings: themes/hyper/theme.json
 ```
+
+</code-snippet>
 
 </code-snippet>
 

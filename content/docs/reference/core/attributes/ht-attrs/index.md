@@ -111,7 +111,7 @@ See [attribute syntax] for more information.
 
 <!-- Links -->
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-[template data]: /docs/reference/data/
-[template data property]: /docs/reference/data/#template-data-property
-[template data properties]: /docs/reference/data/#template-data-property
+[template data]: /docs/reference/core/data/
+[template data property]: /docs/reference/core/data/#template-data-property
+[template data properties]: /docs/reference/core/data/#template-data-property
 [attribute syntax]: #attribute-syntax

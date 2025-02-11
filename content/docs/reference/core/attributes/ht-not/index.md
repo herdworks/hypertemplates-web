@@ -121,11 +121,11 @@ However, the conditional expression `ht-if='page.author.kind==person'` would eva
 
 <!-- Links -->
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-[template data]: /docs/reference/data/
-[template data property]: /docs/reference/data/#template-data-property
-[template data properties]: /docs/reference/data/#template-data-property
+[template data]: /docs/reference/core/data/
+[template data property]: /docs/reference/core/data/#template-data-property
+[template data properties]: /docs/reference/core/data/#template-data-property
 [attribute syntax]: #attribute-syntax
 [conditional value]: #conditional-values
-[`ht-if`]: /docs/reference/attributes/ht-if/
-[`ht-if` attribute syntax]: /docs/reference/attributes/ht-if/#attribute-syntax
+[`ht-if`]: /docs/reference/core/attributes/ht-if/
+[`ht-if` attribute syntax]: /docs/reference/core/attributes/ht-if/#attribute-syntax
 [exclusive templating]: #exclusive-templating

@@ -164,17 +164,17 @@ In this example, the `<a>` element together with its child `<span>` element make
 
 
 <!-- Links -->
-[`ht-content`]: /docs/reference/attributes/ht-content/
-[`ht-attrs`]: /docs/reference/attributes/ht-attrs/
-[`ht-if`]: /docs/reference/attributes/ht-if/
-[`ht-include`]: /docs/reference/attributes/ht-include/
+[`ht-content`]: /docs/reference/core/attributes/ht-content/
+[`ht-attrs`]: /docs/reference/core/attributes/ht-attrs/
+[`ht-if`]: /docs/reference/core/attributes/ht-if/
+[`ht-include`]: /docs/reference/core/attributes/ht-include/
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-[templating attributes]: /docs/reference/attributes/
-[template data]: /docs/reference/data/
+[templating attributes]: /docs/reference/core/attributes/
+[template data]: /docs/reference/core/data/
 [void elements]: https://developer.mozilla.org/en-US/docs/Glossary/Void_element
 
-[template data property]: /docs/reference/data/#template-data-property
-[template data properties]: /docs/reference/data/#template-data-property
+[template data property]: /docs/reference/core/data/#template-data-property
+[template data properties]: /docs/reference/core/data/#template-data-property
 [attribute syntax]: #attribute-syntax
 [HTML `DocumentFragment`]: https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
 [HTML `Document`]: https://developer.mozilla.org/en-US/docs/Web/API/Document

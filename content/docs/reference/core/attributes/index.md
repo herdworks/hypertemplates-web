@@ -14,37 +14,37 @@ The core of HyperTemplates is a small but mighty set of [HTML attributes] that a
 `ht-content`
 : **Inserts** text or HTML content to the target HTML element.
   
-  <learn-more ht-element href='/docs/reference/attributes/ht-content'></learn-more>
+  <learn-more ht-element href='/docs/reference/core/attributes/ht-content'></learn-more>
 
 `ht-attrs`
 : **Annotates** the target HTML element with one or more HTML attributes.
 
-  <learn-more ht-element href='/docs/reference/attributes/ht-attrs'></learn-more>
+  <learn-more ht-element href='/docs/reference/core/attributes/ht-attrs'></learn-more>
 
 `ht-if`
 : **Retains** the target HTML element if a condition is `true`.
 
-  <learn-more ht-element href='/docs/reference/attributes/ht-if'></learn-more>
+  <learn-more ht-element href='/docs/reference/core/attributes/ht-if'></learn-more>
 
 `ht-not`
 : **Removes** the target HTML element if a condition is `true`.
 
-  <learn-more ht-element href='/docs/reference/attributes/ht-not'></learn-more>
+  <learn-more ht-element href='/docs/reference/core/attributes/ht-not'></learn-more>
 
 `ht-include`
 : **Replaces** the target HTML element with elements from an external source.
 
-  <learn-more ht-element href='/docs/reference/attributes/ht-include'></learn-more>
+  <learn-more ht-element href='/docs/reference/core/attributes/ht-include'></learn-more>
 
 `ht-template`
 : **Repeats** the target HTML element once per occurrence of some content.
 
-  <learn-more ht-element href='/docs/reference/attributes/ht-template'></learn-more>
+  <learn-more ht-element href='/docs/reference/core/attributes/ht-template'></learn-more>
 
 `ht-element`
 : **Progressively enhances** the target HTML element.
 
-  <learn-more ht-element href='/docs/reference/attributes/ht-element'></learn-more>
+  <learn-more ht-element href='/docs/reference/core/attributes/ht-element'></learn-more>
 
 <mark>This is the complete set of template attributes used by HyperTemplates.</mark>
 They were designed to be [easy to learn] and remember.

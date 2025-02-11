@@ -137,21 +137,21 @@ The rendered Markdown (i.e. HTML elements) are then appended as child nodes to t
 
 <doc-quote ht-element notice>
 
-**NOTE:** Unsupported formats are ignored, effectively resulting in default behavior, resulting in values being treated as plain text.
+**NOTE:** Unsupported formats are ignored, effectively resulting in the default behavior (plain text format).
 
 </doc-quote>
 
 
 <!-- Links -->
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-[template data]: /docs/reference/data/
-[template data property]: /docs/reference/data/#template-data-property
-[template data properties]: /docs/reference/data/#template-data-property
+[template data]: /docs/reference/core/data/
+[template data property]: /docs/reference/core/data/#template-data-property
+[template data properties]: /docs/reference/core/data/#template-data-property
 [void elements]: https://developer.mozilla.org/en-US/docs/Glossary/Void_element
 [Text node]: https://developer.mozilla.org/en-US/docs/Web/API/Text
 [Text nodes]: https://developer.mozilla.org/en-US/docs/Web/API/Text
 [Element node]: https://developer.mozilla.org/en-US/docs/Web/API/Element
 [Element nodes]: https://developer.mozilla.org/en-US/docs/Web/API/Element
-[Markdown]: /docs/reference/markdown/
+[Markdown]: /docs/reference/core/markdown/
 [Javascript `appendChild()` method]: https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
 [content formats]: #content-formats

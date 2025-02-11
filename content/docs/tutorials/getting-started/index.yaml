@@ -57,9 +57,9 @@ guide:
             </html>
             ```
 
-            The body of a markdown document (e.g. `index.md`) is accessible to HyperTemplates as the [template data](/docs/reference/data/) `content` field.
-            This layout templates the `<article>` element using the [`ht-content` attribute](/docs/reference/attributes/ht-content/).
-            The `markdown:content` value tells HyperTemplates to [format](/docs/reference/attributes/ht-content/#content-formats) the `content` from `index.md` as [Markdown](/docs/reference/markdown/).
+            The body of a markdown document (e.g. `index.md`) is accessible to HyperTemplates as the [template data](/docs/reference/core/data/) `content` field.
+            This layout templates the `<article>` element using the [`ht-content` attribute](/docs/reference/core/attributes/ht-content/).
+            The `markdown:content` value tells HyperTemplates to [format](/docs/reference/core/attributes/ht-content/#content-formats) the `content` from `index.md` as [Markdown](/docs/reference/core/markdown/).
 
             OK, let's render your first page using HyperTemplates.
 
@@ -107,8 +107,8 @@ guide:
             </html>
             ```
 
-            [Frontmatter](/docs/reference/markdown/#frontmatter) properties a markdown document are accessible to HyperTemplates as [template data properties](/docs/reference/data/#template-data-properties).
-            In this example we have templated the `<meta>` element using the [`ht-attrs` attribute](/docs/reference/attributes/ht-attrs/).
+            [Frontmatter](/docs/reference/core/markdown/#frontmatter) properties a markdown document are accessible to HyperTemplates as [template data properties](/docs/reference/core/data/#template-data-properties).
+            In this example we have templated the `<meta>` element using the [`ht-attrs` attribute](/docs/reference/core/attributes/ht-attrs/).
             The `content:description` value tells HyperTemplates to add an attribute named `content` with the value of the `description` property to the `<meta>` element.
 
             Render the page to see the description `<meta>` tag populated, then refresh your browser to see the updated page.
@@ -179,7 +179,7 @@ guide:
           instructions: |
 
             As our layout starts to become more complex, it would be nice if we could split up the layout code into individual components. 
-            Let's see how that works with the hypertemplates [`ht-include` attribute](/docs/reference/attributes/ht-include/). 
+            Let's see how that works with the hypertemplates [`ht-include` attribute](/docs/reference/core/attributes/ht-include/). 
 
             First let's create two new files.
 
@@ -237,10 +237,10 @@ guide:
             ```
 
             HyperTemplates replaced our placeholder `<header>` and `<footer>` elements with the contents of `partials/header.html` and `partials/footer.html`, respectively.
-            The order of HyperTemplates template [pipeline operations](/docs/reference/pipeline/) is important here: `ht-include` attributes are processed before all other templating steps, so our components are effectively inserted into our layout _before_ content and attribute templating.
+            The order of HyperTemplates template [pipeline operations](/docs/reference/core/pipeline/) is important here: `ht-include` attributes are processed before all other templating steps, so our components are effectively inserted into our layout _before_ content and attribute templating.
 
             Oh and there's one more thing: did you notice that the `id` attributes on the `<header>` and `<footer>` elements were retained in the rendered HTML?
-            This is called [attribute forwarding](/docs/reference/attributes/ht-include/#attribute-forwarding), and it's one of the many more subtle features of HyperTemplates that facilitate _progressive enhancement_.
+            This is called [attribute forwarding](/docs/reference/core/attributes/ht-include/#attribute-forwarding), and it's one of the many more subtle features of HyperTemplates that facilitate _progressive enhancement_.
 
         - title: Introduction to template iterators.
           description: Iterate over dynamic content to render lists and tables.
@@ -296,8 +296,8 @@ guide:
             ```
 
             Pretty cool, right? :blush:
-            The `ht-template` attribute creates a new [template data object](/docs/reference/data/#template-data-object) from the parent template data.
-            For each item in the `nav` array, HyperTemplates assigns the value to a variable named `link`, then clones the `<a>` element and runs it through the entire [rendering pipeline](/docs/reference/pipeline/).
+            The `ht-template` attribute creates a new [template data object](/docs/reference/core/data/#template-data-object) from the parent template data.
+            For each item in the `nav` array, HyperTemplates assigns the value to a variable named `link`, then clones the `<a>` element and runs it through the entire [rendering pipeline](/docs/reference/core/pipeline/).
             
             We also introduced another feature in this step: the `ht-content` attributes in the `<a>` element are referencing multiple properties!
             It's a good thing because our `nav` array had a mix of `label` and `title` properties, and `href` and `url` properties.

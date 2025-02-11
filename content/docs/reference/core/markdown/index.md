@@ -122,7 +122,7 @@ HyperTemplates is a pure #HTML templating system for the modern web.
 [iA Writer]: https://ia.net/writer
 [HyperMentions]: #
 [hypertext]: https://en.wikipedia.org/wiki/Hypertext
-[template data]: /docs/reference/data/
+[template data]: /docs/reference/core/data/
 [YAML]: https://yaml.org
 [YAML Frontmatter]: https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter
 

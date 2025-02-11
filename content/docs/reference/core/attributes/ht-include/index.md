@@ -145,9 +145,9 @@ An include source is an [HTML `DocumentFragment`] referenced by a `ht-include` a
 
 <!-- Links -->
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-[template data]: /docs/reference/data/
-[template data property]: /docs/reference/data/#template-data-property
-[template data properties]: /docs/reference/data/#template-data-property
+[template data]: /docs/reference/core/data/
+[template data property]: /docs/reference/core/data/#template-data-property
+[template data properties]: /docs/reference/core/data/#template-data-property
 [attribute syntax]: #attribute-syntax
 [HTML `DocumentFragment`]: https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
 [HTML `Document`]: https://developer.mozilla.org/en-US/docs/Web/API/Document

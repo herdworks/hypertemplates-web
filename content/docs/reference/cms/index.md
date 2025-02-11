@@ -7,52 +7,57 @@ summary: |
 
 ## Content management reference
 
-* [Overview](#overview)
-* [Example](#example)
-* [Specification](#specification)
-  * [Website](#website)
-  * [Pages](#pages)
-  * [Tags](#tags)
-  * [Feeds](#feeds)
-  * [Namespace data](#namespace-data)
-  * [Builds](#builds)
+At a high level, HyperTemplates attempts to be unopinionated about the structure of HTML content and layouts.
+The [core specification] is primarily concerned with HTML templates (layouts) and template data (content) as inputs, which are used to generate individual **web _pages_** (HTML documents) as outputs.
+When it comes to building **web _sites_**, a more opinionated approach to content management is required.
 
-### Overview
+### The HyperText Management System
 
-At its core, the HyperTemplates rendering engine attempts to be as unopinionated as possible in terms of both template data and layouts.
-The underlying HyperTemplates engine (`libhypertemplates`) has no concept of required fields, but the [static site generator] does.
+The content management system used by `hyperctl` is called the HyperText Management System (HTMS). 
+This reference documents the HTMS building blocks, including: websites, authors, pages, assets, attachments, tags, feeds, and namespaces.
+For more information on `hyperctl` itself, please visit the [CLI reference documentation]. 
 
-### Example
+**Websites**
+: The HyperText Management system organizes content into websites.
+  
+  <learn-more ht-element href='/docs/reference/cms/website/'></learn-more>
 
-### Specification
+**Authors**
+: All content must be attributed to one or more authors.
 
-#### Website
+  <learn-more ht-element href='/docs/reference/cms/authors/'></learn-more>
 
-#### Pages
+**Pages**
+: A website is a collection of pages.
 
-#### Tags
+  <learn-more ht-element href='/docs/reference/cms/pages/'></learn-more>
 
-#### Feeds
+**Assets**
+: A page may contain one or more assets (e.g. images and other files).
 
-#### Namespaced data
+  <learn-more ht-element href='/docs/reference/cms/assets/'></learn-more>
 
-Additional globally-accessible data namespaces can be added as files in the `/data` directory.
-Custom data namespaces are accessible via their namespace identifier (i.e. `data.<identifier>`).
-Namespaces are identified as follows: using the top-level "namespace" property (if set), using the name of the top-level property (if only one top-level property is set), or as "default".
-Duplicate namespace identifiers will result in data loss (overwritten data).
+**Attachments**
+: A page may feature one or more attachments (files or links).
 
-<!-- Example data snippet -->
-```json
-{
-    "subscribe": {
-        "...": "..."
-    }
-}
-```
+  <learn-more ht-element href='/docs/reference/cms/attachments/'></learn-more>
 
-```json
-{
-    "namespace": "cta",
-    "...": "..."
-}
-```
+**Tags**
+: Websites may organize smaller collections of pages using tags.
+
+  <learn-more ht-element href='/docs/reference/cms/tags/'></learn-more>
+
+**Feeds**
+: Website updates are organized into feeds.
+
+  <learn-more ht-element href='/docs/reference/cms/feeds/'></learn-more>
+
+**Namespaces**
+: Non-page content can be managed in custom data namespaces.
+
+  <learn-more ht-element href='/docs/reference/cms/namespaces/'></learn-more>
+
+<!-- Links -->
+[core specification]: /docs/reference/core/
+[`hyperctl`]: /docs/reference/cli/
+[CLI reference documentation]: /docs/reference/cli/

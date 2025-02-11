@@ -9,7 +9,7 @@ learn:
     href: /blog/
 develop:
   - label: Reference
-    href: /docs/reference/attributes/
+    href: /docs/reference/core/attributes/
   - label: Docs
     href: /docs/
 sidebar:
@@ -44,7 +44,7 @@ footer:
     href: /docs/
   - group: Getting Started
     label: Reference
-    href: /docs/reference/attributes/
+    href: /docs/reference/core/attributes/
   - group: Getting Started
     label: CLI
     href: /docs/reference/cli/

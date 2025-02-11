@@ -67,14 +67,14 @@ They range from static site generators like [Hugo] and [11ty], to JavaScript fra
 We've used almost every single one of these tools in one capacity or another, and they are incredibly powerful.
 But [every](https://gohugo.io/templates/introduction/) [single](https://www.11ty.dev/docs/languages/liquid/#supported-features) [one](https://nextjs.org/docs/app/getting-started/layouts-and-pages) of [them](https://docs.astro.build/en/reference/astro-syntax/) [uses](https://handlebarsjs.com/guide/expressions.html#basic-usage) a [different templating system](https://developer.wordpress.org/themes/templates/introduction-to-templates/), and none of them are HTML! 🤦🏽‍♂️
 
-No wonder so many people who learn basic HTML+CSS+JavaScript never end up making a single website.
-<mark>The barrier to entry is too high.</mark>
-
 <pull-quote ht-element>
 
 Even after someone learns the basics of HTML, CSS, _and_ JavaScript – three languages! – the skills they have acquired are completely unrelated to how most websites are built in the real world.
 
 </pull-quote>
+
+No wonder so many people who learn basic HTML+CSS+JavaScript never end up making a single website.
+<mark>The barrier to entry is too high.</mark>
 
 ### Pure-HTML templating
 

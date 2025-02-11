@@ -6,14 +6,17 @@ summary: |
     Home of the HyperTemplates tutorial, guide, and reference documentation.
 ---
 
-## HyperTemplates
+## HyperTemplates Documentation
 
 <auto-toc ht-element scope='main'></auto-toc>
 
 * [Introduction to templating](#introduction-to-templating)
 * [HyperTemplates in a nutshell](#hypertemplates-in-a-nutshell)
-* [Data-driven templates](#data-driven-templates)
-* [Reference documentation](#reference-documentation)
+* [Data-driven templating](#data-driven-templating)
+* [Resources](#resources)
+  * [Tutorials](#tutorials)
+  * [How-To Guides](#how-to-guides)
+  * [Reference documentation](#reference-documentation)
 
 ## Introduction to templating
 
@@ -102,10 +105,12 @@ This template tells HyperTemplates to make the following changes:
 
 To learn more about HyperTemplates attributes, please visit the [attributes reference].
 
-## Data-driven templates
+## Data-driven templating
 
 HyperTemplates populates HTML templates with template data containing key-value pairs.
 Template data is generally managed as content files in Markdown, YAML, or JSON format.
+
+**Example template data**
 
 ```javascript
 {
@@ -130,24 +135,37 @@ Template data is generally managed as content files in Markdown, YAML, or JSON f
 }
 ```
 
-Template attributes reference template data properties using "dot notation" [property accessors].
+HyperTemplates layouts contain [HTML attributes] that reference template data properties using "dot notation" [property accessors].
 For example, the `site.favicon.href` property has a value of `/img/apple-touch-icon.png`.
 
-<learn-more ht-element href='/docs/reference/data/'></learn-more>
+To learn more about how HyperTemplates handles template data, please visit the [template data reference documentation].
 
-## Reference Documentation
+<learn-more ht-element href='/docs/reference/core/data/'></learn-more>
 
-Learn more about the HyperTemplates [template attributes], [template data], and [static site generator].
+## Resources
+
+### Tutorials
+
+Coming soon...
+
+### How-To Guides
+
+Coming soon...
+
+### Reference Documentation
+
+Learn more about the HyperTemplates [core specification], [content management system], and [static site generator] by visiting the reference documentation.
 
 <learn-more ht-element href='/docs/reference/'></learn-more>
 
 
 <!-- Links -->
-[HyperTemplates HTML attributes]: /docs/reference/attributes/
+[HyperTemplates HTML attributes]: /docs/reference/core/attributes/
+[HTML attributes]: /docs/reference/core/attributes/
 [**for each** entry **in**]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+[attributes reference]: /docs/reference/core/attributes/
 [property accessors]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors
-
-[attributes reference]: /docs/reference/attributes/
-[template attributes]: /docs/reference/attributes/
-[template data]: /docs/reference/data/
+[template data reference documentation]: /docs/reference/core/data/
+[core specification]: /docs/reference/core/
+[content management system]: /docs/reference/cms/
 [static site generator]: /docs/reference/cli/

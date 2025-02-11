@@ -61,7 +61,6 @@ Static sites managed with `hyperctl` are configured via a configuration file in 
 ```yaml
 ---
 base_url: https://preview.hypertemplates.net
-theme: hyper
 title: HyperTemplates
 description: A pure-HTML templating system for the modern web.
 favicons:
@@ -82,24 +81,31 @@ author:
   href: /
   favicon: /img/favicon-512x512.png
   email: contact@hypertemplates.net
+
 feeds:
   - link: /
+
+provider:
+    kind: s3
+    uri: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com
+    store: hypertemplates-web-preview
+    secrets:
+        - name: access_key_id
+          provider: env
+          key: AWS_ACCESS_KEY_ID
+        - name: secret_access_key
+          provider: env
+          key: AWS_SECRET_ACCESS_KEY
+
 config:
     tidy_mode: true
-    provider:
-        kind: s3
-        uri: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com
-        store: hypertemplates-web-preview
-        secrets:
-            - name: access_key_id
-              provider: env
-              key: AWS_ACCESS_KEY_ID
-            - name: secret_access_key
-              provider: env
-              key: AWS_SECRET_ACCESS_KEY
+    theme:
+        settings: themes/hyper/theme.json
 ```
 
 </code-snippet>
+
+<learn-more ht-element href='/docs/reference/cli/config/'></learn-more>
 
 ### Commands
 

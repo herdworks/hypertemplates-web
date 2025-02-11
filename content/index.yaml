@@ -52,7 +52,7 @@ features:
         description: The HyperTemplates specification is a new system for HTML templating.
         width: 4
         height: 2
-        href: /docs/reference/attributes/
+        href: /docs/reference/core/attributes/
       - title: Library
         description: At the core of HyperTemplates is a library called `libhypertemplates` that offers C bindings for HTML templating in native applications.
         width: 4
