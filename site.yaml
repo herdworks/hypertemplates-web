@@ -21,23 +21,27 @@ favicons:
   - href: /img/favicon-512x512.png
     sizes: 512x512
 banner: /banner.jpg
-theme: hyper
 copyright: "2024"
+
 feeds:
   - link: /
   - link: /blog/
     tags:
       - blog
+
 config:
     tidy_mode: true
-    provider:
-        kind: s3
-        uri: https://5a8b6c901ff20ee02892cf121b1ead54.r2.cloudflarestorage.com
-        store: hypertemplates-web-preview
-        secrets:
-            - name: access_key_id
-              provider: env
-              key: AWS_ACCESS_KEY_ID
-            - name: secret_access_key
-              provider: env
-              key: AWS_SECRET_ACCESS_KEY
+    theme:
+        settings: themes/hyper/config.json
+
+provider:
+    kind: s3
+    uri: https://5a8b6c901ff20ee02892cf121b1ead54.r2.cloudflarestorage.com
+    store: hypertemplates-web-preview
+    secrets:
+        - name: access_key_id
+          provider: env
+          key: AWS_ACCESS_KEY_ID
+        - name: secret_access_key
+          provider: env
+          key: AWS_SECRET_ACCESS_KEY
