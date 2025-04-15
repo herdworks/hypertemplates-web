@@ -9,7 +9,7 @@ summary: |
 
 At a high level, HyperTemplates attempts to be unopinionated about the structure of HTML content and layouts.
 The [core specification] is primarily concerned with HTML templates (layouts) and template data (content) as inputs, which are used to generate individual **web _pages_** (HTML documents) as outputs.
-When it comes to building **web _sites_**, a more opinionated approach to content management is required.
+When it comes to building **web _sites_** (collections of HTML documents), a more opinionated approach to content management is required.
 
 ### The HyperText Management System
 
@@ -56,6 +56,11 @@ For more information on `hyperctl` itself, please visit the [CLI reference docum
 : Non-page content can be managed in custom data namespaces.
 
   <learn-more ht-element href='/docs/reference/cms/namespaces/'></learn-more>
+
+**Content Types**
+: Content templates for generating new pages.
+
+  <learn-more ht-element href='/docs/reference/cms/content-types/'></learn-more>
 
 <!-- Links -->
 [core specification]: /docs/reference/core/

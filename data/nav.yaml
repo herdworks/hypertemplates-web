@@ -37,6 +37,9 @@ footer:
   - group: HyperTemplates
     label: Blog
     href: /blog/
+  - group: HyperTemplates
+    label: Downloads
+    href: /downloads/
 
   # Getting Started
   - group: Getting Started

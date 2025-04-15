@@ -18,6 +18,7 @@ summary: |
   * [`favicon`](#favicon)
   * [`favicons`](#favicons)
   * [`feeds`](#feeds)
+  * [`metadata`](#metadata)
   * [Custom properties](#custom-properties)
 
 ### Overview
@@ -109,6 +110,8 @@ For more information on how pages are managed, see the [pages reference document
 #### `favicons`
 
 #### `feeds`
+
+#### `metadata`
 
 #### Custom properties
 

@@ -1,5 +1,5 @@
 ---
-created_at: "2024-11-12T10:00:00-0700"
+created_at: "2024-11-12T10:00:00-07:00"
 title: Themes
 summary: |
     HyperTemplates theme reference documentation.

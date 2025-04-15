@@ -32,6 +32,12 @@ Static sites managed with `hyperctl` are configured via a configuration file in 
 base_url: https://preview.hypertemplates.net
 title: HyperTemplates
 description: A pure-HTML templating system for the modern web.
+author:
+  username: "@hypertemplates.net"
+  name: HyperTemplates
+  href: /
+  favicon: /img/favicon-512x512.png
+  email: contact@hypertemplates.net
 favicons:
   - href: /img/apple-touch-icon.png
     sizes: 180x180
@@ -44,19 +50,13 @@ favicons:
     sizes: 256x256
   - href: /img/favicon-512x512.png
     sizes: 512x512
-author:
-  username: "@hypertemplates.net"
-  name: HyperTemplates
-  href: /
-  favicon: /img/favicon-512x512.png
-  email: contact@hypertemplates.net
 
 feeds:
   - link: /
 
 provider:
     kind: s3
-    uri: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com
+    endpoint: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com
     store: hypertemplates-web-preview
     secrets:
         - name: access_key_id
@@ -67,9 +67,13 @@ provider:
           key: AWS_SECRET_ACCESS_KEY
 
 config:
-    tidy_mode: true
+    markdown:
+        mentions:
+            href_prefix: /tags/
+            href_suffix: /
     theme:
         settings: themes/hyper/theme.json
+    tidy_mode: true
 ```
 
 </code-snippet>

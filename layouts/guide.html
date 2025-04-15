@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <meta ht-include='partials/head.html'></meta>
+    </head>
+    <body data-color-scheme='light'>
+        <style>
+            header {
+                & :is(a, a:hover) {
+                    text-decoration: none;
+                    box-shadow: none;
+                }
+            }
+            detail-guide guide-overview {
+                display: block;
+                width: 100%;
+                text-align: center;
+                counter-reset: step;
+                justify-content: center;
+                justify-items: center;
+
+                & h1 {
+                    font-size: 3.0rem;
+                }
+
+                & button {
+                    justify-self: center;
+                    font-weight: bold;
+                    font-size: 24px;
+                    margin: var(--gutter-1x, 15px) auto 0 auto;
+                }
+            }
+            detail-guide details {
+                display: grid;
+                margin: var(--gutter-2x, 30px) 0;
+                grid-auto-flow: row;
+                grid-auto-rows: auto;
+            }
+
+            detail-guide details summary {
+                display: grid;
+                grid-template-areas: 
+                    "counter . title"
+                    "counter . description";
+                grid-template-columns: 60px var(--gutter-1x, 15px) 1fr;
+                grid-template-rows: 1fr 1fr;
+                margin-bottom: var(--gutter-1x, 15px);
+            }
+
+            detail-guide details summary label {
+                display: flex;
+                width: 100%;
+                grid-area: counter;
+                align-self: center;
+                justify-content: center;
+                background-color: rgba(0,0,0,1.0);
+            }
+            detail-guide details summary label span::before {
+                font-size: 3.0rem;
+                font-weight: bold;
+                color: white;
+                counter-increment: step;
+                content: counter(step);
+            }
+            detail-guide details summary h4 {
+                grid-area: title;
+                font-size: 1.2rem;
+                align-self: end;
+                margin-bottom: 0;
+            }
+            detail-guide details summary p {
+                grid-area: description;
+                align-self: start;
+            }
+
+            detail-guide details[open] > *:not(summary) {
+                margin-left: 75px;
+            }
+            detail-guide details[open] code-snippet {
+                width: calc(100% - 75px);
+            }
+            detail-guide details ::-webkit-details-marker {
+                display: none;
+            }
+            detail-guide details, details[open] {
+                transition: height 500ms ease-out;
+            }
+            detail-guide details pre:has(code) {
+                margin: var(--gutter-1x, 15px) 0;
+                padding: 10px;
+            }
+        </style>
+        <header>
+            <nav ht-include='partials/nav.html'></nav>
+        </header>
+        <grid-whitepsace data-color-scheme='light'></grid-whitepsace>
+        <main>
+            <section id='guide' data-color-scheme='light'>
+                <grid-container>
+                    <detail-guide>
+                        <guide-overview>
+                            <h1>Learn HyperTemplates in <span ht-content='text:page.guide.steps.length'></span> steps</h1>
+                            <content-block ht-content='markdown:page.guide.overview'>Lorem ipsum, hipsters get some.</content-block>
+                            <button>Let's go</button>
+                        </guide-overview>
+                        <details ht-template='step:page.guide.steps' ht-content='markdown:step.instructions' name='guide'>
+                            <summary>
+                                <label><span></span></label>
+                                <h4 ht-content='text:step.title'></h3>
+                                <p ht-content='markdown:step.description'></p>
+                            </summary>
+                        </details>
+                    </detail-guide>
+                </grid-container>
+            </section>
+        </main>
+        <grid-whitespace data-color-scheme='light'></grid-whitespace>
+        <section ht-include='partials/newsletter.html' data-color-scheme='gradient'></section>
+        <footer ht-include='partials/sections/footer.html'></footer>
+    </body>
+</html>

@@ -21,7 +21,7 @@ favicons:
   - href: /img/favicon-512x512.png
     sizes: 512x512
 banner: /banner.jpg
-copyright: "2024"
+copyright: "2025"
 
 feeds:
   - link: /
@@ -30,13 +30,13 @@ feeds:
       - blog
 
 config:
-    tidy_mode: true
     theme:
-        settings: themes/hyper/config.json
+        settings: theme.yaml
+    tidy_mode: true
 
 provider:
     kind: s3
-    uri: https://5a8b6c901ff20ee02892cf121b1ead54.r2.cloudflarestorage.com
+    endpoint: https://5a8b6c901ff20ee02892cf121b1ead54.r2.cloudflarestorage.com
     store: hypertemplates-web-preview
     secrets:
         - name: access_key_id

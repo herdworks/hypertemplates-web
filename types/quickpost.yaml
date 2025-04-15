@@ -1,0 +1,16 @@
+---
+metadata:
+    name: QuickPost
+    description: New quick post
+spec:
+    layout: post.html
+    format: markdown
+    path: /posts/
+    auto_slug: timestamp
+    requires:
+        title: false
+        content: true
+    template:
+        layout: default
+        tags:
+          - quickpost

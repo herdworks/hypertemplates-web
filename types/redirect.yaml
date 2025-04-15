@@ -1,0 +1,18 @@
+---
+metadata:
+    name: Redirect
+    description: New redirect
+spec:
+    layout: redirect
+    format: yaml
+    path: /link/
+    unlisted: true
+    template:
+        title: Redirect title
+        description: Redirect description
+        redirect: "/"
+        refresh: "0; url=/"
+        tags: []
+    prompts: []
+    patches: []
+

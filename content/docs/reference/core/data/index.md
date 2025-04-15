@@ -1,5 +1,5 @@
 ---
-created_at: 2024-11-12T10:00:00-0700
+created_at: 2024-11-12T10:00:00-07:00
 title: Template Data
 description: Learn more about the HyperTemplates data model.
 ---
@@ -26,7 +26,7 @@ Template data is generally managed as content files in Markdown, YAML, or JSON f
 
 ### Example
 
-This example shows the an approximation of a [template data object](#template-data-object).
+This example shows an approximation of a [template data object](#template-data-object).
 
 ```javascript
 {

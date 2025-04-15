@@ -1,0 +1,17 @@
+---
+metadata:
+    name: Link
+    description: New link post
+spec:
+    format: markdown
+    path: /links/
+    requires:
+        content: false
+        title: false
+        attachment: link
+    template:
+        layout: link
+        tags:
+          - link
+prompts: []
+patches: []

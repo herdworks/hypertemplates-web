@@ -11,10 +11,6 @@ summary: |
   * [What is a static site generator?](#what-is-a-static-site-generator)
 * [Configuration](#configuration)
 * [Commands](#commands)
-  * [`render`](#render)
-  * [`build`](#build)
-  * [`server`](#server)
-  * [`deploy`](#deploy)
 
 ### Overview
 
@@ -23,26 +19,25 @@ The `hyperctl` (pronounced "hyper control" or "hyper C-T-L") CLI tool is a fully
 <code-snippet ht-element filename='hyperctl'>
 
 ```none
-$ hyperctl --help
-
-hyperctl is a lightweight static site generator based on HyperTemplates.
+$ hyperctl is a lightweight static site generator based on HyperTemplates.
 
 Usage:
         hyperctl [command] [options]
 
-
 Available commands:
-        render        Render a HyperTemplate
-        generate      Generate a single page build from a HyperTemplate.
+        asset         Manage website assets.
         build         Build a static site from HyperTemplates.
-        publish       Publish a single page build to a HyperProvider.
-        deploy        Deploy a static site build to a HyperProvider.
-        server        Run a local HTTP server.
         content-type  Inspect HyperTemplate theme content types.
-        new           Create a new page.
+        deploy        Deploy a static site build to a HyperProvider.
+        generate      Generate a single page build from a HyperTemplate.
+        graph         Fetch entity and page metadata from the HyperGraph™️.
+        new           Create a new website or page.
+        publish       Publish a single page build to a HyperProvider.
+        render        Render a HyperTemplate
+        server        Run a local HTTP server.
 
 Options:
-        -h, --help  Display help information.
+        -h, --help  Display help information
 ```
 
 </code-snippet>
@@ -63,6 +58,12 @@ Static sites managed with `hyperctl` are configured via a configuration file in 
 base_url: https://preview.hypertemplates.net
 title: HyperTemplates
 description: A pure-HTML templating system for the modern web.
+author:
+  username: "@hypertemplates.net"
+  name: HyperTemplates
+  href: /
+  favicon: /img/favicon-512x512.png
+  email: contact@hypertemplates.net
 favicons:
   - href: /img/apple-touch-icon.png
     sizes: 180x180
@@ -75,19 +76,13 @@ favicons:
     sizes: 256x256
   - href: /img/favicon-512x512.png
     sizes: 512x512
-author:
-  username: "@hypertemplates.net"
-  name: HyperTemplates
-  href: /
-  favicon: /img/favicon-512x512.png
-  email: contact@hypertemplates.net
 
 feeds:
   - link: /
 
 provider:
     kind: s3
-    uri: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com
+    endpoint: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com
     store: hypertemplates-web-preview
     secrets:
         - name: access_key_id
@@ -98,9 +93,13 @@ provider:
           key: AWS_SECRET_ACCESS_KEY
 
 config:
-    tidy_mode: true
+    markdown:
+        mentions:
+            href_prefix: /tags/
+            href_suffix: /
     theme:
         settings: themes/hyper/theme.json
+    tidy_mode: true
 ```
 
 </code-snippet>
@@ -109,11 +108,52 @@ config:
 
 ### Commands
 
-#### `render`
+**`asset`**
+: Manage website assets.
 
-#### `build`
+  <learn-more ht-element href='/docs/reference/cli/commands/asset/'></learn-more>
 
-#### `server`
+**`build`**
+: Build a static site from HyperTemplates.
 
-#### `deploy`
+  <learn-more ht-element href='/docs/reference/cli/commands/build/'></learn-more>
 
+**`content-type`**
+: Inspect HyperTemplate theme content types.
+
+  <learn-more ht-element href='/docs/reference/cli/commands/content-type/'></learn-more>
+
+**`deploy`**
+: Deploy a static site build to a HyperProvider.
+
+  <learn-more ht-element href='/docs/reference/cli/commands/deploy/'></learn-more>
+
+**`generate`**
+: Generate a single page build from a HyperTemplate.
+
+  <learn-more ht-element href='/docs/reference/cli/commands/generate/'></learn-more>
+
+**`graph`**
+: Fetch entity and page metadata from the HyperGraph™️.
+
+  <learn-more ht-element href='/docs/reference/cli/commands/graph/'></learn-more>
+
+**`new`**
+: Create a new website or page.
+
+  <learn-more ht-element href='/docs/reference/cli/commands/new/'></learn-more>
+
+**`publish`**
+: Publish a single page build to a HyperProvider.
+
+  <learn-more ht-element href='/docs/reference/cli/commands/publish/'></learn-more>
+
+**`render`**
+: Render a HyperTemplate
+
+  <learn-more ht-element href='/docs/reference/cli/commands/render/'></learn-more>
+
+**`server`**
+: Run a local HTTP server.
+
+  <learn-more ht-element href='/docs/reference/cli/commands/server/'></learn-more>

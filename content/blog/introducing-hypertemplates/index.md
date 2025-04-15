@@ -100,15 +100,13 @@ Here's what it looks like to write HTML templates with HyperTemplates:
         <meta name='description' ht-attrs='content:page.description,site.description'>
     </head>
     <body>
-        <header>
-            <h1 ht-content='page.title'>Placeholder title</h1>
-        </header>
-        <main>
-            <article id='article' ht-content='markdown:page.content'></article>
-        </main>
-        <footer>
-            <p>&copy; 2024 HyperTemplates</p>
-        </footer>
+        <header ht-include='partials/sections/header.html'></header>
+        <section>
+            <main>
+                <article id='article' ht-content='markdown:page.content'></article>
+            </main>
+        </section>
+        <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>
 ```

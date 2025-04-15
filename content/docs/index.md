@@ -34,7 +34,7 @@ To add this information to every company document without a template (the letter
 _It would also be incredibly inefficient!_
 Templates solve these problems and many others by making it easy to create consistent looking documents.
 
-Document templates are useful because they allow us to <mark>focus on the **contents**</mark> of the document rather than futzing with how the content should be presented. 
+Document templates are useful because they allow us to <mark>focus on the **contents**</mark> of a document rather than futzing with how the content should be presented. 
 In practical terms, templates also serve as a guide - they prompt us to provide the necessary information to accomplish a given task.
 
 ## HyperTemplates in a nutshell

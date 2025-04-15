@@ -1,5 +1,5 @@
 ---
-created_at: 2025-02-03T12:00:00-0800
+created_at: 2025-02-03T12:00:00-08:00
 title: ht-template
 ---
 
@@ -16,7 +16,7 @@ title: ht-template
 
 ### Overview 
 
-The `ht-template` [attribute] causes HyperTemplates to tepeats the target HTML element once per occurrence of some content.
+The `ht-template` [attribute] causes HyperTemplates to repeats the target HTML element once per occurrence of some content.
 
 When combined with other HyperTemplates [templating attributes] such as [`ht-content`], [`ht-attrs`], [`ht-if`], and [`ht-include`], the `ht-template` attribute is a powerful building block for defining dynamic layouts that adapt to the contents of [template data].
 

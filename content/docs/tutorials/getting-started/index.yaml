@@ -1,5 +1,5 @@
 ---
-created_at: 2024-12-16T14:00:00-0700
+created_at: 2024-12-16T14:00:00-07:00
 canonical_url: https://hypertemplates.net/getting-started
 title: Getting Started
 layout: guide
@@ -35,13 +35,19 @@ guide:
           instructions: |
             Add some content to `content/index.md`.
 
-            ```none
+            <code-snippet ht-element filename="content/index.md">
+
+            ```plaintext
             ## Hello, world
 
             This is my first HyperTemplates content!
             ```
 
+            </code-snippet>
+
             Add a basic layout to `layouts/default.html`.
+
+            <code-snippet ht-element filename="layouts/default.html">
 
             ```html
             <html lang='en-US'>
@@ -57,6 +63,8 @@ guide:
             </html>
             ```
 
+            </code-snippet>
+
             The body of a markdown document (e.g. `index.md`) is accessible to HyperTemplates as the [template data](/docs/reference/core/data/) `content` field.
             This layout templates the `<article>` element using the [`ht-content` attribute](/docs/reference/core/attributes/ht-content/).
             The `markdown:content` value tells HyperTemplates to [format](/docs/reference/core/attributes/ht-content/#content-formats) the `content` from `index.md` as [Markdown](/docs/reference/core/markdown/).
@@ -69,7 +77,7 @@ guide:
 
             Now let's look at our humble web page in a browser!
 
-            ```none
+            ```plaintext
             open file://${HOME}/ht-tutorial/index.html
             ```
 
@@ -78,7 +86,9 @@ guide:
           instructions: |
             Let's add `title` and `description` fields to `content/index.md`.
 
-            ```none
+            <code-snippet ht-element filename="content/index.md" highlight="2,3" with-line-numbers>
+
+            ```plaintext
             ---
             title: Introduction to HTML templating
             description: My first HyperTemplates page!
@@ -88,6 +98,8 @@ guide:
 
             This is my first HyperTemplates content!
             ```
+
+            </code-snippet>
 
             Add a description `<meta>` tag to `layouts/default.html`.
             And let's go ahead and template the `<title>` tag while we're at it.
@@ -156,7 +168,7 @@ guide:
             That's because our template data (`index.md`) only has a `title` property, but no `copyright` property.
             Now let's add the missing `copyright` property.
 
-            ```none
+            ```plaintext
             ---
             title: Introduction to HTML templating
             description: My first HyperTemplates page!
@@ -270,7 +282,7 @@ guide:
             The `ht-template` attribute tells HyperTemplates to clone the `<a>` element for each item in the `nav` property.
             Let's add some navigation links to `content/index.md` to see how this works.
 
-            ```none
+            ```plaintext
             ---
             title: Introduction to HTML templating
             description: My first HyperTemplates page!
@@ -291,7 +303,7 @@ guide:
 
             Run the render command again:
 
-            ```none
+            ```plaintext
             hyperctl render -d content/index.md -l layouts/default.html > index.html
             ```
 

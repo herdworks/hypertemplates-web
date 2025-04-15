@@ -1,0 +1,30 @@
+---
+metadata:
+    name: Page
+    description: New page
+spec:
+    layout: default
+    format: markdown
+    path: /
+    autoslug: timestamp
+    requires:
+        content: true
+        title: true
+    template:
+        title: Default Title
+        layout: default
+        tags:
+          - blog
+        foo: bar
+        bar: baz
+prompts:
+  - kind: question
+    name: title
+    datatype: text # text, number, email, url, date, datetime, time, password, tel, hidden
+    required: true
+    input:
+        label: Title
+        placeholder: Blog post title
+        description: The title of the blog post
+        format: none
+patches: []

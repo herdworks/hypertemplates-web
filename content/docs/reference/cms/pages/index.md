@@ -82,6 +82,14 @@ The page content file provides a standardized set of core [properties](#properti
 
 #### `summary`
 
+<doc-quote ht-element success>
+
+#### Content summaries
+
+The HyperTemplate markdown processor will automatically generate a content summary for Markdown files that contain a `<!--more-->` HTML comment.
+
+</doc-quote>
+
 #### `more`
 
 #### `attachments`
