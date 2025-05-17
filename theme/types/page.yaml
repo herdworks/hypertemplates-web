@@ -6,7 +6,7 @@ spec:
     layout: default
     format: markdown
     path: /
-    autoslug: timestamp
+    auto_slug: timestamp
     requires:
         content: true
         title: true
