@@ -1,9 +1,14 @@
-customElements.define("footer-menu", class FooterMenu extends HTMLElement {
+class FooterMenu extends HTMLElement {
+    // static properties
+    static tagName = "footer-menu";
+
+    // instance properties
+
+    // lifecycle methods
     constructor() {
         super();
-        this.render();
     };
-    render() {
+    connectedCallback() {
         let menu = document.createElement("menu");
         let groups = new Set();
         for (let link of this.querySelectorAll("a[rel]")) {
@@ -23,9 +28,25 @@ customElements.define("footer-menu", class FooterMenu extends HTMLElement {
         this.setAttribute("columns", groups.size);
         this.appendChild(menu);
     };
+
+    // helper methods
     setTarget(anchor) {
         if (new URL(anchor.href).hostname != window.location.hostname) {
             anchor.target = "_blank";
         }
     }
-});
+
+    // static methods
+    static register() {
+        if (!this.tagName) { console.debug(`component ${this.name}.tagName is required for registration`); return }; // guard
+        if (customElements.get(this.tagName) || customElements.getName(this)) { return }; // guard
+        if (document.readyState == "complete" || document.readyState == "interactive") {
+            customElements.define(this.tagName, this);
+        } else {
+            document.addEventListener("DOMContentLoaded", customElements.define(this.tagName, this));
+        };
+        console.debug(`component "${this.tagName}" registered`);
+    };
+
+};
+FooterMenu.register();

@@ -4,9 +4,10 @@
         <meta ht-include='partials/head.html'></meta>
 
         <!-- Layout Properties -->
-        <meta name='layout:name' content='downloads'/>
+        <meta name='layout:name' content='features'/>
 
         <!-- Layout Components -->
+        <script src='/js/components/relative-time.js' defer></script>
         <script src='/js/components/footer-menu.js' defer></script>
 
         <!-- Layout Styles -->
@@ -14,11 +15,13 @@
     </head>
     <body>
         <header ht-include='partials/sections/header.html'></header>
-        <section id='contact'>
-            <style>
-            </style>
+        <section data-color-scheme='light'>
+            <grid-container>
+                <main ht-content='markdown:page.content'></main>
+            </grid-container>
         </section>
-        <grid-whitespace></grid-whitespace>
+        <grid-whitespace data-color-scheme='light'></grid-whitespace>
+        <section ht-include='partials/newsletter.html'></section>
         <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>

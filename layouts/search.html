@@ -2,6 +2,38 @@
 <html lang='en-US'>
     <head>
         <meta ht-include='partials/head.html'></meta>
+
+        <!-- Layout Properties -->
+        <meta name='layout:name' content='search' />
+
+        <!-- Layout Components -->
+        <script src='/js/components/hyper-finder.js' defer></script>
+        <script src='/js/components/relative-time.js' defer></script>
+        <script src='/js/components/footer-menu.js' defer></script>
+
+        <!-- Layout Styles -->
+        <style>
+            search-results {
+                display: grid;
+                width: 100%;
+                grid-template-columns: 1fr;
+            }
+            search-results search-result {
+                margin-bottom: var(--gutter-2x, 30px);
+
+                & a {
+                    color: inherit;
+                }
+
+                & :where(h3, small) {
+                    display: block;
+                    margin-bottom: 10px;
+                }
+            }
+            search-results p:not(:last-child) {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <header ht-include='partials/sections/header.html'></header>
@@ -12,34 +44,8 @@
                     <p itemprop='placeholder'>Your search results will appear here.</p>
                 </search-results>
             </grid-container>
-            <style>
-                hyper-finder form,form-group,input {
-                    width: 100%;
-                }
-                search-results {
-                    display: grid;
-                    width: 100%;
-                    grid-template-columns: 1fr;
-                }
-                search-results search-result {
-                    margin-bottom: var(--gutter-2x, 30px);
-
-                    & a {
-                        color: inherit;
-                    }
-
-                    & :where(h3, small) {
-                        display: block;
-                        margin-bottom: 10px;
-                    }
-                }
-                search-results p:not(:last-child) {
-                    display: none;
-                }
-            </style>
         </section>
         <grid-whitespace></grid-whitespace>
         <footer ht-include='partials/sections/footer.html'></footer>
-        <section ht-include='partials/tail.html'></section>
     </body>
 </html>

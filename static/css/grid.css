@@ -70,6 +70,7 @@ grid-whitespace {
 /* @media screen and (min-width: 680px) and (max-width: 991px) {} */
 /* @media screen and (min-width: 992px) and (max-width: 1379px) {} */
 /* @media screen and (min-width: 1380px) {} */
+
 /* xs-container */
 @media screen and (max-width: 679px) {
     :root {
@@ -77,11 +78,6 @@ grid-whitespace {
         --container-width: 92vw;
         --container-gutter: 4vw;
         --gutter-width: 15px;
-    }
-
-    :root service-items grid-row,
-    :root #newsletter grid-row {
-        grid-template-columns: 1fr;
     }
 }
 

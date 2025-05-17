@@ -2,16 +2,21 @@
 <html lang='en-US'>
     <head>
         <meta ht-include='partials/head.html'></meta>
-        <meta itemprop='template.name' content='default'>
+        <meta http-equiv="refresh" content="0; url=/" ht-attrs='content:page.refresh' ht-if='page.content==' />
+
+        <!-- Layout Properties -->
+        <meta name='layout:name' content='post'/>
         <meta name='layout:newsletter_title' content='The Newsletter'>
         <meta name='layout:newsletter_description' content='Get this and other posts delivered to your inbox. No more than one email per week, no fewer than one email per month.'>
 
-        <!-- Redirect? -->
-        <meta http-equiv="refresh" content="0; url=/" ht-attrs='content:page.refresh' ht-if='page.content==' />
-
-        <!-- Web Components -->
+        <!-- Layout Components -->
+        <script src='/js/components/hyper-feed.js' defer></script>
         <script src='/js/components/relative-time.js' defer></script>
         <script src='/js/components/auto-anchor.js' defer></script>
+        <script src='/js/components/footer-menu.js' defer></script>
+
+        <!-- Layout Styles -->
+        <style></style>
     </head>
     <body data-color-scheme='light'>
         <header ht-include='partials/blog/header.html'></header>

@@ -2,8 +2,15 @@
 <html lang='en-US'>
     <head>
         <meta ht-include='partials/head.html'></meta>
-    </head>
-    <body data-color-scheme='light'>
+
+        <!-- Layout Properties -->
+        <meta name='layout:name' content='guide'/>
+
+        <!-- Layout Components -->
+        <script src='/js/components/relative-time.js' defer></script>
+        <script src='/js/components/footer-menu.js' defer></script>
+
+        <!-- Layout Styles -->
         <style>
             header {
                 & :is(a, a:hover) {
@@ -90,6 +97,8 @@
                 padding: 10px;
             }
         </style>
+    </head>
+    <body data-color-scheme='light'>
         <header>
             <nav ht-include='partials/nav.html'></nav>
         </header>
@@ -99,7 +108,7 @@
                 <grid-container>
                     <detail-guide>
                         <guide-overview>
-                            <h1>Learn HyperTemplates in <span ht-content='text:page.guide.steps.length'></span> steps</h1>
+                            <h1>Learn HyperTemplates in <span ht-content='text:page.guide.steps.length'></span> easy steps</h1>
                             <content-block ht-content='markdown:page.guide.overview'>Lorem ipsum, hipsters get some.</content-block>
                             <button>Let's go</button>
                         </guide-overview>

@@ -1,14 +1,19 @@
-customElements.apply("relative-time", class RelativeTime extends HTMLElement {
+// RelativeTime Web Component
+class RelativeTime extends HTMLElement {
+    // static properties
+    static tagName = "relative-time";
 
-    // attributes
+    // instance properties
     timestamp;
 
     // lifecycle methods
-    constructor() {
-        super();
-    };
+    constructor() { super() };
     connectedCallback() {
-        this.init();
+        if (!this.datetime) { return }; // no timestamp, no date
+        let element = this.querySelector("time");
+        if (!(element instanceof HTMLElement)) { return };
+        element.setAttribute("title", this.date);
+        element.innerText = this.relativeTime(this.date);
     };
 
     // getters
@@ -22,15 +27,6 @@ customElements.apply("relative-time", class RelativeTime extends HTMLElement {
         if (!this.timestamp) { this.timestamp = Date.now() };
         return new Date(this.timestamp);
     }
-
-    // methods
-    init() {
-        if (!this.datetime) { return }; // no timestamp, no date
-        let element = this.querySelector("time");
-        if (!(element instanceof HTMLElement)) { return };
-        element.setAttribute("title", this.date);
-        element.innerText = this.relativeTime(this.date);
-    };
 
     // DateTime().relativeTime() method
     // 
@@ -77,4 +73,18 @@ customElements.apply("relative-time", class RelativeTime extends HTMLElement {
         var relativeTime = rtf.format(-diff, unit);
         return relativeTime;
     };
-});
+
+    // static methods
+    static register() {
+        if (!this.tagName) { console.debug(`component ${this.name}.tagName is required for registration`); return }; // guard
+        if (customElements.get(this.tagName) || customElements.getName(this)) { return }; // guard
+        if (document.readyState == "complete" || document.readyState == "interactive") {
+            customElements.define(this.tagName, this);
+        } else {
+            document.addEventListener("DOMContentLoaded", customElements.define(this.tagName, this));
+        };
+        console.debug(`component "${this.tagName}" registered`);
+    };
+
+};
+RelativeTime.register();

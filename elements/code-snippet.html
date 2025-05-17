@@ -81,7 +81,7 @@
     </window-content>
     <small ht-if='caption' ht-content='caption'></small>
     <script>
-        customElements.apply("code-snippet", class CodeSnippet extends HTMLElement {
+        class CodeSnippet extends HTMLElement {
 
             // lifecycle methods
             constructor() {
@@ -97,7 +97,7 @@
             }
 
             get highlights() {
-                let range = this.getAttribute("highlight") || this.getAttribute("highlight") || "";
+                let range = this.getAttribute("highlight") || this.getAttribute("highlights") || "";
                 let ranges = range.split(",").map(this.range.bind(this));
                 return ranges.flat();
             };
@@ -106,9 +106,9 @@
             highlight() {
                 let highlights = this.highlights;
                 if (highlights.length == 0) { return };
-                console.debug(highlights);
+                // console.debug(highlights);
                 for (let [number, line] of this.lines.entries()) {
-                    console.debug(number + 1)
+                    // console.debug(number + 1)
                     if (highlights.includes(number + 1)) {
                         line.classList.add("highlighted");
                     };
@@ -130,6 +130,9 @@
                 return r;
             }
 
-        });
+        };
+        if (!customElements.get("code-snippet") && !customElements.getName(CodeSnippet)) {
+            customElements.define("code-snippet", CodeSnippet);
+        };
     </script>
 </code-snippet>

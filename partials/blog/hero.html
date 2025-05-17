@@ -14,5 +14,6 @@
     <sidebar-menu ht-include='partials/sidebar-menu'></sidebar-menu>
     <grid-container ht-if='page.title' ht-content='markdown:page.summary'>
         <h1 rel='title' ht-content='text:page.title'>Title</h1>
+        <p rel='title' ht-content='text:page.description' ht-if='page.description'></p>
     </grid-container>
 </header>

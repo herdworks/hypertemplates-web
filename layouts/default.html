@@ -3,15 +3,58 @@
     <head>
         <meta ht-include='partials/head.html'></meta>
 
-        <!-- Web Components -->
-        <script src='/js/components/doc-breadcrumbs.js' defer></script>
+        <!-- Layout Properties -->
+        <meta name='layout:name' content='default'/>
+
+        <!-- Layout Components -->
         <script src='/js/components/auto-anchor.js' defer></script>
+        <script src='/js/components/doc-breadcrumbs.js' defer></script>
+        <script src='/js/components/footer-menu.js' defer></script>
+        <script src='/js/components/auto-toc.js' defer></script>
+
+        <!-- Layout Styles -->
+        <style>
+            doc-breadcrumbs {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin-bottom: var(--whitespace);
+                overflow: scroll;
+                scrollbar-width: none;  /* Firefox */
+                -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            }
+            doc-breadcrumbs::-webkit-scrollbar { 
+                display: none;  /* Safari and Chrome */
+            }
+            doc-breadcrumbs doc-breadcrumb {
+                display: flex;
+                flex-direction: row;
+                color: rgba(0,0,0,0.65);
+                align-items: center;
+                align-content: center;
+                white-space: nowrap;
+
+                & :is(svg,img) {
+                    display: inline;
+                    height: 1.0rem;
+                    margin: 0 var(--gutter-1x, 15px);
+                }
+
+                & a {
+                    display: inline;
+                    color: inherit !important;
+                }
+            }
+            doc-breadcrumb:last-of-type :is(svg,img) {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <header ht-include='partials/sections/header.html'></header>
         <section data-color-scheme='light'>
             <grid-container>
-                <doc-breadcrumbs ht-include='partials/breadcrumbs'></doc-breadcrumbs>
+                <doc-breadcrumbs></doc-breadcrumbs>
                 <main ht-content='markdown:page.content'></main>
                 <auto-anchor></auto-anchor>
             </grid-container>

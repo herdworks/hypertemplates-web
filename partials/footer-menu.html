@@ -1,5 +1,4 @@
 <footer-menu ht-if='data.nav.footer' columns='4'>
-    <a ht-template='link:data.nav.footer' ht-attrs='href:link.href;rel:link.group' ht-content='text:link.label,link.title'></a>
     <style>
         footer-menu {
             display: block;
@@ -42,7 +41,6 @@
         @media screen and (min-width: 680px) and (max-width: 991px) {}
         @media screen and (min-width: 992px) and (max-width: 1379px) {}
         @media screen and (min-width: 1380px) {}
-
     </style>
-    <script src='/js/components/footer-menu.js'></script>
+    <a ht-template='link:data.nav.footer' ht-attrs='href:link.href;rel:link.group' ht-content='text:link.label,link.title'></a>
 </footer-menu>

@@ -1,6 +1,9 @@
-customElements.apply("ht-feed", class HyperFeed extends HTMLElement {
+class HyperFeed extends HTMLElement {
 
-    // attributes
+    // static properties
+    static tagName = "ht-feed";
+
+    // instance properties
     src;
     selector;
     feed;
@@ -15,6 +18,11 @@ customElements.apply("ht-feed", class HyperFeed extends HTMLElement {
     };
     async connectedCallback() {
         this.init();
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            await this.load();
+        } else {
+            document.addEventListener("DOMContentLoaded", this.load.bind(this));
+        }
         document.addEventListener("DOMContentLoaded", this.load.bind(this));
         // emulate infinite scroll (user scrolls for 5s, then clicks "more" button)
         // await this.sleep(5000);
@@ -127,6 +135,7 @@ customElements.apply("ht-feed", class HyperFeed extends HTMLElement {
         card.querySelector("a:has(time)").href = url.href;
         card.querySelector("time").dateTime = postUpdated;
         card.querySelector("time").title = postUpdated;
+        card.querySelector("time").innerText = postUpdated;
         return card;
     }
 
@@ -152,4 +161,17 @@ customElements.apply("ht-feed", class HyperFeed extends HTMLElement {
         });
     };
 
-});
+    // static methods
+    static register() {
+        if (!this.tagName) { console.debug(`component ${this.name}.tagName is required for registration`); return }; // guard
+        if (customElements.get(this.tagName) || customElements.getName(this)) { return }; // guard
+        if (document.readyState == "complete" || document.readyState == "interactive") {
+            customElements.define(this.tagName, this);
+        } else {
+            document.addEventListener("DOMContentLoaded", customElements.define(this.tagName, this));
+        };
+        console.debug(`component "${this.tagName}" registered`);
+    };
+
+};
+HyperFeed.register();

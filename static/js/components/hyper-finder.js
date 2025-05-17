@@ -1,4 +1,7 @@
-customElements.apply("hyper-finder", class HyperFinder extends HTMLElement {
+class HyperFinder extends HTMLElement {
+
+    // static properties
+    static tagName = "hyper-finder";
 
     // attributes
     feed;
@@ -13,6 +16,25 @@ customElements.apply("hyper-finder", class HyperFinder extends HTMLElement {
         await this.find();
         this.addEventListener("input", this);
         this.addEventListener("submit", this);
+    };
+
+    // event handler methods
+    async handleEvent(event) {
+        console.debug(`handling "${event.type}" event`);
+        await this[`on${event.type}`](event);
+    };
+    async onDOMContentLoaded(event) {
+
+    };
+    async onclick(event) {
+        console.debug(`clicked ${event.target} element`);
+    };
+    async oninput(event) {
+        clearTimeout(this.debounce);
+        this.debounce = setTimeout(this.find.bind(this), 500);
+    };
+    async onsubmit(event) {
+        await this.find();
     };
 
     // getters
@@ -87,11 +109,12 @@ customElements.apply("hyper-finder", class HyperFinder extends HTMLElement {
         if (!(document instanceof Document)) { return }; // guard
         let scope = document.querySelector(this.scope);
         if (!scope) { console.debug(`no "${this.scope}" scope found in ${url.href}`); return }; // guard
-        if (!scope.innerText.toLowerCase().includes(query)) { return }; // continue
-        console.debug("found \"%s\" in %s", query, url.href);
-        this.addSearchResult(url, document);
+        let queryexp = new RegExp(query, "i");
+        let matches = (scope.innerText.toLowerCase().match(queryexp) || []).length
+        if (matches == 0) { console.debug("found \"%s\" in %s", query, url.href); return }; 
+        this.addSearchResult(url, document, matches);
     };
-    addSearchResult(url, document) {
+    addSearchResult(url, document, matches=0) {
         let item = window.document.createElement("search-result");
         let itemlink = window.document.createElement("a");
         let itemlinktitle = window.document.createElement("h3");
@@ -104,6 +127,7 @@ customElements.apply("hyper-finder", class HyperFinder extends HTMLElement {
         itemlink.appendChild(itemlinktitle);
         itemlink.appendChild(itemlinkhref);
         itemlink.appendChild(itemlinkdescription);
+        item.setAttribute("matches", matches);
         item.appendChild(itemlink);
         this.results.appendChild(item);
     };
@@ -118,20 +142,17 @@ customElements.apply("hyper-finder", class HyperFinder extends HTMLElement {
         });
     };
 
-    // event handler methods
-    async handleEvent(event) {
-        console.debug(`handling "${event.type}" event`);
-        await this[`on${event.type}`](event);
-    };
-    async onclick(event) {
-        console.debug(`clicked ${event.target} element`);
-    };
-    async oninput(event) {
-        clearTimeout(this.debounce);
-        this.debounce = setTimeout(this.find.bind(this), 500);
-    };
-    async onsubmit(event) {
-        await this.find();
+    // static methods
+    static register() {
+        if (!this.tagName) { console.debug(`component ${this.name}.tagName is required for registration`); return }; // guard
+        if (customElements.get(this.tagName) || customElements.getName(this)) { return }; // guard
+        if (document.readyState == "complete" || document.readyState == "interactive") {
+            customElements.define(this.tagName, this);
+        } else {
+            document.addEventListener("DOMContentLoaded", customElements.define(this.tagName, this));
+        };
+        console.debug(`component "${this.tagName}" registered`);
     };
 
-});
+};
+HyperFinder.register();

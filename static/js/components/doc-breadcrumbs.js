@@ -1,6 +1,9 @@
-customElements.apply("doc-breadcrumbs", class DocBreadcrumbs extends HTMLElement {
+class DocBreadcrumbs extends HTMLElement {
 
-    // attributes
+    // static properties
+    static tagName = "doc-breadcrumbs";
+
+    // instance properties
     url;
 
     // lifecycle methods
@@ -28,10 +31,18 @@ customElements.apply("doc-breadcrumbs", class DocBreadcrumbs extends HTMLElement
     };
 
     get breadcrumb() {
-        let template = this.querySelector("template");
-        if (!!template) {
-            return template.content.cloneNode(true);
-        }
+        // <doc-breadcrumb>
+        //     <a href='#'></a>
+        //     <svg ht-include='static/icons/chevron-right-thin.svg'></svg>
+        // </doc-breadcrumb>
+        let breadcrumb = document.createElement("doc-breadcrumb");
+        let anchor = document.createElement("a");
+        let img = document.createElement("img");
+        img.setAttribute("src", "/icons/chevron-right-thin.svg");
+        anchor.setAttribute("href", "#");
+        breadcrumb.appendChild(anchor);
+        breadcrumb.appendChild(img);
+        return breadcrumb;
     };
 
     // helpers
@@ -52,6 +63,19 @@ customElements.apply("doc-breadcrumbs", class DocBreadcrumbs extends HTMLElement
             breadcrumb.querySelector("a").textContent = title.textContent;
             this.appendChild(breadcrumb);
         };
-    }
+    };
 
-});
+    // static methods
+    static register() {
+        if (!this.tagName) { console.debug(`component ${this.name}.tagName is required for registration`); return }; // guard
+        if (customElements.get(this.tagName) || customElements.getName(this)) { return }; // guard
+        if (document.readyState == "complete" || document.readyState == "interactive") {
+            customElements.define(this.tagName, this);
+        } else {
+            document.addEventListener("DOMContentLoaded", customElements.define(this.tagName, this));
+        };
+        console.debug(`component "${this.tagName}" registered`);
+    };
+
+};
+DocBreadcrumbs.register();

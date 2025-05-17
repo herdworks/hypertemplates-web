@@ -9,31 +9,20 @@ spec:
     auto_slug: title-kabob
     requires:
         content: true
-        attachment: link
     template:
         tags:
           - blog
-# prompts:
-#   - kind: question
-#     name: title
-#     type: text
-#     required: true
-#     input:
-#         label: Title
-#         placeholder: Example title
-#         description: >-
-#             Post title...
-#         format: none
-
-#   - kind: question
-#     name: description
-#     type: text
-#     required: true
-#     input:
-#         label: Description
-#         placeholder: A brief description of the post.
-#         description: >-
-#             Post description...
-#         format: none
-
-# patches: []
+prompts:
+  - name: page
+    required: true
+    inputs:
+        title: {}
+        description: {}
+  - name: caption
+    required: true
+    input:
+        label: Description
+        placeholder: ""
+        description: >-
+            Describe the contents of the image(s).
+patches: []
