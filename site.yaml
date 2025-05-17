@@ -24,7 +24,7 @@ banner: /banner.jpg
 copyright: "2025"
 config:
     tidy_mode: true
-    theme_dir: "."
+    theme_dir: theme
     tag_layout: "tag"
 provider:
     kind: s3
