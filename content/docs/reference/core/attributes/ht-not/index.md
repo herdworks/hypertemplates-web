@@ -3,7 +3,7 @@ created_at: 2025-02-03T12:00:00-08:00
 title: ht-not
 ---
 
-## `ht-if` attribute reference
+## `ht-not` attribute reference
 
 <auto-toc ht-element scope='main'></auto-toc>
 

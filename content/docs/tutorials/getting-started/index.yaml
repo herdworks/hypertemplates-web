@@ -104,6 +104,8 @@ guide:
             Add a description `<meta>` tag to `layouts/default.html`.
             And let's go ahead and template the `<title>` tag while we're at it.
 
+            <code-snippet ht-element filename="layouts/default.html">
+
             ```html
             <html lang='en-US'>
                 <head>
@@ -118,6 +120,8 @@ guide:
                 </body>
             </html>
             ```
+
+            </code-snippet>
 
             [Frontmatter](/docs/reference/core/markdown/#frontmatter) properties a markdown document are accessible to HyperTemplates as [template data properties](/docs/reference/core/data/#template-data-properties).
             In this example we have templated the `<meta>` element using the [`ht-attrs` attribute](/docs/reference/core/attributes/ht-attrs/).
@@ -136,6 +140,8 @@ guide:
           description: Conditionally render layouts based on dynamic content.
           instructions: |
             Show a header and footer if `title` and `copyright` properties are present in the template data.
+
+            <code-snippet ht-element filename="layouts/default.html">
 
             ```html
             <html lang='en-US'>
@@ -158,6 +164,8 @@ guide:
             </html>
             ```
 
+            </code-snippet>
+
             Let's render the page to see what happens.
 
             ```shell
@@ -167,6 +175,8 @@ guide:
             Notice that the `<header>` element was retained in the rendered HTML, but the `<footer>` element was removed!
             That's because our template data (`index.md`) only has a `title` property, but no `copyright` property.
             Now let's add the missing `copyright` property.
+
+            <code-snippet ht-element filename="content/index.md">
 
             ```plaintext
             ---
@@ -179,6 +189,8 @@ guide:
 
             This is my first HyperTemplates content!
             ```
+
+            </code-snippet>
 
             Now let's render the page again.
 
@@ -203,6 +215,8 @@ guide:
 
             Now let's update `layouts/default.html` to include the header and footer components.
 
+            <code-snippet ht-element filename="layouts/default.html">
+
             ```html
             <html lang='en-US'>
                 <head>
@@ -220,7 +234,12 @@ guide:
             </html>
             ```
 
+            </code-snippet>
+
             Now let's flesh out our `<header>` template in `partials/header.html`.
+
+
+            <code-snippet ht-element filename="partials/header.html">
 
             ```html
             <header ht-if='title'>
@@ -234,13 +253,19 @@ guide:
             </header>
             ```
 
+            </code-snippet>
+
             And let's restore our `<footer>` template in `partials/footer.html`.
+
+            <code-snippet ht-element filename="partials/footer.html">
 
             ```html
             <footer ht-if='copyright'>
                 <span ht-content='html:copyright'>Powered by HyperTemplates&trade;</span>
             </footer>
             ```
+
+            </code-snippet>
 
             Render the page to see our `ht-include`s in action.
 
@@ -266,6 +291,8 @@ guide:
 
             Let's improve our `<nav>` template in `partials/header.html`.
 
+            <code-snippet ht-element filename="partials/header.html">
+
             ```html
             <header ht-if='title'>
                 <nav>
@@ -279,8 +306,13 @@ guide:
             </header>
             ```
 
+            </code-snippet>
+
             The `ht-template` attribute tells HyperTemplates to clone the `<a>` element for each item in the `nav` property.
             Let's add some navigation links to `content/index.md` to see how this works.
+
+
+            <code-snippet ht-element filename="content/index.md">
 
             ```plaintext
             ---
@@ -300,6 +332,8 @@ guide:
 
             This is my first HyperTemplates content!
             ```
+
+            </code-snippet>
 
             Run the render command again:
 

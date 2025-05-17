@@ -35,6 +35,11 @@ This reference documents the core specification itself.
 
   <learn-more ht-element href='/docs/reference/core/pipeline/'></learn-more>
 
+**Themes**
+: The HyperTemplates theme reference.
+
+  <learn-more ht-element href='/docs/reference/core/themes/'></learn-more>
+
 
 <!-- Links -->
 [`hyperctl`]: /docs/reference/cli/

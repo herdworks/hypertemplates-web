@@ -1,12 +1,11 @@
 ---
-created_at: 2025-02-04T12:00:00-08:00
-updated_at: 2025-02-04T12:00:00-08:00
+created_at: 2025-04-14T12:00:00-08:00
+updated_at: 2025-04-14T12:00:00-08:00
 layout: post
 title: Introducing HyperTemplates
+slug: introducing-hypertemplates
 description: |
     The pure-HTML templating system for the modern web.
-tags:
-    - blog
 ---
 
 ## Introducing HyperTemplates

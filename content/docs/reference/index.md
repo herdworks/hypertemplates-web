@@ -12,7 +12,7 @@ summary: |
 HyperTemplates is a **core specification**, a set of **libraries** for HTML templating, and a **static site generator**.
 The HyperTemplates reference documentation is organized around these components, and an additional section dedicated to the HyperTemplates **content management system**.
 
-**Specification**
+**Core Specification**
 : The HyperTemplates core specification.
   
   <learn-more ht-element href='/docs/reference/core/'></learn-more>
@@ -22,7 +22,7 @@ The HyperTemplates reference documentation is organized around these components,
 
   <learn-more ht-element href='/docs/reference/lib/'></learn-more>
 
-**Content Management System**
+**Content Management System (CMS)**
 : The HyperText Management System (HTMS).
 
   <learn-more ht-element href='/docs/reference/cms/'></learn-more>

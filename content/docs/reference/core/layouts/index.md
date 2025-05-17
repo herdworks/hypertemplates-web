@@ -52,7 +52,8 @@ This example shows a simple HyperTemplates layout.
 #### Valid HTML
 
 Layouts must be valid HTML documents.
-That's the entire specification.
+That's technically the entire specification.
+From a practical perspective a HyperTemplates layout is a valid HTML document with at least one [template attribute].
 To learn more about how to develop HyperTemplates layouts, please visit the [HyperTemplates attribute reference].
 
 ### Guides
@@ -65,3 +66,4 @@ Coming soon...
 [HTML document]: /docs/#introduction-to-templating
 [HyperTemplates attribute reference]: /docs/reference/core/attributes
 [HyperTemplates attribute]: /docs/reference/core/attributes
+[template attribute]: /docs/reference/core/attributes

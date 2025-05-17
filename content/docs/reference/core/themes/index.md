@@ -1,47 +1,39 @@
 ---
-created_at: "2024-11-12T10:00:00-07:00"
+created_at: 2025-01-26T11:00:00-08:00
 title: Themes
 summary: |
-    HyperTemplates theme reference documentation.
+    Themes
 ---
 
-## HyperTemplates Themes
+## Themes
 
 * [Overview](#overview)
-* [Example](#example)
+* [Example](#specification)
 * [Specification](#specification)
-  * [Configuration](#configuration)
+* [Guides](#guides)
 
 ### Overview
 
-A HyperTemplates theme is a collection of layouts and associated resource files.
-HyperTemplates themes must have a subdirectory named `layouts/` and a default layout file named `layouts/default.html`.
-
-```shell
-layouts/default.html
-```
-
-<mark>This is the only requirement</mark>.
+A HyperTemplates theme is a collection of [layouts] and related files.
+HyperTemplates themes must have a layouts directory and a default layout file named `default.html`.
+<mark>This is the only requirement for a HyperTemplates theme</mark>.
 
 ### Example
 
 An example HyperTemplates theme typically contains additional resources organized into subdirectories such as `partials/`, and `static/` but the actual directory structure beyond the `layouts` folder is up to theme developers.
 
 ```shell
-elements/
 layouts/
-    home.html
     default.html
-    feed.html
+    home.html
     post.html
 partials/
     head.html
-    nav.html
-    hero.html
+    header.html
     footer.html
-    tail.html
 static/
     css/
+        reset.css
         styles.css
     fonts/
     img/
@@ -71,4 +63,5 @@ Work in progress...
 </doc-quote>
 
 <!-- Links -->
-
+[layouts]: /docs/reference/core/layouts/
+[template attribute]: /docs/reference/core/attributes/

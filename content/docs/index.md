@@ -146,7 +146,11 @@ To learn more about how HyperTemplates handles template data, please visit the [
 
 ### Tutorials
 
-Coming soon...
+**Getting Started**
+: Learn the core building blocks of HyperTemplates in a few minutes!
+  
+  <learn-more ht-element href='/docs/tutorials/getting-started/'></learn-more>
+
 
 ### How-To Guides
 

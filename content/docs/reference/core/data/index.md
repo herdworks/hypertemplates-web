@@ -229,18 +229,6 @@ The HyperTemplates CLI and libraries have built-in support for parsing template 
 In some cases, multiple data sources are combined into a single template data object. 
 Template data sources may still be considered valid if "empty".
 
-##### Markdown
-
-Coming soon...
-
-##### YAML
-
-Coming soon...
-
-##### JSON
-
-Coming soon...
-
 ##### Layout data
 
 Additional layout-scoped data can be added to any layout or other layout fragment as `<meta>` elements.
