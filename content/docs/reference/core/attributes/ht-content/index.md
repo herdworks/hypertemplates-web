@@ -1,6 +1,8 @@
 ---
 created_at: 2025-02-03T12:00:00-08:00
 title: ht-content
+summary: |
+    `ht-content` attribute reference
 ---
 
 ## `ht-content` attribute reference
@@ -95,7 +97,7 @@ The `ht-content` attribute should not be used with [void elements].
 The `ht-content` attribute provides content templating instructions, expressed as a single `format:value` pair, where `value` is a comma-separated list of dot-notation style references to one or more [template data properties].
 
 ```html
-<h1 ht-content='html:page.title,site.title'>
+<h1 ht-content='html:page.title,site.title'></h1>
 ```
 
 See [content formats] for more information.
