@@ -7,8 +7,6 @@ summary: |
 
 ## HyperTemplates Attributes Reference
 
-<auto-toc ht-element scope='main'></auto-toc>
-
 The core of HyperTemplates is a small but mighty set of [HTML attributes] that allow you to compose complex HTML documents from simple HTML templates.
 
 `ht-content`

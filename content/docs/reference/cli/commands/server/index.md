@@ -6,4 +6,17 @@ summary: |
     `hyperctl server` reference documentation.
 ---
 
-Coming soon...
+## `hyperctl server` command
+
+<auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
+
+### Overview 
+
+### Usage
+
+```plaintext
+```
+
+### Options
+
+

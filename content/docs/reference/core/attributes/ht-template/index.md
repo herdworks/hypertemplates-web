@@ -5,14 +5,7 @@ title: ht-template
 
 ## `ht-template` attribute reference
 
-<auto-toc ht-element scope='main'></auto-toc>
-
-* [Overview](#overview)
-* [Example](#example)
-* [Specification](#specification)
-  * [Supported elements](#supported-elements)
-  * [Attribute syntax](#attribute-syntax)
-  * [Placeholder template](#placeholder-template)
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview 
 

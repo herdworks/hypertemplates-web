@@ -6,16 +6,7 @@ title: ht-attrs
 
 ## `ht-attrs` attribute reference
 
-<auto-toc ht-element scope='main'></auto-toc>
-
-* [Overview](#overview)
-* [Example](#example)
-* [Specification](#specification)
-  * [Supported elements](#supported-elements)
-  * [Attribute syntax](#attribute-syntax)
-  * [Default values](#default-values)
-  * [Attribute names](#attribute-names)
-  * [Multiple attributes](#multiple-attributes)
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview 
 
@@ -61,7 +52,7 @@ The `ht-attrs` attribute can be used with any HTML element.
 The `ht-attrs` attribute defines target HTML element attributes, expressed as a semicolon-separated list of `name:value` pairs.
 The `value` is a comma-separated list of dot-notation style references to one or more [template data properties].
 
-```none
+```plaintext
 ht-attrs='href:link.href,link.url;target:link.target'
 ```
 

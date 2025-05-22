@@ -6,4 +6,41 @@ summary: |
     `hyperctl content-type` reference documentation.
 ---
 
-Coming soon...
+## `hyperctl content-type` command
+
+<auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
+
+### Overview 
+
+Inspect HyperTemplate theme content types.
+
+### Usage
+
+```plaintext
+$ hyperctl content-type -h
+Inspect HyperTemplate theme content types.
+
+Usage:
+        hyperctl content-type [command] [options]
+
+Available commands:
+        ls       List content types.
+        inspect  Inspect content types.
+
+Options:
+        -h, --help  Display help information.
+```
+
+### Commands
+
+The `hyperctl content-type` command has the following subcommands:
+
+**`ls`**
+: The `hyperctl content-type ls` command lists content types.
+
+  <learn-more ht-element href='./ls/'></learn-more>
+
+**`inspect`**
+: The `hyperctl content-type inspect` command inspects content types.
+
+  <learn-more ht-element href='./inspect/'></learn-more>

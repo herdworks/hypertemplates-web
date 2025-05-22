@@ -58,7 +58,7 @@ code-snippet window-content > pre > code {
 code-snippet[with-line-numbers] .ln {
     display: block;
 }
-code-snippet .line.highlighted {
+code-snippet .line.highlighted .cl {
     background-color: rgba(255,255,255,0.15);
 }
 code-snippet window-content > p {

@@ -6,6 +6,6 @@ description: |
     Stay up-to-date with the latest HyperTemplates news.
 feed:
     paths:
-      - /blog/
+      - ^/blog/*
 ---
 

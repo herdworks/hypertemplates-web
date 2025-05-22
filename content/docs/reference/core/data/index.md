@@ -6,18 +6,7 @@ description: Learn more about the HyperTemplates data model.
 
 ## Template Data
 
-* [Overview](#overview)
-* [Example](#example)
-* [Specification](#specification)
-  * [Template data object](#template-data-object)
-  * [Template data properties](#template-data-properties)
-  * [Template data keys](#template-data-keys)
-  * [Template data values](#template-data-values)
-  * [Template data sources](#template-data-sources)
-    * [Markdown](#markdown)
-    * [YAML](#yaml)
-    * [JSON](#json)
-    * [Layout data](#layout-data)
+<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
 

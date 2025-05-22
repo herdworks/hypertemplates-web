@@ -7,11 +7,7 @@ summary: |
 
 ## HyperTemplates Pipeline Reference
 
-* [Overview](#overview)
-* [Specification](#specification)
-  * [Order of operations](#order-of-operations)
-  * [Template recursion](#template-recursion)
-
+<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
 

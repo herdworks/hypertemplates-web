@@ -9,8 +9,11 @@
 <title ht-content='text:page.title,site.title'></title>
 <meta name='description' content='' ht-attrs='content:page.description,site.description'>
 <meta name='author' ht-attrs='content:page.author.name,site.author.name'>
+<meta ht-template='meta:site.metadata' ht-attrs='name:meta.name; property:meta.property; content:meta.content'>
+
 <link rel='icon' type='image/png' sizes="32x32" href='/favicon.png' ht-template='favicon:site.favicon,site.favicons' ht-attrs='rel:favicon.rel;href:favicon.href;sizes:favicon.sizes;type=favicon.type'>
-<link rel='canonical' href='' ht-attrs='href:page.canonical_url'>
+<link rel='canonical' ht-attrs='href:page.canonical_url'>
+<link ht-template='link:site.links' ht-attrs='rel:link.rel; href:link.href; sizes:link.sizes; type:link.type'>
 <meta ht-include='partials/open-graph'>
 <meta ht-include='partials/twitter-card'>
 

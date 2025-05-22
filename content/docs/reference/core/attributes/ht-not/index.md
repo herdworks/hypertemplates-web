@@ -5,15 +5,7 @@ title: ht-not
 
 ## `ht-not` attribute reference
 
-<auto-toc ht-element scope='main'></auto-toc>
-
-* [Overview](#overview)
-* [Example](#example)
-* [Specification](#specification)
-  * [Supported elements](#supported-elements)
-  * [Attribute syntax](#attribute-syntax)
-  * [Exclusive templating](#exclusive-templating)
-  * [Conditional values](#conditional-values)
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
 

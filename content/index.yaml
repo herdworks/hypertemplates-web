@@ -5,6 +5,7 @@ unlisted: true
 canonical_url: https://hypertemplates.net/
 title: HyperTemplates
 description: The pure-HTML templating system for the modern web.
+banner: /banner.jpg
 hero:
     summary: |
         The pure-HTML templating system for the modern web.
@@ -44,7 +45,7 @@ hero:
 features:
     title: What is HyperTemplates?
     overview: |
-        HyperTemplates are a pure-HTML templating system for the modern web.
+        HyperTemplates is the pure-HTML templating system for the modern web.
         **No Javascript frameworks required.**
         Rediscover the simple joy of _building websites as nature intended_... with HTML, CSS, and a sprinkling of vanilla Javascript. :sparkles:
     highlights:
@@ -54,43 +55,51 @@ features:
         width: 6
         height: 3
         href: /docs/reference/core/
+
       - title: Static site generator
         description: |
           Fully featured Static site generator (`hyperctl`) with support for Markdown, YAML, JSON, and more.
         width: 6
         height: 3
         href: /docs/reference/cli/
+
       - title: Native applications (coming soon)
         description: Manage HyperTemplates websites by using the official app for iPhone, iPad, and Mac to perform full-site builds and deployments, or generate and publish incremental builds (single pages).
         width: 8
         height: 3
         href: https://hypertexting.com
+
       - title: Designed for <em>speed</em>
         description: |
           Hyper means _FAST_! HyperTemplates build times rival Hugo, with most smaller sites (dozens of pages) building in less than 100ms.
         width: 4
         height: 3
         href: /blog/the-need-for-speed/
+
       - title: Automatic feed generation
         description: Auto-generates multiple RSS (ATOM) feeds, including a primary feed and multiple tag-based feeds.
         width: 4
         height: 3
         href: /docs/reference/cms/feeds/
+
       - title: Reproducible builds
         description: Easily track changes between builds thanks to fully reproducible builds.
         width: 4
         height: 3
         href: /docs/reference/cli/commands/build/
+
       - title: Incremental builds
         description: Generate and publish single pages and related ATOM feeds to S3-compatible hosting providers.
         width: 4
         height: 3
         href: /docs/reference/cli/commands/generate/
+
       - title: Development server
         description: The `hyperctl` CLI comes with a built-in development server with live reloading.
         width: 4
         height: 3
         href: /docs/reference/cli/commands/server/
+
       - title: Hosted anywhere
         description: >-
           HyperTemplates websites can be hosted anywhere that serves static files, including GitHub Pages, Cloudflare Pages, Netlify, Vercel, or even your homelab server.
@@ -117,7 +126,7 @@ draft:
     href: /docs/reference/cli/
   - title: Workflow
     description: |
-        HyperTemplates is a pure-HTML templating system, which means you can use the skills and tools you already know and love.
+        HyperTemplates is the pure-HTML templating system, which means you can use the skills and tools you already know and love.
         HyperTemplates websites are easy to develop, maintain, and update &mdash; and they can be hosted anywhere!
     width: 12
     height: 2

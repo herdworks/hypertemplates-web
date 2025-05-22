@@ -5,15 +5,7 @@ title: ht-if
 
 ## `ht-if` attribute reference
 
-<auto-toc ht-element scope='main'></auto-toc>
-
-* [Overview](#overview)
-* [Example](#example)
-* [Specification](#specification)
-  * [Supported elements](#supported-elements)
-  * [Attribute syntax](#attribute-syntax)
-  * [Inclusive templating](#inclusive-templating)
-  * [Conditional values](#conditional-values)
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
 
@@ -128,12 +120,25 @@ To explain how conditional values are evaluated, consider the following example 
             href: "https://herd.works",
             kind: "organization",
         },
+        tags: [
+            "blog",
+            "announcement"
+        ]
     }
 }
 ```
 
 Given this example template data, the conditional expression `ht-if='page.author.kind'` would evaluate `true` because the [template data property] exists and it not empty.
 However, the conditional expression `ht-if='page.author.kind==person'` would evaluate `false` because the `page.author.kind` property has a value of "organization", not "person".
+
+##### Conditional expressions and arrays
+
+When a conditional expression with a conditional value is used on a property that is an array, such as the `page.tags` property in this example, the value is compared to all of the values in the array.
+Please note the following examples based on the sample data shown above:
+
+* **`ht-if='page.tags'`** would evaluate `true` because the `page.tags` array is not empty
+* **`ht-if='page.tags==announcement'`** would evaluate `true` because `page.tags` contains the value `announcement`
+* **`ht-if='page.tags==news'`** would evaluate `false` because `page.tags` does not contain the value `news`
 
 <!-- Links -->
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes

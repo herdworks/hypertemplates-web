@@ -7,10 +7,7 @@ summary: |
 
 ## Themes
 
-* [Overview](#overview)
-* [Example](#specification)
-* [Specification](#specification)
-* [Guides](#guides)
+<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
 

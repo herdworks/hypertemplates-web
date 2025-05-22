@@ -6,4 +6,17 @@ summary: |
     `hyperctl render` reference documentation.
 ---
 
-Coming soon...
+## `hyperctl render` command
+
+<auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
+
+### Overview 
+
+### Usage
+
+```plaintext
+```
+
+### Options
+
+

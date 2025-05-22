@@ -3,14 +3,13 @@ created_at: 2025-04-14T12:00:00-08:00
 updated_at: 2025-04-14T12:00:00-08:00
 layout: post
 title: Introducing HyperTemplates
-slug: introducing-hypertemplates
 description: |
     The pure-HTML templating system for the modern web.
 ---
 
 ## Introducing HyperTemplates
 
-> **TL;DR:** HyperTemplates is a pure-HTML templating system and static site generator. 
+> **TL;DR:** HyperTemplates is the pure-HTML templating system and static site generator. 
 > It was designed with the goal of making it easier to build websites as nature intended: using HTML, CSS, and a sprinkling of vanilla JavaScript. 
 > The HyperTemplates CLI (`hyperctl`) is available to download for MacOS starting today.
 > Please visit the developer preview to learn more.
@@ -112,7 +111,7 @@ Here's what it looks like to write HTML templates with HyperTemplates:
 
 </code-snippet>
 
-...to be continued...
+🚧 ...work in progress... 🚧
 
 
 <!-- Links -->

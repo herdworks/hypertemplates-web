@@ -1,4 +1,27 @@
 // AutoTableOfContents Web Component
+//
+//     This component generates a table of contents (TOC).
+//     Insert the <auto-toc> element in your HTML where you want the TOC to appear.
+//
+// Usage:
+//
+//     <auto-toc></auto-toc>
+//     <auto-toc selectors='[id]'></auto-toc>
+//     <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+//     <auto-toc scope='body' selectors='h2,h3,h4,h5,h6'></auto-toc>
+//
+// Options:
+//
+//     scope (string)
+//         The parent element to search for heading elements in.
+//
+//     selectors (string, comma-separated list)
+//         A comma-separated list of element selectors to include in the TOC.
+//
+//     trim (string, comma-separated list)
+//         A comma-separated list of characters to trim from the TOC items (e.g., "¶,•").
+//
+// © 2025 Herd Works (https://herd.works)
 class AutoTableOfContents extends HTMLElement {
 
     // static properties
@@ -6,13 +29,17 @@ class AutoTableOfContents extends HTMLElement {
 
     // instance properties
     scope;
-    min;
-    max;
+    selectors;
+    trim;
+
+    // private/internal properties
+    #rank = ["dd", "dt", "dl", "h6", "h5", "h4", "h3", "h2", "h1"];
+    #content;
+    #headings;
 
     // lifecycle methods
-    constructor() {
-        super();
-    };
+    constructor() { super() };
+
     connectedCallback() {
         if (document.readyState == "complete" || document.readyState == "interactive") {
             this.render();
@@ -22,64 +49,45 @@ class AutoTableOfContents extends HTMLElement {
     };
 
     // event handler methods
-    async handleEvent(event) {
-        console.debug(`handling "${event.type}" event`);
-        await this[`on${event.type}`](event);
-    };
-    async onDOMContentLoaded(event) {
-        this.render();
-    };
+    async handleEvent(event) { await this[`on${event.type}`](event) }; // event router
 
-    // getter methods
-    get levels() {
-        return this.fill([this.min, this.max]);
-    };
-    get selector() {
-        return this.levels.map(function(i){ return `h${i}` }).join(", ");
-    }
-    get headings() {
-        let content = document.querySelector(this.scope);
-        if (!content) { 
-            console.debug(`[toc] no scope found for ${this.scope}`)
-        };
-        return Array.from(content.querySelectorAll(this.selector));
-    };
+    async onDOMContentLoaded(event) { this.render() };
 
-    // helper methods
+    // instance methods
     render() {
-        this.min = this.getAttribute("min") || 2;
-        this.max = this.getAttribute("max") || 6;
-        this.scope = this.getAttribute("scope") || "main, body";
-        if (this.scope == "document") { this.scope = "html" }
-
-        console.debug("generating TOC for levels: %s", this.selector);
-        console.debug(this.headings);
+        this.scope = this.getAttribute("scope") || "main, article, section";
+        this.selectors = this.getAttribute("selectors") || this.getAttribute("include") || "h2, h3, h4, h5, h6";
+        this.trim = this.getAttribute("trim") || this.getAttribute("exclude") || "¶,•";
+        this.#content = this.closest(this.scope);
+        this.#headings = Array.from(this.#content.querySelectorAll(`:is(${this.selectors})`));
+        if (!this.querySelector("menu")) { this.appendChild(document.createElement("menu")) };
+        this.querySelector("menu").appendChild(this.list());
     };
 
-    fill(r=[]) {
-        let start = Math.min(...r);
-        let end = Math.max(...r);
-        for (let i = start + 1; i < end; i++) {
-            r.push(i);
-        }
-        r.sort(function(a, b){ return a - b });
-        return r;
+    list() {
+        let ul = document.createElement("ul");
+        while (this.#headings.length > 0) {
+            let current = this.#headings.shift();
+            let next = this.#headings[0];
+            let li = document.createElement("li");
+            let link = document.createElement("a");
+            li.appendChild(link);
+            link.setAttribute("href", `#${current.id}`);
+            link.innerText = current.innerText;
+            for (let char of this.trim.split(",")) { link.innerText = link.innerText.replace(char, "") };
+            if (this.level(current) > this.level(next)) {
+                li.appendChild(this.list(this.#headings));
+            }
+            ul.appendChild(li);
+            if (this.level(current) < this.level(next)) { break };
+        };
+        return ul;
     };
 
-    tree(headings) {
-        let tree = [];
-        for (let [index,heading] of headings.entries()) {
-            let level = parseInt(heading.tagName.substring(1));
-            let node = { level: level, text: heading.innerText, children: [] };
-            if (parent) { parent.children.push(node) } else { tree.push(node) };
-        }
+    level(incoming) {
+        if (!incoming || !incoming.tagName) { return -1 };
+        return this.#rank.indexOf(incoming.tagName.toLowerCase());
     };
-
-    // helper methods
-    peak(array, index) {
-        if (index == array.length) { return null };
-        return array[index + 1];
-    }
 
     // static methods
     static register() {

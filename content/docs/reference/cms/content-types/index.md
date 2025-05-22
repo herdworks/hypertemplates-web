@@ -1,5 +1,6 @@
 ---
-created_at: 2025-02-10T12:00:00-08:00
+created_at: 2025-05-21T12:00:00-08:00
+created_at: 2025-05-21T12:00:00-08:00
 title: Content Types
 summary: |
     The HyperText Management System "content-type" reference.
@@ -7,20 +8,7 @@ summary: |
 
 ## Pages reference
 
-* [Overview](#overview)
-* [Example](#overview)
-* [Properties](#properties)
-  * [`metadata`](#metadata)
-  * [`metadata.name`](#metadataname)
-  * [`metadata.description`](#metadatadescription)
-  * [`metadata.labels`](#metadatalabels)
-  * [`spec`](#spec)
-  * [`spec.layout`](#speclayout)
-  * [`spec.format`](#specformat)
-  * [`spec.path`](#specpath)
-  * [`spec.template`](#spectemplate)
-  * [`spec.prompts`](#specprompts)
-  * [`spec.patches`](#specpatches)
+<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
 
@@ -29,52 +17,71 @@ The content-type configuration file provides a system for generating content fil
 
 ### Example
 
-An example page content-type configuration file in YAML format.
+An example "Quick Post" content-type configuration file in YAML format.
 
 <code-snippet ht-element filename='types/post.yaml'>
 
 ```yaml
 ---
 metadata:
-    name: Post
-    description: New post
+    name: Quick Post
+    description: Like a tweet, but without the arbitrary character limit.
 spec:
     layout: post.html
     format: markdown
-    path: /blog/
+    path: /posts/
+    auto_slug: timestamp
+    requires:
+        content: true
     template:
-        title: Default title
-        tags:
-          - blog
+        tags: ["quickpost"]
+        content-type: quickpost
 prompts: [] # coming soon
-patches: [] # coming soon
 ```
 
 </code-snippet>
 
 ### Properties
 
-#### `metadata`
+**`contenttype.metadata`**
+: Something something content-type something...
 
-#### `metadata.name`
+**`contenttype.metadata.name`**
+: Something something content-type something...
 
-#### `metadata.description`
+**`contenttype.metadata.description`**
+: Something something content-type something...
 
-#### `metadata.labels`
+**`contenttype.spec`**
+: Something something content-type something...
 
-#### `spec`
+**`contenttype.spec.layout`**
+: Something something content-type something...
 
-#### `spec.layout`
+**`contenttype.spec.format`**
+: Something something content-type something...
 
-#### `spec.format`
+**`contenttype.spec.path`**
+: Something something content-type something...
 
-#### `spec.path`
+**`contenttype.spec.auto_slug`**
+: Something something content-type something...
 
-#### `spec.template`
+**`contenttype.spec.requires`**
+: Something something content-type something...
 
-#### `spec.prompts`
+**`contenttype.spec.template`**
+: Something something content-type something...
 
-#### `spec.patches`
+### Prompts
+
+**`spec.prompts`**
+: Something something content-type something...
+
+### Patches
+
+**`spec.patches`**
+: Something something content-type something...
 
 
 <!-- Links -->

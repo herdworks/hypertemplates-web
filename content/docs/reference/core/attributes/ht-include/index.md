@@ -5,17 +5,7 @@ title: ht-include
 
 ## `ht-include` attribute reference
 
-<auto-toc ht-element scope='main'></auto-toc>
-
-* [Overview](#overview)
-* [Example](#example)
-* [Specification](#specification)
-  * [Supported elements](#supported-elements)
-  * [Attribute syntax](#attribute-syntax)
-  * [Placeholder elements](#placeholder-elements)
-  * [Attribute forwarding](#attribute-forwarding)
-  * [Include URIs](#include-uris)
-  * [Include sources](#include-sources)
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
 
@@ -125,7 +115,7 @@ In this example, `path/to/source.html` is an include URI.
 
 <doc-quote ht-element>
 
-**PROTIP:** because HyperTemplates is a pure-HTML templating system, it assumes that same-origin include URIs are references to HTML documents with `.html` file extensions.
+**PROTIP:** because HyperTemplates is the pure-HTML templating system, it assumes that same-origin include URIs are references to HTML documents with `.html` file extensions.
 
 An include URI of `/path/to/source` is the same as `/path/to/source.html`.
 

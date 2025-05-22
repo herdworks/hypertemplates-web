@@ -1,26 +1,36 @@
 ---
 base_url: https://preview.hypertemplates.net
 title: HyperTemplates
-description: A pure-HTML templating system for the modern web.
+description: The pure-HTML templating system for the modern web.
 author:
-  username: "@hypertemplates.net"
-  name: HyperTemplates
-  href: /
-  favicon: /img/favicon-512x512.png
-  email: contact@hypertemplates.net
-favicons:
-  - href: /img/apple-touch-icon.png
+    username: "@hypertemplates.net"
+    name: HyperTemplates
+    href: /
+    favicon: /img/favicon-512x512.png
+metadata: []
+links:
+  - rel: apple-touch-icon
+    href: /img/apple-touch-icon.png
     sizes: 180x180
-    rel: apple-touch-icon
-  - href: /img/favicon-128x128.png
+  - rel: icon
+    href: /img/apple-touch-icon.png
+    sizes: 180x180
+  - rel: icon
+    href: /img/favicon-128x128.png
     sizes: 128x128
-  - href: /img/favicon-192x192.png
+  - rel: icon
+    href: /img/favicon-192x192.png
     sizes: 192x192
-  - href: /img/favicon-256x256.png
+  - rel: icon
+    href: /img/favicon-256x256.png
     sizes: 256x256
-  - href: /img/favicon-512x512.png
+  - rel: icon
+    href: /img/favicon-512x512.png
     sizes: 512x512
-banner: /banner.jpg
+  - rel: me
+    href: https://github.com/hypertemplates
+  - rel: me
+    href: https://mastodon.social/@herdworks
 copyright: "2025"
 config:
     tidy_mode: true

@@ -7,4 +7,6 @@ summary: |
 
 ## HyperTemplates how-to guides
 
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
+
 Coming soon...

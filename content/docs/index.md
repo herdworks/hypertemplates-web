@@ -8,17 +8,9 @@ summary: |
 
 ## HyperTemplates Documentation
 
-<auto-toc ht-element scope='main'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
-* [Introduction to templating](#introduction-to-templating)
-* [HyperTemplates in a nutshell](#hypertemplates-in-a-nutshell)
-* [Data-driven templating](#data-driven-templating)
-* [Resources](#resources)
-  * [Tutorials](#tutorials)
-  * [How-To Guides](#how-to-guides)
-  * [Reference documentation](#reference-documentation)
-
-## Introduction to templating
+### Introduction to templating
 
 HyperTemplates is a templating system for composing HTML documents.
 Web "pages" as we experience them today are HTML documents.
@@ -37,7 +29,7 @@ Templates solve these problems and many others by making it easy to create consi
 Document templates are useful because they allow us to <mark>focus on the **contents**</mark> of a document rather than futzing with how the content should be presented. 
 In practical terms, templates also serve as a guide - they prompt us to provide the necessary information to accomplish a given task.
 
-## HyperTemplates in a nutshell
+### HyperTemplates in a nutshell
 
 To understand HyperTemplates, let's use a simple HTML5 document as an example.
 
@@ -68,7 +60,7 @@ To understand HyperTemplates, let's use a simple HTML5 document as an example.
 
 To convert this example document into a reusable template using HyperTemplates, all we need to do is annotate the document using [HyperTemplates HTML attributes].
 
-<code-snippet ht-element filename='template.html' highlight='5-6,10-15,17' with-line-numbers>
+<code-snippet ht-element filename='template.html' highlight='5-6,10-16,18'>
 
 ```html
 <!DOCTYPE html>
@@ -105,7 +97,7 @@ This template tells HyperTemplates to make the following changes:
 
 To learn more about HyperTemplates attributes, please visit the [attributes reference].
 
-## Data-driven templating
+### Data-driven templating
 
 HyperTemplates populates HTML templates with template data containing key-value pairs.
 Template data is generally managed as content files in Markdown, YAML, or JSON format.
@@ -116,7 +108,7 @@ Template data is generally managed as content files in Markdown, YAML, or JSON f
 {
     site: {
         title: "HyperTemplates",
-        description: "HyperTemplates is a pure-HTML templating system for the modern web.",
+        description: "HyperTemplates is the pure-HTML templating system for the modern web.",
         favicon:
             href: "/img/apple-touch-icon.png",
             rel: "apple-touch-icon"
@@ -142,9 +134,9 @@ To learn more about how HyperTemplates handles template data, please visit the [
 
 <learn-more ht-element href='/docs/reference/core/data/'></learn-more>
 
-## Resources
+### Resources
 
-### Tutorials
+#### Tutorials
 
 **Getting Started**
 : Learn the core building blocks of HyperTemplates in a few minutes!
@@ -152,15 +144,34 @@ To learn more about how HyperTemplates handles template data, please visit the [
   <learn-more ht-element href='/docs/tutorials/getting-started/'></learn-more>
 
 
-### How-To Guides
+#### How-To Guides
 
 Coming soon...
 
-### Reference Documentation
+#### Reference Documentation
 
-Learn more about the HyperTemplates [core specification], [content management system], and [static site generator] by visiting the reference documentation.
+HyperTemplates is a **core specification**, a **content management system**, a **static site generator**, and a set of **libraries** for HTML templating.
+The HyperTemplates [reference documentation](/docs/reference/) is organized around these components.
 
-<learn-more ht-element href='/docs/reference/'></learn-more>
+**Core Specification**
+: The HyperTemplates core specification.
+  
+  <learn-more ht-element href='/docs/reference/core/'></learn-more>
+
+**Content Management System (CMS)**
+: The HyperText Management System (HTMS).
+
+  <learn-more ht-element href='/docs/reference/cms/'></learn-more>
+
+**Static Site Generator (CLI)**
+: `hyperctl` is a static site generator based on HyperTemplates.
+
+  <learn-more ht-element href='/docs/reference/cli/'></learn-more>
+
+**Libraries**
+: Pure-HTML templating libraries for the modern web.
+
+  <learn-more ht-element href='/docs/reference/lib/'></learn-more>
 
 
 <!-- Links -->

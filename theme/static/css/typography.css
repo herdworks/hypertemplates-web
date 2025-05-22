@@ -18,19 +18,13 @@ body {
 :where(h1, h2, h3, h4, h5, h6):not(:first-child) {
     margin-top: 1.0em;
 }
-:is(h1, h2, h3, h4, h5, h6) a[rel='anchor'] {
-    display: none;
-}
-:is(h1, h2, h3, h4, h5, h6):hover a[rel='anchor'] {
-    display: unset;
-}
 
-h1 {
-    font-size: 1.8em;
-}
-h6 {
-    font-size: 1em;
-}
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.3em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1.1em; }
+h6 { font-size: 1em; }
 
 p {
     margin-bottom: 0.50em;
@@ -51,10 +45,18 @@ a:hover {
     cursor: pointer;
     pointer-events: auto;
 }
+
+:is(h1, h2, h3, h4, h5, h6, dt) a[rel='anchor'] {
+    color: transparent;
+}
+:is(h1, h2, h3, h4, h5, h6, dt):hover a[rel='anchor'] {
+    color: inherit;
+}
 a[rel='anchor'], a[rel='anchor']:hover {
     text-decoration: none;
     box-shadow: none;
 }
+
 a[data-hyper-mention],a[hyper-mention] {
     font-weight: 600;
 }
@@ -135,9 +137,8 @@ dl {
     display: grid;
     width: 100%;
     max-width: var(--max-width, 100%);
-    grid-template-areas: "term definition";
-    grid-template-columns: 1fr 3fr;
-    gap: var(--gutter-1x, 15px);
+    grid-template-columns: minmax(20%, max-content) 1fr;
+    gap: var(--gutter-2x, 30px) var(--gutter-1x, 15px);
     margin: var(--gutter-2x, 30px) 0;
 }
 dl dt {
@@ -148,6 +149,9 @@ dl dt {
 dl dd {
     display: block;
     min-width: 0; /* magic */
+}
+dl dd > p:first-of-type {
+    margin-top: var(--gutter-1x, 15px);
 }
 
 embed[type='application/pdf'] {

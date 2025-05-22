@@ -91,7 +91,7 @@ grid-whitespace {
 }
 
 /* lg-container */
-@media screen and (min-width: 992px) and (max-width: 1519px) {
+@media screen and (min-width: 992px) and (max-width: 1379px) {
     :root {
         --responsive-mode: "lg";
         --container-width: 860px;
@@ -100,7 +100,7 @@ grid-whitespace {
 }
 
 /* xl-container */
-@media screen and (min-width: 1520px) {
+@media screen and (min-width: 1380px) {
     :root {
         --responsive-mode: "xl";
         --container-width: 1080px;

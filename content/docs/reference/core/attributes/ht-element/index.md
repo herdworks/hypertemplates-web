@@ -5,15 +5,7 @@ title: ht-element
 
 ## `ht-element` attribute reference
 
-<auto-toc ht-element scope='main'></auto-toc>
-
-* [Overview](#overview)
-* [Example](#example)
-* [Specification](#specification)
-  * [Supported elements](#supported-elements)
-  * [Attribute syntax](#attribute-syntax)
-  * [Custom element include sources](#custom-element-include-sources)
-  * [Custom element template data](#custom-element-template-data)
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview 
 

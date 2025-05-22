@@ -11,9 +11,9 @@ class AutoAnchor extends HTMLElement {
     constructor() {
         super();
     };
-    connectedCallback() {
+    async connectedCallback() {
         this.scope = this.getAttribute("scope") || "body";
-        this.anchor();
+        this.anchorsAway();
     };
 
     // event handler methods
@@ -23,26 +23,35 @@ class AutoAnchor extends HTMLElement {
     };
     async onDOMContentLoaded(event) {
         // console.debug(`content ${event.target} loaded`);
-        this.anchor();
+        this.anchorsAway();
     };
 
     // getter methods
     get headings() {
-        return document.querySelectorAll(`${this.scope} :is(h2, h3, h4, h5, h6)`);
+        return Array.from(document.querySelectorAll(`${this.scope} :is(h2, h3, h4, h5, h6)`));
     };
+    get definitions() {
+        return Array.from(document.querySelectorAll(`${this.scope} :is(dl dt)`));
+    }
 
-    // AutoAnchor().anchor() method
+    // AutoAnchor().anchorsAway() method
     //
-    // Adds anchor links with the ¶ symbol to headings
-    anchor() {
-        for (let heading of this.headings) {
+    // Adds anchor links with the ¶ symbol to headings and definition terms
+    anchorsAway() {
+        for (let anchor of [].concat(this.headings, this.definitions)) {
+            anchor.id = this.kabob(anchor.innerText);
             let link = document.createElement("a");
             link.setAttribute("rel", "anchor");
-            link.setAttribute("href", `#${heading.id}`);
-            link.innerText = "  ¶";
-            heading.appendChild(link);
+            link.setAttribute("href", `#${anchor.id}`);
+            link.innerText = " ¶";
+            anchor.appendChild(link);
         };
     };
+
+    kabob(text) {
+        text = text.toLowerCase().replace(/[^a-z0-9_]+/g, "-");
+        return text.replace(/^-+|--|-+$/g, "");
+    }
 
     // static methods
     static register() {

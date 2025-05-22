@@ -2,7 +2,6 @@
 created_at: "2025-04-15T10:57:14-07:00"
 updated_at: "2025-04-15T10:57:14-07:00"
 layout: post.html
-slug: the-need-for-speed
 title: The need for speed
 ---
 
@@ -37,6 +36,7 @@ The very nature of an SSG is to produce such consistent output that users can co
 So the desire for incremental builds drove us to add support for [reproducible builds] – a guarantee that two builds generated from the same content will be cryptographically identical.
 Once we had reproducible builds we were able to test incremental builds by layering them on top of full site builds and verifying they don't change the hash computation.
 
+🚧 ...work in progress... 🚧
 
 <!-- Links -->
 [motivation]: /blog/introducing-hypertemplates/

@@ -37,6 +37,7 @@
                 grid-area: title;
                 color: var(--text-color);
                 text-align: center;
+                font-size: 0.85em;
             }
         }
         code-snippet window-content {
@@ -59,8 +60,13 @@
         code-snippet[with-line-numbers] .ln {
             display: block;
         }
-        code-snippet .line.highlighted {
-            background-color: rgba(255,255,255,0.15);
+        code-snippet .line.highlighted .cl {
+            /* background-color: rgba(255,255,255,0.15); */
+            background-color: rgba(255, 255, 0, 0.25);
+            font-weight: 600;
+        }
+        code-snippet .line.highlighted .cl * {
+            margin-right: 0;
         }
         code-snippet window-content > p {
             display: none;
@@ -80,59 +86,5 @@
     <window-content ht-content='html:content'>
     </window-content>
     <small ht-if='caption' ht-content='caption'></small>
-    <script>
-        class CodeSnippet extends HTMLElement {
-
-            // lifecycle methods
-            constructor() {
-                super();
-            };
-            connectedCallback() {
-                this.highlight();
-            };
-
-            // getter methods
-            get lines() {
-                return Array.from(this.querySelectorAll(".line"));
-            }
-
-            get highlights() {
-                let range = this.getAttribute("highlight") || this.getAttribute("highlights") || "";
-                let ranges = range.split(",").map(this.range.bind(this));
-                return ranges.flat();
-            };
-
-            // helper methods
-            highlight() {
-                let highlights = this.highlights;
-                if (highlights.length == 0) { return };
-                // console.debug(highlights);
-                for (let [number, line] of this.lines.entries()) {
-                    // console.debug(number + 1)
-                    if (highlights.includes(number + 1)) {
-                        line.classList.add("highlighted");
-                    };
-                };
-            };
-
-            range(r) {
-                let range = r.split("-").flatMap(function(i){ return parseInt(i) || [] });
-                return this.fill(range);
-            }
-
-            fill(r=[]) {
-                let start = Math.min(...r);
-                let end = Math.max(...r);
-                for (let i = start + 1; i < end; i++) {
-                    r.push(i);
-                }
-                r.sort(function(a, b){ return a - b });
-                return r;
-            }
-
-        };
-        if (!customElements.get("code-snippet") && !customElements.getName(CodeSnippet)) {
-            customElements.define("code-snippet", CodeSnippet);
-        };
-    </script>
+    <script src='/js/components/code-snippet.js'></script>
 </code-snippet>
