@@ -1,7 +1,10 @@
 ---
 created_at: 2025-02-03T12:00:00-08:00
 updated_at: 2025-02-03T12:00:00-08:00
-title: ht-attrs
+title: ht-attrs attribute
+summary: |
+    `ht-attrs` attribute reference documentation
+breadcrumb: ht-attrs
 ---
 
 ## `ht-attrs` attribute reference

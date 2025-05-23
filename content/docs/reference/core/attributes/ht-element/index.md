@@ -1,6 +1,9 @@
 ---
 created_at: 2025-02-03T12:00:00-08:00
-title: ht-element
+title: ht-element attribute
+summary: |
+    `ht-element` attribute reference documentation
+breadcrumb: ht-element
 ---
 
 ## `ht-element` attribute reference

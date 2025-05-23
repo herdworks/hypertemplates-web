@@ -1,12 +1,13 @@
 ---
 created_at: 2025-03-04T14:00:00-08:00
 updated_at: 2025-03-04T14:00:00-08:00
-title: ls
+title: hyperctl page ls
 summary: |
     `hyperctl page ls` command reference.
+breadcrumb: ls
 ---
 
-## `hyperctl asset add` command
+## `hyperctl page ls` command
 
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
@@ -59,7 +60,6 @@ Last Modified              Title                       Draft  Path
 2025-02-03T12:00:00-08:00  ht-template                 false  /docs/reference/core/attributes/ht-template/
 2025-02-03T12:00:00-08:00  ht-not                      false  /docs/reference/core/attributes/ht-not/
 2025-02-03T12:00:00-08:00  ht-if                       false  /docs/reference/core/attributes/ht-if/
-2025-02-04T12:00:00-08:00  The HyperTemplates Way      true   /manifesto/
 2025-02-04T12:00:00-08:00  The HyperTemplates Blog     false  /blog/
 2025-02-05T12:00:00-08:00  Pipeline                    false  /docs/reference/core/pipeline/
 2025-02-06T12:00:00-08:00  Core                        false  /docs/reference/core/

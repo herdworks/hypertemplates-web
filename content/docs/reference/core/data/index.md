@@ -2,6 +2,7 @@
 created_at: 2024-11-12T10:00:00-07:00
 title: Template Data
 description: Learn more about the HyperTemplates data model.
+breadcrumb: Data
 ---
 
 ## Template Data

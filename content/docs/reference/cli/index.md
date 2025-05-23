@@ -1,8 +1,9 @@
 ---
 created_at: 2025-01-30T12:00:00-08:00
-title: CLI
+title: hyperctl
 summary: |
     The `hyperctl` CLI tool is a fully featured static site generator based on HyperTemplates.
+breadcrumb: CLI
 ---
 
 ## `hyperctl`

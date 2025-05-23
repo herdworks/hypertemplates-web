@@ -1,9 +1,10 @@
 ---
 created_at: 2025-03-04T14:00:00-08:00
 updated_at: 2025-03-04T14:00:00-08:00
-title: ls
+title: hyperctl data ls
 summary: |
     `hyperctl data ls` command reference documentation
+breadcrumb: ls
 ---
 
 ## `hyperctl data ls` command

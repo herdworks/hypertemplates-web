@@ -1,9 +1,10 @@
 ---
 created_at: 2025-03-04T14:00:00-08:00
 updated_at: 2025-03-04T14:00:00-08:00
-title: lookup
+title: hyperctl asset lookup
 summary: |
     `hyperctl asset lookup` command reference.
+breadcrumb: lookup
 ---
 
 ## `hyperctl asset lookup` command

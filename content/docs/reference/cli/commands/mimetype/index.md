@@ -1,9 +1,10 @@
 ---
 created_at: 2025-05-21T13:00:00-07:00
 updated_at: 2025-05-21T13:00:00-07:00
-title: mimetype
+title: hyperctl mimetype
 summary: |
     `hyperctl mimetype` command reference documentation.
+breadcrumb: mimetype
 ---
 
 ## `hyperctl mimetype` command

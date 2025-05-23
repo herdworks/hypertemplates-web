@@ -1,9 +1,10 @@
 ---
 created_at: 2025-05-21T14:00:00-08:00
 updated_at: 2025-05-21T14:00:00-08:00
-title: website
+title: hyperctl new website
 summary: |
     `hyperctl new website` command reference document.
+breadcrumb: website
 ---
 
 ## `hyperctl new website` command

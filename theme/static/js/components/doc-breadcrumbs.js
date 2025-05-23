@@ -31,10 +31,6 @@ class DocBreadcrumbs extends HTMLElement {
     };
 
     get breadcrumb() {
-        // <doc-breadcrumb>
-        //     <a href='#'></a>
-        //     <svg ht-include='static/icons/chevron-right-thin.svg'></svg>
-        // </doc-breadcrumb>
         let breadcrumb = document.createElement("doc-breadcrumb");
         let anchor = document.createElement("a");
         let img = document.createElement("img");
@@ -55,12 +51,12 @@ class DocBreadcrumbs extends HTMLElement {
             let parser = new DOMParser();
             let page = parser.parseFromString(html, "text/html");
             // if (page.querySelector('main').textContent == "") { continue }
-            let title = page.querySelector("title, h1");
+            let title = (page.querySelector("meta[name=breadcrumb]") || {}).content;
             if (!title) { continue }
 
             let breadcrumb = this.breadcrumb;
             breadcrumb.querySelector("a").href = new URL(crumb, window.document.location).href;
-            breadcrumb.querySelector("a").textContent = title.textContent;
+            breadcrumb.querySelector("a").textContent = title;
             this.appendChild(breadcrumb);
         };
     };

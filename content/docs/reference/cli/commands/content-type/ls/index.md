@@ -1,7 +1,10 @@
 ---
 created_at: 2025-03-04T14:00:00-08:00
 updated_at: 2025-03-04T14:00:00-08:00
-title: ls
+title: hyperctl content-type ls
+summary: |
+    `hyperctl content-type ls` reference documentation
+breadcrumb: ls
 ---
 
 ## `hyperctl content-type ls` command

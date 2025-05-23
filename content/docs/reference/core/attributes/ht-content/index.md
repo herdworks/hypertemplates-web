@@ -1,8 +1,9 @@
 ---
 created_at: 2025-02-03T12:00:00-08:00
-title: ht-content
+title: ht-content attribute
 summary: |
-    `ht-content` attribute reference
+    `ht-content` attribute reference documentation
+breadcrumb: ht-content
 ---
 
 ## `ht-content` attribute reference

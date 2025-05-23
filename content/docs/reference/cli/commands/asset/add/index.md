@@ -1,9 +1,10 @@
 ---
 created_at: 2025-03-04T14:00:00-08:00
 updated_at: 2025-03-04T14:00:00-08:00
-title: add
+title: hyperctl asset add
 summary: |
     `hyperctl asset add` command reference.
+breadcrumb: add
 ---
 
 ## `hyperctl asset add` command

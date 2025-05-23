@@ -1,7 +1,8 @@
 ---
 created_at: 2024-12-10T16:00:00-08:00
 updated_at: 2024-12-10T16:00:00-08:00
-title: Documentation
+title: HyperTemplates User Documentation
+breadcrumb: Documentation
 summary: |
     Home of the HyperTemplates tutorial, guide, and reference documentation.
 ---
@@ -146,7 +147,26 @@ To learn more about how HyperTemplates handles template data, please visit the [
 
 #### How-To Guides
 
-Coming soon...
+**RSS feeds**
+: How to configure RSS/Atom feeds.
+  
+  <learn-more ht-element href='/docs/guides/rss-feeds/'></learn-more>
+
+**Feed pages**
+: How to configure feed pages (e.g. a blog).
+  
+  <learn-more ht-element href='/docs/guides/feed-pages/'></learn-more>
+
+**Link Verification**
+: How to add `rel="me"` links for third-party link verification.
+  
+  <learn-more ht-element href='/docs/guides/link-verification/'></learn-more>
+
+**Precompiling Layouts**
+: Precompiling layouts for theme distribution.
+  
+  <learn-more ht-element href='/docs/guides/precompiling-layouts/'></learn-more>
+
 
 #### Reference Documentation
 

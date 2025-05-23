@@ -1,9 +1,10 @@
 ---
 created_at: 2025-03-04T14:00:00-08:00
 updated_at: 2025-03-04T14:00:00-08:00
-title: inspect
+title: hyperctl data inspect
 summary: |
     `hyperctl data inspect` command reference documentation
+breadcrumb: inspect
 ---
 
 ## `hyperctl data inspect` command

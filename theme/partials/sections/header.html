@@ -12,7 +12,8 @@
     </style>
     <nav ht-include='partials/nav'></nav>
     <sidebar-menu ht-include='partials/sidebar-menu'></sidebar-menu>
-    <grid-container ht-if='page.title' ht-content='markdown:page.summary'>
+    <grid-container ht-if='page.title'>
         <h1 rel='title' ht-content='text:page.title'>Title</h1>
+        <param ht-param='markdown:page.summary,page.description' />
     </grid-container>
 </header>

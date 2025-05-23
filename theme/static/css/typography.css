@@ -127,7 +127,7 @@ pre:has(code)::-webkit-scrollbar {
 }
 code { white-space: pre; tab-size: inherit; }
 code:not(pre code) { padding: 0 0.20em; border-radius: 0.10em; }
-pre code span:last-child { margin-right: var(--padding-1x, 15px); }
+/* pre code span:last-child { margin-right: var(--padding-1x, 15px); } */
 pre code .ln { display: none }
 
 details { margin: var(--gutter-2x, 30px) 0 }

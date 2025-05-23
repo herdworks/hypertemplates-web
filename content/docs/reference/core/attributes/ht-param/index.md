@@ -1,8 +1,9 @@
 ---
-created_at: 2025-02-03T12:00:00-08:00
-title: ht-param
+created_at: 2025-05-22T12:00:00-08:00
+title: ht-param attribute
 summary: |
-    `ht-param` attribute reference
+    `ht-param` attribute reference documentation
+breadcrumb: ht-param
 ---
 
 ## `ht-param` attribute reference
@@ -151,11 +152,14 @@ The supported formats are `text`, `html`, and `markdown`.
 If no format is specified, the content is treated as plain text and inserted as a [Text node].
 
 ```html
-<article ht-param='markdown:page.content'></article>
+<article>
+    <!-- Insert article metadata here -->
+    <param ht-param='markdown:page.content' />
+</article>
 ```
 
 In this example, `markdown:page.content` configures HyperTemplates to parse the value of `page.content` as [Markdown].
-The rendered Markdown (i.e. [Element nodes]) are then appended as child nodes to the content element, in a similar manner as the [Javascript `appendChild()` method].
+The rendered Markdown (i.e. [Element nodes]) are then inserted as a replacement for the `<param>` element.
 
 <doc-quote ht-element notice>
 
@@ -178,7 +182,6 @@ The rendered Markdown (i.e. [Element nodes]) are then appended as child nodes to
 [Element node]: https://developer.mozilla.org/en-US/docs/Web/API/Element
 [Element nodes]: https://developer.mozilla.org/en-US/docs/Web/API/Element
 [Markdown]: /docs/reference/core/markdown/
-[Javascript `appendChild()` method]: https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
 [content formats]: #content-formats
 [`net/html`]: https://pkg.go.dev/golang.org/x/net/html
 [`<title>`]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/title

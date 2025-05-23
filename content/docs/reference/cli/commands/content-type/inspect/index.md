@@ -1,7 +1,10 @@
 ---
 created_at: 2025-03-04T14:00:00-08:00
 updated_at: 2025-03-04T14:00:00-08:00
-title: inspect
+title: hyperctl content-type inspect
+summary: |
+    `hyperctl content-type inspect` command reference
+breadcrumb: inspect
 ---
 
 ## `hyperctl content-type inspect` command

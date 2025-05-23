@@ -50,16 +50,18 @@
         }
     </style>
     <a href='#' itemprop='favicon' ht-attrs='href:entity.href'>
-        <img src='' itemprop='image' ht-attrs='src:entity.favicon'></img>
+        <img src='' itemprop='image' ht-attrs='src:entity.favicon' />
     </a>
     <a href='#' itemprop='name' ht-attrs='href:entity.href' ht-content='text:entity.name'></a>
     <span itemprop='details'>
         <a ht-attrs='href:entity.href'>
-            <span itemprop='username' ht-content='text:entity.username'></span>
+            <span itemprop='username'><param ht-param='text:entity.username' /></span>
         </a>
         <a href='.'>
             <relative-time>
-                <time ht-attrs='datetime:page.updated_at,page.created_at' ht-content='text:page.updated_at,page.created_at'></time>
+                <time ht-attrs='datetime:page.updated_at,page.created_at'>
+                    <param ht-param='text:page.updated_at,page.created_at' />
+                </time>
             </relative-time>
         </a>
     </span>

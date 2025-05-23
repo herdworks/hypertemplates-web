@@ -1,9 +1,10 @@
 ---
 created_at: 2025-05-21T14:00:00-08:00
 updated_at: 2025-05-21T14:00:00-08:00
-title: page
+title: hyperctl new page
 summary: |
     `hyperctl new page` command reference document.
+breadcrumb: page
 ---
 
 ## `hyperctl new page` command

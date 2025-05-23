@@ -1,9 +1,10 @@
 ---
 created_at: 2025-03-04T14:00:00-08:00
 updated_at: 2025-03-04T14:00:00-08:00
-title: build
+title: hyperctl build
 summary: |
     `hyperctl build` reference documentation.
+breadcrumb: build
 ---
 
 ## `hyperctl build` command

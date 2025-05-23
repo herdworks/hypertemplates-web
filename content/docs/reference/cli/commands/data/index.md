@@ -1,9 +1,10 @@
 ---
 created_at: 2025-05-21T13:00:00-07:00
 updated_at: 2025-05-21T13:00:00-07:00
-title: data
+title: hyperctl data
 summary: |
     `hyperctl data` command reference documentation.
+breadcrumb: data
 ---
 
 ## `hyperctl data` command

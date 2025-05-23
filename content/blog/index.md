@@ -5,6 +5,7 @@ title: The HyperTemplates Blog
 description: |
     Stay up-to-date with the latest HyperTemplates news.
 feed:
+    title: The HyperTemplates Blog
     paths:
       - ^/blog/*
 ---

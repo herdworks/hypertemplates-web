@@ -1,8 +1,8 @@
 ---
 created_at: 2025-01-26T11:00:00-08:00
 title: Layouts
-summary: |
-    Layouts
+description: HyperTemplates Layout reference documentation.
+breadcrumb: Layouts
 ---
 
 ## Layouts
@@ -55,9 +55,11 @@ To learn more about how to develop HyperTemplates layouts, please visit the [Hyp
 
 ### Guides
 
-#### Precompiling layouts
+**Precompiling layouts**
+: How to precompile layouts for improved performance & theme distribution.
 
-Coming soon...
+  <learn-more ht-element href='/docs/guides/precompiling-layouts/'>
+
 
 <!-- Links -->
 [HTML document]: /docs/#introduction-to-templating

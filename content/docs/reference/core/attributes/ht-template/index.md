@@ -1,6 +1,9 @@
 ---
 created_at: 2025-02-03T12:00:00-08:00
-title: ht-template
+title: ht-template attribute
+summary: |
+    `ht-template` attribute reference documentation
+breadcrumb: ht-template
 ---
 
 ## `ht-template` attribute reference

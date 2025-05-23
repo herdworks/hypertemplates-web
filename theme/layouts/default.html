@@ -5,9 +5,10 @@
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='default'/>
+        <meta name='breadcrumb' ht-attrs='content:page.breadcrumb,page.title'>
 
         <!-- Layout Components -->
-        <script src='/js/components/doc-breadcrumbs.js' defer></script>
+        <script src='/js/components/doc-breadcrumbs.js?v=3' defer></script>
         <script src='/js/components/auto-anchor.js' defer></script>
         <script src='/js/components/auto-toc.js' defer></script>
         <script src='/js/components/code-snippet.js' defer></script>
@@ -62,11 +63,6 @@
             }
             @media screen and (min-width: 1380px) {}
         </style>
-        <!-- Page Styles -->
-        <style ht-content='page.style'>
-            /* Something something page style something */
-        </style>
-        <link rel='stylesheet' ht-attrs='href:asset' ht-template='asset:page.assets' ht-if='asset==page.css'>
     </head>
     <body>
         <header ht-include='partials/sections/header.html'></header>
