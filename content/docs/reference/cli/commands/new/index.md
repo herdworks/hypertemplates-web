@@ -39,12 +39,12 @@ The `hyperctl new` command has the following subcommands:
 **`website`**
 : `hyperctl new website` reference documentation.
 
-  <learn-more ht-element href='./website/'></learn-more>
+  <learn-more ht-block href='./website/'></learn-more>
 
 **`page`**
 : `hyperctl new page` reference documentation.
 
-  <learn-more ht-element href='./page/'></learn-more>
+  <learn-more ht-block href='./page/'></learn-more>
 
 <!-- Links -->
 [assets]: /docs/reference/cms/assets/

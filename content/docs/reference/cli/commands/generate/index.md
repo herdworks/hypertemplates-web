@@ -53,7 +53,7 @@ Options:
   
   Defaults to a randomly generated UUIDv4 string.
 
-  <doc-quote ht-element warning>
+  <doc-quote ht-block warning>
 
   **WARNING:** providing a `--id` can cause `hyperctl build` to overwite an existing build.
   This can be useful in some cases (e.g. when using an external HTTP server to serve a specific build). 

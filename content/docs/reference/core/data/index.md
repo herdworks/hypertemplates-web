@@ -41,7 +41,7 @@ In this sample, `title` and `author.name` are valid template data keys (property
 The example template data provided above could be managed via any one of the following source files in Markdown, YAML, or JSON format.
 The following example content files will generate identical template data.
 
-<code-snippet ht-element filename='index.md'>
+<code-snippet ht-block filename='index.md'>
 
 ```markdown
 ---
@@ -61,7 +61,7 @@ Lorem ipsum, hipsters get some.
 
 </code-snippet>
 
-<code-snippet ht-element filename='index.yaml'>
+<code-snippet ht-block filename='index.yaml'>
 
 ```yaml
 created_at: "2025-01-27T17:00:00-08:00"
@@ -79,7 +79,7 @@ content: |
 
 </code-snippet>
 
-<code-snippet ht-element filename='index.json'>
+<code-snippet ht-block filename='index.json'>
 
 ```json
 {
@@ -125,7 +125,7 @@ The only structural requirement for template data is that template data keys mus
 
 This is an approximation of a template data object.
 
-<doc-quote ht-element notice>
+<doc-quote ht-block notice>
 
 **NOTE:** Applications may combine template data from multiple sources into a single template data object before processing.
 For example, the `hyperctl build` command combines data from a website configuration file with individual page content into a single template data object.
@@ -140,7 +140,7 @@ To learn more, please visit the [HyperTemplates content management system] and/o
 HyperTemplates [template data objects](#template-data-objects) contain key-value pairs known as "properties".
 A template data property has a [key](#template-data-keys) and a [value](#template-data-values).
 
-<code-snippet ht-element filename='' highlight='9' with-line-numbers>
+<code-snippet ht-block filename='' highlight='9' with-line-numbers>
 
 ```javascript
 {
@@ -185,7 +185,7 @@ Template data keys are "dot notation" [property accessors] to properties in a [t
 
 In this example, there are 8 template data keys: `site`, `site.title`, `site.favicon`, `site.favicon.href`, `site.favicon.sizes`, `page`, `page.created_at`, `page.layout`, `page.title`, and `page.content`.
 
-<doc-quote ht-element notice>
+<doc-quote ht-block notice>
 
 **NOTE:** template data objects are _not_ vanilla [Javascript objects], so template data keys may reference properties that do not exist (what would be considered "undefined" objects in Javascript parlance) without penalty.
 For example, in the sample above, the template data key `site.foo.bar` would simply result in a null value rather than an error due to `site.foo` being "undefined".
@@ -231,7 +231,7 @@ Additional layout-scoped data can be added to any layout or other layout fragmen
 <meta name='layout:copyyear' content='2024'>
 ```
 
-<doc-quote ht-element notice>
+<doc-quote ht-block notice>
 
 **NOTE:** _completely_ empty JSON files (containing zero bytes) may cause JSON parsing errors in some implementations, so a JSON format template data source would be considered empty (and still valid) as long as they contain opening and closing curly braces (i.e. `{}`).
 

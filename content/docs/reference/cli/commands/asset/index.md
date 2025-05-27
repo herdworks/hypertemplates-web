@@ -39,12 +39,12 @@ The `hyperctl asset` command has the following subcommands:
 **`add`**
 : `hyperctl asset add` reference documentation.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/asset/add/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/asset/add/'></learn-more>
 
 **`lookup`**
 : `hyperctl asset lookup` reference documentation.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/asset/lookup/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/asset/lookup/'></learn-more>
 
 <!-- Links -->
 [assets]: /docs/reference/cms/assets/

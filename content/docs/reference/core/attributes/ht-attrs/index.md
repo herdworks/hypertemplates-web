@@ -13,13 +13,13 @@ breadcrumb: ht-attrs
 
 ### Overview 
 
-The `ht-attrs` [attribute] causes HyperTemplates to annotate target HTML elements with one or more HTML attributes.
+The `ht-attrs` [attribute] annotates target HTML elements with one or more HTML attributes.
 
 ### Example
 
 This example shows the `ht-attrs` attribute being used to template the page description `<meta>` element.
 
-<code-snippet ht-element filename='layout.html' highlight='5' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='5' with-line-numbers>
 
 ```html
 <html>
@@ -67,7 +67,7 @@ The `<link>` element `ht-attrs` attribute configures three named attributes: `re
 <link rel='icon' ht-attrs='rel:site.favicon.rel;href:site.favicon.href;type:site.favicon.type'>
 ```
 
-<doc-quote ht-element notice>
+<doc-quote ht-block notice>
 
 **NOTE:** in this example, if the [template data] `site.favicon.rel` property is not defined, the `<link>` element will use the default value of "icon" (as configured by the `rel='icon'` attribute).
 

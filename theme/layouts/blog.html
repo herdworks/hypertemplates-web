@@ -11,7 +11,8 @@
         <script src='/js/components/footer-menu.js' defer></script>
 
         <!-- Layout Styles -->
-        <style>
+        <style id='components'></style>
+        <style id='layout'>
             feed-entry {
                 margin-bottom: var(--gutter-3x, 45px);
             }
@@ -32,7 +33,7 @@
                     <meta name='entry' ht-attrs='content:entry' />
                     <post-card ht-include='partials/hyper/post-card' ht-template='entity:entry.author,page.author,site.author; page:entry'></post-card>
                     <post-content ht-content='markdown:entry.summary,entry.content'></post-content>
-                    <learn-more ht-element ht-attrs='href:entry.path' label='Continue reading'></learn-more>
+                    <learn-more ht-block ht-attrs='href:entry.path' label='Continue reading'></learn-more>
                 </feed-entry>
             </grid-container>
         </section>

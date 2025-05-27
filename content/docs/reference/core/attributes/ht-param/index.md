@@ -12,13 +12,13 @@ breadcrumb: ht-param
 
 ### Overview
 
-The `ht-param` [attribute] causes HyperTemplates to replace the associated element with [Text nodes] or [Element nodes].
+The `ht-param` [attribute] replaces the target element with text or HTML content from [template data].
 
 ### Example
 
 This example shows the `ht-param` attribute being used to template a `<p>` element.
 
-<code-snippet ht-element filename='example.html' highlight='9'>
+<code-snippet ht-block filename='example.html' highlight='9'>
 
 ```html
 <p>Hello, <param ht-param='page.title,site.title' /> world! 👋</p>
@@ -58,7 +58,7 @@ If no matching value was found, the `<param>` element would simply be removed, a
 
 In cases where a fallback or default value is desired, a `data-default` or `default` attribute value may be provided.
 
-<code-snippet ht-element filename='example.html' highlight='9'>
+<code-snippet ht-block filename='example.html' highlight='9'>
 
 ```html
 <p>Hello, <param ht-param='page.foo' default='Documentation' /> world! 👋</p>
@@ -102,7 +102,7 @@ The `ht-param` attribute is best used with [void elements], simply because they 
 <param ht-param='page.title' />
 ```
 
-<doc-quote ht-element info>
+<doc-quote ht-block info>
 
 **A brief aside about the HTML `<param>` element**
 
@@ -113,7 +113,7 @@ But the most important reason is because HyperTemplates will **always** remove o
 
 </doc-quote>
 
-<doc-quote ht-element danger>
+<doc-quote ht-block danger>
 
 **NOTE:** although the `ht-param` attribute can be added to any HTML element, `ht-param` elements cannot be nested inside of elements that only support [Text nodes], such as the [`<title>`] element.
 Most HTML parsers – including the [`net/html`] standard library used by HyperTemplates – will ignore tags within elements that can only contain text, effectively treating them as plain text.
@@ -161,7 +161,7 @@ If no format is specified, the content is treated as plain text and inserted as 
 In this example, `markdown:page.content` configures HyperTemplates to parse the value of `page.content` as [Markdown].
 The rendered Markdown (i.e. [Element nodes]) are then inserted as a replacement for the `<param>` element.
 
-<doc-quote ht-element notice>
+<doc-quote ht-block notice>
 
 **NOTE:** Unsupported formats are ignored, effectively resulting in the default behavior (plain `text` format).
 

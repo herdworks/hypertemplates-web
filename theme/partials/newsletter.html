@@ -1,5 +1,5 @@
 <section id='newsletter' data-color-scheme='gray'>
-    <style>
+    <style ht-pipe='css:style#components'>
         #newsletter {
             padding: 50px 0;
         }
@@ -25,7 +25,7 @@
                 <p ht-content='page.newsletter.description,layout.newsletter_description,data.newsletter.description'>Subscribe to the newsletter and never miss a post.</p>
             </grid-column>
             <grid-column>
-                <uni-form ht-include='partials/uni-form'></uni-form>
+                <uni-form ht-include='partials/uni-form' ht-template='form:data.newsletter.form'></uni-form>
             </grid-column>
         </grid-row>
     </grid-container>

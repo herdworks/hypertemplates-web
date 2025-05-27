@@ -18,25 +18,25 @@ If you are new to HyperTemplates, check out the [tutorials] section.
 
 ### Guides
 
-**RSS feeds**
-: How to configure RSS/Atom feeds.
-  
-  <learn-more ht-element href='./rss-feeds/'></learn-more>
-
 **Feed pages**
 : How to configure feed pages (e.g. a blog).
   
-  <learn-more ht-element href='./feed-pages/'></learn-more>
+  <learn-more ht-block href='./feed-pages/'></learn-more>
+
+**RSS feeds**
+: How to configure RSS/Atom feeds.
+  
+  <learn-more ht-block href='./rss-feeds/'></learn-more>
 
 **Link Verification**
 : How to add `rel="me"` links for third-party link verification.
   
-  <learn-more ht-element href='./link-verification/'></learn-more>
+  <learn-more ht-block href='./link-verification/'></learn-more>
 
 **Precompiling Layouts**
 : Precompiling layouts for theme distribution.
   
-  <learn-more ht-element href='./precompiling-layouts/'></learn-more>
+  <learn-more ht-block href='./precompiling-layouts/'></learn-more>
 
 
 <!-- Links -->

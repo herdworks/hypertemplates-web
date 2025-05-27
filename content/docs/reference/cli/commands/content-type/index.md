@@ -39,9 +39,9 @@ The `hyperctl content-type` command has the following subcommands:
 **`ls`**
 : The `hyperctl content-type ls` command lists content types.
 
-  <learn-more ht-element href='./ls/'></learn-more>
+  <learn-more ht-block href='./ls/'></learn-more>
 
 **`inspect`**
 : The `hyperctl content-type inspect` command inspects content types.
 
-  <learn-more ht-element href='./inspect/'></learn-more>
+  <learn-more ht-block href='./inspect/'></learn-more>

@@ -12,14 +12,14 @@ breadcrumb: ht-if
 
 ### Overview
 
-The `ht-if` [attribute] causes HyperTemplates to retain the target HTML element if the defined conditional expression evaluates to `true`.
+The `ht-if` [attribute] retains the target HTML element if the defined conditional expression evaluates to `true`.
 If the conditional expression evaluates to `false`, the target HTML element is removed.
 
 ### Example
 
 This example shows the `ht-if` attribute being used to template the `<header>` element.
 
-<code-snippet ht-element filename='layout.html' highlight='8-10' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='8-10' with-line-numbers>
 
 ```html
 <!DOCTYPE html>

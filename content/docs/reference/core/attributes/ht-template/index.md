@@ -12,7 +12,7 @@ breadcrumb: ht-template
 
 ### Overview 
 
-The `ht-template` [attribute] causes HyperTemplates to repeats the target HTML element once per occurrence of some content.
+The `ht-template` [attribute] repeat the target HTML element once per occurrence of some [template data].
 
 When combined with other HyperTemplates [templating attributes] such as [`ht-content`], [`ht-attrs`], [`ht-if`], and [`ht-include`], the `ht-template` attribute is a powerful building block for defining dynamic layouts that adapt to the contents of [template data].
 
@@ -20,7 +20,7 @@ When combined with other HyperTemplates [templating attributes] such as [`ht-con
 
 This example shows the `ht-template` attribute being used to template the `<header>` element.
 
-<code-snippet ht-element filename='layout.html' highlight='11-13' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='11-13' with-line-numbers>
 
 ```html
 <html lang='en-US'>
@@ -132,7 +132,7 @@ If multiple properties are defined for a given template variable, the first non-
 
 In this example, two variables will be added to the [template data] that gets passed in to the nested `<a>` template: `link` and `page`.
 
-<doc-quote ht-element info>
+<doc-quote ht-block info>
 
 **NOTE:** when multiple variables are defined in an `ht-template` attribute, the template is only processed once per iteration of the first variable (in this example, that would be the `link` variable).
 
@@ -143,7 +143,7 @@ In this example, two variables will be added to the [template data] that gets pa
 An HTML element with an `ht-template` attribute is called an "placeholder template".
 Placeholder and their child elements (if any) are cloned once per iteration of the referenced [template data] value(s).
 
-<code-snippet ht-element filename='partials/nav.html' highlight='2-4' with-line-numbers>
+<code-snippet ht-block filename='partials/nav.html' highlight='2-4' with-line-numbers>
 
 ```html
 <nav>
@@ -169,6 +169,7 @@ In this example, the `<a>` element together with its child `<span>` element make
 [template data]: /docs/reference/core/data/
 [void elements]: https://developer.mozilla.org/en-US/docs/Glossary/Void_element
 
+[template data]: /docs/reference/core/data/
 [template data property]: /docs/reference/core/data/#template-data-property
 [template data properties]: /docs/reference/core/data/#template-data-property
 [attribute syntax]: #attribute-syntax

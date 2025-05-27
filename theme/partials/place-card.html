@@ -16,7 +16,7 @@
         <span itemprop='postalCode' ht-if='data.address.zip' ht-content='text:data.address.zip'></span>
     </address>
     <a itemprop='telephone' ht-if='data.address.phone' ht-attrs='href:data.address.phone_href' ht-content='text:data.address.phone'></a>
-    <style>
+    <style ht-pipe='css:style#components'>
         place-card {
             display: flex;
             flex-direction: column;

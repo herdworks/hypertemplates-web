@@ -20,7 +20,7 @@ Coming soon...
 **EXERCISE 1: Add a feed layout**
 : Something something add your first feed layout something...
 
-  <code-snippet ht-element filename='layouts/blog.html' highlights='18-30'>
+  <code-snippet ht-block filename='layouts/blog.html' highlights='18-30'>
   
   ```html
   <!DOCTYPE html>
@@ -35,7 +35,7 @@ Coming soon...
           <script src='/js/components/relative-time.js' defer></script>
   
           <!-- Layout Styles -->
-          <style></style>
+          <style id='layout'></style>
       </head>
       <body>
           <header ht-include='partials/hero'></header>

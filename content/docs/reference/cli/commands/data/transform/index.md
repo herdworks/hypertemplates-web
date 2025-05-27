@@ -15,7 +15,7 @@ breadcrumb: transform
 
 The `hyperctl data transform` command is used to apply transformations to website global [data namespaces].
 
-<doc-quote ht-element caution>
+<doc-quote ht-block caution>
 
 **🚧 EXPERIMENTAL FEATURE 🚧** 
 

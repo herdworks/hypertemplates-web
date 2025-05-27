@@ -12,13 +12,13 @@ To learn more about HyperTemplates, check out the [introductory blog post].
 After downloading, be sure to check out the [documentation], or jump right in to the [Getting Started] tutorial.
 
 **MacOS**
-: <a href='/downloads/hyperctl_0.8.0_darwin_universal.tar.gz' download><code>hyperctl_0.8.0_darwin_universal.tar.gz</code></a>  
-  <a href='/downloads/hyperctl_0.8.0_darwin_arm64.tar.gz' download><code>hyperctl_0.8.0_darwin_arm64.tar.gz</code></a>  
-  <a href='/downloads/hyperctl_0.8.0_darwin_amd64.tar.gz' download><code>hyperctl_0.8.0_darwin_amd64.tar.gz</code></a>  
+: <a href='/downloads/hyperctl_0.10.2_darwin_universal.tar.gz' download><code>hyperctl_0.10.2_darwin_universal.tar.gz</code></a>  
+  <a href='/downloads/hyperctl_0.10.2_darwin_arm64.tar.gz' download><code>hyperctl_0.10.2_darwin_arm64.tar.gz</code></a>  
+  <a href='/downloads/hyperctl_0.10.2_darwin_amd64.tar.gz' download><code>hyperctl_0.10.2_darwin_amd64.tar.gz</code></a>  
 
 **Linux**
-: <a href='/downloads/hyperctl_0.8.0_linux_arm64.tar.gz' download><code>hyperctl_0.8.0_linux_arm64.tar.gz</code></a>  
-  <a href='/downloads/hyperctl_0.8.0_linux_amd64.tar.gz' download><code>hyperctl_0.8.0_linux_amd64.tar.gz</code></a>  
+: <a href='/downloads/hyperctl_0.10.2_linux_arm64.tar.gz' download><code>hyperctl_0.10.2_linux_arm64.tar.gz</code></a>  
+  <a href='/downloads/hyperctl_0.10.2_linux_amd64.tar.gz' download><code>hyperctl_0.10.2_linux_amd64.tar.gz</code></a>  
 
 **Windows**
 : Coming soon!

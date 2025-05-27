@@ -40,6 +40,9 @@ footer:
   - group: HyperTemplates
     label: Downloads
     href: /downloads/
+  - group: HyperTemplates
+    label: Community 💬
+    href: /community/
 
   # Getting Started
   - group: Getting Started
@@ -65,11 +68,3 @@ footer:
   - group: Contributing
     label: Sponsors
     href: /sponsors
-
-  # Community
-  - group: Community
-    label: GitHub
-    href: https://github.com/herdworks/hypertemplates-kit/community
-  - group: Community
-    label: Forums
-    href: /community

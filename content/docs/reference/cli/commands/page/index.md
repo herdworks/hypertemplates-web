@@ -39,11 +39,11 @@ The `hyperctl page` command has the following subcommands:
 **`ls`**
 : The `hyperctl page ls` lists website pages.
 
-  <learn-more ht-element href='./ls/'></learn-more>
+  <learn-more ht-block href='./ls/'></learn-more>
 
 **`inspect`**
 : The `hyperctl page inspect` inspects website pages.
 
-  <learn-more ht-element href='./inspect/'></learn-more>
+  <learn-more ht-block href='./inspect/'></learn-more>
 
 <!-- Links -->

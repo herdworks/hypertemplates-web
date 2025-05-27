@@ -16,7 +16,7 @@ A provider is a local or remote website hosting destination.
 
 Providers are configured on a per-website basis in the website configuration file (`site.yaml` or `site.json`).
 
-<code-snippet ht-element filename='site.yaml' highlight='6-16'>
+<code-snippet ht-block filename='site.yaml' highlight='6-16'>
 
 ```yaml
 ---

@@ -16,13 +16,14 @@
         <script src='/js/components/footer-menu.js' defer></script>
 
         <!-- Layout Styles -->
-        <style></style>
+        <style id='components'></style>
+        <style id='layout'></style>
     </head>
     <body data-color-scheme='light'>
         <header ht-include='partials/blog/header.html'></header>
         <grid-whitespace></grid-whitespace>
         <section id='post' data-color-scheme='light'>
-            <style>
+            <style ht-pipe='css:style#components'>
                 #post post-card {
                     margin-bottom: var(--gutter-2x, 30px);
                 }

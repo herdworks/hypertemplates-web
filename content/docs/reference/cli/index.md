@@ -20,7 +20,7 @@ Coming soon...
 
 ### Usage
 
-<code-snippet ht-element filename='hyperctl'>
+<code-snippet ht-block filename='hyperctl'>
 
 ```plaintext
 $ hyperctl -h
@@ -56,64 +56,64 @@ Options:
 **`asset`**
 : Manage website assets.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/asset/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/asset/'></learn-more>
 
 **`build`**
 : Build a static site from HyperTemplates.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/build/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/build/'></learn-more>
 
 **`content-type`**
 : Inspect HyperTemplate theme content types.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/content-type/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/content-type/'></learn-more>
 
 **`data`**
 : Inspect HyperTemplate global data.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/data/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/data/'></learn-more>
 
 **`deploy`**
 : Deploy a static site build to a HyperProvider.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/deploy/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/deploy/'></learn-more>
 
 **`generate`**
 : Generate a single page build from a HyperTemplate.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/generate/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/generate/'></learn-more>
 
 **`graph`**
 : Fetch entity and page metadata from the HyperGraph™️.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/graph/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/graph/'></learn-more>
 
 **`mimetype`**
 : Get file mimetype information.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/mimetype/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/mimetype/'></learn-more>
 
 **`new`**
 : Create a new website or page.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/new/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/new/'></learn-more>
 
 **`page`**
 : Manage pages and drafts.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/page/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/page/'></learn-more>
 
 **`publish`**
 : Publish a single page build to a HyperProvider.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/publish/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/publish/'></learn-more>
 
 **`render`**
 : Render a HyperTemplate
 
-  <learn-more ht-element href='/docs/reference/cli/commands/render/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/render/'></learn-more>
 
 **`server`**
 : Run a local HTTP server.
 
-  <learn-more ht-element href='/docs/reference/cli/commands/server/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/commands/server/'></learn-more>

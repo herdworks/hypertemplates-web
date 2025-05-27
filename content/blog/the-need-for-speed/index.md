@@ -13,7 +13,7 @@ Along the way there were two requirements that influenced almost every design de
 
 <!--more-->
 
-<pull-quote ht-element>
+<pull-quote ht-block>
 
 HTML templating should be **easy** and **fast**.
 
@@ -27,7 +27,7 @@ For example, pretty early on we identified the need for [incremental builds] as 
 Why build & deploy an entire website when the user just wants to add a single page with one or two attachments (e.g. a blog post with a cover image)?
 If we could figure out a way to reduce the amount of work needed to deploy a new page, we could greatly improve the overall speed of the system.
 
-<pull-quote ht-element>
+<pull-quote ht-block>
 [speed] has further reaching implications than we initially suspected
 </pull-quote>
 

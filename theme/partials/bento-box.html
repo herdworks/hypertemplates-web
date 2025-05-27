@@ -1,5 +1,5 @@
 <bento-box columns='12'>
-    <style>
+    <style ht-pipe='css:style#components'>
         bento-box {
             display: grid;
             width: 100%;
@@ -95,6 +95,6 @@
         <span hidden ht-content='card'></span>
         <h3 ht-if='card.title' ht-content='html:card.title'></h3>
         <p ht-if='card.description' ht-content='markdown:card.description'></p>
-        <learn-more ht-if='card.href' ht-template='href:card.href' ht-include='elements/learn-more'></learn-more>
+        <learn-more ht-if='card.href' ht-template='href:card.href' ht-include='blocks/learn-more'></learn-more>
     </bento-card>
 </bento-box>

@@ -1,8 +1,8 @@
 html {
     /* Color Palette */
-    --color-1: rgba(246, 246, 246);
+    --color-1: rgb(246, 246, 246);
     --color-2: rgba(246, 237, 228);
-    --color-3: rgba(236, 120, 184);
+    --color-3: rgb(236, 120, 184);
     --color-3-alt: rgba(236, 120, 184, 0.50);
     --color-4: rgba(152, 147, 143);
     --color-5: rgba(36, 36, 36);

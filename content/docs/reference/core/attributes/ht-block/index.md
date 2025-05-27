@@ -1,33 +1,33 @@
 ---
 created_at: 2025-02-03T12:00:00-08:00
-title: ht-element attribute
+title: ht-block attribute
 summary: |
-    `ht-element` attribute reference documentation
-breadcrumb: ht-element
+    `ht-block` attribute reference documentation
+breadcrumb: ht-block
 ---
 
-## `ht-element` attribute reference
+## `ht-block` attribute reference
 
 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview 
 
-The `ht-element` attribute causes HyperTemplates to progressively enhance an inline [custom element].
-The `ht-element` attribute was heavily inspired by [Hugo Shortcodes] and is intended to be used for inserting custom elements into your content.
+The `ht-block` attribute progressively enhances a [custom element].
+The `ht-block` attribute was heavily inspired by [Hugo Shortcodes] and is intended to be used for inserting custom elements into your content.
 This effectively exposes a subset of HyperTemplates templating capabilities to content management systems (i.e. whereever you edit content that will be rendered using HyperTemplates).
 
 ### Specification
 
-This example shows the `ht-element` attribute being used to enhance a [Markdown] code block.
+This example shows the `ht-block` attribute being used to enhance a [Markdown] code block.
 
-<code-snippet ht-element filename='index.md' highlight='5' with-line-numbers>
+<code-snippet ht-block filename='index.md' highlight='5' with-line-numbers>
 
 ~~~plaintext
 ### Example
 
 This example shows the `ht-content` attribute being used to template the `<title>` and `<h1>` elements.
 
-<code-snippet ht-element filename='layout.html' highlight='5,9' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='5,9' with-line-numbers>
 
 ```html
 <!DOCTYPE html>
@@ -56,14 +56,14 @@ In fact, this example is an excerpt from the [`ht-content` reference documentati
 
 #### Supported elements
 
-The `ht-element` attribute was designed to be used with [custom elements].
+The `ht-block` attribute was designed to be used with [custom elements].
 
 ~~~plaintext
 ### Example
 
 Here is an example HyperTemplates layout.
 
-<code-snippet ht-element filename='layout.html' with-line-numbers>
+<code-snippet ht-block filename='layout.html' with-line-numbers>
 
 ```html
 <!DOCTYPE html>
@@ -90,46 +90,46 @@ Here is an example HyperTemplates layout.
 
 #### Attribute syntax
 
-The `ht-element` attribute is an [HTML boolean attribute].
+The `ht-block` attribute is an [HTML boolean attribute].
 If it it set, HyperTemplates will process the element as a nested layout template.
 
 #### Custom element include sources
 
-HyperTemplates processes HTML elements with the `ht-element` attribute as nested layout templates.
-In practice, `ht-element` elements are what you might expect if you combined [`ht-include`] and [`ht-template`].
-`ht-element` differs from `ht-include` in that `ht-element` tag names are used to lookup external sources.
+HyperTemplates processes HTML elements with the `ht-block` attribute as nested layout templates.
+In practice, `ht-block` elements are what you might expect if you combined [`ht-include`] and [`ht-template`].
+`ht-block` differs from `ht-include` in that `ht-block` tag names are used to lookup external sources.
 
 **Example**
 
 ```plaintext
-<newsletter-signup ht-element></newsletter-signup>
+<newsletter-signup ht-block></newsletter-signup>
 ```
 
-In this example Markdown document, the `ht-element` attribute will cause HyperTemplates to replace the `newsletter-signup` element with the rendered contents of `elements/newsletter-signup.html`.
+In this example Markdown document, the `ht-block` attribute will cause HyperTemplates to replace the `newsletter-signup` element with the rendered contents of `elements/newsletter-signup.html`.
 
 #### Custom element template data
 
-HyperTemplates processes HTML elements with the `ht-element` attribute as nested layout templates.
-In practice, `ht-element` elements are what you might expect if you combined [`ht-include`] and [`ht-template`].
-`ht-element` differs from `ht-template` in how their respective [template data objects] are constructed.
-The `ht-element` attribute will cause HyperTemplates to construct a template data object using the placeholder element attributes as [template data properties], plus a single property called `content` with the body of the element as its value.
+HyperTemplates processes HTML elements with the `ht-block` attribute as nested layout templates.
+In practice, `ht-block` elements are what you might expect if you combined [`ht-include`] and [`ht-template`].
+`ht-block` differs from `ht-template` in how their respective [template data objects] are constructed.
+The `ht-block` attribute will cause HyperTemplates to construct a template data object using the placeholder element attributes as [template data properties], plus a single property called `content` with the body of the element as its value.
 
 **Example**
 
 ```plaintext
-<pull-quote ht-element cite='Caleb Hailey'>
+<pull-quote ht-block cite='Caleb Hailey'>
 
-The HyperTemplates `ht-element` attribute is fun and useful.
+The HyperTemplates `ht-block` attribute is fun and useful.
 
 </pull-quote>
 ```
 
-In this example Markdown document, the `ht-element` attribute will cause HyperTemplates to render the layout of `elements/pull-quote.html` with a template data object containing two properties: `cite` and `content`.
+In this example Markdown document, the `ht-block` attribute will cause HyperTemplates to render the layout of `elements/pull-quote.html` with a template data object containing two properties: `cite` and `content`.
 
 ```javascript
 {
     cite: "Caleb Hailey",
-    content: "<p>The HyperTemplates <code>ht-element</code> attribute is fun and useful.</p>"
+    content: "<p>The HyperTemplates <code>ht-block</code> attribute is fun and useful.</p>"
 }
 ```
 

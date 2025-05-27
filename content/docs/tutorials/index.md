@@ -15,12 +15,14 @@ Tutorials are helpful resources for new HyperTemplates users who want to get up 
 
 If you are an existing HyperTemplates user, check out the [guides] section.
 
-### Tutorials
+### Get Started
 
-**Getting started**
-: Learning HyperTemplates in 8 easy steps.
+Get up and running with HyperTemplates in under 5 minutes.
   
-  <learn-more ht-element href='./getting-started/'></learn-more>
+<learn-more ht-block href='./getting-started/'></learn-more>
+
+### Learn HyperTemplates
+
 
 
 

@@ -10,13 +10,13 @@
         <script src='/js/components/footer-menu.js' defer></script>
 
         <!-- Layout Styles -->
-        <style></style>
+        <style id='components'></style>
+        <style id='layout'></style>
     </head>
     <body>
         <header ht-include='partials/sections/header.html'></header>
         <section id='contact'>
-            <style>
-            </style>
+            <style ht-pipe='css:style#components'></style>
         </section>
         <grid-whitespace></grid-whitespace>
         <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>

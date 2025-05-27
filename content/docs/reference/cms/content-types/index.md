@@ -19,7 +19,7 @@ The content-type configuration file provides a system for generating content fil
 
 An example "Quick Post" content-type configuration file in YAML format.
 
-<code-snippet ht-element filename='types/post.yaml'>
+<code-snippet ht-block filename='types/post.yaml'>
 
 ```yaml
 ---

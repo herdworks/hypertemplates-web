@@ -40,17 +40,17 @@ The `hyperctl data` command has the following subcommands:
 **`ls`**
 : The `hyperctl data ls` command lists global data namespaces.
 
-  <learn-more ht-element href='./ls/'></learn-more>
+  <learn-more ht-block href='./ls/'></learn-more>
 
 **`inspect`**
 : The `hyperctl data inspect` command inspects global data namespaces.
 
-  <learn-more ht-element href='./inspect/'></learn-more>
+  <learn-more ht-block href='./inspect/'></learn-more>
 
 **`transform`**
 : The `hyperctl data transform` command applies trasnformations to global data namespaces.
 
-  <learn-more ht-element href='./transform/'></learn-more>
+  <learn-more ht-block href='./transform/'></learn-more>
 
 <!-- Links -->
 [data namespaces]: /docs/reference/cms/namespaces/

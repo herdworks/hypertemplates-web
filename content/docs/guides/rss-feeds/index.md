@@ -27,7 +27,7 @@ Coming soon...
 **EXERCISE 1: Add a feed**
 : If you don't already have a `/blog/` page, let's create one by adding a `content/blog/index.md` file.
 
-  <code-snippet ht-element filename='content/blog/index.md'>
+  <code-snippet ht-block filename='content/blog/index.md'>
   
   ```plaintext
   ---
@@ -41,7 +41,7 @@ Coming soon...
 
   Now let's add a [`page.feed`] property to `content/blog/index.md` and give it a title.
 
-  <code-snippet ht-element filename='content/blog/index.md' highlight='5-6'>
+  <code-snippet ht-block filename='content/blog/index.md' highlight='5-6'>
   
   ```plaintext
   ---
@@ -71,7 +71,7 @@ Coming soon...
 
   Let's add a path-based filter to our blog feed.
 
-  <code-snippet ht-element filename='content/blog/index.md' highlight='7-8'>
+  <code-snippet ht-block filename='content/blog/index.md' highlight='7-8'>
   
   ```plaintext
   ---
@@ -92,7 +92,7 @@ Coming soon...
 
   If you don't see any pages, lets create one by adding a `content/blog/hello-world/index.md` file.
 
-  <code-snippet ht-element filename='content/blog/hello-world/index.md'>
+  <code-snippet ht-block filename='content/blog/hello-world/index.md'>
   
   ```plaintext
   ---
@@ -114,7 +114,7 @@ Coming soon...
 
   To remove a page from all feeds, configure the [`page.unlisted`] property.
 
-  <code-snippet ht-element filename='content/blog/hello-world/index.md' highlight='5'>
+  <code-snippet ht-block filename='content/blog/hello-world/index.md' highlight='5'>
   
   ```plaintext
   ---
@@ -131,7 +131,7 @@ Coming soon...
 
   To add a page to a tag-based feed, configure the [`page.tags`] property.
 
-  <code-snippet ht-element filename='content/blog/hello-world/index.md' highlight='5-6'>
+  <code-snippet ht-block filename='content/blog/hello-world/index.md' highlight='5-6'>
   
   ```plaintext
   ---
@@ -164,3 +164,5 @@ Coming soon...
 [`page.feed.tags`]: /docs/reference/cms/page/#page-feed
 [`page.tags`]: /docs/reference/cms/page/#page-tags
 [`page.unlisted`]: /docs/reference/cms/page/#page-unlisted
+
+<!-- https://en.wikipedia.org/wiki/Web_syndication -->

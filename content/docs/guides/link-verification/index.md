@@ -29,7 +29,7 @@ Coming soon...
 
   **Example `site.yaml`**
   
-  <code-snippet ht-element filename='site.yaml' highlights='6-9'>
+  <code-snippet ht-block filename='site.yaml' highlights='6-9'>
   
   ```yaml
   title: Example Website
@@ -47,7 +47,7 @@ Coming soon...
   
   **Example `site.json`**
   
-  <code-snippet ht-element filename='site.json' highlight='6-7'>
+  <code-snippet ht-block filename='site.json' highlight='6-7'>
   
   ```json
   {
@@ -68,7 +68,7 @@ Coming soon...
   
   **Example `index.md`**
   
-  <code-snippet ht-element filename='content/about/caleb-hailey/index.md' highlight='6-9'>
+  <code-snippet ht-block filename='content/about/caleb-hailey/index.md' highlight='6-9'>
   
   ```plaintext
   ---

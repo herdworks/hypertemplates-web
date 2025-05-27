@@ -12,13 +12,13 @@ breadcrumb: ht-content
 
 ### Overview 
 
-The `ht-content` [attribute] causes HyperTemplates to insert text or HTML content from [template data] into the target HTML element.
+The `ht-content` [attribute] inserts text or HTML content from [template data] into the target HTML element.
 
 ### Example
 
 This example shows the `ht-content` attribute being used to template the `<title>` and `<h1>` elements.
 
-<code-snippet ht-element filename='layout.html' highlight='5,9' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='5,9' with-line-numbers>
 
 ```html
 <!DOCTYPE html>
@@ -130,7 +130,7 @@ If no format is specified, the content is treated as plain text and inserted as 
 In this example, `markdown:page.content` configures HyperTemplates to parse the value of `page.content` as [Markdown].
 The rendered Markdown (i.e. HTML elements) are then appended as child nodes to the content element, in a similar manner as the [Javascript `appendChild()` method].
 
-<doc-quote ht-element notice>
+<doc-quote ht-block notice>
 
 **NOTE:** Unsupported formats are ignored, effectively resulting in the default behavior (plain text format).
 

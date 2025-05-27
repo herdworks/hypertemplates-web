@@ -2,6 +2,7 @@
 base_url: https://preview.hypertemplates.net
 title: HyperTemplates
 description: The pure-HTML templating system for the modern web.
+copyright: "2025"
 author:
     username: "@hypertemplates.net"
     name: HyperTemplates
@@ -31,7 +32,6 @@ links:
     href: https://github.com/hypertemplates
   - rel: me
     href: https://mastodon.social/@herdworks
-copyright: "2025"
 config:
     tidy_mode: true
     theme_dir: theme

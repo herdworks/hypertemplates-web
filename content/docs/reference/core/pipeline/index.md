@@ -19,7 +19,7 @@ Coming soon...
 
 1. Includes (`ht-include`)
 
-   <doc-quote ht-element notice>
+   <doc-quote ht-block notice>
 
    **NOTE:** `ht-include` attributes are processed recursively, allowing components to be composed of other components.
 
@@ -28,7 +28,7 @@ Coming soon...
 1. Conditionals (`ht-if` and `ht-not`)
 1. Templates (`ht-template`)
 
-   <doc-quote ht-element success>
+   <doc-quote ht-block success>
 
    **NOTE:** `ht-template` attributes are processed recursively, prompting HyperTemplates to process target elements through the complete HyperTemplates pipeline (includes, conditionals, templates, attributes, content, and elements), passing in the template data defined by the `ht-template` attribute.
 
@@ -36,7 +36,7 @@ Coming soon...
 
 1. Attributes (`ht-attrs`)
 1. Content (`ht-content`)
-1. Elements (`ht-element`)
+1. Elements (`ht-block`)
 
 
 #### Template recursion

@@ -27,9 +27,7 @@ Usage:
 Options:
         -b, --baseurl      Base URL for the website. (required)
         -t, --title        Website title. (required)
-        -d, --description  Website description. (required)
-        -f, --favicon      Website favicon. (required) (default: /favicon.png)
-        -e, --email        Contact email address.
+        -d, --description  Website description. (default: This website is powered by HyperTemplates.)
             --format       Output format for the website configuration. (default: yaml)
         -h, --help         Display help information.
 ```
@@ -37,8 +35,8 @@ Options:
 #### Example
 
 ```plaintext
-$ hyperctl new website -b https://hypertemplates.net -t "HyperTemplates" -d "The pure-HTML templating system for the modern web." -f favicon.png hypertemplates.net.website/
-website "hypertemplates.net.website/site.yaml" created
+$ hyperctl new website -b https://acme.com -t "Acme Inc" acme.com.website/
+website "acme.com.website/site.yaml" created
 ```
 
 ### Options
@@ -77,34 +75,12 @@ website "hypertemplates.net.website/site.yaml" created
   --description "The pure-HTML templating system for the modern web."
   ```
 
-**`-f`, `--favicon`**
-: The path to the favicon to use for the new website.
-
-  See the [website `site.favicon` reference] for more information.
-
-  **Example**
-
-  ```plaintext
-  --favicon "~/Downloads/favicon.png"
-  ```
-
-**`-e`, `--email`**
-: The contact email address to use for the new website.
-
-  See the [website `site.author` reference] for more information.
-
-  **Example**
-
-  ```plaintext
-  --email "sponsors@hypertemplates.net"
-  ```
-
 **`--format`**
 : The output format to use for the website configuration file (`site.yaml` or `site.json`).
 
   The supported formats are: `yaml` or `json`.
 
-  <doc-quote ht-element>
+  <doc-quote ht-block>
 
   **NOTE:** the output format also dictates the website configuration file name.
   

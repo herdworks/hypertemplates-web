@@ -12,14 +12,14 @@ breadcrumb: ht-not
 
 ### Overview
 
-The `ht-not` [attribute] causes HyperTemplates to remove the target HTML element if the defined conditional expression evaluates to `true`.
+The `ht-not` [attribute] removes the target HTML element if the defined conditional expression evaluates to `true`.
 If the conditional expression evaluates to `false`, the target HTML element is retained.
 
 ### Example
 
 This example shows the `ht-not` attribute being used to template the contents of the `<tbd>` element.
 
-<code-snippet ht-element filename='layout.html' highlight='8-10' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='8-10' with-line-numbers>
 
 ```html
 <!DOCTYPE html>

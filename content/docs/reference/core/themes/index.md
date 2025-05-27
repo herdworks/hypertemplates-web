@@ -44,16 +44,26 @@ static/
 
 #### Configuration
 
-Work in progress...
+Coming soon...
 
-```json
-{
-    "name": "HyperTexting",
-    "version": "0.1.0"
-}
+<code-snippet ht-block filename='site.yaml'>
+
+```yaml
+---
+base_url: https://preview.hypertemplates.net
+title: HyperTemplates
+description: The pure-HTML templating system for the modern web.
+...: ...
+theme:
+    blocks_dir: "blocks"
+    contenttypes_dir: "types"
+    layouts_dir: "layouts"
+    static_dir: "static"
 ```
 
-<doc-quote ht-element warning>
+</code-snippet>
+
+<doc-quote ht-block warning>
 
 **NOTE:** Additional configuration parameters may be added in future releases.
 

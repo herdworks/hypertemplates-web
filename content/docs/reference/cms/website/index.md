@@ -43,7 +43,7 @@ For more information on how pages are managed, see the [pages reference document
 
 A HyperText Management System website configuration file.
 
-<code-snippet ht-element filename='site.yaml'>
+<code-snippet ht-block filename='site.yaml'>
 
 ```yaml
 ---
@@ -101,7 +101,7 @@ provider:
 
 The website configuration file provides a standardized set of core [properties](#properties) for layout and theme developers.
 
-<doc-quote ht-element notice>
+<doc-quote ht-block notice>
 
 **NOTE:** the contents of the website configuration file are available as [template data properties] with the `site.` prefix.
 See [custom properties] for more information.
@@ -142,7 +142,7 @@ See [custom properties] for more information.
 
   **Sample**
 
-  <code-snippet ht-element filename='site.yaml' highlight=5-11>
+  <code-snippet ht-block filename='site.yaml' highlight=5-11>
 
   ```yaml
   ---
@@ -172,7 +172,7 @@ See [custom properties] for more information.
 
   **Sample**
 
-  <code-snippet ht-element filename='site.yaml' highlight=5-15>
+  <code-snippet ht-block filename='site.yaml' highlight=5-15>
 
   ```yaml
   ---
@@ -202,7 +202,7 @@ See [custom properties] for more information.
   <meta ht-template='meta:site.metadata' ht-attrs='name:meta.name; property:meta.property; content:meta.content'>
   ```
 
-  <doc-quote ht-element>
+  <doc-quote ht-block>
 
   See the [HTML `<meta>` attributes] reference documentation for more information on the supported properties of a `site.metadata` value.
 
@@ -213,7 +213,7 @@ See [custom properties] for more information.
 
   **Sample**
 
-  <code-snippet ht-element filename='site.yaml' highlight=5-9>
+  <code-snippet ht-block filename='site.yaml' highlight=5-9>
 
   ```yaml
   ---
@@ -235,7 +235,7 @@ See [custom properties] for more information.
   <link ht-template='link:site.links' ht-attrs='rel:link.rel; href:link.href; type:link.type; sizes:link.sizes'>
   ```
 
-  <doc-quote ht-element>
+  <doc-quote ht-block>
 
   See the [HTML `<link>` attributes] reference documentation for more information on the supported properties of a `site.links` value.
 
@@ -246,7 +246,7 @@ See [custom properties] for more information.
   
   **Example**
 
-  <code-snippet ht-element filename='site.yaml' highlight='5'>
+  <code-snippet ht-block filename='site.yaml' highlight='5'>
 
   ```yaml
   ---
@@ -380,7 +380,7 @@ See [custom properties] for more information.
 **Link Verification**
 : How to configure link verification using `rel="me"` links.
   
-  <learn-more ht-element href='/docs/guides/link-verification/'></learn-more>
+  <learn-more ht-block href='/docs/guides/link-verification/'></learn-more>
 
 
 

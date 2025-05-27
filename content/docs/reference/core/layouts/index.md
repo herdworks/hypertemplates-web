@@ -20,7 +20,7 @@ HyperTemplates layouts are the most important building block in the HyperTemplat
 
 This example shows a simple HyperTemplates layout.
 
-<code-snippet ht-element filename='layouts/default.html'>
+<code-snippet ht-block filename='layouts/default.html'>
 
 ```html
 <!DOCTYPE html>
@@ -58,7 +58,7 @@ To learn more about how to develop HyperTemplates layouts, please visit the [Hyp
 **Precompiling layouts**
 : How to precompile layouts for improved performance & theme distribution.
 
-  <learn-more ht-element href='/docs/guides/precompiling-layouts/'>
+  <learn-more ht-block href='/docs/guides/precompiling-layouts/'>
 
 
 <!-- Links -->

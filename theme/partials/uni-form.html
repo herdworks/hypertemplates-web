@@ -1,5 +1,11 @@
 <uni-form>
-    <form method='POST' action='' onsubmit='event.preventDefault(); submitForm(this);' data-redirect='/thank-you' ht-attrs='action:form.action'>
+    <script ht-pipe='head'>
+        function submitOneBox(form) {
+            console.debug(form);
+        }
+    </script>
+    <!-- <form onsubmit='event.preventDefault(); submitOneBox(this);' ht-attrs='action:form.action; method:form.method'> -->
+    <form ht-attrs='action:form.action; method:form.method'>
         <form-group data-group='email'>
             <label for='email'>Email<span title='required' aria-label='required'> *</span></label>
             <input class='form-control' name='email' id='email' tabindex='101' type='email' placeholder='you@example.com' required>
@@ -17,7 +23,7 @@
             <input class='form-control form-submit' id='form-submit' tabindex='105' type='submit' aria-label='Subscribe' value='Subscribe'>
         </form-group>
     </form>
-    <style>
+    <style ht-pipe='css:style#components'>
         uni-form {
             display: block;
             flex-direction: row;

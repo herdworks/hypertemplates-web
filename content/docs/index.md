@@ -1,6 +1,7 @@
 ---
 created_at: 2024-12-10T16:00:00-08:00
 updated_at: 2024-12-10T16:00:00-08:00
+layout: default
 title: HyperTemplates User Documentation
 breadcrumb: Documentation
 summary: |
@@ -61,7 +62,7 @@ To understand HyperTemplates, let's use a simple HTML5 document as an example.
 
 To convert this example document into a reusable template using HyperTemplates, all we need to do is annotate the document using [HyperTemplates HTML attributes].
 
-<code-snippet ht-element filename='template.html' highlight='5-6,10-16,18'>
+<code-snippet ht-block filename='template.html' highlight='5-6,10-16,18'>
 
 ```html
 <!DOCTYPE html>
@@ -133,39 +134,43 @@ For example, the `site.favicon.href` property has a value of `/img/apple-touch-i
 
 To learn more about how HyperTemplates handles template data, please visit the [template data reference documentation].
 
-<learn-more ht-element href='/docs/reference/core/data/'></learn-more>
+<learn-more ht-block href='/docs/reference/core/data/'></learn-more>
 
 ### Resources
 
 #### Tutorials
 
-**Getting Started**
-: Learn the core building blocks of HyperTemplates in a few minutes!
+**Quick Start**
+: Get up and running in three easy steps.
   
-  <learn-more ht-element href='/docs/tutorials/getting-started/'></learn-more>
+  <learn-more ht-block href='/docs/tutorials/getting-started/'></learn-more>
 
+**Learn HyperTemplates**
+: Learn the core building blocks of HyperTemplates.
+
+  <learn-more ht-block href='/docs/tutorials/learn/'></learn-more>
 
 #### How-To Guides
-
-**RSS feeds**
-: How to configure RSS/Atom feeds.
-  
-  <learn-more ht-element href='/docs/guides/rss-feeds/'></learn-more>
 
 **Feed pages**
 : How to configure feed pages (e.g. a blog).
   
-  <learn-more ht-element href='/docs/guides/feed-pages/'></learn-more>
+  <learn-more ht-block href='/docs/guides/feed-pages/'></learn-more>
+
+**RSS feeds**
+: How to configure RSS/Atom feeds.
+  
+  <learn-more ht-block href='/docs/guides/rss-feeds/'></learn-more>
 
 **Link Verification**
 : How to add `rel="me"` links for third-party link verification.
   
-  <learn-more ht-element href='/docs/guides/link-verification/'></learn-more>
+  <learn-more ht-block href='/docs/guides/link-verification/'></learn-more>
 
 **Precompiling Layouts**
 : Precompiling layouts for theme distribution.
   
-  <learn-more ht-element href='/docs/guides/precompiling-layouts/'></learn-more>
+  <learn-more ht-block href='/docs/guides/precompiling-layouts/'></learn-more>
 
 
 #### Reference Documentation
@@ -176,22 +181,22 @@ The HyperTemplates [reference documentation](/docs/reference/) is organized arou
 **Core Specification**
 : The HyperTemplates core specification.
   
-  <learn-more ht-element href='/docs/reference/core/'></learn-more>
+  <learn-more ht-block href='/docs/reference/core/'></learn-more>
 
 **Content Management System (CMS)**
 : The HyperText Management System (HTMS).
 
-  <learn-more ht-element href='/docs/reference/cms/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cms/'></learn-more>
 
 **Static Site Generator (CLI)**
 : `hyperctl` is a static site generator based on HyperTemplates.
 
-  <learn-more ht-element href='/docs/reference/cli/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/'></learn-more>
 
 **Libraries**
 : Pure-HTML templating libraries for the modern web.
 
-  <learn-more ht-element href='/docs/reference/lib/'></learn-more>
+  <learn-more ht-block href='/docs/reference/lib/'></learn-more>
 
 
 <!-- Links -->

@@ -24,47 +24,47 @@ For more information on `hyperctl` itself, please visit the [CLI reference docum
 **Websites**
 : The HyperText Management system organizes content into websites.
   
-  <learn-more ht-element href='./website/'></learn-more>
+  <learn-more ht-block href='./website/'></learn-more>
 
 **Pages**
 : A website is a collection of pages.
 
-  <learn-more ht-element href='./page/'></learn-more>
+  <learn-more ht-block href='./page/'></learn-more>
 
 **Assets**
 : A page may contain one or more assets (e.g. images and other files).
 
-  <learn-more ht-element href='./assets/'></learn-more>
+  <learn-more ht-block href='./assets/'></learn-more>
 
 **Attachments**
 : A page may feature one or more attachments (files or links).
 
-  <learn-more ht-element href='./attachments/'></learn-more>
+  <learn-more ht-block href='./attachments/'></learn-more>
 
 **Tags**
 : Websites may organize smaller collections of pages using tags.
 
-  <learn-more ht-element href='./tags/'></learn-more>
+  <learn-more ht-block href='./tags/'></learn-more>
 
 **Feeds**
 : Website updates are organized into feeds.
 
-  <learn-more ht-element href='./feeds/'></learn-more>
+  <learn-more ht-block href='./feeds/'></learn-more>
 
 **Namespaces**
 : Non-page content can be managed in custom data namespaces.
 
-  <learn-more ht-element href='./namespaces/'></learn-more>
+  <learn-more ht-block href='./namespaces/'></learn-more>
 
 **Content Types**
 : Content templates for generating new pages.
 
-  <learn-more ht-element href='./content-types/'></learn-more>
+  <learn-more ht-block href='./content-types/'></learn-more>
 
 **Builds**
 : Websites generate output in the form of builds.
 
-  <learn-more ht-element href='./builds/'></learn-more>
+  <learn-more ht-block href='./builds/'></learn-more>
 
 <!-- Links -->
 [core specification]: /docs/reference/core/

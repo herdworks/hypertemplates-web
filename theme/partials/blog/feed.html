@@ -1,12 +1,12 @@
 <section id='feed' data-color-scheme='light'>
-    <style></style>
+    <style ht-pipe='css:style#components'></style>
     <grid-container>
         <ht-feed feed-src='atom.xml' feed-selector='article-body[summary], article-body, article-attachments, main' feed-limit='25'>
             <template>
                 <ht-post>
                     <post-card ht-include='partials/hyper/post-card'></post-card>
                     <post-body><a></a></post-body>
-                    <learn-more ht-include='elements/learn-more'></learn-more>
+                    <learn-more ht-include='blocks/learn-more'></learn-more>
                 </ht-post>
             </template>
         </ht-feed>

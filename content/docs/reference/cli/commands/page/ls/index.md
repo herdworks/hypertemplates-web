@@ -54,7 +54,7 @@ Last Modified              Title                       Draft  Path
 2025-01-30T12:00:00-08:00  Attributes                  false  /docs/reference/core/attributes/
 2025-01-30T12:00:00-08:00  CLI                         false  /docs/reference/cli/
 2025-02-03T12:00:00-08:00  ht-include                  false  /docs/reference/core/attributes/ht-include/
-2025-02-03T12:00:00-08:00  ht-element                  false  /docs/reference/core/attributes/ht-element/
+2025-02-03T12:00:00-08:00  ht-block                    false  /docs/reference/core/attributes/ht-block/
 2025-02-03T12:00:00-08:00  ht-attrs                    false  /docs/reference/core/attributes/ht-attrs/
 2025-02-03T12:00:00-08:00  ht-content                  false  /docs/reference/core/attributes/ht-content/
 2025-02-03T12:00:00-08:00  ht-template                 false  /docs/reference/core/attributes/ht-template/

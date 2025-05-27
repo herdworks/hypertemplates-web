@@ -12,14 +12,14 @@ hero:
         Rediscover the simple joy of making websites.
         No Javascript frameworks required.
     ctas:
-      - title: Get started
-        href: /docs/tutorials/getting-started
+      - title: Get Started
+        href: /docs/tutorials/getting-started/
         theme: primary
       - title: Docs
         href: /docs
         theme: light
     sample: |
-        <code-snippet ht-element filename='layout.html'>
+        <code-snippet ht-block filename='layout.html'>
 
         ```html
         <!DOCTYPE html>

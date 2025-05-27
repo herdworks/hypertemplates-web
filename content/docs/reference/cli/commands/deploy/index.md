@@ -15,7 +15,7 @@ breadcrumb: deploy
 
 The `hyperctl deploy` command performs a full website build and deploys the resulting build output to the configured [provider].
 
-<doc-quote ht-element>
+<doc-quote ht-block>
 
 **NOTE:** files are only written to the provider on successful build.
 

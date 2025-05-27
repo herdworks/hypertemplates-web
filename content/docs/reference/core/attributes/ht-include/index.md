@@ -12,14 +12,14 @@ breadcrumb: ht-include
 
 ### Overview
 
-The `ht-include` [attribute] causes HyperTemplates to replace target HTML elements with elements from an external source (a local or remote file).
+The `ht-include` [attribute] replaces target HTML elements with elements from an external source (a local or remote file).
 The `ht-include` attribute is one of the most powerful tools in the HyperTemplates toolbox, making it possible to compose complex layouts from reusable components.
 
 ### Example
 
 This example shows the `ht-include` attribute being used to template the `<header>` element.
 
-<code-snippet ht-element filename='layout.html' highlight='8' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='8' with-line-numbers>
 
 ```html
 <!DOCTYPE html>
@@ -54,7 +54,7 @@ The `ht-include` attribute can be used with any HTML element.
 </a>
 ```
 
-<doc-quote ht-element info>
+<doc-quote ht-block info>
 
 **A BRIEF ASIDE:** Discovering that we could use `ht-include` to template SVG images was one of the major "aha" moments we experienced early on in the development of HyperTemplates.
 This was a delightful side effect of the "pure-HTML" philosophy behind HyperTemplates.
@@ -98,7 +98,7 @@ Attribute templating occurs before include source elements are inserted into the
 
 In this example the `height` and `width` attributes will be copied to the `<svg>` element in `static/img/logo.svg` before it is inserted into the temlpate.
 
-<doc-quote ht-element notice>
+<doc-quote ht-block notice>
 
 **NOTE:** The `ht-include` attribute is excluded from attribute forwarding.
 
@@ -116,7 +116,7 @@ The contents of the include URI files are [include sources](#include-sources).
 
 In this example, `path/to/source.html` is an include URI.
 
-<doc-quote ht-element>
+<doc-quote ht-block>
 
 **PROTIP:** because HyperTemplates is the pure-HTML templating system, it assumes that same-origin include URIs are references to HTML documents with `.html` file extensions.
 
@@ -129,7 +129,7 @@ An include URI of `/path/to/source` is the same as `/path/to/source.html`.
 
 An include source is an [HTML `DocumentFragment`] referenced by a `ht-include` attribute.
 
-<doc-quote ht-element notice>
+<doc-quote ht-block notice>
 
 **What is a `DocumentFragment`?** An [HTML `DocumentFragment`] is a collection of one or more HTML elements, not a complete [HTML `Document`] containing a root `<html>` element with child `<head>` and `<body>` elements.
 

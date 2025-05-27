@@ -11,7 +11,8 @@
         <script src='/js/components/footer-menu.js' defer></script>
 
         <!-- Layout Styles -->
-        <style>
+        <style id='components'></style>
+        <style id='layout'>
             header {
                 & :is(a, a:hover) {
                     text-decoration: none;
@@ -43,7 +44,9 @@
                 grid-auto-flow: row;
                 grid-auto-rows: auto;
             }
-
+            detail-guide details:not([open]) {
+                cursor: pointer;
+            }
             detail-guide details summary {
                 display: grid;
                 grid-template-areas: 
@@ -61,6 +64,7 @@
                 align-self: center;
                 justify-content: center;
                 background-color: rgba(0,0,0,1.0);
+                cursor: inherit;
             }
             detail-guide details summary label span::before {
                 font-size: 3.0rem;
@@ -108,16 +112,17 @@
                 <grid-container>
                     <detail-guide>
                         <guide-overview>
-                            <h1>Learn HyperTemplates in <span ht-content='text:page.guide.steps.length'></span> easy steps</h1>
+                            <h1>Try HyperTemplates in <param ht-param='text:page.guide.steps.length'> easy steps</h1>
                             <content-block ht-content='markdown:page.guide.overview'>Lorem ipsum, hipsters get some.</content-block>
                             <button>Let's go</button>
                         </guide-overview>
-                        <details ht-template='step:page.guide.steps' ht-content='markdown:step.instructions' name='guide'>
+                        <details ht-template='step:page.guide.steps' name='guide' open>
                             <summary>
                                 <label><span></span></label>
                                 <h4 ht-content='text:step.title'></h3>
                                 <p ht-content='markdown:step.description'></p>
                             </summary>
+                            <param ht-param='markdown:step.instructions' />
                         </details>
                     </detail-guide>
                 </grid-container>

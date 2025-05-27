@@ -34,7 +34,7 @@ But then we decide that the "About Me" link should just be called "About" (or vi
 And then it hits us.
 This is unsustainable.
 
-<pull-quote ht-element>
+<pull-quote ht-block>
 
 The moment that second page exists, the seemingly simple journey becomes a lifelong quest to find the best templating system to keep some portion of two or more web pages in sync.
 
@@ -50,7 +50,7 @@ The <del>impending</del> ongoing [AI slop](https://en.wikipedia.org/wiki/AI_slop
 HTML is the _second most popular programming language in the world_ according to the [Stack Overflow Developer Survey].
 The #1 language is JavaScript, which is ostensibly a scripting language for HTML.
 HTML has held the #2 position for as long as it has appeared on the survey, beginning in 2018.
-Although it's popularity has declined from 68% to 53% of all developers, _the rumors of HTML's death have been greatly exaggerated_.
+Although its popularity has declined from 68% to 53% of all developers, _the rumors of HTML's death have been greatly exaggerated_.
 In 2022 the survey added a "learning to code" category which revealed HTML as the #1 programming language[^1] in the segment at over 60% of new developers.
 
 The internet is one of the most ubiquitous technologies of our modern era, so it's no wonder that so many people want to learn how to write HTML.
@@ -65,7 +65,7 @@ They range from static site generators like [Hugo] and [11ty], to JavaScript fra
 We've used almost every single one of these tools in one capacity or another, and they are incredibly powerful.
 But [every](https://gohugo.io/templates/introduction/) [single](https://www.11ty.dev/docs/languages/liquid/#supported-features) [one](https://nextjs.org/docs/app/getting-started/layouts-and-pages) of [them](https://docs.astro.build/en/reference/astro-syntax/) [uses](https://handlebarsjs.com/guide/expressions.html#basic-usage) a [different templating system](https://developer.wordpress.org/themes/templates/introduction-to-templates/), and none of them are HTML! 🤦🏽‍♂️
 
-<pull-quote ht-element>
+<pull-quote ht-block>
 
 Even after someone learns the basics of HTML, CSS, _and_ JavaScript – three languages! – the skills they have acquired are completely unrelated to how most websites are built in the real world.
 
@@ -87,7 +87,7 @@ Within a few more days I had a working prototype of `libhypertemplates`, a templ
 
 Here's what it looks like to write HTML templates with HyperTemplates:
 
-<code-snippet ht-element filename='example.html' caption='An example HyperTemplates layout.'>
+<code-snippet ht-block filename='example.html' caption='An example HyperTemplates layout.'>
 
 ```html
 <!DOCTYPE html>
