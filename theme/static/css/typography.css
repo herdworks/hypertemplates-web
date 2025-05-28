@@ -82,6 +82,11 @@ ol li {
     margin-bottom: var(--gutter-1x, 15px);
 }
 
+p > code {
+    text-wrap: balance;
+    word-break: break-all;
+}
+
 blockquote {
     background-color: var(--accent-color);
     margin: var(--gutter-default, 15px) 0;
