@@ -12,10 +12,12 @@ breadcrumb: ls
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl page ls` command lists website pages.
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl page ls -h
@@ -30,6 +32,7 @@ Options:
 ```
 
 #### Example
+------------
 
 The `hyperctl page ls` command is a helpful utility for listing pages.
 
@@ -109,6 +112,7 @@ Last Modified              Title                       Draft  Path
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

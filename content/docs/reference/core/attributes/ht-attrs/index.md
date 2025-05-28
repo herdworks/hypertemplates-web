@@ -12,10 +12,12 @@ breadcrumb: ht-attrs
 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview 
-
+------------
 The `ht-attrs` [attribute] annotates target HTML elements with one or more HTML attributes.
 
 ### Example
+-----------
+
 
 This example shows the `ht-attrs` attribute being used to template the page description `<meta>` element.
 
@@ -41,8 +43,10 @@ This example shows the `ht-attrs` attribute being used to template the page desc
 This template will cause the page description `<meta>` element `content` attribute to be populated with the value of the [template data] `page.description` or `site.description` property, or else do nothing (resulting in the default value "Home of Acme Inc." being used).
 
 ### Specification
+-----------------
 
 #### Supported elements
+-----------------------
 
 The `ht-attrs` attribute can be used with any HTML element.
 
@@ -51,6 +55,7 @@ The `ht-attrs` attribute can be used with any HTML element.
 ```
 
 #### Attribute syntax
+---------------------
 
 The `ht-attrs` attribute defines target HTML element attributes, expressed as a semicolon-separated list of `name:value` pairs.
 The `value` is a comma-separated list of dot-notation style references to one or more [template data properties].
@@ -74,6 +79,7 @@ The `<link>` element `ht-attrs` attribute configures three named attributes: `re
 </doc-quote>
 
 #### Default values
+-------------------
 
 The `ht-attrs` attribute will only cause attributes to be added to a target element if the specified [template data property] is found.
 In cases where no value is found, HyperTemplates ignores the attribute.
@@ -88,6 +94,7 @@ In this example, if the [template data] `page.author.name` property does not exi
 The end result will be a valid `<meta>` attribute with a value of "ACME Inc" (as configured by the `content` attribute).
 
 #### Attribute names
+--------------------
 
 The `ht-attrs` attribute can optionally specify the name of the attribute to be added to the target element.
 The `ht-attrs` attribute syntax is `name:value`.
@@ -100,9 +107,15 @@ If no attribute name is specified, an ordinal value will be used (e.g. `data-att
 In this example, HyperTemplates will set an element attribute named `content` to the value of the [template data] `page.author.name` or `site.author.name` property, or else do nothing.
 
 #### Multiple attributes
+------------------------
 
 The `ht-attrs` attribute can be used to configure multiple attributes on the target element.
 See [attribute syntax] for more information.
+
+### Guides
+----------
+
+🚧 Coming soon... 🚧
 
 <!-- Links -->
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes

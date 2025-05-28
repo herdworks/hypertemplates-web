@@ -9,10 +9,13 @@ summary: The HyperText Management System "provider" reference
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 A provider is a local or remote website hosting destination.
 
 ### Example
+-----------
+
 
 Providers are configured on a per-website basis in the website configuration file (`site.yaml` or `site.json`).
 

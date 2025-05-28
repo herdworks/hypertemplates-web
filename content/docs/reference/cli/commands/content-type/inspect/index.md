@@ -12,8 +12,12 @@ breadcrumb: inspect
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview 
+------------
+
+🚧 Coming soon... 🚧
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl content-type inspect -h
@@ -28,6 +32,7 @@ Options:
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

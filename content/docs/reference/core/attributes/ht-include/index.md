@@ -11,11 +11,13 @@ breadcrumb: ht-include
 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
+------------
 
 The `ht-include` [attribute] replaces target HTML elements with elements from an external source (a local or remote file).
 The `ht-include` attribute is one of the most powerful tools in the HyperTemplates toolbox, making it possible to compose complex layouts from reusable components.
 
 ### Example
+-----------
 
 This example shows the `ht-include` attribute being used to template the `<header>` element.
 
@@ -43,8 +45,10 @@ This example shows the `ht-include` attribute being used to template the `<heade
 The `ht-include` attribute in this example will replace the placeholder `<header>` element with the contents of the referenced [include source](#include-sources) (`partials/header.html`), which contains an [HTML `DocumentFragment`].
 
 ### Specification
+-----------------
 
 #### Supported elements
+-----------------------
 
 The `ht-include` attribute can be used with any HTML element.
 
@@ -65,6 +69,7 @@ If you encounter any such deligtful surprises, please [let us know](/contact)!
 
 
 #### Attribute syntax
+---------------------
 
 The `ht-include` attribute provides templating instructions, expressed as a comma-separated list of [include URIs](#include-uris), where each URI contains an [include source](#include-sources). 
 
@@ -73,6 +78,7 @@ The `ht-include` attribute provides templating instructions, expressed as a comm
 ```
 
 #### Placeholder elements
+-------------------------
 
 An HTML element with an `ht-include` attribute is called a "placeholder element".
 If the [template data property] referenced by a given `ht-include` attribute exists, the placeholder element is replaced by the [include source](#include-sources).
@@ -84,6 +90,7 @@ If the [template data property] referenced by a given `ht-include` attribute exi
 In this example, the `<button>` element is a placeholder element.
 
 #### Attribute forwarding
+-------------------------
 
 When the tag name of a [placeholder element](#placeholder-element) matches the tag name of the first element in the [include source](#include-sources), HyperTemplates will copy HTML attributes from the placeholder element to the first element in the include source.
 Attribute templating occurs before include source elements are inserted into the template.
@@ -105,6 +112,7 @@ In this example the `height` and `width` attributes will be copied to the `<svg>
 </doc-quote>
 
 #### Include URIs
+-----------------
 
 HyperTemplates `ht-include` attributes contain URIs that reference files containing DOM elements.
 These URIs are referred to as "include URIs".
@@ -126,6 +134,7 @@ An include URI of `/path/to/source` is the same as `/path/to/source.html`.
 
 
 #### Include sources
+--------------------
 
 An include source is an [HTML `DocumentFragment`] referenced by a `ht-include` attribute.
 

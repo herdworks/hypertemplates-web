@@ -11,10 +11,13 @@ breadcrumb: ht-pipe
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 The `ht-pipe` [attribute] _moves_ target elements or target element contents.
 
 ### Example
+-----------
+
 
 This example shows the `ht-pipe` attribute being used to template a `<style>` element.
 
@@ -108,8 +111,10 @@ In this example, the `ht-pipe='head'` attribute defines `head` as the selector, 
 
 
 ### Specification
+-----------------
 
 #### Supported elements
+-----------------------
 
 The `ht-pipe` attribute can be used with any HTML element.
 
@@ -121,6 +126,7 @@ See [pipe types] for more information.
 </doc-quote>
 
 #### Attribute syntax
+---------------------
 
 The `ht-pipe` attribute provides content templating instructions, expressed as a single `type:selector` pair, where `selector` is a valid [CSS selector].
 
@@ -141,6 +147,7 @@ Because the `element` pipe type is the default, this pipe could be configured as
 See [pipe types] for more information.
 
 #### Destination elements
+-------------------------
 
 All `ht-pipe` attribute must define a selector (see [attribute syntax]) to indicate where the target element should be moved to.
 The element selected by the configured selector is referred to as the destination element.
@@ -153,6 +160,7 @@ In cases where the pipe selector does not match another element in the document,
 </doc-quote>
 
 #### Pipe types
+---------------
 
 The `ht-pipe` attribute is used to move HTML elements. 
 The manner in which elements are moved can be configured by providing a pipe "type" (see [attribute syntax]).
@@ -181,9 +189,9 @@ In this example, we're creating a text pipe to move the contents of the target `
 Text pipes make it possible to aggregate snippets of code from multiple layout partials into a single element.
 
 ### Guides
+----------
 
-Coming soon...
-
+🚧 Coming soon... 🚧
 
 <!-- Links -->
 [CSS selector]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors

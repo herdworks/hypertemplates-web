@@ -10,12 +10,15 @@ summary: |
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 A HyperTemplates theme is a collection of [layouts] and related files.
 HyperTemplates themes must have a layouts directory and a default layout file named `default.html`.
 <mark>This is the only requirement for a HyperTemplates theme</mark>.
 
 ### Example
+-----------
+
 
 An example HyperTemplates theme typically contains additional resources organized into subdirectories such as `partials/`, and `static/` but the actual directory structure beyond the `layouts` folder is up to theme developers.
 
@@ -41,10 +44,12 @@ static/
 ```
 
 ### Specification
+-----------------
 
 #### Configuration
+------------------
 
-Coming soon...
+🚧 Coming soon... 🚧
 
 <code-snippet ht-block filename='site.yaml'>
 

@@ -16,12 +16,14 @@ script: |
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 Markdown is a document format [created by John Gruber] for <mark>writing for the web</mark>.
 The markdown syntax was designed to generate HTML from plain text (markdown) documents.
 Markdown (and its [many variants]) has become so ubiquitous that it is even used to generate formatted text beyond the web (e.g. in messaging platforms like [Whatsapp], [Slack], and [Discord]).
 
 ### Learn Markdown
+------------------
 
 There are far too many excellent resources for learning markdown for us to attempt our own.
 Here are a few of our favorites:
@@ -32,8 +34,10 @@ Here are a few of our favorites:
 * [Working with advanced formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting) by @github.com
 
 ### Specification
+-----------------
 
 #### HyperMark
+--------------
 
 The markdown engine in HyperTemplates is called HyperMark.
 HyperMark is based on the [GitHub Flavored Markdown] dialect, and compliant with the latest version of the [CommonMark Specification].
@@ -41,6 +45,7 @@ HyperMark is based on the [GitHub Flavored Markdown] dialect, and compliant with
 HyperMark also adds some of our favorite features from the social media world, including [**\@mentions**](#mentions), [**\#hashtags**](#hashtags), and [**:emojicodes:**](#emojicodes).
 
 #### Frontmatter
+----------------
 
 HyperMark supports YAML-formatted frontmatter.
 Frontmatter is a block of structured data that lives at the top of every Markdown file, wrapped in an opening and closing `---` demarcation.
@@ -68,6 +73,7 @@ Learn more:
 * [YAML frontmatter]
 
 #### \@Mentions
+---------------
 
 HyperMark automatically converts \@mentions to links (i.e. `<a>` elements).
 A \@mention is a string that begins with the `@` symbol, followed by any combination of alphanumeric, dot (`.`), underscore (`_`), dash (`-`), and forward slash (`/`) characters.
@@ -92,6 +98,7 @@ Powered by @hypertemplates.net!
 ```
 
 #### \#Hashtags
+---------------
 
 HyperMark automatically converts \#hashtags to links (i.e. `<a>` elements).
 A \#hashtag is a string that begins with the `#` symbol, followed by any combination of alphanumeric, underscore (`_`), and dash (`-`) characters.
@@ -123,12 +130,14 @@ HyperTemplates is a pure #HTML templating system for the modern web.
 In this example, the default prefix (`/tags/`), lowercase tag name (`html` instead of `HTML`) and suffix (`/`) are used to create the link: `/tags/html/`.
 
 #### :emojicodes:
+-----------------
 
 HyperMark automatically converts :emojicodes: to their corresponding emoji characters.
 Over 1800 different emoji from the [Unicode Emoji specification] are supported.
 See below for a complete list.
 
 ##### Supported emoji codes
+---------------------------
 
 | **Code** | **Emoji** |
 |:---------|:----------|
@@ -2002,7 +2011,6 @@ See below for a complete list.
 | `:zombie_woman:` | :zombie_woman: |
 | `:zombie:` | :zombie: |
 | `:zzz:` | :zzz: |
-
 
 <!-- Links -->
 [Created by John Gruber]: https://daringfireball.net/projects/markdown/syntax

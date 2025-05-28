@@ -9,10 +9,12 @@ summary: The HyperText Management System "assets" reference
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 An asset is any file served alongside a page's index.html at the page's path.
 
 ### Asset hierarchy
+-------------------
 
 The HyperText Management System has a tiered hierarchy for static assets:
 

@@ -6,6 +6,7 @@ summary: |
 ---
 
 ## HyperTemplates Core Reference
+--------------------------------
 
 HyperTemplates is the pure-HTML templating _system_ that includes a specification as well as various software packages that implement the templating system (e.g. [`hyperctl`]).
 This reference documents the core specification itself.

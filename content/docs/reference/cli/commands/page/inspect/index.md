@@ -12,10 +12,12 @@ breadcrumb: inspect
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl page inspect` command inspects website pages.
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl page inspect -h
@@ -30,12 +32,14 @@ Options:
 ```
 
 #### Example
+------------
 
 ```plaintext
 
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

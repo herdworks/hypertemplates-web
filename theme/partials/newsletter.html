@@ -3,30 +3,30 @@
         #newsletter {
             padding: 50px 0;
         }
-        #newsletter grid-row {
+        #newsletter content-row {
             grid-template-columns: 1fr 1fr;
             gap: var(--gutter-2x, 30px);
         }
-        #newsletter grid-column:last-child {
+        #newsletter content-column:last-child {
             width: 100%;
             align-self: center;
         }
-        @media screen and (max-width: 679px) {
-            #newsletter grid-row {
+        @media screen and (max-width: 767px) {
+            #newsletter content-row {
                 grid-template-columns: 100%;
                 grid-auto-flow: row;
             }
         }
     </style>
-    <grid-container>
-        <grid-row>
-            <grid-column>
+    <content-container>
+        <content-row grid>
+            <content-column>
                 <h3 ht-content='page.newsletter.title,layout.newsletter_title,data.newsletter.title'>The Newsletter</h3>
                 <p ht-content='page.newsletter.description,layout.newsletter_description,data.newsletter.description'>Subscribe to the newsletter and never miss a post.</p>
-            </grid-column>
-            <grid-column>
+            </content-column>
+            <content-column>
                 <uni-form ht-include='partials/uni-form' ht-template='form:data.newsletter.form'></uni-form>
-            </grid-column>
-        </grid-row>
-    </grid-container>
+            </content-column>
+        </content-row>
+    </content-container>
 </section>

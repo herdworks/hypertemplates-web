@@ -12,12 +12,15 @@ breadcrumb: Template Iterators
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Goal
+--------
 
-
+🚧 Coming soon... 🚧
 
 ### Introduction
+----------------
 
 ### Exercises
+-------------
 
 **EXERCISE 1: Create a template iterator**
 : Use the [`ht-template`] attribute to repeat some layout content once per occurrence of some [template data].
@@ -96,10 +99,17 @@ breadcrumb: Template Iterators
 
 
 ### Discussion
+--------------
 
-### Next Steps
+### Learn more
+--------------
 
-<learn-more ht-block href='../lesson-6/' label='LESSON 6: Short Codes'></learn-more>
+<tutorial-nav ht-block 
+         prev-href='../lesson-4/' 
+         prev-label='Lesson 4: Template Includes' 
+         next-href='../lesson-6/'
+         next-label='Lesson 6: Short Codes'></tutorial-nav>
+
 
 <!-- Footnotes -->
 [^1]: In the earliest prototypes of HyperTemplates, all of the template attributes were prefixed with `hyper-`, so this attribute was originally called `hyper-template`.

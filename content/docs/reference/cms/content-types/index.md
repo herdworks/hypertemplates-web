@@ -11,11 +11,14 @@ summary: |
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 A content-type is a template for generating new content.
 The content-type configuration file provides a system for generating content files with the necessary [template data properties] for a given [layout].
 
 ### Example
+-----------
+
 
 An example "Quick Post" content-type configuration file in YAML format.
 
@@ -42,6 +45,7 @@ prompts: [] # coming soon
 </code-snippet>
 
 ### Properties
+--------------
 
 **`contenttype.metadata`**
 : Something something content-type something...

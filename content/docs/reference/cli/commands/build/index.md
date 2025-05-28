@@ -12,10 +12,13 @@ breadcrumb: build
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl build` command is used to perform full website [builds].
 
 ### Usage
+---------
+---------
 
 ```plaintext
 $ hyperctl build -h
@@ -33,6 +36,7 @@ Options:
 <!-- TODO: add #### Example header with example build output. -->
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

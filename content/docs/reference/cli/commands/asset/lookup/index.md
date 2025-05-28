@@ -12,6 +12,7 @@ breadcrumb: lookup
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 Lookup a static asset by its path.
 The `hyperctl asset lookup` command reads website configuration and searches the configured theme, website, and content subdirectories for the asset source file.
@@ -26,6 +27,8 @@ See the [asset hierarchy] reference for more information.
 </doc-quote>
 
 ### Usage
+---------
+---------
 
 ```plaintext
 lookup a static asset by its path.
@@ -39,6 +42,7 @@ Options:
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

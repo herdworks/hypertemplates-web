@@ -1,6 +1,6 @@
 <header id='header' data-color-scheme='primary'>
     <style ht-pipe='css:style#components'>
-        header > grid-container {
+        header > content-container {
             display: grid;
             justify-items: center;
             margin-top: var(--whitespace, 50px);
@@ -12,9 +12,9 @@
     </style>
     <nav ht-include='partials/nav'></nav>
     <sidebar-menu ht-include='partials/sidebar-menu'></sidebar-menu>
-    <grid-container ht-if='page.title'>
+    <content-container ht-if='page.title'>
         <h1 rel='title' ht-content='text:page.title'>Title</h1>
         <p rel='title' ht-content='text:page.description' ht-if='page.description'></p>
         <param ht-param='markdown:page.summary' />
-    </grid-container>
+    </content-container>
 </header>

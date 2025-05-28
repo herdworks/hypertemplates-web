@@ -11,10 +11,12 @@ summary: |
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview
+------------
 
 A page is a directory containing an index file in Markdown (`index.md`), YAML (`index.yaml`), or JSON (`index.json`) format.
 
 ### Directory structure
+-----------------------
 
 Each HyperText Management System (HTMS) page is a directory. 
 Each page directory must contain an index file in markdown, YAML, or JSON format.
@@ -37,6 +39,7 @@ my-website/         # website directory
 ```
 
 ### Example
+-----------
 
 An example page content file in [Markdown] format.
 
@@ -73,6 +76,7 @@ The page content file provides a standardized set of core [properties](#properti
 </doc-quote>
 
 ### Properties
+--------------
 
 All properties are string data types unless otherwise noted.
 
@@ -695,6 +699,7 @@ All properties are string data types unless otherwise noted.
   In this example, the `social` properties are available in [layouts] as the `page.social.youtube`, `page.social.instagram`, and `page.social.twitter` [template data properties].
 
 ### Guides
+----------
 
 **Add a blog page**
 : Create your first blog using feed pages!

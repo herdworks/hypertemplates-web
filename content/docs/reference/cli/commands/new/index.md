@@ -12,10 +12,12 @@ breadcrumb: new
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl new` command is used to start new HyperTemplates projects (websites) and add content (pages) to an existing project.
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl new -h
@@ -33,6 +35,7 @@ Options:
 ```
 
 ### Commands
+------------
 
 The `hyperctl new` command has the following subcommands:
 

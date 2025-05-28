@@ -1,6 +1,6 @@
 <nav>
     <style ht-pipe='css:style#components'>
-        nav grid-container {
+        nav content-container {
             display: grid;
             grid-template-areas: "learn logo develop button";
             grid-template-rows: 1fr;
@@ -48,19 +48,18 @@
                 height: 100%;
             }
         }
-        @media screen and (max-width: 679px) {
-            nav grid-container {
+        @media screen and (max-width: 767px) {
+            nav content-container {
                 grid-template-columns: 0 auto 0 auto;
             }
             nav-links[rel='learn'] { display: none; }
             nav-links[rel='develop'] { display: none; }
             nav-button { display: flex; }
         }
-        @media screen and (min-width: 680px) and (max-width: 991px) {}
-        @media screen and (min-width: 992px) and (max-width: 1379px) {}
-        @media screen and (min-width: 1380px) {}
+        @media screen and (min-width: 768px) and (max-width: 1279px) {}
+        @media screen and (min-width: 1280px) {}
     </style>
-    <grid-container>
+    <content-container>
         <nav-links rel='learn'>
             <a href ht-template='link:data.nav.learn' ht-attrs='href:link.href;rel:link.title' ht-content='link.label,link.title'></a>
         </nav-links>
@@ -75,5 +74,5 @@
                 <svg ht-include='static/icons/bars.svg'></svg>
             </button>
         </nav-button>
-    </grid-container>
+    </content-container>
 </nav>

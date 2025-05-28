@@ -11,11 +11,13 @@ breadcrumb: ht-if
 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
+------------
 
 The `ht-if` [attribute] retains the target HTML element if the defined conditional expression evaluates to `true`.
 If the conditional expression evaluates to `false`, the target HTML element is removed.
 
 ### Example
+-----------
 
 This example shows the `ht-if` attribute being used to template the `<header>` element.
 
@@ -74,8 +76,10 @@ The `<header>` element will be removed because the example template data did not
 </details>
 
 ### Specification
+-----------------
 
 #### Supported elements
+-----------------------
 
 The `ht-if` attribute can be used with any HTML element.
 
@@ -84,6 +88,7 @@ The `ht-if` attribute can be used with any HTML element.
 ```
 
 #### Attribute syntax
+---------------------
 
 The `ht-if` attribute defines templating conditions expressed as a semicolon-separated list of `property==value` pairs (delineated by the `==` characters).
 
@@ -103,12 +108,14 @@ If multiple values are defined for a given conditional expression, only one of t
 In this example, HyperTemplates will retain the `<address>` element if the value of the `page.author.kind` or `site.author.kind` [template data property] matches one of the the expected [conditional values] of `organization`, `company`, or `business`.
 
 #### Inclusive templating
+-------------------------
 
 The `ht-if` attribute is used for _inclusive_ templating.
 If the condition evaluates as **`true`**, the target HTML element is **included**.
 See [`ht-not`] for _exclusive_ templating.
 
 #### Conditional values
+-----------------------
 
 The `ht-if` attribute can optionally define a comma-separated list of one or more expected conditional values (see [attribute syntax]).
 
@@ -135,6 +142,7 @@ Given this example template data, the conditional expression `ht-if='page.author
 However, the conditional expression `ht-if='page.author.kind==person'` would evaluate `false` because the `page.author.kind` property has a value of "organization", not "person".
 
 ##### Conditional expressions and arrays
+----------------------------------------
 
 When a conditional expression with a conditional value is used on a property that is an array, such as the `page.tags` property in this example, the value is compared to all of the values in the array.
 Please note the following examples based on the sample data shown above:

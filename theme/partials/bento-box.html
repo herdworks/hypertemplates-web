@@ -70,7 +70,7 @@
         bento-box > bento-card[height='8'] { --bento-card-rows: span 8; }
         bento-box > bento-card[height='9'] { --bento-card-rows: span 9; }
         bento-box > bento-card[height='10'] { --bento-card-rows: span 10; }
-        @media screen and (max-width: 679px) {
+        @media screen and (max-width: 767px) {
             bento-box,
             bento-box[columns] {
                 --bento-box-columns: repeat(10, 1fr);
@@ -79,7 +79,7 @@
                 --bento-card-columns: span 10 !important;
             }
         }
-        @media screen and (min-width: 680px) and (max-width: 991px) {
+        @media screen and (min-width: 768px) and (max-width: 1279px) {
             bento-box,
             bento-box[columns] {
                 --bento-box-columns: repeat(10, 1fr);
@@ -88,8 +88,7 @@
                 --bento-card-columns: span 5 !important;
             }
         }
-        @media screen and (min-width: 992px) and (max-width: 1379px) {}
-        @media screen and (min-width: 1380px) {}
+        @media screen and (min-width: 1280px) {}
     </style>
     <bento-card ht-template='card:page.features.highlights' ht-attrs='width:card.width;height:card.height'>
         <span hidden ht-content='card'></span>

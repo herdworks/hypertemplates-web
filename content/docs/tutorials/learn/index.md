@@ -8,14 +8,17 @@ breadcrumb: Learn
 ---
 
 ## Learn HyperTemplates
+-----------------------
 
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Introduction
+----------------
 
 Coming soon...
 
 ### Setup
+---------
 
 There are only three requirements for this series of tutorials: 
 
@@ -24,6 +27,10 @@ There are only three requirements for this series of tutorials:
 * A browser
 
 ### Lessons
+-----------
+
+The best way to learn HyperTemplates is to work the lessons in this tutorial.
+You'll learn enough to start building in just a few minutes, and the entire tutorial can be completed in about 15-20 minutes. ⏱️
 
 **Lesson 1: Content templating**
 : Learn more about content templating.

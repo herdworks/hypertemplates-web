@@ -41,13 +41,13 @@
             /* -webkit-text-stroke-width: 2px; */
             /* -webkit-text-stroke-color: rgba(0,0,0,1.0); */
         }
-        header grid-row {
+        header content-row[grid] {
             display: grid;
             grid-template-columns: calc(40% - var(--gutter-1x)) calc(60% - var(--gutter-1x));
             gap: var(--gutter-2x);
             align-self: unset;
         }
-        header grid-column {
+        header content-column {
             width: 100%;
             max-width: inherit;
         }
@@ -69,7 +69,7 @@
                 width: auto;
             }
         }
-        header grid-column:last-of-type {
+        header content-column:last-of-type {
             margin-bottom: calc(var(--whitespace, 50px) * -1);
         }
         header code-snippet {
@@ -80,8 +80,8 @@
         header code-snippet code {
             font-size: 0.90rem;
         }
-        @media screen and (max-width: 679px) {
-            header grid-row {
+        @media screen and (max-width: 767px) {
+            header content-row[grid] {
                 grid-template-columns: 100%;
                 grid-auto-flow: row;
             }
@@ -93,9 +93,9 @@
             }
         }
     </style>
-    <grid-container>
-        <grid-row>
-            <grid-column>
+    <content-container>
+        <content-row grid>
+            <content-column>
                 <!-- <h1 ht-content='text:page.title'>Title</h1> -->
                 <nav>
                     <svg ht-include='static/img/hypertemplates-logo-duo.svg'></svg>
@@ -112,9 +112,9 @@
                     Download version
                     <span ht-content='text:data.downloads.latest'></span>
                 </a>
-            </grid-column>
-            <grid-column ht-content='markdown:page.hero.sample'></grid-column>
-        </grid-row>
-    </grid-container>
+            </content-column>
+            <content-column ht-content='markdown:page.hero.sample'></content-column>
+        </content-row>
+    </content-container>
     <sidebar-menu ht-include='partials/sidebar-menu'></sidebar-menu>
 </header>

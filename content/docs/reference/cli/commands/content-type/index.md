@@ -11,11 +11,14 @@ breadcrumb: content-type
 
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
-### Overview 
+### Overview
+------------
 
 Inspect HyperTemplate theme content types.
 
 ### Usage
+---------
+---------
 
 ```plaintext
 $ hyperctl content-type -h
@@ -33,6 +36,7 @@ Options:
 ```
 
 ### Commands
+------------
 
 The `hyperctl content-type` command has the following subcommands:
 

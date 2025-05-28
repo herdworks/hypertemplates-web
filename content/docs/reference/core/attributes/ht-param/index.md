@@ -11,10 +11,12 @@ breadcrumb: ht-param
 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
+------------
 
 The `ht-param` [attribute] replaces the target element with text or HTML content from [template data].
 
 ### Example
+-----------
 
 This example shows the `ht-param` attribute being used to template a `<p>` element.
 
@@ -92,8 +94,10 @@ The result is that the `<param>` element will be replaced by the default value o
 </details>
 
 ### Specification
+-----------------
 
 #### Supported elements
+-----------------------
 
 The `ht-param` attribute can be used with any HTML element.
 The `ht-param` attribute is best used with [void elements], simply because they do not require closing tags and thus improve template brevity.
@@ -123,6 +127,7 @@ For templating elements that contain only text (e.g. the `<title>` element), ple
 </doc-quote>
 
 #### Attribute syntax
+---------------------
 
 The `ht-param` attribute provides content templating instructions, expressed as a single `format:value` pair, where `value` is a comma-separated list of dot-notation style references to one or more [template data properties].
 
@@ -133,6 +138,7 @@ The `ht-param` attribute provides content templating instructions, expressed as 
 See [content formats] for more information.
 
 #### Default values
+-------------------
 
 The `ht-param` attribute will only insert content if the specified [template data property] is found.
 In cases where no value is found, the associated element is simply removed.
@@ -146,6 +152,7 @@ In scenarios where a default or fallback value is desired, add a `data-default` 
 In this example, if the [template data] `page.title` property does not exist, HyperTemplates will replace the `<param>` element with the default value of `Placeholder Title`.
 
 #### Content formats
+--------------------
 
 The `ht-param` attribute can optionally specify the format of the data to be inserted into the layout.
 The supported formats are `text`, `html`, and `markdown`.

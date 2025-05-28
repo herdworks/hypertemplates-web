@@ -12,10 +12,11 @@ breadcrumb: data
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview 
-
+------------
 The `hyperctl data` command is used to manage global [data namespaces].
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl data -h
@@ -34,6 +35,7 @@ Options:
 ```
 
 ### Commands
+------------
 
 The `hyperctl data` command has the following subcommands:
 

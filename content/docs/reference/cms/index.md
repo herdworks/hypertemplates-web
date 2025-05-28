@@ -10,12 +10,14 @@ summary: |
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 At a high level, HyperTemplates attempts to be unopinionated about the structure of HTML content and layouts.
 The [core specification] is primarily concerned with HTML templates (layouts) and template data (content) as inputs, which are used to generate individual **web _pages_** (HTML documents) as outputs.
 When it comes to building **web _sites_** (collections of HTML documents), a more opinionated approach to content management is required.
 
 ### The HyperText Management System
+-----------------------------------
 
 The content management system used by `hyperctl` is called the HyperText Management System (HTMS). 
 This reference documents the HTMS building blocks, including: websites, authors, pages, assets, attachments, tags, feeds, and namespaces.

@@ -6,8 +6,10 @@ summary: |
 ---
 
 ## Reference Documentation
+-----
 
-HyperTemplates is a **core specification**, a **content management system**, a **static site generator**, and a set of **libraries** for HTML templating.
+HyperTemplates is a complete system for building websites.
+It includes a **core specification**, a **content management system**, and **static site generator**.
 The HyperTemplates reference documentation is organized around these components.
 
 **Core Specification**
@@ -24,9 +26,4 @@ The HyperTemplates reference documentation is organized around these components.
 : `hyperctl` is a static site generator based on HyperTemplates.
 
   <learn-more ht-block href='/docs/reference/cli/'></learn-more>
-
-**Libraries**
-: Pure-HTML templating libraries for the modern web.
-
-  <learn-more ht-block href='/docs/reference/lib/'></learn-more>
 

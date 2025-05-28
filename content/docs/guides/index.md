@@ -11,6 +11,7 @@ breadcrumb: Guides
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 How-to guides are helpful resources for existing HyperTemplates users who want to add new features to their websites and/or learn advanced workflows.
 

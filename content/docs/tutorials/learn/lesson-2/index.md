@@ -12,12 +12,17 @@ breadcrumb: Attribute Templating
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Goal
+--------
+
+🚧 Coming soon... 🚧
 
 ### Introduction
+----------------
 
 In this lesson we will template HTML element attributes using HyperTemplates.
 
 ### Exercises
+-------------
 
 **EXERCISE 1: Create attribute templates**
 : Create attribute templates.
@@ -95,9 +100,11 @@ In this lesson we will template HTML element attributes using HyperTemplates.
   Otherwise, just open `index.html` in your text editor.
 
 ### Discussion
+--------------
 
 
 ### Learn more
+--------------
 
 * [Attributes reference](/docs/reference/core/attributes/)
   * [`ht-attrs` attribute](/docs/reference/core/ht-attrs/)
@@ -105,9 +112,13 @@ In this lesson we will template HTML element attributes using HyperTemplates.
 * [Markdown reference](/docs/reference/core/markdown/)
 * [CLI reference](/docs/reference/cli/)
 
-### Next Steps
 
-<learn-more ht-block label='Lesson 3: Template Conditionals' href='../lesson-3/'>
+<tutorial-nav ht-block 
+         prev-href='../lesson-1/' 
+         prev-label='Lesson 1: Content Templating' 
+         next-href='../lesson-3/' 
+         next-label='Lesson 3: Template Conditionals'></tutorial-nav>
+
 
 <!-- Links -->
 [`ht-attrs`]: /docs/reference/core/attributes/ht-attrs/

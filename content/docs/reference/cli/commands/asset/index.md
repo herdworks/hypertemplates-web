@@ -12,10 +12,13 @@ breadcrumb: asset
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl asset` command is used to manage website [assets].
 
 ### Usage
+---------
+---------
 
 ```plaintext
 $ hyperctl asset -h
@@ -33,6 +36,7 @@ Options:
 ```
 
 ### Commands
+------------
 
 The `hyperctl asset` command has the following subcommands:
 

@@ -10,6 +10,7 @@ summary: |
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 Tutorials are helpful resources for new HyperTemplates users who want to get up and running quickly, or learn the basic features.
 

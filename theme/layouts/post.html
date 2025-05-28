@@ -21,14 +21,14 @@
     </head>
     <body data-color-scheme='light'>
         <header ht-include='partials/blog/header.html'></header>
-        <grid-whitespace></grid-whitespace>
+        <content-whitespace></content-whitespace>
         <section id='post' data-color-scheme='light'>
             <style ht-pipe='css:style#components'>
                 #post post-card {
                     margin-bottom: var(--gutter-2x, 30px);
                 }
             </style>
-            <grid-container>
+            <content-container>
                 <article itemscope itemtype='https://schema.org/Article'>
                     <article-meta>
                         <post-card ht-include='partials/hyper/post-card' ht-template='entity:page.author,site.author;page:page' ht-not='page.content=='></post-card>
@@ -40,10 +40,10 @@
                     </article-attachments>
                     <article-body ht-content='markdown:page.more' more></article-body>
                 </article>
-            </grid-container>
+            </content-container>
             <auto-anchor scope='article'></auto-anchor>
         </section>
-        <grid-whitespace></grid-whitespace>
+        <content-whitespace></content-whitespace>
         <section ht-include='partials/newsletter.html'></section>
         <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
     </body>

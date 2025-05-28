@@ -6,6 +6,24 @@ summary: The HyperText Management System "authors" reference
 
 # Authors reference
 
-Coming soon...
+<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+
+### Overview
+------------
+
+🚧 Coming soon... 🚧
+
+### Example
+-----------
+
+```
+```
+
+### Properties
+--------------
+
+### Guides
+----------
+
 
 <!-- Links -->

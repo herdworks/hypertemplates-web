@@ -12,11 +12,14 @@ breadcrumb: add
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 Add static assets to a website.
 The `hyperctl asset add` command reads website configuration and copies external assets into the configured static asset directory (see [`site.config.static_dir`]).
 
 ### Usage
+---------
+---------
 
 ```plaintext
 $ hyperctl asset add -h
@@ -31,6 +34,7 @@ Options:
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

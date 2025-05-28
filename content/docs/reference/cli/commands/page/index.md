@@ -12,10 +12,11 @@ breadcrumb: page
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview 
-
+------------
 
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl page -h
@@ -33,6 +34,7 @@ Options:
 ```
 
 ### Commands
+------------
 
 The `hyperctl page` command has the following subcommands:
 

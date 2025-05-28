@@ -12,12 +12,17 @@ breadcrumb: Attribute Templating
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Goal
+--------
 
 In this lesson we will add some conditional logic to our layout template and learn how to show or hide content based on template data.
 
 ### Introduction
+----------------
+
+🚧 Coming soon... 🚧
 
 ### Exercises
+-------------
 
 **EXERCISE 1: Add template conditions**
 : Use the `ht-if` attribute to show a `<header>` and `<footer>` if the `title` and `copyright` properties are present in the template data.
@@ -99,13 +104,20 @@ In this lesson we will add some conditional logic to our layout template and lea
   If you see the footer then you're ready to move on to the next lesson. :raised_hands: 
 
 ### Discussion
+--------------
 
+🚧 Coming soon... 🚧
 
 ### Learn more
+--------------
 
-### Next Steps
 
-<learn-more ht-block label='Lesson 4: Template Includes' href='../lesson-4/'>
+<tutorial-nav ht-block 
+         prev-href='../lesson-2/' 
+         prev-label='Lesson 2: Attribute Templating' 
+         next-href='../lesson-4/' 
+         next-label='Lesson 4: Template Includes'></tutorial-nav>
+
 
 <!-- Links -->
 [content sectioning]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements#content_sectioning

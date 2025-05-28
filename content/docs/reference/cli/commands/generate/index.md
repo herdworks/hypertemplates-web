@@ -12,10 +12,12 @@ breadcrumb: generate
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl generate` command performs an [incremental build].
 
 ### Usage
+---------
 
 ```plaintext
 Generate a single page build from a HyperTemplate.
@@ -31,6 +33,7 @@ Options:
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

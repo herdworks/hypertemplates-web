@@ -12,10 +12,12 @@ breadcrumb: ls
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl data ls` command is used to list website global [data namespaces].
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl data ls -h
@@ -30,6 +32,7 @@ Options:
 ```
 
 #### Example
+------------
 
 Use the `hyperctl data ls` command to list available namespaces.
 
@@ -45,6 +48,7 @@ nav         1455
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

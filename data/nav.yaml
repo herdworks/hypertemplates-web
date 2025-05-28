@@ -24,47 +24,29 @@ sidebar:
   - label: CLI
     href: /docs/reference/cli/
 footer:
-  # HyperTemplates
-  - group: HyperTemplates
-    label: Home
-    href: /
-  - group: HyperTemplates
-    label: Docs
-    href: /docs/
-  - group: HyperTemplates
-    label: Search
-    href: /docs/search/
-  - group: HyperTemplates
-    label: Blog
-    href: /blog/
-  - group: HyperTemplates
+  # Product
+  - group: Product
+    label: Features
+    href: /features/
+  - group: Product
     label: Downloads
     href: /downloads/
-  - group: HyperTemplates
-    label: Community 💬
-    href: /community/
+  - group: Product
+    label: Blog
+    href: /blog/
 
   # Getting Started
   - group: Getting Started
+    label: Try HyperTemplates
+    href: /docs/tutorials/getting-started/
+  - group: Getting Started
+    label: Learn HyperTemplates
+    href: /docs/tutorials/learn/
+
+  # Resources
+  - group: Resources
     label: Docs
     href: /docs/
-  - group: Getting Started
-    label: Reference
-    href: /docs/reference/core/attributes/
-  - group: Getting Started
-    label: CLI
-    href: /docs/reference/cli/
-
-  # Contributing
-  - group: Contributing
-    label: libhypertemplates
-    href: https://github.com/herdworks/hypertemplates-kit
-  - group: Contributing
-    label: hyperctl
-    href: https://github.com/herdworks/hyperctl
-  - group: Contributing
-    label: Themes
-    href: /themes
-  - group: Contributing
-    label: Sponsors
-    href: /sponsors
+  - group: Resources
+    label: Community 💬
+    href: /community/

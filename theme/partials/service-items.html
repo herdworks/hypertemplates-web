@@ -1,5 +1,5 @@
 <service-items>
-    <grid-row columns='2'>
+    <content-row grid columns='2'>
         <service-item itemtype="https://schema.org/Service" ht-template='service:data.services'>
             <h3>
                 <span itemprop='name' ht-content='text:service.name'></span>
@@ -7,13 +7,13 @@
             </h3>
             <p ht-content='html:service.description'></p>
         </service-item>
-    </grid-row>
+    </content-row>
     <style ht-pipe='css:style#components'>
         service-items {
             display: block;
             margin-top: var(--gutter-2x, 30px);
         }
-        service-items > grid-row[columns] {
+        service-items > content-row[columns] {
             grid-column-gap: var(--gutter-2x, 30px);
         }
         service-item {

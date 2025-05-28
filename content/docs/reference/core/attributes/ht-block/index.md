@@ -11,12 +11,13 @@ breadcrumb: ht-block
 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview 
-
+------------
 The `ht-block` attribute progressively enhances a [custom element].
 The `ht-block` attribute was heavily inspired by [Hugo Shortcodes] and is intended to be used for inserting custom elements into your content.
 This effectively exposes a subset of HyperTemplates templating capabilities to content management systems (i.e. whereever you edit content that will be rendered using HyperTemplates).
 
 ### Specification
+-----------------
 
 This example shows the `ht-block` attribute being used to enhance a [Markdown] code block.
 
@@ -24,6 +25,7 @@ This example shows the `ht-block` attribute being used to enhance a [Markdown] c
 
 ~~~plaintext
 ### Example
+-----------
 
 This example shows the `ht-content` attribute being used to template the `<title>` and `<h1>` elements.
 
@@ -55,11 +57,14 @@ This example shows the `ht-content` attribute being used to template the `<title
 In fact, this example is an excerpt from the [`ht-content` reference documentation] content file.
 
 #### Supported elements
+-----------------------
 
 The `ht-block` attribute was designed to be used with [custom elements].
 
 ~~~plaintext
 ### Example
+-----------
+
 
 Here is an example HyperTemplates layout.
 
@@ -89,11 +94,13 @@ Here is an example HyperTemplates layout.
 ~~~
 
 #### Attribute syntax
+---------------------
 
 The `ht-block` attribute is an [HTML boolean attribute].
 If it it set, HyperTemplates will process the element as a nested layout template.
 
 #### Custom element include sources
+-----------------------------------
 
 HyperTemplates processes HTML elements with the `ht-block` attribute as nested layout templates.
 In practice, `ht-block` elements are what you might expect if you combined [`ht-include`] and [`ht-template`].
@@ -108,6 +115,7 @@ In practice, `ht-block` elements are what you might expect if you combined [`ht-
 In this example Markdown document, the `ht-block` attribute will cause HyperTemplates to replace the `newsletter-signup` element with the rendered contents of `elements/newsletter-signup.html`.
 
 #### Custom element template data
+---------------------------------
 
 HyperTemplates processes HTML elements with the `ht-block` attribute as nested layout templates.
 In practice, `ht-block` elements are what you might expect if you combined [`ht-include`] and [`ht-template`].

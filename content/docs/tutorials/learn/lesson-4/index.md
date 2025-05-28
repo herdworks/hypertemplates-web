@@ -12,15 +12,18 @@ breadcrumb: Template Includes
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Goal
+--------
 
 In this lesson we will split up a layout template into individual components to make our growing website easier to maintain.
 
 ### Introduction
+----------------
 
 As our layout template starts to become more complex, it would be nice if we could split up the layout code into individual components.
 Organizing our code in this way not only makes it easier to maintain, it also makes the individual components reusable across multiple layouts!
 
 ### Exercises
+-------------
 
 **EXERCISE 1: Create layout partials**
 : Create new `<header>` and `<footer>` layout partials.
@@ -121,10 +124,20 @@ Organizing our code in this way not only makes it easier to maintain, it also ma
   This is called [attribute forwarding], and it's one of the many more subtle features of HyperTemplates that facilitate progressive enhancement.
 
 ### Discussion
+--------------
 
-### Next Steps
+🚧 Coming soon... 🚧
 
-<learn-more ht-block label='Lesson 5: Template Iterators' href='../lesson-5/'>
+### Learn more
+--------------
+
+
+
+<tutorial-nav ht-block 
+         prev-href='../lesson-3/' 
+         prev-label='Lesson 3: Template Conditionals' 
+         next-href='../lesson-5/' 
+         next-label='Lesson 5: Template Iterators'></tutorial-nav>
 
 <!-- Links -->
 [`ht-include`]: /docs/reference/core/attributes/ht-include/

@@ -11,6 +11,7 @@ breadcrumb: CLI
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl` (pronounced "hyper control" or "hyper C-T-L") CLI tool is a fully featured static site generator based on HyperTemplates.
 
@@ -19,6 +20,7 @@ The `hyperctl` (pronounced "hyper control" or "hyper C-T-L") CLI tool is a fully
 Coming soon...
 
 ### Usage
+---------
 
 <code-snippet ht-block filename='hyperctl'>
 
@@ -52,6 +54,7 @@ Options:
 </code-snippet>
 
 ### Commands
+------------
 
 **`asset`**
 : Manage website assets.

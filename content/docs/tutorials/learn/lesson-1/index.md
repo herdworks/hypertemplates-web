@@ -12,14 +12,17 @@ breadcrumb: Content Templating
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Goal
+--------
 
 In this lesson we will create a reusable layout template and then create our first web page using HyperTemplates.
 
 ### Introduction
+----------------
 
 🚧 Coming soon... 🚧
 
 ### Exercises
+-------------
 
 **EXERCISE 1: Create a layout**
 : Write layouts in pure-HTML.
@@ -221,10 +224,12 @@ In this lesson we will create a reusable layout template and then create our fir
 
 
 ### Discussion
+--------------
 
 🚧 Coming soon... 🚧
 
 ### Learn more
+--------------
 
 Learn more about the concepts in this lesson:
 
@@ -235,9 +240,10 @@ Learn more about the concepts in this lesson:
 * [Markdown reference](/docs/reference/core/markdown/)
 * [CLI reference](/docs/reference/cli/)
 
-### Next steps
 
-<learn-more ht-block label='Lesson 2: Attribute Templating' href='../lesson-2/'>
+<tutorial-nav ht-block 
+         next-href='../lesson-2/' 
+         next-label='Lesson 2: Attribute Templating'></tutorial-nav>
 
 
 <!-- Links -->

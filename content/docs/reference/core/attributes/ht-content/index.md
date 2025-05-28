@@ -11,10 +11,11 @@ breadcrumb: ht-content
 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview 
-
+------------
 The `ht-content` [attribute] inserts text or HTML content from [template data] into the target HTML element.
 
 ### Example
+-----------
 
 This example shows the `ht-content` attribute being used to template the `<title>` and `<h1>` elements.
 
@@ -83,8 +84,10 @@ This simple example demonstrates how to configure default values using HyperTemp
 </details>
 
 ### Specification
+-----------------
 
 #### Supported elements
+-----------------------
 
 The `ht-content` attribute can be used with any HTML element that can have child nodes.
 The `ht-content` attribute should not be used with [void elements].
@@ -94,6 +97,7 @@ The `ht-content` attribute should not be used with [void elements].
 ```
 
 #### Attribute syntax
+---------------------
 
 The `ht-content` attribute provides content templating instructions, expressed as a single `format:value` pair, where `value` is a comma-separated list of dot-notation style references to one or more [template data properties].
 
@@ -104,6 +108,7 @@ The `ht-content` attribute provides content templating instructions, expressed a
 See [content formats] for more information.
 
 #### Default values
+-------------------
 
 The `ht-content` attribute will only insert content in the target element if the specified [template data property] is found.
 In cases where no value is found, HyperTemplates ignores the attribute.
@@ -118,6 +123,7 @@ In this example, if the [template data] `page.title` property does not exist, Hy
 The end result will be a valid `<title>` element with a value of "ACME Inc" (a child [Text node]).
 
 #### Content formats
+--------------------
 
 The `ht-content` attribute can optionally specify the format of the content to be inserted into the layout.
 The supported formats are `text`, `html`, and `markdown`.

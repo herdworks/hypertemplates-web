@@ -12,6 +12,7 @@ breadcrumb: transform
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl data transform` command is used to apply transformations to website global [data namespaces].
 
@@ -24,6 +25,7 @@ The `hyperctl data transform` command is an active experiment and subject to cha
 </doc-quote>
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl data transform -h
@@ -39,6 +41,7 @@ Options:
 ```
 
 #### Example
+------------
 
 Use the `hyperctl data transform` command to list available namespaces.
 
@@ -54,6 +57,7 @@ nav         1455
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

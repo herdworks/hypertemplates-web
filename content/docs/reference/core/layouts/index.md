@@ -10,6 +10,7 @@ breadcrumb: Layouts
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 A HyperTemplates layout is an [HTML document].
 Generally speaking, a HyperTemplates layout is an HTML document _template_ with at least one [HyperTemplates attribute], but this is not a hard requirement.
@@ -17,6 +18,8 @@ Generally speaking, a HyperTemplates layout is an HTML document _template_ with 
 HyperTemplates layouts are the most important building block in the HyperTemplates templating system.
 
 ### Example
+-----------
+
 
 This example shows a simple HyperTemplates layout.
 
@@ -45,8 +48,10 @@ This example shows a simple HyperTemplates layout.
 </code-snippet>
 
 ### Specification
+-----------------
 
 #### Valid HTML
+---------------
 
 Layouts must be valid HTML documents.
 That's technically the entire specification.
@@ -54,6 +59,7 @@ From a practical perspective a HyperTemplates layout is a valid HTML document wi
 To learn more about how to develop HyperTemplates layouts, please visit the [HyperTemplates attribute reference].
 
 ### Guides
+----------
 
 **Precompiling layouts**
 : How to precompile layouts for improved performance & theme distribution.

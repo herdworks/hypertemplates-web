@@ -12,10 +12,15 @@ breadcrumb: Short Codes
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Goal
+--------
+
+🚧 Coming soon... 🚧
 
 ### Introduction
+----------------
 
 ### Exercises
+-------------
 
 **EXERCISE 1: do something**
 : Something something...
@@ -24,7 +29,13 @@ breadcrumb: Short Codes
 : Something something else...
 
 ### Discussion
+--------------
 
-### Next Steps
+### Learn more
+--------------
+
+<tutorial-nav ht-block 
+         prev-href='../lesson-5/' 
+         prev-label='Lesson 5: Template Iterators'></tutorial-nav>
 
 <!-- Links -->

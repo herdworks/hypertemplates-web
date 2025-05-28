@@ -1,0 +1,66 @@
+<tutorial-nav>
+    <style ht-pipe='css:style#components'>
+        tutorial-nav { 
+            display: grid;
+            grid-template-areas: "prev next";
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gutter-1x, 15px);
+            margin: var(--whitespace, 50px) 0;
+        }
+        tutorial-nav svg {
+            padding-left: 10px;
+            height: 1rem;
+        }
+        tutorial-nav link-button {
+            align-self: stretch;
+        }
+        tutorial-nav link-button:has(a[rel='prev']) { grid-area: prev; }
+        tutorial-nav link-button:has(a[rel='next']) { grid-area: next; }
+        tutorial-nav link-button a {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            box-shadow: none;
+            height: 100%;
+        }
+        tutorial-nav link-button a:hover { box-shadow: none; }
+        tutorial-nav link-button[title='none'] { display: none; }
+        tutorial-nav a[rel='prev'] { justify-content: end; }
+        tutorial-nav a[rel='prev'] { text-align: end; }
+        tutorial-nav a[rel='next'] { justify-content: start; }
+
+        tutorial-nav link-button:first-of-type a {
+            border-color: var(--accent-shade);
+            background-color: rgba(255,255,255,0.80);
+            color: rgba(0,0,0,0.75);
+        }
+        tutorial-nav link-button:last-of-type a {
+            border-color: var(--accent-shade);
+            background-color: var(--button-background-color);
+            color: var(--button-text-color);
+        }
+
+        tutorial-nav link-button:last-of-type a {
+            border-color: var(--accent-shade);
+            background-color: var(--button-background-color);
+            color: var(--button-text-color);
+        }
+        tutorial-nav link-button a,
+        tutorial-nav link-button:hover a {
+            transition:
+                color var(--color-transition),
+                background-color var(--color-transition),
+                border-color var(--color-transition);
+        }
+    </style>
+    <link-button ht-attrs='title:prev-label' title='none'>
+        <a rel='prev' ht-attrs='href:prev-href'>
+            <span>← PREV<br><param ht-param='prev-label'></span>
+        </a>
+    </link-button>
+    <link-button ht-attrs='title:next-label' title='none'>
+        <a rel='next' ht-attrs='href:next-href'>
+            <span>NEXT →<br><param ht-param='next-label'></span>
+        </a>
+    </link-button>
+</tutorial-nav>

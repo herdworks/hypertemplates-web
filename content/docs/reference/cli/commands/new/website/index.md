@@ -12,10 +12,12 @@ breadcrumb: website
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 Start a new HyperTemplates website project.
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl new website -h
@@ -33,6 +35,7 @@ Options:
 ```
 
 #### Example
+------------
 
 ```plaintext
 $ hyperctl new website -b https://acme.com -t "Acme Inc" acme.com.website/
@@ -40,6 +43,7 @@ website "acme.com.website/site.yaml" created
 ```
 
 ### Options
+-----------
 
 **`<path>`**
 : The first ordered argument for the `hyperctl new website` command should be a path where the new website project will be created.

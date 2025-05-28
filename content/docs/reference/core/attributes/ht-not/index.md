@@ -11,11 +11,14 @@ breadcrumb: ht-not
 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
+------------
 
 The `ht-not` [attribute] removes the target HTML element if the defined conditional expression evaluates to `true`.
 If the conditional expression evaluates to `false`, the target HTML element is retained.
 
 ### Example
+-----------
+
 
 This example shows the `ht-not` attribute being used to template the contents of the `<tbd>` element.
 
@@ -64,8 +67,10 @@ The `<example>` element will be removed because the example template data did no
 </details>
 
 ### Specification
+-----------------
 
 #### Supported elements
+-----------------------
 
 The `ht-not` attribute can be used with any HTML element.
 
@@ -74,6 +79,7 @@ The `ht-not` attribute can be used with any HTML element.
 ```
 
 #### Attribute syntax
+---------------------
 
 The `ht-not` attribute uses the [`ht-if` attribute syntax], with the opposite effect (see [exclusive templating]).
 When an `ht-not` attribute evaluates `true`, the target HTML element is **removed**.
@@ -87,12 +93,14 @@ When an `ht-not` attribute evaluates `true`, the target HTML element is **remove
 In this example, HyperTemplates will **remove** the `<address>` element if the value of the `page.author.kind` or `site.author.kind` [template data property] matches the expected [conditional value] of `person`.
 
 #### Exclusive templating
+-------------------------
 
 The `ht-not` attribute is used for _exclusive_ templating.
 If the condition evaluates as **`true`**, the target HTML element is **removed**.
 See [`ht-if`] for _inclusive_ templating.
 
 #### Conditional values
+-----------------------
 
 The `ht-not` attribute can optionally define a comma-separated list of one or more expected conditional values (see [attribute syntax]).
 

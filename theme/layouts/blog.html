@@ -28,16 +28,16 @@
     <body>
         <header ht-include='partials/blog/hero'></header>
         <section data-color-scheme='light'>
-            <grid-container>
+            <content-container>
                 <feed-entry ht-template='entry:page.feed.pages;page:page;site:site' style='display: block;'>
                     <meta name='entry' ht-attrs='content:entry' />
                     <post-card ht-include='partials/hyper/post-card' ht-template='entity:entry.author,page.author,site.author; page:entry'></post-card>
                     <post-content ht-content='markdown:entry.summary,entry.content'></post-content>
                     <learn-more ht-block ht-attrs='href:entry.path' label='Continue reading'></learn-more>
                 </feed-entry>
-            </grid-container>
+            </content-container>
         </section>
-        <grid-whitespace data-color-scheme='light'></grid-whitespace>
+        <content-whitespace data-color-scheme='light'></content-whitespace>
         <section ht-include='partials/newsletter'></section>
         <footer ht-include='partials/sections/footer.html'></footer>
     </body>

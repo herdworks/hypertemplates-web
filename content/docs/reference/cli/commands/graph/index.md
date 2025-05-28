@@ -12,11 +12,13 @@ breadcrumb: graph
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl graph` command is used to scrape website metadata.
 The HyperTemplates web scraper fetches [Facebook Open Graph protocol], [Twitter Card], and [OEmbed] metadata.
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl graph -h
@@ -32,6 +34,7 @@ Options:
 ```
 
 #### Examples
+-------------
 
 The `hyperctl graph document` command works with YouTube, TikTok, ~~Twitter (RIP)~~ X, and wherever you get your websites.
 
@@ -108,6 +111,7 @@ $ hyperctl graph document https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ```
 
 ### Options
+-----------
 
 **`<resource>`**
 : The first argument to `hyperctl graph` is the "type" of resource to scrape.

@@ -12,10 +12,12 @@ breadcrumb: ls
 <auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl content-type ls` command lists available [content types] for the configured HyperTemplates theme.
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl content-type ls -h
@@ -30,6 +32,7 @@ Options:
 ```
 
 #### Example
+------------
 
 ```plaintext
 $ hyperctl content-type ls
@@ -44,6 +47,7 @@ Status      Passing thoughts that disappear after 24 hours!
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

@@ -15,7 +15,7 @@
             #contact {
                 padding: 50px 0;
             }
-            #contact grid-row {
+            #contact content-row {
                 grid-column-gap: 30px;
             }
             #contact place-card {
@@ -26,18 +26,18 @@
     <body>
         <header ht-include='partials/sections/header.html'></header>
         <section id='contact'>
-            <grid-container>
-                <grid-row>
-                    <grid-column>
+            <content-container>
+                <content-row grid>
+                    <content-column>
                         <contact-form ht-include='partials/contact-form'></contact-form>
-                    </grid-column>
-                    <grid-column>
+                    </content-column>
+                    <content-column>
                         <content-block ht-content='html:page.content'></content-block>
-                    </grid-column>
-                </grid-row>
-            </grid-container>
+                    </content-column>
+                </content-row>
+            </content-container>
         </section>
-        <grid-whitespace></grid-whitespace>
+        <content-whitespace></content-whitespace>
         <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>

@@ -56,18 +56,20 @@
             [data-color-scheme] auto-toc li a { color: rgba(0,0,0,0.65); }
 
             [data-color-scheme] auto-toc li a { font-weight: 500; }
+
+            hr { margin-bottom: var(--gutter-1x, 15px); }
         </style>
     </head>
     <body>
         <header ht-include='partials/sections/header.html'></header>
         <section data-color-scheme='light'>
-            <grid-container>
+            <content-container>
                 <doc-breadcrumbs></doc-breadcrumbs>
                 <main ht-content='markdown:page.content'></main>
                 <auto-anchor></auto-anchor>
-            </grid-container>
+            </content-container>
         </section>
-        <grid-whitespace data-color-scheme='light'></grid-whitespace>
+        <content-whitespace data-color-scheme='light'></content-whitespace>
         <section ht-include='partials/newsletter.html'></section>
         <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
     </body>

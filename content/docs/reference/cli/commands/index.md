@@ -8,6 +8,7 @@ breadcrumb: commands
 ---
 
 ## `hyperctl` commands
+----------------------
 
 The HyperTemplates CLI is a collection of commands for managing websites.
 

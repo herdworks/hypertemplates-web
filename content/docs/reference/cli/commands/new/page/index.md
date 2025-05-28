@@ -12,10 +12,12 @@ breadcrumb: page
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 The `hyperctl new page` command creates a new page index file in an existing website.
 
 ### Usage
+---------
 
 ```plaintext
 $ hyperctl new page -h
@@ -37,11 +39,13 @@ Options:
 ```
 
 #### Example
+------------
 
 ```plaintext
 ```
 
 ### Options
+-----------
 
 **`-c`, `--config`**
 : Path to the website configuration file (`site.yaml` or `site.json`).

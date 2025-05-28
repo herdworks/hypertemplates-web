@@ -7,6 +7,7 @@ breadcrumb: Attributes
 ---
 
 ## HyperTemplates Attributes Reference
+--------------------------------------
 
 The core of HyperTemplates is a small but mighty set of [HTML attributes] that allow you to compose complex HTML documents from simple HTML templates.
 

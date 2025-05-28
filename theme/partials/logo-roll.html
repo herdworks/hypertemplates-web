@@ -1,11 +1,11 @@
 <section id='logo-roll' ht-if='data.customers'>
-    <grid-container>
+    <content-container>
         <logo-roll>
             <a ht-template='company:data.customers' ht-attrs='href:company.href' href='#' target='_blank'>
                 <img ht-attrs='src:company.logo.src;style:company.logo.style' data-grayscale='100'>
             </a>
         </logo-roll>
-    </grid-container>
+    </content-container>
     <style ht-pipe='css:style#components'>
         #logo-roll {
             padding: var(--gutter-2x, 30px) 0 0 0;

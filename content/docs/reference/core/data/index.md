@@ -10,11 +10,13 @@ breadcrumb: Data
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 Template data is content in key-value pairs used to hydrate a layout template.
 Template data is generally managed as content files in Markdown, YAML, or JSON format.
 
 ### Example
+-----------
 
 This example shows an approximation of a [template data object](#template-data-object).
 
@@ -55,6 +57,7 @@ author:
 ---
 
 ## Overview
+-----------
 
 Lorem ipsum, hipsters get some.
 ```
@@ -100,8 +103,10 @@ content: |
 </details>
 
 ### Specification
+-----------------
 
 #### Template data object
+-------------------------
 
 The HyperTemplates rendering system always expects key-value data as an input to hydrate a layout with.
 This key-value data input is referred to as the "template data object".
@@ -136,6 +141,7 @@ To learn more, please visit the [HyperTemplates content management system] and/o
 </doc-quote>
 
 #### Template data properties
+-----------------------------
 
 HyperTemplates [template data objects](#template-data-objects) contain key-value pairs known as "properties".
 A template data property has a [key](#template-data-keys) and a [value](#template-data-values).
@@ -162,6 +168,7 @@ A template data property has a [key](#template-data-keys) and a [value](#templat
 In this example, line 9 contains a template data property with the key `page.title` and the value `Hello, world`.
 
 #### Template data keys
+-----------------------
 
 Template data keys are "dot notation" [property accessors] to properties in a [template data object](#template-data-object). The name of the property being accessed is the template data key.
 
@@ -193,6 +200,7 @@ For example, in the sample above, the template data key `site.foo.bar` would sim
 </doc-quote>
 
 #### Template data values
+-------------------------
 
 Template data values are values of properties being accessed in a [template data object](#template-data-object).
 
@@ -214,12 +222,14 @@ Template data values are values of properties being accessed in a [template data
 In this example, the template data value for the key `page.title` is `Hello, world`.
 
 #### Template data sources
+--------------------------
 
 The HyperTemplates CLI and libraries have built-in support for parsing template data from files in Markdown, YAML, and JSON formats.
 In some cases, multiple data sources are combined into a single template data object. 
 Template data sources may still be considered valid if "empty".
 
 ##### Layout data
+-----------------
 
 Additional layout-scoped data can be added to any layout or other layout fragment as `<meta>` elements.
 

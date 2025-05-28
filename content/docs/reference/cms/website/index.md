@@ -11,11 +11,13 @@ summary: |
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Overview
+------------
 
 A website is a collection of [pages] (HTML documents).
 A website is managed as a directory containing a configuration file in YAML (`site.yaml`) or JSON (`site.json`) format.
 
 ### Directory structure
+-----------------------
 
 Each HyperText Management System (HTMS) website is a directory. The structure of website subdirectories and files to determine how the generated website content will be organized.
 
@@ -40,6 +42,7 @@ my-website/         # website directory
 For more information on how pages are managed, see the [pages reference documentation].
 
 ### Example
+-----------
 
 A HyperText Management System website configuration file.
 
@@ -109,6 +112,7 @@ See [custom properties] for more information.
 </doc-quote>
 
 ### Properties
+--------------
 
 **`site.base_url`**
 : The website URL.
@@ -261,6 +265,7 @@ See [custom properties] for more information.
   In this example, the `banana` property is available in [layouts] as the `site.banana` [template data property].
 
 ### Configuration
+-----------------
 
 **`site.config`**
 : The website configuration.
@@ -376,6 +381,7 @@ See [custom properties] for more information.
 
 
 ### Guides
+----------
 
 **Link Verification**
 : How to configure link verification using `rel="me"` links.
