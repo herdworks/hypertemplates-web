@@ -39,7 +39,7 @@
                 }
             }
             detail-guide details {
-                display: grid;
+                display: block;
                 margin: var(--gutter-2x, 30px) 0;
                 grid-auto-flow: row;
                 grid-auto-rows: auto;
@@ -112,8 +112,9 @@
                 <content-container>
                     <detail-guide>
                         <guide-overview>
-                            <h1>Try HyperTemplates in <param ht-param='text:page.guide.steps.length'> easy steps</h1>
-                            <content-block ht-content='markdown:page.guide.overview'>Lorem ipsum, hipsters get some.</content-block>
+                            <h1 ht-content='page.guide.title'></h1>
+                            <h4 ht-content='page.guide.subtitle' ht-if='page.guide.subtitle'></h4>
+                            <content-block ht-content='markdown:page.guide.overview'></content-block>
                             <button>Let's go</button>
                         </guide-overview>
                         <details ht-template='step:page.guide.steps' name='guide' open>

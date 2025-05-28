@@ -15,7 +15,7 @@ breadcrumb: Learn
 ### Introduction
 ----------------
 
-Coming soon...
+The absolute quickest way to get started with HyperTemplates is via the [Quick Start] tutorial.
 
 ### Setup
 ---------
@@ -63,4 +63,5 @@ You'll learn enough to start building in just a few minutes, and the entire tuto
   <learn-more ht-block href='./lesson-6/'></learn-more>
 
 <!-- Links -->
+[Quick Start]: /docs/tutorials/getting-started/
 [downloads]: /downloads/

@@ -1,16 +1,16 @@
 ---
 created_at: 2024-12-16T14:00:00-07:00
 canonical_url: https://hypertemplates.net/getting-started
-title: Getting Started
+title: Quick Start
 layout: guide
 description: Quick start guide to a delightful web authoring experience, powered by HyperTemplates.
 summary: >-
     Rediscover the joy of website development with this interactive quick start guide to HyperTemplates, the pure-HTML templating system for the modern web.
-content: >-
-    Hello, world.
 guide:
+    title: Quick Start
+    subtitle: Get started with HyperTemplates in three easy steps.
     overview: |
-        Rediscover the joy of website development & content publishing with this interactive quick start guide to HyperTemplates, the pure-HTML templating system for the modern web.
+        Install the `hyperctl` CLI tool, create your first HyperTemplates website, and start the development server to view your new website.
     steps:
         - title: Install HyperTemplates
           description: Get started with HyperTemplates by installing the `hyperctl` CLI.
@@ -19,7 +19,7 @@ guide:
 
             Visit the [HyperTemplates downloads page](/downloads/) to see all of the available `hyperctl` for your platform.
 
-            * MacOS
+            * **MacOS**
 
               ```shell
               curl -LO https://preview.hypertemplates.net/downloads/hyperctl_0.10.2_darwin_universal.tar.gz
@@ -29,7 +29,7 @@ guide:
               hyperctl # run hyperctl to verify the installation and see the version number
               ```
 
-            * Linux
+            * **Linux**
 
               ```shell
               curl -LO https://preview.hypertemplates.net/downloads/hyperctl_0.10.2_linux_amd64.tar.gz
@@ -39,7 +39,7 @@ guide:
               hyperctl # run hyperctl to verify the installation and see the version number
               ```
 
-            * Windows (coming soon)
+            * **Windows (coming soon)**
 
               If you're interested in trying out beta releases of HyperTemplates for Windows, please [join the community](https://hypertext.community) and check out [`hyperctl` for Windows](https://hypertext.community/c/hyperctl/windows).
 

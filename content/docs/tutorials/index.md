@@ -16,7 +16,7 @@ Tutorials are helpful resources for new HyperTemplates users who want to get up 
 
 If you are an existing HyperTemplates user, check out the [guides] section.
 
-### Get Started
+### Quick Start
 
 Get up and running with HyperTemplates in under 5 minutes.
   
