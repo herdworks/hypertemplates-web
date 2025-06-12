@@ -1,10 +1,10 @@
 ---
 created_at: 2025-05-25T08:00:00-07:00
-title: Attribute Templating
+title: "Introducing: ht-attrs"
 description: Learn how attribute templating works in HyperTemplates
 summary: |
     Learn how attribute templating works in HyperTemplates
-breadcrumb: Attribute Templating
+breadcrumb: ht-attrs
 ---
 
 ## Attribute Templating Tutorial
@@ -14,12 +14,28 @@ breadcrumb: Attribute Templating
 ### Goal
 --------
 
-🚧 Coming soon... 🚧
-
-### Introduction
-----------------
-
 In this lesson we will template HTML element attributes using HyperTemplates.
+
+### What is attribute templating?
+---------------------------------
+
+[HTML attributes] adjust the behavior or display of an [HTML element].
+One of the most well known attributes is the `href`.
+It is used to configure the destination for a hyperlink, like this example: 
+
+```html
+<a href='https://example.com'>click here</a>
+```
+
+Have you noticed that links on some websites open in a new tab?
+That's accomplished using the `target` attribute!
+
+```html
+<a href='https://example.com' target='_blank'>click here</a>
+```
+
+HyperTemplates makes it easy to template HTML element attributes using the `ht-attrs` attribute.
+Let's see it in action in the following exercises. 🏋️‍♂️
 
 ### Exercises
 -------------
@@ -102,9 +118,17 @@ In this lesson we will template HTML element attributes using HyperTemplates.
 ### Discussion
 --------------
 
+In this lesson, we learned about one of the HyperTemplates power tools: the small but mighty `ht-attrs` attribute.
+We can already build some pretty interesting templates with `ht-content` and `ht-attrs`!
 
-### Learn more
---------------
+As you start imaging the more complex layout templates you might build with HyperTemplates, you might start to have questions about how to show or hide some content based on the template data.
+And that is exactly what we'll cover in the next lesson!
+
+<doc-quote ht-block info>
+
+**Core Concepts**
+
+Learn more about the concepts in this lesson:
 
 * [Attributes reference](/docs/reference/core/attributes/)
   * [`ht-attrs` attribute](/docs/reference/core/ht-attrs/)
@@ -112,15 +136,24 @@ In this lesson we will template HTML element attributes using HyperTemplates.
 * [Markdown reference](/docs/reference/core/markdown/)
 * [CLI reference](/docs/reference/cli/)
 
+</doc-quote>
+
+Do you have any questions and/or feedback about `ht-attrs` or this "Learn HyperTemplates" tutorial? 
+Join the @hypertexting.community and visit [the "Getting Started" category]. :speech_balloon:
+
+When you're ready, let's go ahead and move on to lesson 3. :point_right:
 
 <tutorial-nav ht-block 
          prev-href='../lesson-1/' 
-         prev-label='Lesson 1: Content Templating' 
+         prev-label='Lesson 1: Introducing <code>ht-content</code>' 
          next-href='../lesson-3/' 
-         next-label='Lesson 3: Template Conditionals'></tutorial-nav>
+         next-label='Lesson 3: Introducing <code>ht-if</code>'></tutorial-nav>
 
 
 <!-- Links -->
 [`ht-attrs`]: /docs/reference/core/attributes/ht-attrs/
+[HTML attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes
+[HTML element]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements
 [element attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes
 [Markdown]: /docs/reference/core/markdown/
+[the "Getting Started" category]: https://hypertexting.community/c/hypertemplates/getting-started/

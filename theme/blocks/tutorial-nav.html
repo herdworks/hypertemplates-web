@@ -1,4 +1,4 @@
-<tutorial-nav>
+<tutorial-nav pref-label prev-href next-label next-href>
     <style ht-pipe='css:style#components'>
         tutorial-nav { 
             display: grid;
@@ -55,12 +55,12 @@
     </style>
     <link-button ht-attrs='title:prev-label' title='none'>
         <a rel='prev' ht-attrs='href:prev-href'>
-            <span>← PREV<br><param ht-param='prev-label'></span>
+            <span>← PREV<br><param ht-param='html:prev-label'></span>
         </a>
     </link-button>
     <link-button ht-attrs='title:next-label' title='none'>
         <a rel='next' ht-attrs='href:next-href'>
-            <span>NEXT →<br><param ht-param='next-label'></span>
+            <span>NEXT →<br><param ht-param='html:next-label'></span>
         </a>
     </link-button>
 </tutorial-nav>

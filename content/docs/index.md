@@ -151,7 +151,7 @@ The HyperTemplates documentation is broken up into three main sections: [tutoria
 Visit the [tutorials] section for a complete list of available tutorials, or jump right in to one of these popular tutorials:
 
 **Quick Start**
-: Get started with HyperTemplates in 3 minutes (or less)!
+: Get started with HyperTemplates in three easy steps!
   
   <learn-more ht-block href='/docs/tutorials/getting-started/'></learn-more>
 
@@ -165,15 +165,10 @@ Visit the [tutorials] section for a complete list of available tutorials, or jum
 
 Visit the [guides] section for a complete list of available guides, or jump right in to one of these popular guides:
 
-**Feed pages**
-: How to configure feed pages (e.g. a blog).
+**Feeds**
+: How to configure feeds and feed pages (e.g. a blog).
   
-  <learn-more ht-block href='/docs/guides/feed-pages/'></learn-more>
-
-**RSS feeds**
-: How to configure RSS/Atom feeds.
-  
-  <learn-more ht-block href='/docs/guides/rss-feeds/'></learn-more>
+  <learn-more ht-block href='/docs/guides/feeds/'></learn-more>
 
 
 #### Reference Documentation
@@ -188,14 +183,19 @@ The HyperTemplates [reference documentation](/docs/reference/) is organized arou
   <learn-more ht-block href='/docs/reference/core/'></learn-more>
 
 **Content Management System (CMS)**
-: The HyperText Management System (HTMS).
+: The HyperTexting content management system (CMS).
 
   <learn-more ht-block href='/docs/reference/cms/'></learn-more>
 
-**Static Site Generator (CLI)**
+**Command Line Interface (CLI)**
 : `hyperctl` is a static site generator based on HyperTemplates.
 
   <learn-more ht-block href='/docs/reference/cli/'></learn-more>
+
+**Apps**
+: HyperTexting (coming soon) is the official HyperTemplates app for iPhone, iPad, and Mac.
+
+  <learn-more ht-block href='https://hypertexting.com'></learn-more>
 
 
 <!-- Links -->

@@ -1,7 +1,5 @@
 /* CSS Reset */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +21,7 @@ h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
     overflow-wrap: break-word;
 }
+a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, p a) { display: inline-block; } /* because HTML whitespace */
 span, p p {
     font-family: inherit;
     font-weight: inherit;
@@ -37,9 +36,7 @@ form :where(input,input:focus) {
     box-shadow: none;
     --webkit-box-shadow: none;
 }
-form :where(input, button, textarea, select) {
-    font: inherit;
-}
+form :where(input, button, textarea, select) { font: inherit; }
 form :where(button, input[type="submit"], input[type="reset"]) {
     align-items: unset;
 	background: none;
@@ -52,9 +49,5 @@ form :where(button, input[type="submit"], input[type="reset"]) {
 }
 
 /* Images */
-img, picture, video, canvas, svg {
-    display: block;
-}
-svg {
-    fill: currentColor;
-}
+img, picture, video, canvas, svg { display: block; }
+svg { fill: currentColor; }

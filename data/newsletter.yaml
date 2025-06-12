@@ -5,7 +5,4 @@ description: |
     Stay up-to-date with the lastest releases and other news from Team HyperTemplates.
     Ask the developers questions, get help from the community, and share your creations! 🎨
 form:
-    action: https://hypertext.community/signup
-    method: get
-    target: popupwindow
-    # onsubmit: window.open('https://buttondown.com/calebhailey.com', 'popupwindow')
+    action: https://hypertexting.community/signup

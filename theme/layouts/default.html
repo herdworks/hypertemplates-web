@@ -49,9 +49,6 @@
                     display: inline;
                     color: inherit !important;
                 }
-                :where(h1, h2, h3, h4, h5, h6):not(:first-child) {
-                    margin-top: 1.5em;
-                }
             }
 
             doc-breadcrumb:last-of-type :is(svg,img) { display: none; }
@@ -61,6 +58,13 @@
             [data-color-scheme] auto-toc li a { font-weight: 500; }
 
             hr { margin-bottom: var(--gutter-1x, 15px); }
+
+            :where(h1, h2, h3, h4, h5, h6):not(:first-child) {
+                margin-top: 1.5em;
+            }
+
+            a[rel='anchor'] { display: inline; }
+
         </style>
     </head>
     <body>

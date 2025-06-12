@@ -65,4 +65,4 @@ Options:
   </doc-quote>
 
 <!-- Links -->
-[incremental build]: /docs/reference/cms/build/#incremental-builds
+[incremental build]: /docs/reference/cms/builds/#incremental-builds

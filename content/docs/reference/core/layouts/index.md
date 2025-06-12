@@ -58,13 +58,6 @@ That's technically the entire specification.
 From a practical perspective a HyperTemplates layout is a valid HTML document with at least one [template attribute].
 To learn more about how to develop HyperTemplates layouts, please visit the [HyperTemplates attribute reference].
 
-### Guides
-----------
-
-**Precompiling layouts**
-: How to precompile layouts for improved performance & theme distribution.
-
-  <learn-more ht-block href='/docs/guides/precompiling-layouts/'>
 
 
 <!-- Links -->

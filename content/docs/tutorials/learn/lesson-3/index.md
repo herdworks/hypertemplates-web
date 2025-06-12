@@ -1,10 +1,10 @@
 ---
 created_at: 2025-05-25T08:00:00-07:00
-title: Template Conditionals
+title: "Introducing: ht-if"
 description: Learn how conditional templating works in HyperTemplates
 summary: |
     Learn how conditional templating works in HyperTemplates
-breadcrumb: Attribute Templating
+breadcrumb: ht-if
 ---
 
 ## Conditional Templating Tutorial
@@ -16,10 +16,18 @@ breadcrumb: Attribute Templating
 
 In this lesson we will add some conditional logic to our layout template and learn how to show or hide content based on template data.
 
-### Introduction
-----------------
+### What is conditional templating?
+-----------------------------------
 
-🚧 Coming soon... 🚧
+The ability to show or hide content based on some condition becomes more important as a website grows over time. 
+As new pages are added there will inevitably be some minor differences between pages that otherwise share the same basic structure and style.
+Without the ability to _conditionally show or hide_ some portion of the layout based on the page contents, we would need multiple layout templates for very similar page types to accomodate the various differences that naturally occur from one page to another. 
+This is the problem that conditional templating solves.
+
+Most HTML templating systems are based on a more traditional programming language than HTML. 
+The added complexity introduced by having to learn a new language in order to write simple HTML temlpates is a tradeoff for access to features like [`if...else`], [`for...in`], and [`for...of`] logic.
+
+Let's see how HyperTemplates handles conditional templating with the [`ht-if`] attribute. 
 
 ### Exercises
 -------------
@@ -106,19 +114,42 @@ In this lesson we will add some conditional logic to our layout template and lea
 ### Discussion
 --------------
 
-🚧 Coming soon... 🚧
+In this lesson, we added a `<header>` and `<footer>` to our layout and we learned how to dynamically show or hide content using the `ht-if` attribute.
+Adding conditional logic facilitates template reuse ♻️ and makes our websites easier to reason about.
 
-### Learn more
---------------
+Our example layout template is already well on its way to becoming something we could actually use for a real website.
+As we continue to improve our layout it will naturally become more complex.
+It would be great if we could break it up into smaller pieces, and that's exactly what we'll cover in the next lesson. 👟
 
+<doc-quote ht-block info>
+
+**Core Concepts**
+
+Learn more about the concepts in this lesson:
+
+* [Attributes reference](/docs/reference/core/attributes/)
+  * [`ht-if` attribute](/docs/reference/core/ht-if/)
+  * [`ht-not` attribute](/docs/reference/core/ht-not/)
+
+</doc-quote>
+
+Do you have any questions and/or feedback about `ht-if` or this "Learn HyperTemplates" tutorial? 
+Join the @hypertexting.community and visit [the "Getting Started" category]. :speech_balloon:
+
+When you're ready, let's go ahead and move on to lesson 4. :point_right:
 
 <tutorial-nav ht-block 
          prev-href='../lesson-2/' 
-         prev-label='Lesson 2: Attribute Templating' 
+         prev-label='Lesson 2: Introducing <code>ht-attrs</code>' 
          next-href='../lesson-4/' 
-         next-label='Lesson 4: Template Includes'></tutorial-nav>
+         next-label='Lesson 4: Introducing <code>ht-include</code>'></tutorial-nav>
 
 
 <!-- Links -->
+[template data]: /docs/reference/core/data/
 [content sectioning]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements#content_sectioning
 [`ht-if`]: /docs/reference/core/attributes/ht-if/
+[the "Getting Started" category]: https://hypertexting.community/c/hypertemplates/getting-started/
+[`if...else`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
+[`for...in`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+[`for...of`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of

@@ -1,5 +1,5 @@
 ---
-base_url: https://preview.hypertemplates.net
+base_url: https://hypertemplates.net
 title: HyperTemplates
 description: The pure-HTML templating system for the modern web.
 copyright: "2025"
@@ -34,12 +34,12 @@ links:
     href: https://mastodon.social/@herdworks
 config:
     tidy_mode: true
-    theme_dir: theme
-    tag_layout: "tag"
+    theme: theme/theme.json
+    tag_layout: "tag.html"
 provider:
     kind: s3
     endpoint: https://5a8b6c901ff20ee02892cf121b1ead54.r2.cloudflarestorage.com
-    store: hypertemplates-web-preview
+    store: hypertemplates-web-prod
     secrets:
         - name: access_key_id
           provider: env

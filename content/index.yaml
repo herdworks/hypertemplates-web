@@ -6,7 +6,9 @@ canonical_url: https://hypertemplates.net/
 title: HyperTemplates
 description: The pure-HTML templating system for the modern web.
 banner: /banner.jpg
+video: https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4
 hero:
+    # making it easier to make websites, one template at a time.
     summary: |
         The pure-HTML templating system for the modern web.
         Rediscover the simple joy of making websites.
@@ -22,21 +24,29 @@ hero:
         <code-snippet ht-block filename='layout.html'>
 
         ```html
-        <!DOCTYPE html>
         <html lang='en-US'>
             <head>
-                <meta charset='utf-8'>
-                <title ht-content='page.title'></title>
-                <meta name='description' ht-attrs='content:page.description,site.description'>
+                <!-- Global Defaults -->
+                <meta ht-include='partials/head.html' />
+
+                <!-- Layout Metadata, Links, Styles, and Scripts -->
+                <title ht-content='page.title,site.title'>Placeholder Title</title>
+                <meta ht-attrs='content:page.description,site.description' name='description' content='Placeholder description'>
+                <style>
+                    /* Layout-specific styles */
+                </style>
+                <script src='/js/components/my-component.js' defer></script>
             </head>
             <body>
-                <header>
-                    <h1 ht-content='page.title'>Placeholder title</h1>
+                <header ht-if='page.title'>
+                    <h1 ht-content='page.title'>Placeholder Title</h1>
                 </header>
-                <article id='article' ht-content='markdown:page.content'></article>
-                <footer>
-                    <p>&copy; 2024 HyperTemplates</p>
-                </footer>
+                <main>
+                    <article ht-content='markdown:page.content'>
+                        <p>Placeholder content...</p>
+                    </article>
+                </main>
+                <footer ht-include='partials/footer.html'></footer>
             </body>
         </html>
         ```
@@ -46,15 +56,18 @@ features:
     title: What is HyperTemplates?
     overview: |
         HyperTemplates is the pure-HTML templating system for the modern web.
-        **No Javascript frameworks required.**
-        Rediscover the simple joy of _building websites as nature intended_... with HTML, CSS, and a sprinkling of vanilla Javascript. :sparkles:
+        **HyperTemplates makes it easier to _make websites_, one template at a time**.
+        Build incredible websites with pure HTML, CSS, and Javascript.
+        No frameworks, no build tools, no sacrifices, and no nonsense (unless you're into those sorts of things).
+
+        <video-player ht-block video='https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4' poster='/cover.png'></video-player>
     highlights:
-      - title: Pure-HTML templating system
+      - title: Pure-HTML templating
         description: |
           Rediscover the simple joy of _building **modern** websites as nature intended_... with HTML, CSS, and vanilla Javascript. :sparkles:
         width: 6
         height: 3
-        href: /docs/reference/core/
+        href: /docs/
 
       - title: Static site generator
         description: |
@@ -63,7 +76,7 @@ features:
         height: 3
         href: /docs/reference/cli/
 
-      - title: Native applications (coming soon)
+      - title: Native apps (coming soon)
         description: Manage HyperTemplates websites by using the official app for iPhone, iPad, and Mac to perform full-site builds and deployments, or generate and publish incremental builds (single pages).
         width: 8
         height: 3
@@ -86,13 +99,13 @@ features:
         description: Easily track changes between builds thanks to fully reproducible builds.
         width: 4
         height: 3
-        href: /docs/reference/cli/commands/build/
+        href: /docs/reference/cms/builds/#reproducible-builds
 
       - title: Incremental builds
         description: Generate and publish single pages and related ATOM feeds to S3-compatible hosting providers.
         width: 4
         height: 3
-        href: /docs/reference/cli/commands/generate/
+        href: /docs/reference/cms/builds/#incremental-builds
 
       - title: Development server
         description: The `hyperctl` CLI comes with a built-in development server with live reloading.
@@ -106,7 +119,7 @@ features:
           HyperTemplates really shines when used with any S3-compatible hosting provider, including AWS S3, Cloudflare R2, Fastly Object Storage, Digital Ocean Spaces, and more.
         width: 8
         height: 3
-        href: /docs/reference/cli/commands/publish/
+        href: /docs/reference/cms/providers/
 
 draft:
   - title: Specification

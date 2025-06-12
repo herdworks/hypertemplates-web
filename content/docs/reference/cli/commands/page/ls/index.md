@@ -102,7 +102,7 @@ Last Modified              Title                       Draft  Path
 2025-04-15T10:57:14-07:00  The need for speed          false  /blog/the-need-for-speed/
 2025-05-19T14:00:00-08:00  Link Verification           false  /docs/guides/link-verification/
 2025-05-20T15:00:00-07:00  About Herd Works            false  /about/
-2025-05-20T15:00:00-07:00  Feed Pages                  false  /docs/guides/feed-pages/
+2025-05-20T15:00:00-07:00  Feed Pages                  false  /docs/guides/feeds/
 2025-05-21T12:00:00-08:00  Content Types               false  /docs/reference/cms/content-types/
 2025-05-21T13:00:00-07:00  mimetype                    false  /docs/reference/cli/commands/mimetype/
 2025-05-21T13:00:00-07:00  page                        false  /docs/reference/cli/commands/page/

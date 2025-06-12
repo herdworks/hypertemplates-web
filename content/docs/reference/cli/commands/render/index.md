@@ -21,7 +21,7 @@ The `hyperctl render` command provides direct access to the underlying HyperTemp
 **What is it good for?** 🎵
 
 When is it appropriate to use the `hyperctl render` command instead of [`hyperctl build`] or [`hyperctl generate`]? 
-The `hyperctl render` command does not apply any of the opinions that are built in to the HyperTemplates CMS (se [HyperText Management System]).
+The `hyperctl render` command does not apply any of the opinions that are built in to the [HyperTexting CMS].
 This makes it useful for things like the [Learn HyperTemplates] tutorial, and debugging.
 
 </doc-quote>
@@ -65,7 +65,7 @@ Options:
 
 
 <!-- Links -->
-[HyperText Management System]: /docs/reference/cms/
+[HyperTexting CMS]: /docs/reference/cms/
 [Learn HyperTemplates]: /docs/tutorials/learn/
 [`hyperctl build`]: /docs/reference/cli/commands/build
 [`hyperctl generate`]: /docs/reference/cli/commands/generate

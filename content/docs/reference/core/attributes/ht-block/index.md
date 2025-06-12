@@ -13,8 +13,15 @@ breadcrumb: ht-block
 ### Overview 
 ------------
 The `ht-block` attribute progressively enhances a [custom element].
+
+<doc-quote ht-block success>
+
+**PROTIP:** the `ht-block` attribute is the only template attribute that is accessible from your content. ✨
+
 The `ht-block` attribute was heavily inspired by [Hugo Shortcodes] and is intended to be used for inserting custom elements into your content.
 This effectively exposes a subset of HyperTemplates templating capabilities to content management systems (i.e. whereever you edit content that will be rendered using HyperTemplates).
+
+</doc-quote>
 
 ### Specification
 -----------------
@@ -60,38 +67,6 @@ In fact, this example is an excerpt from the [`ht-content` reference documentati
 -----------------------
 
 The `ht-block` attribute was designed to be used with [custom elements].
-
-~~~plaintext
-### Example
------------
-
-
-Here is an example HyperTemplates layout.
-
-<code-snippet ht-block filename='layout.html' with-line-numbers>
-
-```html
-<!DOCTYPE html>
-<html lang='en-US'>
-    <head>
-        <meta charset='utf-8'>
-        <title ht-content='page.title'></title>
-        <meta name='description' ht-attrs='content:page.description,site.description'>
-    </head>
-    <body>
-        <header ht-include='partials/sections/header.html'></header>
-        <section>
-            <main>
-                <article id='article' ht-content='markdown:page.content'></article>
-            </main>
-        </section>
-        <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
-    </body>
-</html>
-```
-
-</code-snippet>
-~~~
 
 #### Attribute syntax
 ---------------------

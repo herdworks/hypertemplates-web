@@ -1,0 +1,9 @@
+{
+    "name": "HyperTemplates",
+    "config": {
+        "layouts_dir": "layouts",
+        "static_dir": "static",
+        "blocks_dir": "blocks",
+        "contenttypes_dir": "types"
+    }
+}

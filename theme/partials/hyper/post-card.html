@@ -1,4 +1,4 @@
-<post-card itemscope itemtype='https://schema.org/Person' ht-template='entity:page.author,page.contributors,site.author' ht-attrs='itemtype:entity.kind'>
+<post-card itemscope itemtype='https://schema.org/Person' ht-attrs='itemtype:page.author.kind,site.author.kind'>
     <style ht-pipe='css:style#components'>
         post-card :is(a, a:hover) {
             text-decoration: none;
@@ -49,20 +49,24 @@
             display: none;
         }
     </style>
-    <a href='#' itemprop='favicon' ht-attrs='href:entity.href'>
-        <img src='' itemprop='image' ht-attrs='src:entity.favicon' />
+    <a itemprop='favicon' ht-attrs='href:page.author.href,site.author.href'>
+        <img src='' itemprop='image' ht-attrs='src:page.author.favicon,site.author.favicon' />
     </a>
-    <a href='#' itemprop='name' ht-attrs='href:entity.href' ht-content='text:entity.name'></a>
-    <span itemprop='details'>
-        <a ht-attrs='href:entity.href'>
-            <span itemprop='username'><param ht-param='text:entity.username' /></span>
+    <a itemprop='name' ht-attrs='href:page.author.href,site.author.href'>
+        <param ht-param='page.author.name,site.author.name' default='My Website' />
+    </a>
+    <div itemprop='details'>
+        <a ht-attrs='href:page.author.href,site.author.href'>
+            <span itemprop='username'>
+                <param ht-param='page.author.username,site.author.username' default='@mywebsite.com' />
+            </span>
         </a>
-        <a href='.'>
+        <a ht-attrs='href:page.path' href='.'>
             <relative-time>
                 <time ht-attrs='datetime:page.updated_at,page.created_at'>
-                    <param ht-param='text:page.updated_at,page.created_at' />
+                    <param ht-param='page.updated_at,page.created_at' />
                 </time>
             </relative-time>
         </a>
-    </span>
+    </div>
 </post-card>

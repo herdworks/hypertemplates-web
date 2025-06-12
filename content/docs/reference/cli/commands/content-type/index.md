@@ -18,7 +18,6 @@ Inspect HyperTemplate theme content types.
 
 ### Usage
 ---------
----------
 
 ```plaintext
 $ hyperctl content-type -h

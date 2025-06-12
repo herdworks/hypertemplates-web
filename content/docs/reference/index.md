@@ -18,12 +18,16 @@ The HyperTemplates reference documentation is organized around these components.
   <learn-more ht-block href='/docs/reference/core/'></learn-more>
 
 **Content Management System (CMS)**
-: The HyperText Management System (HTMS).
+: The HyperTexting content management system.
 
   <learn-more ht-block href='/docs/reference/cms/'></learn-more>
 
-**Static Site Generator (CLI)**
+**Command Line Interface (CLI)**
 : `hyperctl` is a static site generator based on HyperTemplates.
 
   <learn-more ht-block href='/docs/reference/cli/'></learn-more>
 
+**Apps**
+: HyperTexting (coming soon) is the official HyperTemplates app for iPhone, iPad, and Mac.
+
+  <learn-more ht-block href='https://hypertexting.com'></learn-more>

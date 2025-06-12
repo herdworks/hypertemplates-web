@@ -14,7 +14,7 @@ breadcrumb: inspect
 ### Overview 
 ------------
 
-🚧 Coming soon... 🚧
+Inspect [content type] template data.
 
 ### Usage
 ---------
@@ -44,3 +44,6 @@ Options:
   ```plaintext
   export HYPER_CONFIG="site.yaml"
   ```
+
+<!-- Links -->
+[content type]: /docs/reference/cms/content-types/

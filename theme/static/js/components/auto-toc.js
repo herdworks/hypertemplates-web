@@ -58,7 +58,7 @@ class AutoTableOfContents extends HTMLElement {
         this.scope = this.getAttribute("scope") || "main, article, section";
         this.selectors = this.getAttribute("selectors") || this.getAttribute("include") || "h2, h3, h4, h5, h6";
         this.trim = this.getAttribute("trim") || this.getAttribute("exclude") || "¶,•";
-        this.#content = this.closest(this.scope);
+        this.#content = this.closest(this.scope); // find the closest ancestor matching scope
         this.#headings = Array.from(this.#content.querySelectorAll(`:is(${this.selectors})`));
         if (!this.querySelector("menu")) { this.appendChild(document.createElement("menu")) };
         this.querySelector("menu").appendChild(this.list());

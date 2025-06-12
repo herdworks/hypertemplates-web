@@ -7,13 +7,14 @@
         <meta name='layout:name' content='blog'/>
 
         <!-- Layout Components -->
-        <script src='/js/components/relative-time.js' defer></script>
-        <script src='/js/components/footer-menu.js' defer></script>
+        <script src='/js/components/relative-time.js?v=2' defer></script>
+        <script src='/js/components/footer-menu.js?v=2' defer></script>
 
         <!-- Layout Styles -->
         <style id='components'></style>
         <style id='layout'>
             feed-entry {
+                display: block;
                 margin-bottom: var(--gutter-3x, 45px);
             }
             feed-entry post-card {
@@ -29,11 +30,10 @@
         <header ht-include='partials/blog/hero'></header>
         <section data-color-scheme='light'>
             <content-container>
-                <feed-entry ht-template='entry:page.feed.pages;page:page;site:site' style='display: block;'>
-                    <meta name='entry' ht-attrs='content:entry' />
-                    <post-card ht-include='partials/hyper/post-card' ht-template='entity:entry.author,page.author,site.author; page:entry'></post-card>
-                    <post-content ht-content='markdown:entry.summary,entry.content'></post-content>
-                    <learn-more ht-block ht-attrs='href:entry.path' label='Continue reading'></learn-more>
+                <feed-entry ht-template='page:page.feed.pages; site:site'>
+                    <post-card ht-include='partials/hyper/post-card'></post-card>
+                    <post-content ht-content='markdown:page.summary,page.content'></post-content>
+                    <learn-more ht-block ht-attrs='href:page.path' label='Continue reading'></learn-more>
                 </feed-entry>
             </content-container>
         </section>

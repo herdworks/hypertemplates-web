@@ -1,10 +1,10 @@
 ---
 created_at: 2025-05-25T08:00:00-07:00
-title: Content Templating
+title: "Introducing: ht-content"
 description: Learn how content templating works in HyperTemplates
 summary: |
     Learn how content templating works in HyperTemplates
-breadcrumb: Content Templating
+breadcrumb: ht-content
 ---
 
 ## Content Templating Tutorial
@@ -14,12 +14,21 @@ breadcrumb: Content Templating
 ### Goal
 --------
 
-In this lesson we will create a reusable layout template and then create our first web page using HyperTemplates.
+In this lesson we will create a reusable layout template using the [`ht-content`] attribute, and then create our first web page using HyperTemplates.
 
-### Introduction
-----------------
+### What is content templating?
+-------------------------------
 
-🚧 Coming soon... 🚧
+Why do we make websites?
+For the same reason we visit them: it's all about the content! :eyes: 
+
+<!-- Every one of us have powered through poorly designed websites to get to some important information or entertaining story; and we've also abandoned beautiful websites with uninteresting content. -->
+
+The primary function of any good document or website layout template is to create space for the content. 
+For example, this web page was created from a template that has a header and footer full of links and other information to help you navigate around this website, but its primary purpose is to hold the content you are currently reading. 
+
+Content templating in HyperTemplates is really easy.
+Let's see how it works in these first few exercises.
 
 ### Exercises
 -------------
@@ -100,6 +109,7 @@ In this lesson we will create a reusable layout template and then create our fir
   </code-snippet>
 
   This layout templates the `<article>` element using the [`ht-content` attribute](/docs/reference/core/attributes/ht-content/).
+  
   The `markdown:` prefix in our `ht-content` attribute tells HyperTemplates to [format](/docs/reference/core/attributes/ht-content/#content-formats) the `content` as [Markdown](/docs/reference/core/markdown/).
 
   Now let's move on to step 3 to create a new page using this layout as a template.
@@ -186,7 +196,7 @@ In this lesson we will create a reusable layout template and then create our fir
 
   ## Hello, world
   
-  This is my first [HyperTemplates](https://preview.hypertemplates.net) page!
+  This is my first [HyperTemplates](https://hypertemplates.net) page!
   ```
   
   </code-snippet>
@@ -213,7 +223,7 @@ In this lesson we will create a reusable layout template and then create our fir
   hyperctl render --data content/index.md --layout layouts/default.html > index.html
   ```
 
-  If you still have `index.html` open in your browser you can refresh the page, or open it again: 
+  If you still have `index.html` open in your browser you can refresh the page, otherwise open it again: 
 
   ```plaintext
   open index.html
@@ -222,14 +232,17 @@ In this lesson we will create a reusable layout template and then create our fir
   To view a website or page title in a browser, hover over the browser tab, or use "view source" to inspect the rendered HTML. 
   Otherwise, just open index.html in your text editor.
 
-
 ### Discussion
 --------------
 
-🚧 Coming soon... 🚧
+In this lesson, we've just scratched the surface of what HyperTemplates can do. 
+We created a simple HTML layout and turned it into a reusable template with the `ht-content` attribute.
+We also created our first web page using HyperTemplates!
+The first of many!
 
-### Learn more
---------------
+<doc-quote ht-block info>
+
+**Core Concepts**
 
 Learn more about the concepts in this lesson:
 
@@ -240,14 +253,26 @@ Learn more about the concepts in this lesson:
 * [Markdown reference](/docs/reference/core/markdown/)
 * [CLI reference](/docs/reference/cli/)
 
+</doc-quote>
 
-<tutorial-nav ht-block 
+Do you have any questions and/or feedback about `ht-content` or this "Learn HyperTemplates" tutorial? 
+Join the @hypertexting.community and visit [the "Getting Started" category]. :speech_balloon:
+
+When you're ready, let's go ahead and move on to lesson 2. :point_right:
+
+<tutorial-nav ht-block
+         prev-href='../'
+         prev-label='Lesson Overview'
          next-href='../lesson-2/' 
-         next-label='Lesson 2: Attribute Templating'></tutorial-nav>
+         next-label='Lesson 2: Introducing <code>ht-attrs</code>'></tutorial-nav>
+
 
 
 <!-- Links -->
+[`ht-content`]: /docs/reference/core/attributes/ht-content/
 [layouts]: /docs/reference/core/layouts/
 [data]: /docs/reference/core/data/
 [Markdown]: /docs/reference/core/markdown/
 [YAML]: https://yaml.org
+[Introduction to templating]: /docs/#introduction-to-templating
+[the "Getting Started" category]: https://hypertexting.community/c/hypertemplates/getting-started/

@@ -1,24 +1,33 @@
-<!-- Default Metadata -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*; img-src 'self' https://*; media-src 'self' https://*;">
+<!-- Global Metadata -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*; img-src 'self' https://*; media-src 'self' https://*;">
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes'>
 <title ht-content='page.title,site.title'></title>
 <meta name='description' ht-attrs='content:page.description,site.description' />
+<meta name='publisher' ht-attrs='content:site.author.name' />
+<meta name='creator' ht-attrs='content:site.author.name' />
 <meta name='author' ht-attrs='content:page.author.name,site.author.name' />
+<meta name='referrer' content='origin' />
+<meta name="color-scheme" content="light dark" />
 <meta ht-template='meta:site.metadata' ht-attrs='name:meta.name; property:meta.property; content:meta.content' />
 <meta ht-include='partials/open-graph'>
 <meta ht-include='partials/twitter-card'>
 
-<!-- Default Links -->
+<!-- Global Links -->
 <link rel='icon' type='image/png' sizes="32x32" href='/favicon.png' ht-template='favicon:site.favicon,site.favicons' ht-attrs='rel:favicon.rel;href:favicon.href;sizes:favicon.sizes;type=favicon.type'>
 <link rel='canonical' ht-attrs='href:page.canonical_url'>
 <link ht-template='link:site.links' ht-attrs='rel:link.rel; href:link.href; sizes:link.sizes; type:link.type'>
 
-<!-- Default Styles -->
-<link rel='stylesheet' href='/css/reset.css?v=8'>
-<link rel='stylesheet' href='/css/variables.css?v=8'>
-<link rel='stylesheet' href='/css/colors.css?v=8'>
-<link rel='stylesheet' href='/css/typography.css?v=8'>
-<link rel='stylesheet' href='/css/grid.css?v=8'>
-<link rel='stylesheet' href='/css/styles.css?v=8'>
-<link rel='stylesheet' href='/css/chroma-base16-snazzy.css'>
+<!-- Global Styles -->
+<link rel='stylesheet' href='/css/reset.css?v=10'>
+<link rel='stylesheet' href='/css/variables.css?v=10'>
+<link rel='stylesheet' href='/css/colors.css?v=10'>
+<link rel='stylesheet' href='/css/typography.css?v=10'>
+<link rel='stylesheet' href='/css/grid.css?v=10'>
+<link rel='stylesheet' href='/css/styles.css?v=10'>
+<link rel='stylesheet' href='/css/chroma-base16-snazzy.css?v=10'>
+
+<!-- Global Scripts -->
+<script src='/js/main.js?v=10' defer></script>
+<script defer data-domain="hypertemplates.net" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>

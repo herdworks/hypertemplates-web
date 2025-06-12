@@ -1,9 +1,38 @@
 @font-face {
-    font-family: 'Roboto';
+    font-family: 'Silkscreen';
+    src: url('/fonts/Silkscreen/Silkscreen-Regular.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
+}
+@font-face {
+    font-family: 'Silkscreen';
+    src: url('/fonts/Silkscreen/Silkscreen-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jersey';
+    src: url('/fonts/Jersey/Jersey25-Regular.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jersey';
+    src: url('/fonts/Jersey/Jersey20-Regular.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jersey';
+    src: url('/fonts/Jersey/Jersey15-Regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jersey';
+    src: url('/fonts/Jersey/Jersey10-Regular.ttf') format('truetype');
     font-weight: 400;
-    font-display: swap;
-    src: url('/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
 }
 
 body {
@@ -14,18 +43,17 @@ body {
 :where(h1, h2, h3, h4, h5, h6) {
     font-weight: 700;
     margin-bottom: 0.5rem;
+    font-family: "Jersey";
 }
 
-h1 { font-size: 1.8em; }
-h2 { font-size: 1.4em; }
-h3 { font-size: 1.3em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1.1em; }
+h1 { font-size: 2.0em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
 h6 { font-size: 1em; }
 
-p {
-    margin-bottom: 0.50em;
-}
+p { margin-bottom: 0.50em; }
 
 a {
     font-family: inherit;
@@ -80,7 +108,7 @@ ol li {
 }
 
 p > code {
-    text-wrap: balance;
+    text-wrap: wrap;
     word-break: break-all;
 }
 

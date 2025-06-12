@@ -13,19 +13,25 @@ summary: |
 ------------
 
 A HyperTemplates theme is a collection of [layouts] and related files.
-HyperTemplates themes must have a layouts directory and a default layout file named `default.html`.
-<mark>This is the only requirement for a HyperTemplates theme</mark>.
 
-### Example
------------
+### Directory structure
+-----------------------
 
+A theme is a directory containing at least two files:
 
-An example HyperTemplates theme typically contains additional resources organized into subdirectories such as `partials/`, and `static/` but the actual directory structure beyond the `layouts` folder is up to theme developers.
+* `theme.json`
+* `layouts/default.html`
+
+<mark>These are the only requirements for a HyperTemplates theme</mark>.
+However, themes typically contain additional resources organized into subdirectories such as `layouts/`, `partials/`, and `static/`.
+
+**Example**
 
 ```shell
 layouts/
     default.html
     home.html
+    blog.html
     post.html
 partials/
     head.html
@@ -41,39 +47,148 @@ static/
         favicon.png
     js/
         main.js
+theme.json
 ```
 
-### Specification
------------------
+### Configuration
 
-#### Configuration
-------------------
+Themes are configured using the `theme.json` file.
 
-🚧 Coming soon... 🚧
+<code-snippet ht-block filename='theme.json'>
 
-<code-snippet ht-block filename='site.yaml'>
-
-```yaml
----
-base_url: https://preview.hypertemplates.net
-title: HyperTemplates
-description: The pure-HTML templating system for the modern web.
-...: ...
-theme:
-    blocks_dir: "blocks"
-    contenttypes_dir: "types"
-    layouts_dir: "layouts"
-    static_dir: "static"
+```json
+{
+    "name": "Example Theme",
+    "description": "A super basic example theme",
+    "version": "0.1.0",
+    "config": {
+        "layouts_dir": "layouts",
+        "static_dir": "static",
+        "blocks_dir": "blocks",
+        "contenttypes_dir": "types"
+    }
+}
 ```
 
 </code-snippet>
 
-<doc-quote ht-block warning>
+### Specification
+-----------------
 
-**NOTE:** Additional configuration parameters may be added in future releases.
+**`theme.name`**
+: The theme name.
 
-</doc-quote>
+  **Example**
+
+  ```json
+  {
+    "name": "Example Theme"
+  }
+  ```
+
+**`theme.description`**
+: The theme description.
+
+  **Example**
+
+  ```json
+  {
+    "description": "An example theme."
+  }
+  ```
+
+**`theme.version`**
+: The theme version.
+
+  **Example**
+
+  ```json
+  {
+    "version": "0.1.0"
+  }
+  ```
+
+**`theme.config`**
+: Theme configuration settings (optional).
+
+  **Example**
+
+  ```json
+  {
+    "name": "Example Theme",
+    "config": {}
+  }
+  ```
+
+**`theme.config.layouts_dir`**
+: The theme layouts directory (optional).
+  The default value is `layouts`.
+  See the [layouts reference] for more information.
+
+  **Example**
+
+  ```json
+  { 
+    "name": "Example Theme",
+    "config": {
+        "layouts_dir": "layouts"
+    }
+  }
+  ```
+
+
+**`theme.config.static_dir`**
+: The theme static directory (optional).
+  The default value is `static`.
+  See the [assets reference] and [asset hierarchy] for more information.
+
+  **Example**
+
+  ```json
+  { 
+    "name": "Example Theme",
+    "config": {
+        "static_dir": "assets"
+    }
+  }
+  ```
+
+**`theme.config.blocks_dir`**
+: The theme blocks directory (optional).
+  The default value is `blocks`.
+  
+  **Example**
+
+  ```json
+  { 
+    "name": "Example Theme",
+    "config": {
+        "blocks_dir": "components"
+    }
+  }
+  ```
+
+**`theme.config.contenttypes_dir`**
+: The content types directory.
+  The default value is `types`.
+  See the [content types reference] for more information.
+
+  **Example**
+
+  ```json
+  { 
+    "name": "Example Theme",
+    "config": {
+        "contenttypes_dir": "types"
+    }
+  }
+  ```
+
 
 <!-- Links -->
 [layouts]: /docs/reference/core/layouts/
 [template attribute]: /docs/reference/core/attributes/
+[layouts reference]: /docs/reference/core/layouts/
+[assets reference]: /docs/reference/cms/assets/
+[asset hierarchy]: /docs/reference/cms/assets/#asset-hierarchy
+[content types reference]: /docs/reference/cms/content-types/

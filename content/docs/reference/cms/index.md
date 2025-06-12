@@ -16,15 +16,15 @@ At a high level, HyperTemplates attempts to be unopinionated about the structure
 The [core specification] is primarily concerned with HTML templates (layouts) and template data (content) as inputs, which are used to generate individual **web _pages_** (HTML documents) as outputs.
 When it comes to building **web _sites_** (collections of HTML documents), a more opinionated approach to content management is required.
 
-### The HyperText Management System
------------------------------------
+### The HyperTexting CMS
+------------------------
 
-The content management system used by `hyperctl` is called the HyperText Management System (HTMS). 
-This reference documents the HTMS building blocks, including: websites, authors, pages, assets, attachments, tags, feeds, and namespaces.
-For more information on `hyperctl` itself, please visit the [CLI reference documentation]. 
+The content management system used by `hyperctl` is called HyperTexting.
+This reference documents the HyperTexting building blocks, including: websites, authors, pages, assets, attachments, tags, feeds, and namespaces.
+For more information on `hyperctl` itself, please visit the [CLI reference documentation].
 
 **Websites**
-: The HyperText Management system organizes content into websites.
+: A website is the lowest level building block in the HyperTexting CMS.
   
   <learn-more ht-block href='./website/'></learn-more>
 
@@ -67,6 +67,11 @@ For more information on `hyperctl` itself, please visit the [CLI reference docum
 : Websites generate output in the form of builds.
 
   <learn-more ht-block href='./builds/'></learn-more>
+
+**Providers**
+: Website hosting providers.
+
+  <learn-more ht-block href='./providers/'></learn-more>
 
 <!-- Links -->
 [core specification]: /docs/reference/core/

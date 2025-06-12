@@ -4,3 +4,5 @@
 <meta property="og:url" ht-attrs='content:page.slug'>
 <meta property="og:title" ht-attrs='content:page.title,site.title'>
 <meta property="og:description" ht-attrs='content:page.description,site.description'>
+<meta ht-template='asset:page.assets' ht-if='asset==cover.png' property="og:image" content='/cover.png'>
+<meta ht-if='page.video' property='og:video' ht-attrs='content:page.video'>

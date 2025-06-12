@@ -13,11 +13,29 @@ breadcrumb: CLI
 ### Overview
 ------------
 
-The `hyperctl` (pronounced "hyper control" or "hyper C-T-L") CLI tool is a fully featured static site generator based on HyperTemplates.
+The `hyperctl` (pronounced "hyper control" or "hyper C-T-L") CLI tool is a fully-featured static site generator based on HyperTemplates.
 
 #### What is a static site generator?
+-------------------------------------
 
-Coming soon...
+A static site generator is a tool for building websites.
+
+<doc-quote ht-block success>
+
+A static site generator is a tool that generates a [static] HTML website based on raw data and a set of templates.
+Essentially, a static site generator automates the task of coding individual HTML pages and gets those pages ready to serve to users ahead of time. 
+Because these HTML pages are pre-built, they can load very quickly in users' browsers.
+
+&mdash; [Cloudflare](https://www.cloudflare.com/learning/performance/static-site-generator/)
+
+</doc-quote>
+
+#### What is a static website?
+------------------------------
+
+The term "static website" typically refers to the practice of serving pre-built HTML pages.
+The alternative approach to static websites is often referred to as a "dynamic website", in which pages are generated on-demand.
+In practice neither approach guarantees or restricts the type of content that can be created using these methods, they're just different workflows.
 
 ### Usage
 ---------

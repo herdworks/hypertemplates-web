@@ -18,7 +18,6 @@ The `hyperctl build` command is used to perform full website [builds].
 
 ### Usage
 ---------
----------
 
 ```plaintext
 $ hyperctl build -h

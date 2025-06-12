@@ -1,10 +1,10 @@
 ---
 created_at: 2025-05-25T08:00:00-07:00
-title: Template Includes
+title: "Introducing: ht-include"
 description: Learn how template includes work in HyperTemplates
 summary: |
     Learn how template includes work in HyperTemplates
-breadcrumb: Template Includes
+breadcrumb: ht-include
 ---
 
 ## Template Includes Tutorial
@@ -21,6 +21,8 @@ In this lesson we will split up a layout template into individual components to 
 
 As our layout template starts to become more complex, it would be nice if we could split up the layout code into individual components.
 Organizing our code in this way not only makes it easier to maintain, it also makes the individual components reusable across multiple layouts!
+
+Let's see how to do this with the `ht-include` attribute.
 
 ### Exercises
 -------------
@@ -126,19 +128,37 @@ Organizing our code in this way not only makes it easier to maintain, it also ma
 ### Discussion
 --------------
 
-🚧 Coming soon... 🚧
+In this lesson we split our `<header>` and `<footer>` into smaller components and _composed_ them together using the `ht-include` attribute.
+This not only makes our `layouts/default.html` template easier to read, it means we can reuse the components we created in future layouts.
+Bonus!
 
-### Learn more
---------------
+We also introduced a new type of templating opportunity during this lesson when we added navigation links to our header.
+It's the first example we've encountered where we have a bit of layout that we'd like to repeat.
+Let's learn how to configure repeating elements in the final lesson of this tutorial.
 
+<doc-quote ht-block info>
 
+**Core Concepts**
+
+Learn more about the concepts in this lesson:
+
+* [Attributes reference](/docs/reference/core/attributes/)
+  * [`ht-include` attribute](/docs/reference/core/ht-include/)
+
+</doc-quote>
+
+Do you have any questions and/or feedback about `ht-include` or this "Learn HyperTemplates" tutorial? 
+Join the @hypertexting.community and visit [the "Getting Started" category]. :speech_balloon:
+
+When you're ready, let's go ahead and move on to lesson 5. :point_right:
 
 <tutorial-nav ht-block 
          prev-href='../lesson-3/' 
-         prev-label='Lesson 3: Template Conditionals' 
+         prev-label='Lesson 3: Introducing <code>ht-if</code>' 
          next-href='../lesson-5/' 
-         next-label='Lesson 5: Template Iterators'></tutorial-nav>
+         next-label='Lesson 5: Introducing <code>ht-template</code>'></tutorial-nav>
 
 <!-- Links -->
 [`ht-include`]: /docs/reference/core/attributes/ht-include/
 [attribute forwarding]: /docs/reference/core/attributes/ht-include/#attribute-forwarding
+[the "Getting Started" category]: https://hypertexting.community/c/hypertemplates/getting-started/

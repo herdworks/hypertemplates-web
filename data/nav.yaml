@@ -27,7 +27,7 @@ footer:
   # Product
   - group: Product
     label: Features
-    href: /features/
+    href: /#features
   - group: Product
     label: Downloads
     href: /downloads/
@@ -50,3 +50,6 @@ footer:
   - group: Resources
     label: Community 💬
     href: /community/
+  - group: Resources
+    label: Company
+    href: https://herd.works

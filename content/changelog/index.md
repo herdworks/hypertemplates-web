@@ -4,3 +4,6 @@ title: HyperTemplates Changelog
 description: The HyperTemplates Changelog
 summary: |
     Stay up-to-date with the latest HyperTemplates releases, including the `hyperctl` CLI and `libhypertemplates` library.
+---
+
+:construction: Coming soon! :construction:

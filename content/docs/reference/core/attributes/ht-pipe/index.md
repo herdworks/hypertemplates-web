@@ -188,10 +188,6 @@ The `css` and `javascript` pipe types are aliases for `text`.
 In this example, we're creating a text pipe to move the contents of the target `<style>` element to the `style#components` element.
 Text pipes make it possible to aggregate snippets of code from multiple layout partials into a single element.
 
-### Guides
-----------
-
-🚧 Coming soon... 🚧
 
 <!-- Links -->
 [CSS selector]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors

@@ -1,7 +1,7 @@
 ---
 created_at: 2025-02-10T12:00:00-08:00
 title: Assets
-summary: The HyperText Management System "assets" reference
+summary: The HyperTexting CMS "assets" reference
 ---
 
 # Assets reference
@@ -11,21 +11,11 @@ summary: The HyperText Management System "assets" reference
 ### Overview
 ------------
 
-An asset is any file served alongside a page's index.html at the page's path.
+An asset is any static file included in a HyperTexting website.
+There are three different types of assets in a HyperTexting website: page assets, website assets, and theme assets.
 
-### Asset hierarchy
--------------------
-
-The HyperText Management System has a tiered hierarchy for static assets:
-
-1. page assets
-1. website assets
-1. theme assets
-
-During a website build, theme assets are copied first, followed by website assets, then finally page assets.
-In this way, theme developers can provide default assets which can be overwritten by website assets and/or page assets.
-
-**Example**
+### Example
+-----------
 
 ```shell
 my-website/       #
@@ -50,6 +40,19 @@ In this example there are four assets with the filename `favicon.ico`:
 * `my-website/theme/static/favicon.ico` (path: `/favicon.ico`)
 
 Three of them have the same path, but the source file for `/favicon.ico` is `my-website/content/favicon.ico`.
+
+
+### Asset hierarchy
+-------------------
+
+The HyperTexting CMS has a tiered hierarchy for static assets:
+
+1. page assets
+1. website assets
+1. theme assets
+
+During a website build, theme assets are copied first, followed by website assets, then finally page assets.
+In this way, theme developers can provide default assets which can be overwritten by website assets and/or page assets.
 
 
 <!-- Links -->

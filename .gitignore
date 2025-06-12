@@ -1,4 +1,4 @@
-archive/
 builds/*
+drafts/*
 .envrc
 *.tar.gz

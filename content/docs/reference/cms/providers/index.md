@@ -1,7 +1,7 @@
 ---
 created_at: 2025-02-10T12:00:00-08:00
 title: Provider
-summary: The HyperText Management System "provider" reference
+summary: The HyperTexting CMS "provider" reference
 ---
 
 # Provider reference
@@ -15,7 +15,6 @@ A provider is a local or remote website hosting destination.
 
 ### Example
 -----------
-
 
 Providers are configured on a per-website basis in the website configuration file (`site.yaml` or `site.json`).
 
@@ -98,11 +97,11 @@ The `s3` provider supports website deployment to AWS S3 and S3-compatible provid
 
 #### `git` provider
 
-Coming soon...
+🚧 Coming soon... 🚧
 
 #### `ssh` provider
 
-Coming soon...
+🚧 Coming soon... 🚧
 
 <!-- Links -->
 [Cloudflare R2]: https://www.cloudflare.com/developer-platform/products/r2/

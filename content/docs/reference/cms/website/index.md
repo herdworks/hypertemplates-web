@@ -3,7 +3,7 @@ created_at: 2025-02-10T12:00:00-08:00
 title: Website
 description: Website reference documentation.
 summary: |
-    The HyperText Management System "website" reference.
+    The HyperTexting CMS "website" reference.
 ---
 
 ## Website reference
@@ -19,7 +19,8 @@ A website is managed as a directory containing a configuration file in YAML (`si
 ### Directory structure
 -----------------------
 
-Each HyperText Management System (HTMS) website is a directory. The structure of website subdirectories and files to determine how the generated website content will be organized.
+In the HyperTexting CMS, every website is a directory.
+The structure of website subdirectories and files to determine how the generated website content will be organized.
 
 <!-- Inspiration: https://gohugo.io/getting-started/directory-structure/ -->
 
@@ -44,7 +45,7 @@ For more information on how pages are managed, see the [pages reference document
 ### Example
 -----------
 
-A HyperText Management System website configuration file.
+A HyperTexting CMS website configuration file.
 
 <code-snippet ht-block filename='site.yaml'>
 
@@ -284,7 +285,8 @@ See [custom properties] for more information.
         drafts_dir:  "drafts",
         static_dir:  "static",
         theme_dir:  "theme",
-        tag_layout: "tag.html",
+        tag_layout: "default",
+        tag_path: "tags",
         refresh_interval: 0,
         tidy_mode: true
         markdown: {
@@ -344,7 +346,10 @@ See [custom properties] for more information.
   The directory configuration settings provide HyperTemplates with instructions on where to look for the various
 
 **`site.config.tag_layout`**
-: Configures the layout to use for automatically generated tag pages (default: `"tag.html"`).
+: Configures the layout to use for automatically generated tag pages (default: `"default"`).
+
+**`site.config.tag_path`**
+: Configures the path prefix for auto-generated tag pages (default: `"tag"`).
 
 **`site.config.refresh_interval`**
 : Configures [the `page.refresh` computed property](/docs/reference/cms/page/#page-refresh) interval for redirect pages.
@@ -379,6 +384,12 @@ See [custom properties] for more information.
   * `site.config.markdown.mentions.href_prefix` (default: `"/tags/"`)
   * `site.config.markdown.mentions.href_suffix` (default: `"/"`)
 
+  <doc-quote ht-block success>
+
+  **NOTE:** the `href_prefix` and `href_suffix` properties are used to configure the `<a href>` for hashtag links.
+  Use `href_prefix: "https://x.com/hashtag/"` and `href_suffix: "/"` to create links to an external hashtag service.
+
+  </doc-quote>
 
 ### Guides
 ----------

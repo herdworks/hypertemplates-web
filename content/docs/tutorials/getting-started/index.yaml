@@ -22,8 +22,8 @@ guide:
             * **MacOS**
 
               ```shell
-              curl -LO https://preview.hypertemplates.net/downloads/hyperctl_0.10.2_darwin_universal.tar.gz
-              tar -xzf hyperctl_0.10.2_darwin_universal.tar.gz
+              curl -LO https://hypertemplates.net/downloads/hyperctl_0.14.2_darwin_universal.tar.gz
+              tar -xzf hyperctl_0.14.2_darwin_universal.tar.gz
               chmod +x hyperctl
               sudo mv hyperctl /usr/local/bin/
               hyperctl # run hyperctl to verify the installation and see the version number
@@ -32,8 +32,8 @@ guide:
             * **Linux**
 
               ```shell
-              curl -LO https://preview.hypertemplates.net/downloads/hyperctl_0.10.2_linux_amd64.tar.gz
-              tar -xzf hyperctl_0.10.2_linux_amd64.tar.gz
+              curl -LO https://hypertemplates.net/downloads/hyperctl_0.14.2_linux_amd64.tar.gz
+              tar -xzf hyperctl_0.14.2_linux_amd64.tar.gz
               chmod +x hyperctl
               sudo mv hyperctl /usr/local/bin/
               hyperctl # run hyperctl to verify the installation and see the version number
@@ -41,10 +41,10 @@ guide:
 
             * **Windows (coming soon)**
 
-              If you're interested in trying out beta releases of HyperTemplates for Windows, please [join the community](https://hypertext.community) and check out [`hyperctl` for Windows](https://hypertext.community/c/hyperctl/windows).
+              If you're interested in trying out beta releases of HyperTemplates for Windows, please [join the community](https://hypertexting.community) and check out [`hyperctl` for Windows](https://hypertexting.community/t/help-us-test-hyperctl-for-windows/52).
 
         - title: Create your first HyperTemplates website
-          description: Use the `hyperctl new website` command to start a new HyperTemplates project.
+          description: Use the `hyperctl new website` command to start a new website project.
           instructions: |
             Start a new HyperTemplates project with the [`hyperctl new website`](/docs/reference/cli/commands/new/website/) command.
 
@@ -58,7 +58,7 @@ guide:
             Feel free to explore the generated files in your text editor, or move on to the next step to start the development server and view your new website in a browser.
 
         - title: Start the development server
-          description: View your new HyperTemplates website in a browser.
+          description: View your new HyperTemplates website in a browser!
           instructions: |
             Start the HyperTemplates development server with the [`hyperctl server`](/docs/reference/cli/commands/server/) command.
 

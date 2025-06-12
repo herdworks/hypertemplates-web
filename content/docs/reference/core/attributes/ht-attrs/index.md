@@ -112,10 +112,6 @@ In this example, HyperTemplates will set an element attribute named `content` to
 The `ht-attrs` attribute can be used to configure multiple attributes on the target element.
 See [attribute syntax] for more information.
 
-### Guides
-----------
-
-🚧 Coming soon... 🚧
 
 <!-- Links -->
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes

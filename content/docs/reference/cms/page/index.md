@@ -3,7 +3,7 @@ created_at: 2025-02-10T12:00:00-08:00
 title: Pages
 description: Page reference documentation.
 summary: |
-    The HyperText Management System "page" reference.
+    The HyperTexting CMS "page" reference.
 ---
 
 ## Pages reference
@@ -18,7 +18,7 @@ A page is a directory containing an index file in Markdown (`index.md`), YAML (`
 ### Directory structure
 -----------------------
 
-Each HyperText Management System (HTMS) page is a directory. 
+In the HyperTexting CMS, every page is a directory.
 Each page directory must contain an index file in markdown, YAML, or JSON format.
 Any page directory file that is not the index file is a [page asset].
 
@@ -563,7 +563,7 @@ All properties are string data types unless otherwise noted.
   {
     page: {
       feed: {
-        title: "The HyperTempaltes Blog",
+        title: "The HyperTemplates Blog",
         description: "Stay up-to-date with the latest HyperTemplates news.",
         author: {},
         tags: [],
@@ -704,7 +704,7 @@ All properties are string data types unless otherwise noted.
 **Add a blog page**
 : Create your first blog using feed pages!
 
-  <learn-more ht-block href='/docs/guides/feed-pages'>
+  <learn-more ht-block href='/docs/guides/feeds'>
 
 <!-- Links -->
 [page asset]: /docs/reference/cms/assets/

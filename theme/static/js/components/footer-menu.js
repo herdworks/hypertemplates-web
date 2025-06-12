@@ -18,7 +18,7 @@ class FooterMenu extends HTMLElement {
         };
         for (let group of groups) {
             let column = document.createElement("menu-group");
-            let header = document.createElement("h6");
+            let header = document.createElement("h5");
             header.innerText = group;
             column.appendChild(header);
             let links = this.querySelectorAll(`a[rel="${group}"]`);

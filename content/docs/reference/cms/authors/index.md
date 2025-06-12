@@ -1,7 +1,7 @@
 ---
 created_at: 2025-02-10T12:00:00-08:00
 title: Authors
-summary: The HyperText Management System "authors" reference
+summary: The HyperTexting CMS "authors" reference
 ---
 
 # Authors reference
@@ -11,12 +11,18 @@ summary: The HyperText Management System "authors" reference
 ### Overview
 ------------
 
-🚧 Coming soon... 🚧
+A website or page author.
 
 ### Example
 -----------
 
-```
+```yaml
+---
+author:
+    name: "Caleb Hailey"
+    username: "@calebhailey.com"
+    href: https://calebhailey.com
+    favicon: https://calebhailey.com/favicon.jpeg
 ```
 
 ### Properties

@@ -19,26 +19,20 @@ If you are new to HyperTemplates, check out the [tutorials] section.
 
 ### Guides
 
-**Feed pages**
-: How to configure feed pages (e.g. a blog).
+**Feeds & Feed Pages**
+: How to configure feeds and feed pages (e.g. a blog).
   
-  <learn-more ht-block href='./feed-pages/'></learn-more>
-
-**RSS feeds**
-: How to configure RSS/Atom feeds.
-  
-  <learn-more ht-block href='./rss-feeds/'></learn-more>
+  <learn-more ht-block href='./feeds/'></learn-more>
 
 **Link Verification**
 : How to add `rel="me"` links for third-party link verification.
   
   <learn-more ht-block href='./link-verification/'></learn-more>
 
-**Precompiling Layouts**
-: Precompiling layouts for theme distribution.
-  
-  <learn-more ht-block href='./precompiling-layouts/'></learn-more>
+### Discussion
 
+Were you looking for instructions on something that you don't see here?
+Join the @hypertexting.community and visit [the "Guides" category](https://hypertexting.community/c/hypertemplates/guides) to let us know.
 
 <!-- Links -->
 [tutorials]: /docs/tutorials/

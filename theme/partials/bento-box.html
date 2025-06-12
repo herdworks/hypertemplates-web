@@ -9,7 +9,8 @@
             gap: var(--gutter-1x);
         }
         bento-box bento-card {
-            display: block;
+            display: flex;
+            flex-direction: column;
             width: 100%;
             height: 100%;
             grid-row: var(--bento-card-rows, span 4);
@@ -27,7 +28,12 @@
         bento-card p {
             margin: 0 15px 15px 15px;
         }
-        bento-card learn-more {
+        bento-card p:last-of-type {
+            flex: 1;
+        }
+        bento-card a {
+            display: inline;
+            width: fit-content;
             margin: 0 15px 15px;
         }
 
@@ -94,6 +100,6 @@
         <span hidden ht-content='card'></span>
         <h3 ht-if='card.title' ht-content='html:card.title'></h3>
         <p ht-if='card.description' ht-content='markdown:card.description'></p>
-        <learn-more ht-if='card.href' ht-template='href:card.href' ht-include='blocks/learn-more'></learn-more>
+        <a ht-attrs='href:card.href'>Learn more &rightarrow;</a>
     </bento-card>
 </bento-box>
