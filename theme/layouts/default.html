@@ -13,6 +13,7 @@
         <script src='/js/components/auto-toc.js' defer></script>
         <script src='/js/components/code-snippet.js' defer></script>
         <script src='/js/components/footer-menu.js' defer></script>
+        <script src='/js/components/edit-this-page.js' defer></script>
 
         <!-- Layout Styles -->
         <style id='components'></style>
@@ -65,6 +66,12 @@
 
             a[rel='anchor'] { display: inline; }
 
+            edit-this-page { 
+                display: flex; 
+                flex-direction: row; 
+                justify-content: end;
+            }
+            edit-this-page svg { display: inline; }
         </style>
     </head>
     <body>
@@ -74,6 +81,9 @@
                 <doc-breadcrumbs></doc-breadcrumbs>
                 <main ht-content='markdown:page.content'></main>
                 <auto-anchor></auto-anchor>
+                <edit-this-page org='herdworks' repo='hypertemplates-web' rel='edit'>
+                    Edit this page on GitHub <svg ht-include='static/icons/github-brands.svg' width='1rem' height='1rem'></svg>
+                </edit-this-page>
             </content-container>
         </section>
         <content-whitespace data-color-scheme='light'></content-whitespace>
