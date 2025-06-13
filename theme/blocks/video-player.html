@@ -1,0 +1,59 @@
+<video-player src poster caption>
+    <style ht-pipe='css:style#components'>
+        video-player {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: var(--gutter-3x);
+            margin-bottom: var(--gutter-3x);
+        }
+        video-player video {
+            width: 65%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        video-player figcaption {
+            margin-bottom: var(--gutter-200, 30px);
+        }
+        video-player figcaption p {
+            font-size: 0.9rem;
+            width: var(--figure-default-width);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        video-player figcaption p a {
+            font-size: inherit;
+            color: inherit;
+        }
+        video-player video-controls button {
+            display: none;
+        }
+
+        @media screen and (min-width: 1280px) {}
+        @media screen and (min-width: 768px) and (max-width: 1279px) { 
+            video-player video { width: 80%; }
+        }
+        @media screen and (max-width: 767px) {
+            video-player video { width: 90%; }
+        }
+    </style>
+    <video controls preload='none' ht-attrs='poster:poster'>
+        <source ht-attrs='src:video' type="video/mp4" src="#">
+        <!--
+        <video-controls class="controls" data-state="hidden">
+            <button id="playpause" type="button" data-state="play">Play/Pause</button>
+            <button id="stop" type="button" data-state="stop">Stop</button>
+            <div class="progress">
+                <progress id="progress" value="0" min="0">
+                    <span id="progress-bar"></span>
+                </progress>
+            </div>
+            <button id="mute" type="button" data-state="mute">Mute/Unmute</button>
+            <button id="volinc" type="button" data-state="volup">Vol+</button>
+            <button id="voldec" type="button" data-state="voldown">Vol-</button>
+            <button id="fs" type="button" data-state="go-fullscreen">Fullscreen</button>
+        </video-controls> 
+        -->
+    </video>
+    <figcaption ht-if='caption' ht-content='markdown:caption'></figcaption>
+</video-player>
