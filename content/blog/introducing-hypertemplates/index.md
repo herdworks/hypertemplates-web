@@ -122,7 +122,7 @@ Better yet, we hope you join the @hypertexting.community and accompany us on [ou
 [DOM scripting]: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting
 [Golang]: https://go.dev
 [an entire website]: https://github.com/herdworks/hypertemplates-web/
-[give HyperTemplates a try]: /docs/reference/tutorials/getting-started/
+[give HyperTemplates a try]: /docs/tutorials/getting-started/
 [our mission to make it easier to to make websites]: https://makehypertext.com
 
 <!-- Footnotes -->
