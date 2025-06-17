@@ -1,22 +1,4 @@
 <uni-form>
-    <form ht-attrs='action:form.action; method:form.method'>
-        <form-group data-group='email'>
-            <label for='email'>Email<span title='required' aria-label='required'> *</span></label>
-            <input class='form-control' name='email' id='email' tabindex='101' type='email' placeholder='you@example.com' required>
-        </form-group>
-        <form-group class='humanoid' data-group='humanoid' hidden>
-            <label for='humanoid'>Are you human?</label>
-            <checkbox-group>
-                <input class='form-control form-checkbox' name='humanoid' id='humanoid' tabindex='102' value='human' type='checkbox'>
-                <span class='checkbox-label'>I am human</span>
-            </checkbox-group>
-        </form-group>
-        <form-group data-group='uid'><input class='form-control' name='uid' id='uid' tabindex='103' placeholder=' aria-label=' type='hidden' hidden></form-group>
-        <form-group data-group='href'><input class='form-control' name='href' id='href' tabindex='104' placeholder=' aria-label=' type='hidden' hidden></form-group>
-        <form-group>
-            <input class='form-control form-submit' id='form-submit' tabindex='105' type='submit' aria-label='Subscribe' value='Subscribe'>
-        </form-group>
-    </form>
     <style ht-pipe='css:style#components'>
         uni-form {
             display: block;
@@ -64,4 +46,22 @@
             font-weight: bold;
         }
     </style>
+    <form ht-attrs='action:form.action; method:form.method'>
+        <form-group data-group='email'>
+            <label for='email'>Email<span title='required' aria-label='required'> *</span></label>
+            <input class='form-control' name='email' id='email' tabindex='101' type='email' placeholder='you@example.com' required>
+        </form-group>
+        <form-group class='humanoid' data-group='humanoid' hidden>
+            <label for='humanoid'>Are you human?</label>
+            <checkbox-group>
+                <input class='form-control form-checkbox' name='humanoid' id='humanoid' tabindex='102' value='human' type='checkbox'>
+                <span class='checkbox-label'>I am human</span>
+            </checkbox-group>
+        </form-group>
+        <form-group data-group='uid'><input class='form-control' name='uid' id='uid' tabindex='103' placeholder=' aria-label=' type='hidden' hidden></form-group>
+        <form-group data-group='href'><input class='form-control' name='href' id='href' tabindex='104' placeholder=' aria-label=' type='hidden' hidden></form-group>
+        <form-group>
+            <input class='form-control form-submit' id='form-submit' tabindex='105' type='submit' aria-label='Subscribe' value='Subscribe'>
+        </form-group>
+    </form>
 </uni-form>

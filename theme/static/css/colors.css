@@ -2,19 +2,27 @@ html {
     /* Color Palette */
     --color-1: rgb(246, 246, 246);
     --color-2: rgba(246, 237, 228);
-    --color-3: rgb(236, 120, 184);
+    --color-3: #ec78b8;
     --color-3-alt: rgba(236, 120, 184, 0.50);
-    --color-4: rgba(152, 147, 143);
-    --color-5: rgba(36, 36, 36);
+    --color-4: #98938f;
+    --color-5: #242424;
+
+    --color-red: #ff5c57;
+    --color-orange: #ff9f43;
+    --color-yellow: #f3f99d;
+    --color-green: rgb(90, 247, 142);
+    --color-blue: rgb(87, 199, 255);
+    --color-purple: rgb(255, 106, 193);
 
     /* Gradients */
     --gradient-bg-1: linear-gradient(90deg, #f6ede4, #ec78b8);
+    --gradient-bg-1-dark: linear-gradient(90deg, #242424, var(--color-3-alt));
 
     /* Other Colors */
     --color-transparent: rgba(0,0,0,0.0);
     --color-link-blue: rgba(0, 213, 255, 0.75);
-    --color-red: rgba(255, 59, 48,0.75);
-    --color-green: rgba(76, 217, 100, 1.0);
+    /* --color-red: rgba(255, 59, 48,0.75); */
+    /* --color-green: rgba(76, 217, 100, 1.0); */
 
     --color-blinky-pink: rgba(236, 127, 255, 1.0);
     --color-blinky-pink-light: rgba(236, 127, 255, 0.5);
@@ -34,10 +42,11 @@ html {
 /* Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#color-scheme */
 /* Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color */
 [data-color-scheme], [data-color-scheme='light'] {
+    --color-scheme: "light theme / light mode";
     --background-color: var(--color-1);
     --accent-color: var(--color-3);
-    --accent-tint: rgba(255,255,255,0.20);
-    --accent-shade: rgba(0,0,0,0.25);
+    --accent-tint: rgba(255,255,255,0.75);
+    --accent-shade: rgba(0,0,0,0.75);
     --outline-color: rgba(0,0,0,0.25);
     --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
     --heading-color: rgba(0,0,0,0.9);
@@ -47,26 +56,56 @@ html {
     --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
     --form-input-background-color: rgba(255, 255, 255, 1.0);
     --form-input-text-color: rgba(0,0,0,0.9);
+    --form-input-placeholder-color: rgba(0,0,0,0.5);
     --button-background-color: var(--color-3);
     --button-background-color-hover: var(--color-1);
     --button-text-color: rgba(255,255,255,0.9);
     --button-text-color-hover: rgba(0,0,0,0.9);
 }
 
+@media (prefers-color-scheme: dark) {
+    [data-color-scheme], [data-color-scheme='light'] {
+        --color-scheme: "light theme / dark mode";
+        --background-color: #242424;
+        --accent-color: var(--color-3);
+        --accent-tint: rgba(255,255,255,0.75);
+        --accent-shade: rgba(0,0,0,0.75);
+        --outline-color: rgba(255,255,255,0.25);
+        --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+        --heading-color: rgba(255,255,255,0.9);
+        --subheading-color: rgba(255,255,255,0.6);
+        --text-color: rgba(255,255,255,0.9);
+        --text-color-alt: rgba(255,255,255,0.7);
+        --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+        --form-input-background-color: rgba(255, 255, 255, 1.0);
+        --form-input-text-color: rgba(0,0,0,0.9);
+        --form-input-placeholder-color: rgba(0,0,0,0.5);
+        --button-background-color: var(--color-3);
+        --button-background-color-hover: var(--color-1);
+        --button-text-color: rgba(255,255,255,0.9);
+        --button-text-color-hover: rgba(0,0,0,0.9);
+    }
+    [data-color-scheme], [data-color-scheme='light'] blockquote:not(pull-quote blockquote) {
+        background-color: var(--color-3-alt);
+    }
+}
+
 [data-color-scheme='dark'] {
+    --color-scheme: "dark theme / light mode";
     --background-color: rgba(0,0,0,1.0);
     --accent-color: var(--color-3);
-    --accent-tint: rgba(255,255,255,0.25);
-    --accent-shade: rgba(0,0,0,0.15);
+    --accent-tint: rgba(255,255,255,0.75);
+    --accent-shade: rgba(0,0,0,0.5);
     --outline-color: rgba(255,255,255,0.50);
     --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
     --heading-color: rgba(255,255,255,0.75);
     --subheading-color: rgba(255,255,255,0.50);
     --text-color: rgba(255,255,255,0.75);
     --link-underline-color: var(--color-3);
-    --form-input-background-color: var(--color-2);
+    --form-input-background-color: var(--color-4);
     --form-input-text-color: rgba(0,0,0,0.9);
-    --button-background-color: var(--color-1);
+    --form-input-placeholder-color: rgba(0,0,0,0.3);
+    --button-background-color: var(--color-3);
     --button-background-color-hover: var(--color-3);
     --button-text-color: rgba(0,0,0,0.9);
     --button-text-color-hover: rgba(255,255,255,0.9);
@@ -75,8 +114,8 @@ html {
 [data-color-scheme='primary'] {
     --background-color: var(--color-2);
     --accent-color: var(--color-3);
-    --accent-tint: rgba(255,255,255,0.25);
-    --accent-shade: rgba(0,0,0,0.15);
+    --accent-tint: rgba(255,255,255,0.75);
+    --accent-shade: rgba(0,0,0,0.75);
     --outline-color: rgba(255,255,255,1.0);
     --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
     --heading-color: rgba(0,0,0,0.9);
@@ -84,29 +123,53 @@ html {
     --text-color: rgba(0,0,0,0.7);
     --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
     --form-input-background-color: rgba(255,255,255,0.50);
-    --form-input-text-color: rgba(0,0,0,0.5);
+    --form-input-text-color: rgba(0,0,0,0.8);
+    --form-input-placeholder-color: rgba(0,0,0,0.3);
     --button-background-color: var(--color-3);
     --button-background-color-hover: rgba(255,255,255,0.75);
     --button-text-color: rgba(255,255,255,0.9);
     --button-text-color-hover: rgba(0,0,0,0.9);
 }
 
+@media (prefers-color-scheme: dark) {
+    [data-color-scheme='primary'] {
+        --background-color: rgba(100, 90, 80, 1.0);
+        --accent-color: var(--color-1);
+        --accent-tint: rgba(255,255,255,0.80);
+        --accent-shade: rgba(0,0,0,0.65);
+        --outline-color: var(--color-5);
+        --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+        --heading-color: rgba(255,255,255,1.0);
+        --subheading-color: rgba(255,255,255,0.9);
+        --text-color: rgba(255,255,255,0.9);
+        --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+        --form-input-background-color: rgba(0,0,0,1.0);
+        --form-input-text-color: rgba(255,255,255,0.7);
+        --form-input-placeholder-color: rgba(255,255,255,0.4);
+        --button-background-color: var(--color-3);
+        --button-background-color-hover: var(--color-1);
+        --button-text-color: rgba(0,0,0,0.5);
+        --button-text-color-hover: rgba(255,255,255,0.9);
+    }
+}
+
 [data-color-scheme='gray'] {
-    --background-color: var(--color-2);
-    --accent-color: var(--color-3);
-    --accent-tint: rgba(255,255,255,0.25);
-    --accent-shade: rgba(0,0,0,0.15);
-    --outline-color: var(--color-3);
+    --background-color: var(--color-4);
+    --accent-color: rgba(0,0,0,0.25);
+    --accent-tint: rgba(255,255,255,0.80);
+    --accent-shade: rgba(0,0,0,0.65);
+    --outline-color: var(--color-5);
     --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
-    --heading-color: rgba(0,0,0,0.9);
-    --subheading-color: rgba(0,0,0,0.7);
-    --text-color: rgba(0,0,0,0.7);
+    --heading-color: rgba(255,255,255,1.0);
+    --subheading-color: rgba(255,255,255,0.9);
+    --text-color: rgba(255,255,255,0.9);
     --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
     --form-input-background-color: rgba(0,0,0,1.0);
     --form-input-text-color: rgba(255,255,255,0.7);
-    --button-background-color: var(--color-1);
-    --button-background-color-hover: var(--color-3);
-    --button-text-color: rgba(0,0,0,0.9);
+    --form-input-placeholder-color: rgba(255,255,255,0.4);
+    --button-background-color: var(--color-3);
+    --button-background-color-hover: var(--color-1);
+    --button-text-color: rgba(0,0,0,0.5);
     --button-text-color-hover: rgba(255,255,255,0.9);
 }
 
@@ -123,6 +186,7 @@ html {
     --link-underline-color: none;
     --form-input-background-color: var(--color-2);
     --form-input-text-color: rgba(0,0,0,0.9);
+    --form-input-placeholder-color: rgba(0,0,0,0.5);
     --button-background-color: rgba(255,255,255,0.25);
     --button-background-color-hover: rgba(255,255,255,0.25);
     --button-text-color: rgba(0,0,0,0.9);
@@ -146,29 +210,36 @@ html {
     --link-underline-color: none;
     --form-input-background-color: rgba(0,0,0,1.0);
     --form-input-text-color: rgba(255,255,255,0.9);
+    --form-input-placeholder-color: rgba(255,255,255,0.5);
     --button-background-color: rgba(255,255,255,0.25);
     --button-background-color-hover: rgba(255,255,255,0.25);
     --button-text-color: rgba(0,0,0,0.9);
     --button-text-color-hover: rgba(255,255,255,0.9);
 
-    /* --text-heading-color: var(--color-5);
-    --text-color: var(--text-color-1);
-    --link-underline-color: var(--color-3);
-    --form-input-background-color: rgba(0,0,0,1.0);
-    --form-input-text-color: var(--text-color-5);
-    --button-primary-border-color: var(--color-1);
-    --button-primary-background-color: var(--color-1);
-    --button-primary-background-color-hover: var(--color-3);
-    --button-primary-text-color: var(--text-color-1);
-    --button-primary-text-color-hover: var(--text-color-4);
-    --button-alt-border-color: var(--color-1);
-    --button-alt-background-color: var(--color-1);
-    --button-alt-background-color-hover: var(--color-3);
-    --button-alt-text-color: var(--text-color-1);
-    --button-alt-text-color-hover: var(--text-color-4);
-    --img-border-color: rgba(0,0,0,0.25); */
-
     background-image: var(--gradient-bg-1);
+}
+@media (prefers-color-scheme: dark) {
+    [data-color-scheme='gradient'] {
+        --background-color: var(--gradient-bg-1-dark);
+        --accent-color: var(--color-5);
+        --accent-tint: rgba(255,255,255,0.25);
+        --accent-shade: rgba(0,0,0,0.15);
+        --outline-color: rgba(0,0,0,1.0);
+        --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+        --heading-color: rgba(255,255,255,0.75);
+        --subheading-color: rgba(255,255,255,0.50);
+        --text-color: rgba(255,255,255,0.75);
+        --link-underline-color: none;
+        --form-input-background-color: rgba(0,0,0,1.0);
+        --form-input-text-color: rgba(255,255,255,0.9);
+        --form-input-placeholder-color: rgba(255,255,255,0.5);
+        --button-background-color: rgba(255,255,255,0.25);
+        --button-background-color-hover: rgba(255,255,255,0.25);
+        --button-text-color: rgba(0,0,0,0.9);
+        --button-text-color-hover: rgba(255,255,255,0.9);
+
+        background-image: var(--gradient-bg-1-dark);
+    }
 }
 
 /* Applied colors */
@@ -186,16 +257,20 @@ html {
 }
 
 [data-color-scheme] :where(mark) {
+    color: inherit;
     background-color: var(--highlight-color);
 }
 
 [data-color-scheme] :where(code:not(pre code)) {
-    background-color: color-mix(in srgb, var(--accent-shade) 50%, transparent);
+    background-color: color-mix(in srgb, var(--accent-shade) 25%, transparent);
 }
 
 [data-color-scheme] form form-group input {
     background-color: var(--form-input-background-color);
     color: var(--form-input-text-color);
+}
+[data-color-scheme] form input::placeholder {
+    color: var(--form-input-placeholder-color);
 }
 
 /* Defaults & non-themed styles */
@@ -229,3 +304,19 @@ red-heart {
     filter: grayscale(1.00);
 }
 
+@media (prefers-color-scheme: light) {
+    [prefers-color-scheme=light] { display: unset; }
+    [prefers-color-scheme=dark] { display: none; }
+}
+
+@media (prefers-color-scheme: dark) {
+    [prefers-color-scheme=light] { display: none; }
+    [prefers-color-scheme=dark] { display: unset; }
+}
+
+
+/* @media screen and (prefers-color-scheme: dark) {
+    [data-color-scheme] {
+        filter: brightness(50%);
+    }
+} */

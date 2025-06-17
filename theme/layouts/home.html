@@ -8,10 +8,14 @@
 
         <!-- Layout Components -->
         <script src='/js/components/footer-menu.js' defer></script>
+        <script src='/js/components/dismiss-button.js' defer></script>
 
         <!-- Layout Styles -->
         <style id='components'></style>
         <style id='layout'>
+            header[data-color-scheme="gray"] svg#logo > g > g path { fill: var(--color-1) !important }
+            header[data-color-scheme="gray"] svg#logo > g > g:nth-child(2) path { fill: var(--color-5) !important; }
+
             bento-overview {
                 display: grid;
                 width: 100%;
@@ -29,8 +33,9 @@
         </style>
     </head>
     <body>
-        <header ht-include='partials/sections/hero.html'></header>
+        <header ht-include='partials/sections/hero.html' data-color-scheme='primary'></header>
         <!-- <section ht-include='partials/logo-roll.html' data-color-scheme='light'></section> -->
+        <banner-message ht-include='partials/banner-message' data-color-scheme='light'></banner-message>
         <section id='features' data-color-scheme='light'>
             <content-container>
                 <bento-overview>
@@ -42,6 +47,6 @@
         </section>
         <content-whitespace></content-whitespace>
         <section ht-include='partials/newsletter.html' data-color-scheme='gradient'></section>
-        <footer ht-include='partials/sections/footer.html'></footer>
+        <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>

@@ -10,6 +10,7 @@
 html {
     height: 100%;
     overflow-x: clip;
+    color-scheme: light dark;
 }
 body {
     line-height: 1.5;

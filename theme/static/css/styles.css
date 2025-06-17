@@ -4,15 +4,16 @@
 }
 
 button,
-link-button a {
+link-button a,
+[data-color-scheme] link-button a {
     display: inline-block;
     padding: 10px 20px;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
-    border-color: var(--accent-shade);
+    border-color: color-mix(in srgb, var(--accent-shade) 75%, transparent);
     background-color: rgba(255,255,255,0.80);
-    color: rgba(0,0,0,0.75);
+    color: var(--accent-shade);
     box-shadow: none;
     font-weight: 600;
 }
@@ -20,9 +21,9 @@ link-button a {
 /* Buttons */
 button:first-of-type,
 link-button:first-of-type a {
-    border-color: var(--accent-shade);
+    border-color: color-mix(in srgb, var(--accent-tint) 75%, transparent);
     background-color: var(--button-background-color);
-    color: var(--button-text-color);
+    color: var(--accent-tint);
 }
 button,
 button:hover,
@@ -32,4 +33,19 @@ link-button:hover a {
         color var(--color-transition),
         background-color var(--color-transition),
         border-color var(--color-transition);
+}
+
+button.unbuttoned {
+    border: none;
+    padding: 0;
+    background-color: unset;
+}
+
+.scrollable {
+    overflow-x: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.scrollable::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }

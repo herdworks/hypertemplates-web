@@ -116,7 +116,7 @@ blockquote {
     background-color: var(--accent-color);
     margin: var(--gutter-default, 15px) 0;
     padding: var(--gutter-width) calc(var(--gutter-width) * 2);
-    border-left: var(--gutter-width) solid var(--accent-shade);
+    border-left: var(--gutter-width) solid color-mix(in srgb, var(--accent-shade) 50%, transparent);
 }
 blockquote p:last-of-type {
     margin-bottom: 0;

@@ -35,7 +35,6 @@
             doc-breadcrumbs doc-breadcrumb {
                 display: flex;
                 flex-direction: row;
-                color: rgba(0,0,0,0.65);
                 align-items: center;
                 align-content: center;
                 white-space: nowrap;
@@ -53,8 +52,6 @@
             }
 
             doc-breadcrumb:last-of-type :is(svg,img) { display: none; }
-
-            [data-color-scheme] auto-toc li a { color: rgba(0,0,0,0.65); }
 
             [data-color-scheme] auto-toc li a { font-weight: 500; }
 
@@ -75,7 +72,7 @@
         </style>
     </head>
     <body>
-        <header ht-include='partials/sections/header.html'></header>
+        <header ht-include='partials/sections/header.html' data-color-scheme='primary'></header>
         <section data-color-scheme='light'>
             <content-container>
                 <doc-breadcrumbs></doc-breadcrumbs>
