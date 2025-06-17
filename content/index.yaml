@@ -5,7 +5,6 @@ unlisted: true
 canonical_url: https://hypertemplates.net/
 title: HyperTemplates
 description: The pure-HTML templating system for the modern web.
-banner: /banner.jpg
 video: https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4
 hero:
     # making it easier to make websites, one template at a time.
@@ -38,15 +37,13 @@ hero:
                 <script src='/js/components/my-component.js' defer></script>
             </head>
             <body>
-                <header ht-if='page.title'>
-                    <h1 ht-content='page.title'>Placeholder Title</h1>
-                </header>
+                <header ht-include='partials/header.html'></header>
                 <main>
                     <article ht-content='markdown:page.content'>
                         <p>Placeholder content...</p>
                     </article>
                 </main>
-                <footer ht-include='partials/footer.html'></footer>
+                <footer ht-include='partials/footer'></footer>
             </body>
         </html>
         ```
@@ -60,7 +57,8 @@ features:
         Build incredible websites with pure HTML, CSS, and Javascript.
         No frameworks, no build tools, no sacrifices, and no nonsense (unless you're into those sorts of things).
 
-        <video-player ht-block video='https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4' poster='/cover.png'></video-player>
+        <video-player ht-block video='https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4' poster='/cover.png' prefers-color-scheme='light'></video-player>
+        <video-player ht-block video='https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4' poster='/cover-dark.png' prefers-color-scheme='dark'></video-player>
     highlights:
       - title: Pure-HTML templating
         description: |

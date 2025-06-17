@@ -2,7 +2,7 @@
 namespace: newsletter
 title: 💬 Join the community
 description: |
-    Stay up-to-date with the lastest releases and other news from Team HyperTemplates.
+    Stay up-to-date with the latest releases and other news from the Team behind HyperTemplates.
     Ask the developers questions, get help from the community, and share your creations! 🎨
 form:
     action: https://hypertexting.community/signup

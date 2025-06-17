@@ -1,3 +1,5 @@
+archive/*
+branding/*
 builds/*
 drafts/*
 .envrc

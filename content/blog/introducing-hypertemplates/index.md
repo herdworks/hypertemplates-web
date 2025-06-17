@@ -94,7 +94,12 @@ Here's what it looks like to write HTML templates with HyperTemplates:
 
 <video-player ht-block
               video='https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4'
-              poster='/cover.png'></video-player>
+              poster='/cover.png'
+              prefers-color-scheme='light'></video-player>
+<video-player ht-block
+              video='https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4'
+              poster='/cover-dark.png'
+              prefers-color-scheme='dark'></video-player>
 
 Here's what it looks like to build [an entire website] using HyperTemplates.
 

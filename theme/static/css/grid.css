@@ -25,17 +25,23 @@ content-row {
     max-width: 100%;
     gap: var(--gutter-1x, 15px);
 }
-content-row[grid] {
+[grid] {
     display: grid;
     box-sizing: content-box;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); /* MAGIC */
     grid-template-rows: auto;
     grid-auto-flow: column;
 }
-content-row[flex] {
+[flex] {
     display: flex;
     flex-direction: row;
 }
+[center] {
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+content-row[center] { justify-items: center; justify-content: center; text-align: center; }
 content-row[align] { align-items: center; }
 content-row[spread] { justify-content: space-between; }
 content-row[spread] > :first-child { text-align: start; }

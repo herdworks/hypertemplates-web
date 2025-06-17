@@ -37,6 +37,9 @@
 //  
 //     prefix (string)
 //         The path prefix (defaults to "content").
+//
+//     pathname (string)
+//         The path (defaults to window.location.pathname).
 //  
 //     suffix (string)
 //         The path suffix (defaults to "index.md").
@@ -56,6 +59,7 @@ class EditThisPage extends HTMLElement {
     repo;
     branch;
     prefix;
+    pathname;
     suffix;
     rel;
 
@@ -67,6 +71,7 @@ class EditThisPage extends HTMLElement {
         this.repo = this.getAttribute("repo");
         this.branch = this.getAttribute("branch") || "main";
         this.prefix = this.getAttribute("prefix") || "content";
+        this.pathname = this.getAttribute("pathname") || document.location.pathname;
         this.suffix = this.getAttribute("suffix") || "index.md";
         this.rel = this.getAttribute("rel") || "source";
         if (document.readyState == "complete" || document.readyState == "interactive") {
@@ -89,9 +94,9 @@ class EditThisPage extends HTMLElement {
         return a;
     };
     get href() {
-        let components = ["", this.org, this.repo, "edit", this.branch, this.prefix, document.location.pathname, this.suffix];
-        let pathname = components.join("/").replaceAll("//", "/");
-        return `https://${this.host}${pathname}`
+        let components = ["", this.org, this.repo, "edit", this.branch, this.prefix.concat(this.pathname, this.suffix)];
+        let path = components.join("/").replaceAll("//", "/");
+        return `https://${this.host}${path}`
     };
 
     // instance methods
@@ -100,6 +105,7 @@ class EditThisPage extends HTMLElement {
         let link = this.template;
         this.innerHTML = "";
         this.appendChild(link);
+        this.removeAttribute("hidden");
     };
 
     // static methods
