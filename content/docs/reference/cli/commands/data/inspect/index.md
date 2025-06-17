@@ -51,7 +51,7 @@ Then use `hyperctl data inspect <namespace>` to see a JSON representation of the
 
 ```plaintext
 $ hyperctl data inspect newsletter
-{"description":"Stay up to date with the lastest releases and other news from the HyperTemplates community.","namespace":"newsletter","title":"Join the community"}
+{"description":"Stay up to date with the latest releases and other news from the HyperTemplates community.","namespace":"newsletter","title":"Join the community"}
 ```
 
 Combine `hyperctl data inspect <namespace>` with [`jq`] for best results.
@@ -59,7 +59,7 @@ Combine `hyperctl data inspect <namespace>` with [`jq`] for best results.
 ```plaintext
 $ hyperctl data inspect newsletter | jq .
 {
-  "description": "Stay up to date with the lastest releases and other news from the HyperTemplates community.",
+  "description": "Stay up to date with the latest releases and other news from the HyperTemplates community.",
   "namespace": "newsletter",
   "title": "Join the community"
 }

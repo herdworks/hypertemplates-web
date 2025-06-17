@@ -13,7 +13,7 @@ tags:
 ## Introducing HyperTemplates
 
 > **TL;DR:** HyperTemplates is a pure-HTML templating system and static site generator. 
-> It was designed with the goal of making it easier make websites. 
+> It was designed with the goal of making it easier to make websites. 
 > The HyperTemplates CLI (`hyperctl`) is available to download for MacOS and Linux starting today, and [Windows releases are available in early access](https://hypertexting.community/t/help-us-test-hyperctl-for-windows/52).
 
 Two things happen very early on in a persons journey to learn HTML – they create their first web page (!), and eventually they create a second.
@@ -32,7 +32,7 @@ Then every page needs a set of links to navigate between the growing number of p
 For a brief moment at this nascent stage in our journey we allow ourselves to think that that this is _precisely_ what "copy and paste" was invented for!
 But then about ten seconds after we finish copying our snazzy new navigation to a handful of pages, we notice a typo.
 We instinctively fix the typo and start the copy and paste ceremony all over again.
-But then we decide that the "About Me" link should just be called "About" (or visa versa).
+But then we decide that the "About Me" link should just be called "About" (or vice versa).
 And then it hits us.
 This is unsustainable.
 

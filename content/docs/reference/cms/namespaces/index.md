@@ -28,7 +28,7 @@ Instead of overloading our website configuration file with [custom properties](/
 namespace: newsletter
 title: 💬 Join the community
 description: |
-    Stay up-to-date with the lastest releases and other news from Team HyperTemplates. 
+    Stay up-to-date with the latest releases and other news from Team HyperTemplates. 
     Ask the developers questions, get help from the community, and share your creations! 🎨
 form:
     action: https://hypertexting.community/signup
@@ -57,7 +57,7 @@ In this example we have created a `newsletter` namespace that is accessible from
   newsletter:
       title: 💬 Join the community
       description: |
-          Stay up-to-date with the lastest releases and other news from Team HyperTemplates. 
+          Stay up-to-date with the latest releases and other news from Team HyperTemplates. 
           Ask the developers questions, get help from the community, and share your creations! 🎨
       form:
           action: https://hypertexting.community/signup
