@@ -1,0 +1,6 @@
+---
+namespace: banners
+banners:
+  - id: introducing-hypertemplates
+    message: Read the introductory blog post
+    href: /blog/introducing-hypertemplates/

@@ -1,0 +1,54 @@
+<banner-message ht-template='banner:data.banners.banner,data.banners.banners,site.banner,site.banners' class='dismissed'>
+    <style ht-pipe='css:style#components'>
+        banner-message { --radius: 50vh; }
+        banner-message { display: block; box-sizing: border-box; height: auto; max-height: 150px; }
+        banner-message:not(.dismissed) { transition: max-height 750ms ease-in 500ms; }
+        banner-message.dismissed { max-height: 0; }
+        banner-message :where(content-row, banner-pill) {
+            width: fit-content;
+            margin: 8px;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: var(--radius);
+        }
+        banner-message banner-pill {
+            text-transform: uppercase;
+            padding: 0.125em 0.75em;
+            font-weight: bold;
+            margin-right: 0;
+        }
+        banner-message content-row > a { 
+            display: flex; 
+            flex-direction: row;
+            align-content: center;
+            align-items: center;
+            margin: 0;
+            box-shadow: none;
+            text-wrap: nowrap;
+            max-width: 65%;
+            overflow-x: clip;
+        }
+        banner-message a svg { display: inline; margin-left: 5px; }
+        banner-message dismiss-button { cursor: pointer; margin-right: 16px; }
+        banner-message:not(:first-of-type) { display: none; } /* only show the first banner */
+        @media (prefers-color-scheme: light) {
+            banner-message[data-color-scheme='light'] :is(content-row, banner-pill) {
+                background-color: rgba(0,0,0,0.10);
+            }
+        }
+        @media screen and (max-width: 767px) {
+            banner-message { font-size: 0.9rem; }
+        }
+    </style>
+    <content-container flex center>
+        <content-row flex spread align>
+            <banner-pill><small ht-content='banner.pill'>new</small></banner-pill>
+            <a ht-attrs='href:banner.href' href='#'>
+                <span ht-content='banner.message'>Placeholder banner</span>
+                <svg ht-include='static/icons/chevron-right-thin.svg' width='18' height='18'></svg>
+            </a>
+            <dismiss-button dismisses='banner-message' ht-attrs='id:banner.id' toggle='dismissed'>
+                <svg ht-include='partials/icons/xmark-solid.svg' width='18' height='18'></svg>
+            </dismiss-button>
+        </content-row>
+    </content-container>
+</banner-message>
