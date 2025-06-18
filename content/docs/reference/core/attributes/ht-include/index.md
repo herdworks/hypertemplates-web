@@ -63,7 +63,7 @@ The `ht-include` attribute can be used with any HTML element.
 **A BRIEF ASIDE:** Discovering that we could use `ht-include` to template SVG images was one of the major "aha" moments we experienced early on in the development of HyperTemplates.
 This was a delightful side effect of the "pure-HTML" philosophy behind HyperTemplates.
 We suspect there are yet other unexpected but delightful side effects that we haven't yet discovered. 
-If you encounter any such deligtful surprises, please [let us know](/contact)!
+If you encounter any such deligtful surprises, please [let us know](https://hypertexting.community/)!
 
 </doc-quote>
 
