@@ -224,16 +224,36 @@ In this example, the template data value for the key `page.title` is `Hello, wor
 #### Template data sources
 --------------------------
 
-The HyperTemplates CLI and libraries have built-in support for parsing template data from files in Markdown, YAML, and JSON formats.
-In some cases, multiple data sources are combined into a single template data object. 
-Template data sources may still be considered valid if "empty".
+At a high level, the HyperTemplates core specification is primarily concerned with HTML templates (layouts) and template data (content) as inputs, which are used to generate individual web pages (HTML documents) as outputs.
+However, the HyperTemplates core templating engine doesn't actually have any built-in concept of data sources (i.e. where the template data comes from).
+The closest thing to a completely unopinionated implementation of the HyperTemplates core templating engine is the [`hyperctl render`] command, which accepts a single data file as an input.
+
+In most implementations multiple data sources are combined into a single template data object.
+The [HyperTemplates CMS] is one such implementation, which incorporates four data sources: 
+
+* **site data**: the contents of `site.yaml` or `site.json` (including [custom website properties])
+* **page data**: the contents of page index files (supports Markdown, YAML, and JSON formats; includes [custom page properties])
+* **namespace data**: the contents of `data/*` files (supports YAML, JSON, and OPML formats; see [namespaces])
+* **layout data**: `<meta>` elements with `layout:` prefixed name attributes (see [layout data](#layout-data))
+
+The site, page, and namespace data sources are technically outside of the scope of the core specification (i.e. this document), but we are enumerating them here for reference.
+
+<doc-quote ht-block notice>
+
+**NOTE:** The HyperTemplates CLI (`hyperctl`) and libraries (coming soon) have built-in support for parsing template data from files in Markdown, YAML, and JSON formats. These files may still be considered valid template data if they are "empty", however _completely_ empty JSON files (containing zero bytes) may cause JSON parsing errors in some implementations, so a JSON format template data source would be considered empty (and still valid) as long as they contain opening and closing curly braces (i.e. `{}`).
+
+</doc-quote>
 
 ##### Layout data
 -----------------
 
-Additional layout-scoped data can be added to any layout or other layout fragment as `<meta>` elements.
+Additional layout-scoped data can be added to any layout or other layout fragment as `<meta>` elements with `layout:` prefixed name attributes.
 
 <!-- Layout data is useful for providing fallback values for template slots in strict mode. -->
+
+**Example:**
+
+<code-snippet ht-block filename='' with-line-numbers>
 
 ```html
 <meta name='layout:name' content='default'>
@@ -241,12 +261,13 @@ Additional layout-scoped data can be added to any layout or other layout fragmen
 <meta name='layout:copyyear' content='2024'>
 ```
 
-<doc-quote ht-block notice>
+</code-snippet>
 
-**NOTE:** _completely_ empty JSON files (containing zero bytes) may cause JSON parsing errors in some implementations, so a JSON format template data source would be considered empty (and still valid) as long as they contain opening and closing curly braces (i.e. `{}`).
+In this example three layout data properties are defined:
 
-</doc-quote>
-
+* A `layout.name` property, with the value of `default` (line 1)
+* A `layout.copyright` property, with the value of `Herd Works Inc` (line 2)
+* A `layout.copyyear` property, with the value of `2024` (line 3)
 
 <!-- Links -->
 [Javascript object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
@@ -255,3 +276,8 @@ Additional layout-scoped data can be added to any layout or other layout fragmen
 [`hyperctl`]: /docs/reference/cli/
 [Template attributes]: /docs/reference/core/attributes/
 [property accessors]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors
+[`hyperctl render`]: /docs/reference/cli/commands/render/
+[HyperTemplates CMS]: /docs/reference/cms/
+[custom website properties]: /docs/reference/cms/website/#custom-properties
+[custom page properties]: /docs/reference/cms/page/#custom-properties
+[namespaces]: /docs/reference/cms/namespaces/
