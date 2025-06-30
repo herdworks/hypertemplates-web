@@ -8,6 +8,7 @@ author:
     name: HyperTemplates
     href: /
     favicon: /img/favicon-512x512.png
+version: "16"
 metadata: []
 links:
   - rel: apple-touch-icon

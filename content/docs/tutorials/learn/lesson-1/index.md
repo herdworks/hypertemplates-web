@@ -187,7 +187,7 @@ Let's see how it works in these first few exercises.
 
   Now let's update our page data file with a title property.
 
-  <code-snippet ht-block filename="content/index.md" highlight='1-3' with-line-numbers>
+  <code-snippet ht-block filename="content/index.md" highlight='1-3' line-numbers='on'>
   
   ```plaintext
   ---

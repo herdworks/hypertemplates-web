@@ -21,7 +21,7 @@ The `ht-include` attribute is one of the most powerful tools in the HyperTemplat
 
 This example shows the `ht-include` attribute being used to template the `<header>` element.
 
-<code-snippet ht-block filename='layout.html' highlight='8' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='8' line-numbers='on'>
 
 ```html
 <!DOCTYPE html>

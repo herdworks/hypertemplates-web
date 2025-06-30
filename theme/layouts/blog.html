@@ -30,7 +30,7 @@
         <header ht-include='partials/blog/hero' data-color-scheme='light'></header>
         <section data-color-scheme='light'>
             <content-container>
-                <feed-entry ht-template='page:page.feed.pages; site:site'>
+                <feed-entry ht-template='page:page.feed.pages; site:site' ht-base='src:page.path;href:page.path'>
                     <post-card ht-include='partials/hyper/post-card'></post-card>
                     <post-content ht-content='markdown:page.summary,page.content'></post-content>
                     <learn-more ht-block ht-attrs='href:page.path' label='Continue reading'></learn-more>

@@ -13,7 +13,7 @@ summary: |
 <auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
 
 ### Introduction to templating
------
+------------------------------
 
 HyperTemplates is a templating system for composing HTML documents.
 Web "pages" as we experience them today are HTML documents.
@@ -33,7 +33,7 @@ Document templates are useful because they allow us to <mark>focus on the **cont
 In practical terms, templates also serve as a guide - they prompt us to provide the necessary information to accomplish a given task.
 
 ### HyperTemplates in a nutshell
------
+--------------------------------
 
 To understand HyperTemplates, let's use a simple HTML5 document as an example.
 
@@ -102,7 +102,7 @@ This template tells HyperTemplates to make the following changes:
 To learn more about HyperTemplates attributes, please visit the [attributes reference].
 
 ### Data-driven templating
------
+--------------------------
 
 HyperTemplates populates HTML templates with template data containing key-value pairs.
 Template data is generally managed as content files in Markdown, YAML, or JSON format.
@@ -141,12 +141,12 @@ To learn more about how HyperTemplates handles template data, please visit the [
 
 
 ### Resources
------
+-------------
 
 The HyperTemplates documentation is broken up into three main sections: [tutorials](#tutorials) (learning), [how-to guides](#how-to-guides) (goals), and [reference documentation](#reference-documentation) (understanding).
 
 #### Tutorials
------
+--------------
 
 Visit the [tutorials] section for a complete list of available tutorials, or jump right in to one of these popular tutorials:
 
@@ -161,7 +161,7 @@ Visit the [tutorials] section for a complete list of available tutorials, or jum
   <learn-more ht-block href='/docs/tutorials/learn/'></learn-more>
 
 #### How-To Guides
------
+------------------
 
 Visit the [guides] section for a complete list of available guides, or jump right in to one of these popular guides:
 
@@ -172,7 +172,7 @@ Visit the [guides] section for a complete list of available guides, or jump righ
 
 
 #### Reference Documentation
------
+----------------------------
 
 HyperTemplates is a **core specification**, a **content management system**, a **static site generator**, and a set of **libraries** for HTML templating.
 The HyperTemplates [reference documentation](/docs/reference/) is organized around these components.

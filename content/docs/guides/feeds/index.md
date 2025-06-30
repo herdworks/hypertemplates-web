@@ -174,7 +174,7 @@ Let's see how these two components work together in the following guide.
 
   Create a `layouts/blog.html` file and add the following contents:
 
-  <code-snippet ht-block filename='layouts/blog.html' highlights='18-30' with-line-numbers>
+  <code-snippet ht-block filename='layouts/blog.html' highlights='18-30' line-numbers='on'>
   
   ```html
   <!DOCTYPE html>

@@ -189,7 +189,7 @@ Content types are configured using four top-level properties:
   In the HyperTexting CMS, a page "slug" is the last path component of a page URL.
   To illustrate, consider the following example URL:
   
-  <code-snippet ht-block filename='' highlight='3' with-line-numbers>
+  <code-snippet ht-block filename='' highlight='3' line-numbers='on'>
 
   ```bash
   https://apple.com/hotnews/thoughts-on-flash # the url

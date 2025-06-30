@@ -19,7 +19,6 @@ The `hyperctl asset add` command reads website configuration and copies external
 
 ### Usage
 ---------
----------
 
 ```plaintext
 $ hyperctl asset add -h

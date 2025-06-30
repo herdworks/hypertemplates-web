@@ -13,7 +13,7 @@ tags:
 ## Introducing HyperTemplates
 
 > **TL;DR:** HyperTemplates is a pure-HTML templating system and static site generator. 
-> It was designed with the goal of making it easier to make websites. 
+> It was designed with the goal of making it easier to make websites, nay, @makehypertext.com. 
 > The HyperTemplates CLI (`hyperctl`) is available to download for MacOS and Linux starting today, and [Windows releases are available in early access](https://hypertexting.community/t/help-us-test-hyperctl-for-windows/52).
 
 Two things happen very early on in a persons journey to learn HTML – they create their first web page (!), and eventually they create a second.

@@ -19,7 +19,7 @@ The `ht-content` [attribute] inserts text or HTML content from [template data] i
 
 This example shows the `ht-content` attribute being used to template the `<title>` and `<h1>` elements.
 
-<code-snippet ht-block filename='layout.html' highlight='5,9' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='5,9' line-numbers='on'>
 
 ```html
 <!DOCTYPE html>

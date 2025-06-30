@@ -146,7 +146,7 @@ To learn more, please visit the [HyperTemplates content management system] and/o
 HyperTemplates [template data objects](#template-data-objects) contain key-value pairs known as "properties".
 A template data property has a [key](#template-data-keys) and a [value](#template-data-values).
 
-<code-snippet ht-block filename='' highlight='9' with-line-numbers>
+<code-snippet ht-block filename='' highlight='9' line-numbers='on'>
 
 ```javascript
 {
@@ -253,7 +253,7 @@ Additional layout-scoped data can be added to any layout or other layout fragmen
 
 **Example:**
 
-<code-snippet ht-block filename='' with-line-numbers>
+<code-snippet ht-block filename='' line-numbers='on'>
 
 ```html
 <meta name='layout:name' content='default'>

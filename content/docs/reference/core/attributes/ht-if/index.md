@@ -21,7 +21,7 @@ If the conditional expression evaluates to `false`, the target HTML element is r
 
 This example shows the `ht-if` attribute being used to template the `<header>` element.
 
-<code-snippet ht-block filename='layout.html' highlight='8-10' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='8-10' line-numbers='on'>
 
 ```html
 <!DOCTYPE html>

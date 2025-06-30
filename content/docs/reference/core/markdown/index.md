@@ -50,7 +50,7 @@ HyperMark also adds some of our favorite features from the social media world, i
 HyperMark supports YAML-formatted frontmatter.
 Frontmatter is a block of structured data that lives at the top of every Markdown file, wrapped in an opening and closing `---` demarcation.
 
-<code-snippet ht-block filename='content/markdown/frontmatter/index.md' highlight='1-5' with-line-numbers>
+<code-snippet ht-block filename='content/markdown/frontmatter/index.md' highlight='1-5' line-numbers='on'>
 
 ```plaintext
 ---

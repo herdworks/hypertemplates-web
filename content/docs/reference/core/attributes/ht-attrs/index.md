@@ -18,10 +18,9 @@ The `ht-attrs` [attribute] annotates target HTML elements with one or more HTML 
 ### Example
 -----------
 
-
 This example shows the `ht-attrs` attribute being used to template the page description `<meta>` element.
 
-<code-snippet ht-block filename='layout.html' highlight='5' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='5' line-numbers='on'>
 
 ```html
 <html>

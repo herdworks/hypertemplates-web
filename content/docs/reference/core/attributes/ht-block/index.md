@@ -28,7 +28,7 @@ This effectively exposes a subset of HyperTemplates templating capabilities to c
 
 This example shows the `ht-block` attribute being used to enhance a [Markdown] code block.
 
-<code-snippet ht-block filename='index.md' highlight='5' with-line-numbers>
+<code-snippet ht-block filename='index.md' highlight='5' line-numbers='on'>
 
 ~~~plaintext
 ### Example
@@ -36,7 +36,7 @@ This example shows the `ht-block` attribute being used to enhance a [Markdown] c
 
 This example shows the `ht-content` attribute being used to template the `<title>` and `<h1>` elements.
 
-<code-snippet ht-block filename='layout.html' highlight='5,9' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='5,9' line-numbers='on'>
 
 ```html
 <!DOCTYPE html>

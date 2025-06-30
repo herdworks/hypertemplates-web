@@ -1,4 +1,8 @@
-<code-snippet filename highlights with-line-numbers caption>
+<code-snippet filename highlights line-numbers caption>
+    <!-- code-snippet[filename]: the filename to be displayed in the window titlebar -->
+    <!-- code-snippet[highlights]: comma separated list of line number ranges (e.g. "5,10-15,20") -->
+    <!-- code-snippet[line-numbers]:bool display line numbers -->
+    <!-- code-snippet[caption]: a caption to be displayed below the window -->
     <style ht-pipe='css:style#components' id='code-snippet-styles'>
         code-snippet {
             display: flex;
@@ -57,7 +61,8 @@
             flex: 1;
             tab-size: 2;
         }
-        code-snippet[with-line-numbers] .ln {
+        code-snippet[line-numbers='on'] .ln,
+        code-snippet[line-numbers='true'] .ln {
             display: block;
         }
         code-snippet .line.highlighted .cl {

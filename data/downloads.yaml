@@ -1,0 +1,89 @@
+---
+namespace: downloads
+latest: 0.16.0
+releases:
+  - version: 0.16.0
+    date: "2025-06-30T11:00:00-07:00"
+    description: |
+      **NEW**: this release adds the [`ht-query`] attribute for annotating URLs (e.g. `href` and `src` attributes) with query parameters, and improves performance by as much as 25-35% by employing more concurrency in builds.
+
+      [`ht-query`]: /docs/reference/core/attributes/ht-query/
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_0.16.0_darwin_universal.tar.gz
+            href: /downloads/hyperctl_0.16.0_darwin_universal.tar.gz
+          - name: hyperctl_0.16.0_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_0.16.0_darwin_arm64.tar.gz
+          - name: hyperctl_0.16.0_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_0.16.0_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_0.16.0_linux_arm64.tar.gz
+            href: /downloads/hyperctl_0.16.0_linux_arm64.tar.gz
+          - name: hyperctl_0.16.0_linux_amd64.tar.gz
+            href: /downloads/hyperctl_0.16.0_linux_amd64.tar.gz
+      - name: Windows
+        files:
+          - name: hyperctl_0.16.0_windows_arm64.tar.gz
+            href: /downloads/hyperctl_0.16.0_windows_arm64.tar.gz
+          - name: hyperctl_0.16.0_windows_amd64.tar.gz
+            href: /downloads/hyperctl_0.16.0_windows_amd64.tar.gz
+
+  - version: 0.15.0
+    date: "2025-06-27T13:00:00-07:00"
+    description: |
+      **NEW**: this release adds the [`hyperctl asset ls` command], [`ht-base`] templating attribute, and two new template data properties are now available during `ht-template` iteration ([`ht.index` + `ht.count`]).
+
+      [`hyperctl asset ls` command]: /docs/reference/cli/commands/assets/ls/
+      [`ht-base`]: /docs/reference/core/attributes/ht-base/
+      [`ht.index` + `ht.count`]: /docs/reference/core/attributes/ht-template/#template-data
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_0.15.0_darwin_universal.tar.gz
+            href: /downloads/hyperctl_0.15.0_darwin_universal.tar.gz
+          - name: hyperctl_0.15.0_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_0.15.0_darwin_arm64.tar.gz
+          - name: hyperctl_0.15.0_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_0.15.0_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_0.15.0_linux_arm64.tar.gz
+            href: /downloads/hyperctl_0.15.0_linux_arm64.tar.gz
+          - name: hyperctl_0.15.0_linux_amd64.tar.gz
+            href: /downloads/hyperctl_0.15.0_linux_amd64.tar.gz
+      - name: Windows
+        files:
+          - name: hyperctl_0.15.0_windows_arm64.tar.gz
+            href: /downloads/hyperctl_0.15.0_windows_arm64.tar.gz
+          - name: hyperctl_0.15.0_windows_amd64.tar.gz
+            href: /downloads/hyperctl_0.15.0_windows_amd64.tar.gz
+
+  - version: 0.14.3
+    date: "2025-06-25T12:00:00-07:00"
+    description: |
+      **CHANGES:** Fixed a bug in `page.author` and `page.contributors` template data processing.
+      Minor performance improvement from fixing an innocuous bug in `ht-attrs` processing that would cause some ht-attrs attributes to be processed multiple times.
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_0.14.3_darwin_universal.tar.gz
+            href: /downloads/hyperctl_0.14.3_darwin_universal.tar.gz
+          - name: hyperctl_0.14.3_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_0.14.3_darwin_arm64.tar.gz
+          - name: hyperctl_0.14.3_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_0.14.3_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_0.14.3_linux_arm64.tar.gz
+            href: /downloads/hyperctl_0.14.3_linux_arm64.tar.gz
+          - name: hyperctl_0.14.3_linux_amd64.tar.gz
+            href: /downloads/hyperctl_0.14.3_linux_amd64.tar.gz
+      - name: Windows
+        files:
+          - name: hyperctl_0.14.3_windows_arm64.tar.gz
+            href: /downloads/hyperctl_0.14.3_windows_arm64.tar.gz
+          - name: hyperctl_0.14.3_windows_amd64.tar.gz
+            href: /downloads/hyperctl_0.14.3_windows_amd64.tar.gz
+

@@ -21,7 +21,7 @@ When combined with other HyperTemplates [templating attributes] such as [`ht-con
 
 This example shows the `ht-template` attribute being used to template the `<header>` element.
 
-<code-snippet ht-block filename='layout.html' highlight='11-13' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='11-13' line-numbers='on'>
 
 ```html
 <html lang='en-US'>
@@ -142,13 +142,21 @@ In this example, two variables will be added to the [template data] that gets pa
 
 </doc-quote>
 
+#### Template data
+------------------
+
+Two auto-generated template data properties are available during `ht-template` iteration:
+
+* `ht.index` a one-indexed integer representing the position in the loop
+* `ht.count` the count of items in the collection
+
 #### Placeholder template
 -------------------------
 
 An HTML element with an `ht-template` attribute is called an "placeholder template".
 Placeholder and their child elements (if any) are cloned once per iteration of the referenced [template data] value(s).
 
-<code-snippet ht-block filename='partials/nav.html' highlight='2-4' with-line-numbers>
+<code-snippet ht-block filename='partials/nav.html' highlight='2-4' line-numbers='on'>
 
 ```html
 <nav>

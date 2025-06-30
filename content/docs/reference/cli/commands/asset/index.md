@@ -18,7 +18,6 @@ The `hyperctl asset` command is used to manage website [assets].
 
 ### Usage
 ---------
----------
 
 ```plaintext
 $ hyperctl asset -h
@@ -43,12 +42,17 @@ The `hyperctl asset` command has the following subcommands:
 **`add`**
 : `hyperctl asset add` reference documentation.
 
-  <learn-more ht-block href='/docs/reference/cli/commands/asset/add/'></learn-more>
+  <learn-more ht-block href='./add/'></learn-more>
+
+**`ls`**
+: `hyperctl asset ls` reference documentation.
+
+  <learn-more ht-block href='./ls/'></learn-more>
 
 **`lookup`**
 : `hyperctl asset lookup` reference documentation.
 
-  <learn-more ht-block href='/docs/reference/cli/commands/asset/lookup/'></learn-more>
+  <learn-more ht-block href='./lookup/'></learn-more>
 
 <!-- Links -->
 [assets]: /docs/reference/cms/assets/

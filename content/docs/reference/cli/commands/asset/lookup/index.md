@@ -28,7 +28,6 @@ See the [asset hierarchy] reference for more information.
 
 ### Usage
 ---------
----------
 
 ```plaintext
 lookup a static asset by its path.

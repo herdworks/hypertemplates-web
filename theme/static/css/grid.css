@@ -36,6 +36,8 @@ content-row {
     display: flex;
     flex-direction: row;
 }
+[flex][spread] { justify-content: space-between; }
+[flex][aligned] { align-items: center; align-content: center; }
 [center] {
     justify-content: center;
     justify-items: center;

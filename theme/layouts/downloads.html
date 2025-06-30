@@ -7,16 +7,55 @@
         <meta name='layout:name' content='downloads'/>
 
         <!-- Layout Components -->
+        <script src='/js/components/auto-anchor.js' defer></script>
+        <script src='/js/components/auto-toc.js' defer></script>
+        <script src='/js/components/relative-time.js' defer></script>
         <script src='/js/components/footer-menu.js' defer></script>
 
         <!-- Layout Styles -->
         <style id='components'></style>
-        <style id='layout'></style>
+        <style id='layout'>
+            release-version {
+                display: block;
+                margin-top: var(--whitespace);
+            }
+            release-version dl dd download-file { display: block; }
+            release-version:first-of-type h3::after {
+                content: ' (latest)';
+                color: var(--color-text-secondary);
+            }
+        </style>
     </head>
     <body>
         <header ht-include='partials/sections/header.html'></header>
-        <section id='contact'>
-            <style ht-pipe='css:style#components'></style>
+        <section id='releases' data-color-scheme='light'>
+            <content-container>
+                <h2 ht-content='page.title'></h2>
+                <param ht-param='page.summary,page.content'>
+                <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
+                <release-version ht-template='release:data.downloads.releases'>
+                    <release-meta flex spread aligned>
+                        <h3>Version <param ht-param='release.version'> </h3>
+                        <relative-time>
+                            <time ht-attrs='datetime:release.date' ht-content='release.date'>earlier this year</time>
+                        </relative-time>
+                    </release-meta>
+                    <doc-quote ht-block info ht-content='markdown:release.description'></doc-quote>
+                    <dl ht-template='platform:release.platforms'>
+                        <dt>
+                            <strong ht-content='platform.name'>Platform X</strong>
+                        </dt>
+                        <dd>
+                            <download-file ht-template='download:platform.files'>
+                                <a ht-attrs='href:download.href'>
+                                    <code><param ht-param='download.name' default='platform_version_arch.tar.gz'></code>
+                                </a>
+                            </download-file>
+                        </dd>
+                    </dl>
+                </release-version>
+            </content-container>
+            <auto-anchor></auto-anchor>
         </section>
         <content-whitespace></content-whitespace>
         <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>

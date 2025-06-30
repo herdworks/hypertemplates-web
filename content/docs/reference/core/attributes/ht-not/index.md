@@ -19,52 +19,24 @@ If the conditional expression evaluates to `false`, the target HTML element is r
 ### Example
 -----------
 
+This example shows the `ht-not` attribute being used for conditional templating of a blockquote citation.
 
-This example shows the `ht-not` attribute being used to template the contents of the `<tbd>` element.
-
-<code-snippet ht-block filename='layout.html' highlight='8-10' with-line-numbers>
+<code-snippet ht-block filename='layout.html' highlight='4'>
 
 ```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title ht-content='page.title,site.title'></title>
-    </head>
-    <body>
-        <!-- TODO -->
-    </body>
-</html>
+<blockquote>
+    <span ht-content='html:content'></span>
+    <cite ht-if='cite'>
+        <span ht-not='href' ht-content='text:cite'></span>
+        <a ht-if='href' ht-attrs='href:href' ht-content='text:cite'></a>
+    </cite>
+</blockquote>
 ```
 
 </code-snippet>
 
-The highlighted portion of this template will cause HyperTemplates to something something the `<example>` element something.
-
-<details><summary><strong>Example output <code>index.html</code></strong></summary>
-
-Let's see what happens when we process this template with the following [template data].
-
-```javascript
-{}
-```
-
-The `<example>` element will be removed because the example template data did not contain a `page.title` property.
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title ht-content='page.title,site.title'></title>
-    </head>
-    <body>
-        <!-- TODO -->
-    </body>
-</html>
-```
-
-</details>
+In this example the `ht-not` attribute is used together with the `ht-if` attribute on the following line.
+If the `href` property is empty, the `ht-not` condition will evaluate to false so the `<span>` element will be retained; but the `ht-if` condition will also evaluate to false so the `<a>` element will be removed.
 
 ### Specification
 -----------------
@@ -73,10 +45,6 @@ The `<example>` element will be removed because the example template data did no
 -----------------------
 
 The `ht-not` attribute can be used with any HTML element.
-
-```html
-<!-- TODO -->
-```
 
 #### Attribute syntax
 ---------------------
