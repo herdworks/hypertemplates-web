@@ -121,7 +121,7 @@ The `value` is comma-separated list of dot-notation style references to one or m
 
 ```html
 <blog-feed>
-    <blog-post ht-template='page:page.feed.pages' ht-base='src:site.cdn,post.path; href:post.path'>
+    <blog-post ht-template='page:page.feed.pages' ht-base='src:site.cdn,page.path; href:page.path'>
         <!-- Blog post layout -->
     </blog-post>
 </blog-feed>

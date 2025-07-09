@@ -33,14 +33,14 @@ summary: |
 
    <doc-quote ht-block success>
 
-   **NOTE:** `ht-template` attributes are processed recursively, prompting HyperTemplates to process target elements through the complete HyperTemplates pipeline (includes, conditionals, templates, attributes, content, and elements), passing in the template data defined by the `ht-template` attribute.
+   **NOTE:** `ht-template` attributes are processed recursively, prompting HyperTemplates to process target elements through the complete HyperTemplates pipeline (includes, conditionals, templates, attributes, content, elements, and relative URLs), passing in the template data defined by the `ht-template` attribute.
 
    </doc-quote>
 
-1. Attributes (`ht-attrs`)
+1. Attributes (`ht-attrs` and `ht-query`)
 1. Content (`ht-content`)
 1. Elements (`ht-block`)
-
+1. Relative URLs (`ht-base`)
 
 #### Template recursion
 -----------------------

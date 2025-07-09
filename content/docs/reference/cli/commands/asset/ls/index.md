@@ -16,7 +16,7 @@ breadcrumb: ls
 List all static assets for a given website.
 The `hyperctl asset ls` command reads website configuration and lists all assets in the configured theme, website, and content subdirectories.
 
-<doc-quote ht-block caution>
+<doc-quote ht-block new>
 **NEW!** Available in `hyperctl` version 0.15.0 and later.
 </doc-quote>
 

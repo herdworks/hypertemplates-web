@@ -1,7 +1,70 @@
 ---
 namespace: downloads
-latest: 0.16.0
+latest: 0.17.0
 releases:
+  - version: 0.17.0
+    date: "2025-07-09T12:00:00-07:00"
+    description: |
+      **NEW**: Added support for overriding `site.config.content_dir`, `site.config.data_dir`, `site.config.static_dir`, and `site.config.theme` from command flags and/or environment variables.
+      These changes make it possible to build multiple versions of a site from the same commit without needing to modify `site.yaml` or `site.json`.
+      See the [`hyperctl build`], [`hyperctl deploy`], [`hyperctl generate`], [`hyperctl publish`], and [`hyperctl server`] commands for more information.
+
+      [`hyperctl build`]: /docs/reference/cli/commands/build/
+      [`hyperctl deploy`]: /docs/reference/cli/commands/deploy/
+      [`hyperctl generate`]: /docs/reference/cli/commands/generate/
+      [`hyperctl publish`]: /docs/reference/cli/commands/publish/
+      [`hyperctl server`]: /docs/reference/cli/commands/server/
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_0.17.0_darwin_universal.tar.gz
+            href: /downloads/hyperctl_0.17.0_darwin_universal.tar.gz
+          - name: hyperctl_0.17.0_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_0.17.0_darwin_arm64.tar.gz
+          - name: hyperctl_0.17.0_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_0.17.0_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_0.17.0_linux_arm64.tar.gz
+            href: /downloads/hyperctl_0.17.0_linux_arm64.tar.gz
+          - name: hyperctl_0.17.0_linux_amd64.tar.gz
+            href: /downloads/hyperctl_0.17.0_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_0.17.0_windows_arm64.tar.gz
+            href: /downloads/hyperctl_0.17.0_windows_arm64.tar.gz
+          - name: hyperctl_0.17.0_windows_amd64.tar.gz
+            href: /downloads/hyperctl_0.17.0_windows_amd64.tar.gz
+
+  - version: 0.16.1
+    date: "2025-07-03T10:00:00-07:00"
+    description: |
+      **CHANGES**: fixed a bug in [`ht-base`] processing order that was introduced in 0.16.0; 
+      `ht-base` attributes must be processed *after* `ht-attrs`, `ht-content`, and `ht-block`.
+
+      [`ht-base`]: /docs/reference/core/attributes/ht-base/
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_0.16.1_darwin_universal.tar.gz
+            href: /downloads/hyperctl_0.16.1_darwin_universal.tar.gz
+          - name: hyperctl_0.16.1_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_0.16.1_darwin_arm64.tar.gz
+          - name: hyperctl_0.16.1_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_0.16.1_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_0.16.1_linux_arm64.tar.gz
+            href: /downloads/hyperctl_0.16.1_linux_arm64.tar.gz
+          - name: hyperctl_0.16.1_linux_amd64.tar.gz
+            href: /downloads/hyperctl_0.16.1_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_0.16.1_windows_arm64.tar.gz
+            href: /downloads/hyperctl_0.16.1_windows_arm64.tar.gz
+          - name: hyperctl_0.16.1_windows_amd64.tar.gz
+            href: /downloads/hyperctl_0.16.1_windows_amd64.tar.gz
+
   - version: 0.16.0
     date: "2025-06-30T11:00:00-07:00"
     description: |
@@ -23,7 +86,7 @@ releases:
             href: /downloads/hyperctl_0.16.0_linux_arm64.tar.gz
           - name: hyperctl_0.16.0_linux_amd64.tar.gz
             href: /downloads/hyperctl_0.16.0_linux_amd64.tar.gz
-      - name: Windows
+      - name: Windows (alpha)
         files:
           - name: hyperctl_0.16.0_windows_arm64.tar.gz
             href: /downloads/hyperctl_0.16.0_windows_arm64.tar.gz
@@ -53,7 +116,7 @@ releases:
             href: /downloads/hyperctl_0.15.0_linux_arm64.tar.gz
           - name: hyperctl_0.15.0_linux_amd64.tar.gz
             href: /downloads/hyperctl_0.15.0_linux_amd64.tar.gz
-      - name: Windows
+      - name: Windows (alpha)
         files:
           - name: hyperctl_0.15.0_windows_arm64.tar.gz
             href: /downloads/hyperctl_0.15.0_windows_arm64.tar.gz
@@ -80,10 +143,37 @@ releases:
             href: /downloads/hyperctl_0.14.3_linux_arm64.tar.gz
           - name: hyperctl_0.14.3_linux_amd64.tar.gz
             href: /downloads/hyperctl_0.14.3_linux_amd64.tar.gz
-      - name: Windows
+      - name: Windows (alpha)
         files:
           - name: hyperctl_0.14.3_windows_arm64.tar.gz
             href: /downloads/hyperctl_0.14.3_windows_arm64.tar.gz
           - name: hyperctl_0.14.3_windows_amd64.tar.gz
             href: /downloads/hyperctl_0.14.3_windows_amd64.tar.gz
+
+  - version: 0.14.2
+    date: "2025-06-10T10:00:00-07:00"
+    description: |
+      This is the first public release of HyperTemplates.
+      Check out the [introductory blog post](/blog/introducing-hypertemplates/) for more information.
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_0.14.2_darwin_universal.tar.gz
+            href: /downloads/hyperctl_0.14.2_darwin_universal.tar.gz
+          - name: hyperctl_0.14.2_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_0.14.2_darwin_arm64.tar.gz
+          - name: hyperctl_0.14.2_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_0.14.2_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_0.14.2_linux_arm64.tar.gz
+            href: /downloads/hyperctl_0.14.2_linux_arm64.tar.gz
+          - name: hyperctl_0.14.2_linux_amd64.tar.gz
+            href: /downloads/hyperctl_0.14.2_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_0.14.2_windows_arm64.tar.gz
+            href: /downloads/hyperctl_0.14.2_windows_arm64.tar.gz
+          - name: hyperctl_0.14.2_windows_amd64.tar.gz
+            href: /downloads/hyperctl_0.14.2_windows_amd64.tar.gz
 

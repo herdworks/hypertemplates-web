@@ -20,19 +20,23 @@ The `hyperctl server` command performs a full website build and serves the resul
 ---------
 
 ```plaintext
-$ hyperctl server -h
+ $ hyperctl server -h
 Run a local HTTP server.
 
 Usage:
         hyperctl server [options] [content]
 
 Options:
-        -c, --config    Path to the website configuration file. (required) (env: HYPER_CONFIG)
-        -i, --id        Build ID. (env: HYPER_BUILD_ID) (default: c221cb13-856a-47a7-988c-440b732cf9f2)
-        -I, --interval  Live reload interval seconds. (env: HYPER_REFRESH) (default: 2)
-        -H, --host      Development server host. (env: HYPER_HOST) (default: localhost)
-        -P, --port      Development server port. (env: HYPER_PORT) (default: 8080)
-        -h, --help      Display help information.
+        -c, --config       Path to the website configuration file. (required) (env: HYPER_CONFIG)
+        -i, --id           Build ID. (env: HYPER_BUILD_ID) (default: 57f75fcc-afd0-4ee6-bbca-05dbcc4417aa)
+        -I, --interval     Live reload interval seconds. (env: HYPER_REFRESH) (default: 2)
+        -H, --host         Development server host. (env: HYPER_HOST) (default: localhost)
+        -P, --port         Development server port. (env: HYPER_PORT) (default: 8080)
+            --content-dir  Relative path to the content directory to use for the build (overwrites site.config.content_dir). (env: HYPER_CONTENT_DIR)
+            --data-dir     Relative path to the data directory to use for the build (overwrites site.config.data_dir). (env: HYPER_DATA_DIR)
+            --static-dir   Relative path to the static directory to use for the build (overwrites site.config.static_dir). (env: HYPER_STATIC_DIR)
+            --theme        Relative path to theme config to use for the build (overwrites site.config.theme). (env: HYPER_THEME)
+        -h, --help         Display help information.
 ```
 
 ### Options
@@ -76,3 +80,42 @@ Options:
 : The path to the data file to use for the render.
 
   The default `--port` is `8080`.
+
+**`--content-dir`**
+: Relative path to the content directory to use for the build (overwrites [`site.config.content_dir`]).
+  Uses the `HYPER_CONTENT_DIR` environment variable as a default value, if set.
+
+  <doc-quote ht-block new>
+  **NEW!** the `--content-dir` flag is available in `hyperctl` version 0.17.0 and later.
+  </doc-quote>
+
+
+**`--data-dir`**
+: Relative path to the data directory to use for the build (overwrites [`site.config.data_dir`]).
+  Uses the `HYPER_DATA_DIR` environment variable as a default value, if set.
+
+  <doc-quote ht-block new>
+  **NEW!** the `--data-dir` flag is available in `hyperctl` version 0.17.0 and later.
+  </doc-quote>
+
+**`--static-dir`**
+: Relative path to the static directory to use for the build (overwrites [`site.config.static_dir`]).
+  Uses the `HYPER_STATIC_DIR` environment variable as a default value, if set.
+
+  <doc-quote ht-block new>
+  **NEW!** the `--static-dir` flag is available in `hyperctl` version 0.17.0 and later.
+  </doc-quote>
+
+**`--theme`**
+: Relative path to theme config to use for the build (overwrites [`site.config.theme`]).
+  Uses the `HYPER_THEME` environment variable as a default value, if set.
+
+  <doc-quote ht-block new>
+  **NEW!** the `--theme` flag is available in `hyperctl` version 0.17.0 and later.
+  </doc-quote>
+
+<!-- Links -->
+[`site.config.content_dir`]: /docs/reference/cms/website/#site-config
+[`site.config.data_dir`]: /docs/reference/cms/website/#site-config
+[`site.config.static_dir`]: /docs/reference/cms/website/#site-config
+[`site.config.theme`]: /docs/reference/cms/website/#site-config

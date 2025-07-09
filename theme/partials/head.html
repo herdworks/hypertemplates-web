@@ -9,6 +9,7 @@
 <meta name='author' ht-attrs='content:page.author.name,site.author.name' />
 <meta name='referrer' content='origin' />
 <meta name="color-scheme" content="light dark" />
+<meta name='build_id' ht-attrs='content:data.build.id' />
 <meta ht-template='meta:site.metadata' ht-attrs='name:meta.name; property:meta.property; content:meta.content' />
 <meta ht-include='partials/open-graph'>
 <meta ht-include='partials/twitter-card'>
@@ -20,14 +21,14 @@
 
 <!-- Global Styles -->
 <link rel='stylesheet' href='/css/reset.css'>
-<link rel='stylesheet' href='/css/variables.css' ht-query='href?version:site.version'>
-<link rel='stylesheet' href='/css/colors.css' ht-query='href?version:site.version'>
-<link rel='stylesheet' href='/css/typography.css' ht-query='href?version:site.version'>
-<link rel='stylesheet' href='/css/grid.css' ht-query='href?version:site.version'>
-<link rel='stylesheet' href='/css/styles.css' ht-query='href?version:site.version'>
-<link rel='stylesheet' href='/css/chroma-base16-snazzy.css' ht-query='href?version:site.version'>
+<link rel='stylesheet' href='/css/variables.css' ht-query='href?version:site.version,data.build.id'>
+<link rel='stylesheet' href='/css/colors.css' ht-query='href?version:site.version,data.build.id'>
+<link rel='stylesheet' href='/css/typography.css' ht-query='href?version:site.version,data.build.id'>
+<link rel='stylesheet' href='/css/grid.css' ht-query='href?version:site.version,data.build.id'>
+<link rel='stylesheet' href='/css/styles.css' ht-query='href?version:site.version,data.build.id'>
+<link rel='stylesheet' href='/css/chroma-base16-snazzy.css' ht-query='href?version:site.version,data.build.id'>
 
 <!-- Global Scripts -->
-<script src='/js/main.js' defer ht-query='src?version:site.version'></script>
+<script src='/js/main.js' defer ht-query='src?version:site.version,data.build.id'></script>
 <script defer data-domain="hypertemplates.net" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>

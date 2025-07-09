@@ -20,22 +20,23 @@ A page is a directory containing an index file in Markdown (`index.md`), YAML (`
 
 In the HyperTexting CMS, every page is a directory.
 Each page directory must contain an index file in markdown, YAML, or JSON format.
-Any page directory file that is not the index file is a [page asset].
+Any file in a page directory that is not the index file is a [page asset].
 
 <!-- Inspiration: https://gohugo.io/getting-started/directory-structure/ -->
 
 ```shell
 my-website/         # website directory
   site.yaml         # website configuration file
-  content/          # Page: /
-    index.md        # 
-    about/          # Page: /
-      index.md      #
-      me.png        #
-    blog/           # Page: /blog/
-      index.yaml    # 
-      hello-world/  # Page: /blog/hello-world/
-        index.md    #
+  content/          # website content directory
+    index.md        # Page:  /
+    about/          # 
+      index.md      # Page:  /about/
+      me.png        # Asset: /about/me.png
+    blog/           # 
+      index.yaml    # Page:  /blog/
+      hello-world/  # 
+        index.md    # Page:  /blog/hello-world/
+        cover.png   # Asset: /blog/hello-world/cover.png
 ```
 
 ### Example
