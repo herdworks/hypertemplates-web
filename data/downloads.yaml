@@ -1,7 +1,38 @@
 ---
 namespace: downloads
-latest: 0.17.0
+latest: 0.17.1
 releases:
+  - version: 0.17.1
+    date: "2025-07-11T16:00:00-07:00"
+    description: |
+      Fixed bug preventing feed pages from being updated during [incremental builds] (i.e. [`hyperctl generate`] and [`hyperctl publish`]).
+      Minor performance improvement in `libhypertexting` builds.
+
+      [incremental builds]: /docs/reference/cms/builds/#incremental-builds
+      [`hyperctl generate`]: /docs/reference/cli/commands/generate/
+      [`hyperctl publish`]: /docs/reference/cli/commands/publish/
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_0.17.1_darwin_universal.tar.gz
+            href: /downloads/hyperctl_0.17.1_darwin_universal.tar.gz
+          - name: hyperctl_0.17.1_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_0.17.1_darwin_arm64.tar.gz
+          - name: hyperctl_0.17.1_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_0.17.1_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_0.17.1_linux_arm64.tar.gz
+            href: /downloads/hyperctl_0.17.1_linux_arm64.tar.gz
+          - name: hyperctl_0.17.1_linux_amd64.tar.gz
+            href: /downloads/hyperctl_0.17.1_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_0.17.1_windows_arm64.tar.gz
+            href: /downloads/hyperctl_0.17.1_windows_arm64.tar.gz
+          - name: hyperctl_0.17.1_windows_amd64.tar.gz
+            href: /downloads/hyperctl_0.17.1_windows_amd64.tar.gz
+
   - version: 0.17.0
     date: "2025-07-09T12:00:00-07:00"
     description: |
