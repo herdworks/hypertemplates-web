@@ -14,7 +14,7 @@ breadcrumb: ht-block
 ------------
 The `ht-block` attribute progressively enhances a [custom element].
 
-<doc-quote ht-block success>
+<doc-quote ht-block info>
 
 **PROTIP:** the `ht-block` attribute is the only template attribute that is accessible from your content. ✨
 

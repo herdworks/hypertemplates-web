@@ -152,7 +152,7 @@ See [pipe types] for more information.
 All `ht-pipe` attribute must define a selector (see [attribute syntax]) to indicate where the target element should be moved to.
 The element selected by the configured selector is referred to as the destination element.
 
-<doc-quote ht-block success>
+<doc-quote ht-block info>
 
 **NOTE:** `ht-pipe` elements cannot be processed without a destination element.
 In cases where the pipe selector does not match another element in the document, no action is taken.

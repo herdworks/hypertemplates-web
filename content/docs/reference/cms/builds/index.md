@@ -94,7 +94,7 @@ Incremental builds may also trigger new tag pages to be generated if `page.conte
 HyperTemplates builds are [deterministic].
 Given identical inputs, builds will always produce identical outputs.
 
-<doc-quote ht-block success>
+<doc-quote ht-block info>
 
 **NOTE:** Reproducible builds means that two full-site builds performed with identical inputs will be identical.
 But HyperTemplates reproducible builds guarantees even extend to [incremental builds], if layered on top of a full-site build.

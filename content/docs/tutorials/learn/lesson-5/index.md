@@ -107,7 +107,7 @@ Let's see how template iterators work in the following exercises.
   We restored the original "Home" and "About" links, and easily added a third "Contact" link right from our template data!
   Pretty cool, right? 😊 
   
-  <doc-quote ht-block success>
+  <doc-quote ht-block info>
 
   **Did you notice?** We introduced another feature in this step: the `ht-content` attributes in the `<a>` element are referencing multiple properties: 
   

@@ -16,7 +16,7 @@ breadcrumb: render
 
 The `hyperctl render` command provides direct access to the underlying HyperTemplates rendering engine for generating HTML files from a layout and some data.
 
-<doc-quote ht-block success>
+<doc-quote ht-block info>
 
 **What is it good for?** 🎵
 

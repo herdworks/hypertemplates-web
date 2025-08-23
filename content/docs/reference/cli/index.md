@@ -20,7 +20,7 @@ The `hyperctl` (pronounced "hyper control" or "hyper C-T-L") CLI tool is a fully
 
 A static site generator is a tool for building websites.
 
-<doc-quote ht-block success>
+<doc-quote ht-block info>
 
 A static site generator is a tool that generates a [static] HTML website based on raw data and a set of templates.
 Essentially, a static site generator automates the task of coding individual HTML pages and gets those pages ready to serve to users ahead of time. 

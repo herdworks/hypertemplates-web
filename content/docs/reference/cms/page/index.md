@@ -248,7 +248,7 @@ All properties are string data types unless otherwise noted.
 
   The `page.summary` property should be used by layout and theme developers as page previews (e.g. in feed layouts and/or page metadata).
 
-  <doc-quote ht-block success>
+  <doc-quote ht-block info>
 
   **The `<!--more-->` comment and `page.summary`** 
   
@@ -264,7 +264,7 @@ All properties are string data types unless otherwise noted.
 
   The `page.more` property is a computed property for layouts that want to separate content ["above the fold"] from content "below the fold".
 
-  <doc-quote ht-block success>
+  <doc-quote ht-block info>
 
   **The `<!--more-->` comment and `page.more`**
   

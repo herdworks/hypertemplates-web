@@ -384,7 +384,7 @@ See [custom properties] for more information.
   * `site.config.markdown.mentions.href_prefix` (default: `"/tags/"`)
   * `site.config.markdown.mentions.href_suffix` (default: `"/"`)
 
-  <doc-quote ht-block success>
+  <doc-quote ht-block info>
 
   **NOTE:** the `href_prefix` and `href_suffix` properties are used to configure the `<a href>` for hashtag links.
   Use `href_prefix: "https://x.com/hashtag/"` and `href_suffix: "/"` to create links to an external hashtag service.

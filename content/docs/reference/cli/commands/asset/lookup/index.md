@@ -17,7 +17,7 @@ breadcrumb: lookup
 Lookup a static asset by its path.
 The `hyperctl asset lookup` command reads website configuration and searches the configured theme, website, and content subdirectories for the asset source file.
 
-<doc-quote ht-block success>
+<doc-quote ht-block info>
 
 **hyperctl's `which` command.** The `hyperctl asset lookup` command is similar to the POSIX `which` command, which is used to lookup the binary for a given command.
 In a similar way, the `hyperctl asset lookup` command is used to determine which source file is being used for a given asset path.
