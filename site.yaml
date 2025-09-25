@@ -36,7 +36,7 @@ config:
     tidy_mode: true
     theme: theme/theme.json
     tag_layout: "tag.html"
-provider:
+providers:
   - name: hypertemplates-web-aws-prod
     kind: s3
     config:
