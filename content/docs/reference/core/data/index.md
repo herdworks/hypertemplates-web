@@ -235,6 +235,7 @@ The [HyperTemplates CMS] is one such implementation, which incorporates four dat
 * **page data**: the contents of page index files (supports Markdown, YAML, and JSON formats; includes [custom page properties])
 * **namespace data**: the contents of `data/*` files (supports YAML, JSON, and OPML formats; see [namespaces])
 * **layout data**: `<meta>` elements with `layout:` prefixed name attributes (see [layout data](#layout-data))
+* **ht data (builtins)**: template data provided by HyperTemplates with the `ht.` prefix (e.g. [`ht-template` template data])
 
 The site, page, and namespace data sources are technically outside of the scope of the core specification (i.e. this document), but we are enumerating them here for reference.
 
@@ -248,6 +249,16 @@ The site, page, and namespace data sources are technically outside of the scope 
 -----------------
 
 Additional layout-scoped data can be added to any layout or other layout fragment as `<meta>` elements with `layout:` prefixed name attributes.
+
+<doc-quote ht-block notice>
+
+**NOTE:** layout data `<meta>` elements are queried with an [`[attr^=value]` prefix selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors#attrvalue_4), equivalent to:
+
+```javascript
+document.querySelectorAll("meta[name^='layout:']")
+```
+
+</doc-quote>
 
 <!-- Layout data is useful for providing fallback values for template slots in strict mode. -->
 
@@ -281,3 +292,4 @@ In this example three layout data properties are defined:
 [custom website properties]: /docs/reference/cms/website/#custom-properties
 [custom page properties]: /docs/reference/cms/page/#custom-properties
 [namespaces]: /docs/reference/cms/namespaces/
+[`ht-template` template data]: ../attributes/ht-template/#template-data

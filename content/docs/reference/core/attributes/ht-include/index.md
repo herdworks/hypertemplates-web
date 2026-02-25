@@ -67,6 +67,11 @@ If you encounter any such deligtful surprises, please [let us know](/contact)!
 
 </doc-quote>
 
+<doc-quote ht-block notice>
+
+**NOTE:** `ht-include` attributes are processed recursively, allowing components to be composed of other components.
+
+</doc-quote>
 
 #### Attribute syntax
 ---------------------

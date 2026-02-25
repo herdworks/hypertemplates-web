@@ -2,12 +2,14 @@
 base_url: https://hypertemplates.net
 title: HyperTemplates
 description: The pure-HTML templating system for the modern web.
-copyright: "2025"
-author:
-    username: "@hypertemplates.net"
+copyright: "2026"
+author: Herd Works, Inc.
+byline:
+    username: '@hypertemplates.net'
     name: HyperTemplates
-    href: /
     favicon: /img/favicon-512x512.png
+    href: /
+version: 100
 metadata: []
 links:
   - rel: apple-touch-icon
@@ -34,8 +36,9 @@ links:
     href: https://mastodon.social/@herdworks
 config:
     tidy_mode: true
-    theme: theme/theme.json
     tag_layout: "tag.html"
+    themes_dir: themes
+    theme: theme/theme.json
 provider:
     kind: s3
     endpoint: https://5a8b6c901ff20ee02892cf121b1ead54.r2.cloudflarestorage.com

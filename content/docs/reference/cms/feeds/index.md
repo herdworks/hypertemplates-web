@@ -55,7 +55,7 @@ This example shows a feed that will include all pages with the `blog` or `news` 
 **`feed.author`**
 : The feed author.
 
-  Defaults to the value of the [`site.author`] property.
+  Defaults to the value of the [`site.byline`] property.
 
 **`feed.tags`**
 : Tag-based feed filters.
@@ -78,7 +78,7 @@ This example shows a feed that will include all pages with the `blog` or `news` 
 [`page.feed`]: /docs/reference/core/page/#page-feed
 [`site.title`]: /docs/reference/cms/website/#site-title
 [`site.description`]: /docs/reference/cms/website/#site-description
-[`site.author`]: /docs/reference/cms/website/#site-author
+[`site.byline`]: /docs/reference/cms/website/#site-byline
 [page]: /docs/reference/cms/page/
 [`page.feed.pages`]: /docs/reference/cms/page/#page-feed-pages
 [template data]: /docs/reference/core/data/

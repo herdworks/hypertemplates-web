@@ -1,9 +1,4 @@
 <author-card>
-    <a href='#' itemprop='author' ht-attrs='href:site.author.href'>
-        <img itemprop='favicon' ht-attrs='src:site.author.favicon' />
-        <span itemprop='title' ht-content='text:site.author.name'></span>
-        <span itemprop='subtitle' ht-content='text:site.author.username'></span>
-    </a>
     <style ht-pipe='css:style#components'>
         author-card {
             display: block;
@@ -48,4 +43,9 @@
             align-self: start;
         }
     </style>
+    <a href='#' itemprop='author' ht-attrs='href:site.byline.href'>
+        <img itemprop='favicon' ht-attrs='src:site.byline.favicon' />
+        <span itemprop='title' ht-content='text:site.byline.name'></span>
+        <span itemprop='subtitle' ht-content='text:site.byline.username'></span>
+    </a>
 </author-card>

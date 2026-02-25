@@ -140,10 +140,10 @@ See [custom properties] for more information.
   <meta name='description' ht-attrs='content:page.description,site.description'>
   ```
 
-**`site.author`**
+**`site.byline`**
 : The website author.
 
-  The `site.author` property is a key-value object with the following properties: `username`, `name`, `href`, `favicon`, and `email`.
+  The `site.byline` property is a key-value object with the following properties: `name`, `favicon`, `href`, and `email`.
 
   **Sample**
 
@@ -164,12 +164,12 @@ See [custom properties] for more information.
 
   </code-snippet>
 
-  The `site.author` [template data property] should be used by theme developers as the default value for the `<meta name='author'>` element and related page metadata (e.g. [OpenGraph Protocol]).
+  The `site.byline` [template data property] should be used by theme developers as the default value for the `<meta name='author'>` element and related page metadata (e.g. [OpenGraph Protocol]).
 
   **Example**
 
   ```html
-  <meta name='author' ht-attrs='content:page.author.name,site.author.name'>
+  <meta name='author' ht-attrs='content:page.byline.name,site.byline.name'>
   ```
 
 **`site.metadata`**

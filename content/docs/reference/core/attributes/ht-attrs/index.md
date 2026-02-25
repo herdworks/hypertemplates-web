@@ -50,7 +50,7 @@ This template will cause the page description `<meta>` element `content` attribu
 The `ht-attrs` attribute can be used with any HTML element.
 
 ```html
-<a ht-attrs='href:page.author.href,site.author.href' ht-content='page.author.name'></a>
+<a ht-attrs='href:page.byline.href,site.byline.href' ht-content='page.byline.name,site.byline.name'></a>
 ```
 
 #### Attribute syntax
@@ -86,10 +86,10 @@ In cases where no value is found, HyperTemplates ignores the attribute.
 In scenarios where a default or fallback value is desired, simply set the element attribute in the template.
 
 ```html
-<meta name='author' content='ACME Inc' ht-attrs='content:page.author.name'>
+<meta name='author' content='ACME Inc' ht-attrs='content:page.byline.name'>
 ```
 
-In this example, if the [template data] `page.author.name` property does not exist, HyperTemplates will do nothing.
+In this example, if the [template data] `page.byline.name` property does not exist, HyperTemplates will do nothing.
 The end result will be a valid `<meta>` attribute with a value of "ACME Inc" (as configured by the `content` attribute).
 
 #### Attribute names
@@ -100,10 +100,10 @@ The `ht-attrs` attribute syntax is `name:value`.
 If no attribute name is specified, an ordinal value will be used (e.g. `data-attr-0`, `data-attr-1`, etc).
 
 ```html
-<meta name='author' ht-attrs='content:page.author.name,site.author.name'>
+<meta name='author' ht-attrs='content:page.byline.name,site.byline.name'>
 ```
 
-In this example, HyperTemplates will set an element attribute named `content` to the value of the [template data] `page.author.name` or `site.author.name` property, or else do nothing.
+In this example, HyperTemplates will set an element attribute named `content` to the value of the [template data] `page.byline.name` or `site.byline.name` property, or else do nothing.
 
 #### Multiple attributes
 ------------------------

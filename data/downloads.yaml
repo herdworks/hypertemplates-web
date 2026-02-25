@@ -1,7 +1,62 @@
 ---
 namespace: downloads
-latest: 0.17.1
+latest: 0.17.3
 releases:
+  - version: 0.17.3
+    date: "2025-09-02T13:00:00-07:00"
+    description: |
+      Version 0.17.3 includes all of the improvements from version 0.17.2, and marks the completion of a migration from a monorepo structure to a more modular architecture.
+      This release also lays the groundwork for the potential future open sourcing of HyperTemplates components. :tada:
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_v0.17.3_darwin_universal.tar.gz
+            href: /downloads/hyperctl_v0.17.3_darwin_universal.tar.gz
+          - name: hyperctl_v0.17.3_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_v0.17.3_darwin_arm64.tar.gz
+          - name: hyperctl_v0.17.3_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_v0.17.3_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_v0.17.3_linux_arm64.tar.gz
+            href: /downloads/hyperctl_v0.17.3_linux_arm64.tar.gz
+          - name: hyperctl_v0.17.3_linux_amd64.tar.gz
+            href: /downloads/hyperctl_v0.17.3_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_v0.17.3_windows_arm64.tar.gz
+            href: /downloads/hyperctl_v0.17.3_windows_arm64.tar.gz
+          - name: hyperctl_v0.17.3_windows_amd64.tar.gz
+            href: /downloads/hyperctl_v0.17.3_windows_amd64.tar.gz
+
+  - version: 0.17.2
+    date: "2025-07-15T10:00:00-07:00"
+    description: |
+      Fixed a bug in all builds that allowed pages with [`page.draft`] set to `true` to be included in the build output.
+
+      [`page.draft`]: /docs/reference/cms/page/#page-draft
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_0.17.2_darwin_universal.tar.gz
+            href: /downloads/hyperctl_0.17.2_darwin_universal.tar.gz
+          - name: hyperctl_0.17.2_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_0.17.2_darwin_arm64.tar.gz
+          - name: hyperctl_0.17.2_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_0.17.2_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_0.17.2_linux_arm64.tar.gz
+            href: /downloads/hyperctl_0.17.2_linux_arm64.tar.gz
+          - name: hyperctl_0.17.2_linux_amd64.tar.gz
+            href: /downloads/hyperctl_0.17.2_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_0.17.2_windows_arm64.tar.gz
+            href: /downloads/hyperctl_0.17.2_windows_arm64.tar.gz
+          - name: hyperctl_0.17.2_windows_amd64.tar.gz
+            href: /downloads/hyperctl_0.17.2_windows_amd64.tar.gz
+
   - version: 0.17.1
     date: "2025-07-11T16:00:00-07:00"
     description: |
@@ -70,7 +125,7 @@ releases:
   - version: 0.16.1
     date: "2025-07-03T10:00:00-07:00"
     description: |
-      **CHANGES**: fixed a bug in [`ht-base`] processing order that was introduced in 0.16.0; 
+      **CHANGES:** fixed a bug in [`ht-base`] processing order that was introduced in 0.16.0; 
       `ht-base` attributes must be processed *after* `ht-attrs`, `ht-content`, and `ht-block`.
 
       [`ht-base`]: /docs/reference/core/attributes/ht-base/

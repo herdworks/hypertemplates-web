@@ -197,7 +197,7 @@ Let's see how these two components work together in the following guide.
               <feed-entry ht-template='entry:page.feed.pages;site:site'>
                   <post-meta>
                       <h2><param ht-param='entry.title' /></h2>
-                      <p ht-if='entry.author,site.author'>
+                      <p ht-if='entry.author,site.byline'>
                           By <param ht-param='entry.author.name' default='Team HyperTemplates'>,
                           <time ht-attrs='datetime:entry.updated_at,entry.created_at'></time>
                       </p>
@@ -224,7 +224,7 @@ Let's see how these two components work together in the following guide.
   ht-template='entry:page.feed.pages;site:site'
   ```
 
-  This example also passes in `site` [template data] to the nested template so that `site.author.name` can be used as a fallback when no `entry.author.name` is available (see line 22).
+  This example also passes in `site` [template data] to the nested template so that `site.byline.name` can be used as a fallback when no `entry.author.name` is available (see line 22).
 
 **STEP 5: Add a feed page**
 : Let's use our new feed layout to display the contents of our feed, making a feed page.

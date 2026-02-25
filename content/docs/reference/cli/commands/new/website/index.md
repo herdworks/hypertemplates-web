@@ -97,4 +97,4 @@ website "acme.com.website/site.yaml" created
 [website `site.title` reference]: /docs/reference/cms/website/#site-title
 [website `site.description` reference]: /docs/reference/cms/website/#site-description
 [website `site.favicon` reference]: /docs/reference/cms/website/#site-favicon
-[website `site.author` reference]: /docs/reference/cms/website/#site-author
+[website `site.byline` reference]: /docs/reference/cms/website/#site-byline

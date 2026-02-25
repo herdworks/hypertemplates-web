@@ -1,4 +1,4 @@
-<post-card itemscope itemtype='https://schema.org/Person' ht-attrs='itemtype:page.author.kind,site.author.kind'>
+<post-card itemscope itemtype='https://schema.org/Person' ht-attrs='itemtype:page.byline.kind,site.byline.kind'>
     <style ht-pipe='css:style#components'>
         post-card :is(a, a:hover) {
             text-decoration: none;
@@ -49,16 +49,16 @@
             display: none;
         }
     </style>
-    <a itemprop='favicon' ht-attrs='href:page.author.href,site.author.href'>
-        <img src='' itemprop='image' ht-attrs='src:page.author.favicon,site.author.favicon' />
+    <a itemprop='favicon' ht-attrs='href:page.byline.href,site.byline.href'>
+        <img src='' itemprop='image' ht-attrs='src:page.byline.favicon,site.byline.favicon' />
     </a>
-    <a itemprop='name' ht-attrs='href:page.author.href,site.author.href'>
-        <param ht-param='page.author.name,site.author.name' default='My Website' />
+    <a itemprop='name' ht-attrs='href:page.byline.href,site.byline.href'>
+        <param ht-param='page.byline.name,site.byline.name' default='My Website' />
     </a>
     <div itemprop='details'>
-        <a ht-attrs='href:page.author.href,site.author.href'>
+        <a ht-attrs='href:page.byline.href,site.byline.href'>
             <span itemprop='username'>
-                <param ht-param='page.author.username,site.author.username' default='@mywebsite.com' />
+                <param ht-param='page.byline.username,site.byline.username' default='@mywebsite.com' />
             </span>
         </a>
         <a ht-attrs='href:page.path' href='.'>

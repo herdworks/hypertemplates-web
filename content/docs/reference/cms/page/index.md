@@ -144,10 +144,10 @@ All properties are string data types unless otherwise noted.
   If this value is present in a page index file, it will be overwritten.
   </doc-quote>
 
-**`page.author`**
+**`page.byline`**
 : The page author.
 
-  The `page.author` property is a key-value object with the following properties: `username`, `name`, `href`, `favicon`, and `email`.
+  The `page.byline` property is a key-value object with the following properties: `name`, `favicon`, `href`, and `email`.
 
   **Sample**
 
@@ -174,12 +174,12 @@ All properties are string data types unless otherwise noted.
 
   </code-snippet>
 
-  The `site.author` [template data property] should be used by layout and theme developers as the default value for the `<meta name='author'>` element.
+  The `site.byline` [template data property] should be used by layout and theme developers as the default value for the `<meta name='author'>` element.
 
   **Example**
 
   ```html
-  <meta name='author' ht-attrs='content:page.author.name,site.author.name'>
+  <meta name='author' ht-attrs='content:page.byline.name,site.byline.name'>
   ```
 
 **`page.title`**
@@ -529,6 +529,12 @@ All properties are string data types unless otherwise noted.
 
   </code-snippet>
 
+  <doc-quote ht-block new>
+
+  **NEW:** the `page.draft` property is available in `hyperctl` version 0.17.2 and later.
+
+  </doc-quote>
+
 **`page.unlisted`**
 : The `page.unlisted` boolean property is used to determine whether a page is included in a feed.
 
@@ -587,7 +593,7 @@ All properties are string data types unless otherwise noted.
 
   * `page.feed.author` (default: `{}` - no author)
 
-    If left blank, the value for `page.author` will be used.
+    If left blank, the value for `page.byline` will be used.
 
   * `page.feed.tags` (default: `[]`)
 

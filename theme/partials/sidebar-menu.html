@@ -61,17 +61,4 @@
             <a href='#' rel='' ht-attrs='href:link.href;rel:link.title' ht-content='text:link.label,link.title'>Placeholder</a>
         </li>
     </menu>
-    <script>
-        document.querySelector('nav button').addEventListener('click', function() {
-            document.querySelector('nav button').toggleAttribute('hidden');
-            document.querySelector('sidebar-menu').toggleAttribute('active');
-            document.querySelector('sidebar-autofocus').toggleAttribute('hidden');
-        });
-        document.querySelector('sidebar-autofocus').addEventListener('click', function() {
-            event.preventDefault();
-            document.querySelector('nav button').toggleAttribute('hidden');
-            document.querySelector('sidebar-menu').toggleAttribute('active');
-            document.querySelector('sidebar-autofocus').toggleAttribute('hidden');
-        });
-    </script>
 </sidebar-menu>

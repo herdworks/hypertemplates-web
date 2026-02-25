@@ -1,18 +1,4 @@
 <article>
-    <article-meta>
-        <a href='#' itemprop='favicon' ht-attrs='href:page.author.href,site.author.href'>
-            <img src='' ht-attrs='src:page.author.favicon,site.author.favicon' />
-        </a>
-        <a href='#' itemprop='displayname' ht-attrs='href:page.author.href,site.author.href'>
-            <span ht-content='text:page.author.name,site.author.name'></span>
-        </a>
-        <a href='#' itemprop='details' ht-attrs='href:page.author.href,site.author.href'>
-            <span ht-content='text:page.author.username,site.author.username'></span>
-            <span>•</span>
-            <date-time ht-include='partials/date-time' ht-attrs='data-timestamp:page.created_at'></date-time>
-        </a>
-    </article-meta>
-    <article-body ht-content='markdown:page.content'></article-body>
     <style ht-pipe='css:style#components'>
         article {
             display: grid;
@@ -75,4 +61,18 @@
             }
         }
     </style>
+    <article-meta>
+        <a href='#' itemprop='favicon' ht-attrs='href:page.byline.href,site.byline.href'>
+            <img src='' ht-attrs='src:page.byline.favicon,site.byline.favicon' />
+        </a>
+        <a href='#' itemprop='displayname' ht-attrs='href:page.byline.href,site.byline.href'>
+            <span ht-content='text:page.byline.name,site.byline.name'></span>
+        </a>
+        <a href='#' itemprop='details' ht-attrs='href:page.byline.href,site.byline.href'>
+            <span ht-content='text:page.byline.username,site.byline.username'></span>
+            <span>•</span>
+            <date-time ht-include='partials/date-time' ht-attrs='data-timestamp:page.created_at'></date-time>
+        </a>
+    </article-meta>
+    <article-body ht-content='markdown:page.content'></article-body>
 </article>

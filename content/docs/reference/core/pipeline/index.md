@@ -20,28 +20,54 @@ summary: |
 #### Order of operations
 ------------------------
 
-1. Includes (`ht-include`)
+1. **Includes** (`ht-include`)
 
-   <doc-quote ht-block notice>
+   <learn-more ht-block href='../attributes/ht-include/'></learn-more>
 
-   **NOTE:** `ht-include` attributes are processed recursively, allowing components to be composed of other components.
+1. **Layout Data Parser**
 
-   </doc-quote>
+   <learn-more ht-block href='../data/#layout-data'></learn-more>
 
-1. Conditionals (`ht-if` and `ht-not`)
-1. Templates (`ht-template`)
+1. **Inclusive Conditionals** (`ht-if`)
 
-   <doc-quote ht-block success>
+   <learn-more ht-block href='../attributes/ht-if/'></learn-more>
 
-   **NOTE:** `ht-template` attributes are processed recursively, prompting HyperTemplates to process target elements through the complete HyperTemplates pipeline (includes, conditionals, templates, attributes, content, elements, and relative URLs), passing in the template data defined by the `ht-template` attribute.
+1. **Exclusive Conditionals** (`ht-not`)
 
-   </doc-quote>
+   <learn-more ht-block href='../attributes/ht-not/'></learn-more>
 
-1. Attributes (`ht-attrs` and `ht-query`)
-1. Content (`ht-content`)
-1. Elements (`ht-block`)
-1. Relative URLs (`ht-base`)
+1. **Templates** (`ht-template`)
+
+   <learn-more ht-block href='../attributes/ht-if/'></learn-more>
+
+1. **Attributes** (`ht-attrs`)
+
+   <learn-more ht-block href='../attributes/ht-attrs/'></learn-more>
+
+1. **Attribute Query Parameters** (`ht-query`)
+
+   <learn-more ht-block href='../attributes/ht-query/'></learn-more>
+
+1. **Content** (`ht-content`)
+
+   <learn-more ht-block href='../attributes/ht-content/'></learn-more>
+
+1. **Blocks** (`ht-block`)
+
+   <learn-more ht-block href='../attributes/ht-block/'></learn-more>
+
+1. **Pipes** (`ht-pipe`)
+
+   <learn-more ht-block href='../attributes/ht-pipe/'></learn-more>
+
+1. **Relative URLs** (`ht-base`)
+
+   <learn-more ht-block href='../attributes/ht-base/'></learn-more>
 
 #### Template recursion
 -----------------------
 
+🚧 Coming soon... 🚧
+
+<!-- Links -->
+[template data properties]: #

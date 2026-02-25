@@ -6,7 +6,7 @@
 //
 // The URL scheme is as follows:
 //
-//     https://:host/:org/:repo/edit/:branch/:prefix/:document.location.pathnam/:suffix/:filename
+//     https://:host/:org/:repo/edit/:branch/:prefix/:document.location.pathname/:suffix/:filename
 //
 // Example
 //

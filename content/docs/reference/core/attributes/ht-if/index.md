@@ -102,10 +102,10 @@ If multiple values are defined for a given conditional expression, only one of t
 **Example**
 
 ```html
-<address ht-if='page.author.kind,site.author.kind==organization,company,business' ht-content='page.author.address'></address>
+<address ht-if='page.byline.kind,site.byline.kind==organization,company,business' ht-content='page.byline.address'></address>
 ```
 
-In this example, HyperTemplates will retain the `<address>` element if the value of the `page.author.kind` or `site.author.kind` [template data property] matches one of the the expected [conditional values] of `organization`, `company`, or `business`.
+In this example, HyperTemplates will retain the `<address>` element if the value of the `page.byline.kind` or `site.byline.kind` [template data property] matches one of the the expected [conditional values] of `organization`, `company`, or `business`.
 
 #### Inclusive templating
 -------------------------
@@ -138,8 +138,8 @@ To explain how conditional values are evaluated, consider the following example 
 }
 ```
 
-Given this example template data, the conditional expression `ht-if='page.author.kind'` would evaluate `true` because the [template data property] exists and it not empty.
-However, the conditional expression `ht-if='page.author.kind==person'` would evaluate `false` because the `page.author.kind` property has a value of "organization", not "person".
+Given this example template data, the conditional expression `ht-if='page.byline.kind'` would evaluate `true` because the [template data property] exists and it not empty.
+However, the conditional expression `ht-if='page.byline.kind==person'` would evaluate `false` because the `page.byline.kind` property has a value of "organization", not "person".
 
 ##### Conditional expressions and arrays
 ----------------------------------------

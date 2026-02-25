@@ -55,10 +55,10 @@ When an `ht-not` attribute evaluates `true`, the target HTML element is **remove
 **Example**
 
 ```html
-<address ht-not='page.author.kind,site.author.kind==person' ht-content='page.author.address'></address>
+<address ht-not='page.byline.kind,site.byline.kind==person' ht-content='page.byline.address'></address>
 ```
 
-In this example, HyperTemplates will **remove** the `<address>` element if the value of the `page.author.kind` or `site.author.kind` [template data property] matches the expected [conditional value] of `person`.
+In this example, HyperTemplates will **remove** the `<address>` element if the value of the `page.byline.kind` or `site.byline.kind` [template data property] matches the expected [conditional value] of `person`.
 
 #### Exclusive templating
 -------------------------
@@ -87,8 +87,8 @@ To explain how conditional values are evaluated, consider the following example 
 }
 ```
 
-Given this example template data, the conditional expression `ht-not='page.author.kind'` would evaluate `true` because the [template data property] exists and is not empty.
-However, the conditional expression `ht-if='page.author.kind==person'` would evaluate `true` because the `page.author.kind` property has a value of "organization", not "person".
+Given this example template data, the conditional expression `ht-not='page.byline.kind'` would evaluate `true` because the [template data property] exists and is not empty.
+However, the conditional expression `ht-if='page.byline.kind==person'` would evaluate `true` because the `page.byline.kind` property has a value of "organization", not "person".
 
 <!-- Links -->
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
