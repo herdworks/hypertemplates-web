@@ -1,7 +1,39 @@
 ---
 namespace: downloads
-latest: 0.17.3
+latest: 0.18.0
 releases:
+  - version: 0.18.0
+    date: "2025-09-02T13:00:00-07:00"
+    description: |
+      **NEW:** version 0.18.0 is a significant new release that includes a number of new features, including: 
+
+      * [NEW `ht-limit` and `ht-offset` attributes](/docs/reference/core/attributes/ht-template/#limit-and-offset)
+      * [NEW `page.canonical_url` and `page.wordcount` computed properties](/docs/reference/cms/page/#properties)
+      * Many improvements around [themes](/docs/reference/core/themes/) including a [new `theme.*` template data namespace](/docs/reference/core/data/#template-data-sources), and a [new `hyperctl theme` command](/docs/reference/cli/commands/theme/) for packaging and installing themes. 
+
+      To see a complete list of changes, including the first breaking changes to `hyperctl`, please ses the [CHANGELOG](/changelog/).
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_v0.18.0_darwin_universal.tar.gz
+            href: /downloads/hyperctl_v0.18.0_darwin_universal.tar.gz
+          - name: hyperctl_v0.18.0_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_v0.18.0_darwin_arm64.tar.gz
+          - name: hyperctl_v0.18.0_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_v0.18.0_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_v0.18.0_linux_arm64.tar.gz
+            href: /downloads/hyperctl_v0.18.0_linux_arm64.tar.gz
+          - name: hyperctl_v0.18.0_linux_amd64.tar.gz
+            href: /downloads/hyperctl_v0.18.0_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_v0.18.0_windows_arm64.tar.gz
+            href: /downloads/hyperctl_v0.18.0_windows_arm64.tar.gz
+          - name: hyperctl_v0.18.0_windows_amd64.tar.gz
+            href: /downloads/hyperctl_v0.18.0_windows_amd64.tar.gz
+
   - version: 0.17.3
     date: "2025-09-02T13:00:00-07:00"
     description: |

@@ -1,5 +1,6 @@
 ---
 created_at: 2025-02-03T12:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: ht-include attribute
 summary: |
     `ht-include` attribute reference documentation
@@ -31,7 +32,7 @@ This example shows the `ht-include` attribute being used to template the `<heade
         <title>Introducing: Template Includes</title>
     </head>
     <body>
-        <header ht-include='partials/header.html' id='hero'></header>
+        <header ht-include='fragments/header.html' id='hero'></header>
         <article>
             <h2>Hello, world</h2>
             <p>Lorem ipsum, hipsters get some.</p>
@@ -42,7 +43,7 @@ This example shows the `ht-include` attribute being used to template the `<heade
 
 </code-snippet>
 
-The `ht-include` attribute in this example will replace the placeholder `<header>` element with the contents of the referenced [include source](#include-sources) (`partials/header.html`), which contains an [HTML `DocumentFragment`].
+The `ht-include` attribute in this example will replace the placeholder `<header>` element with the contents of the referenced [include source](#include-sources) (`fragments/header.html`), which contains an [HTML `DocumentFragment`].
 
 ### Specification
 -----------------
@@ -79,7 +80,7 @@ If you encounter any such deligtful surprises, please [let us know](/contact)!
 The `ht-include` attribute provides templating instructions, expressed as a comma-separated list of [include URIs](#include-uris), where each URI contains an [include source](#include-sources). 
 
 ```html
-<header ht-include='partials/hero'></header>
+<header ht-include='fragments/hero'></header>
 ```
 
 #### Placeholder elements

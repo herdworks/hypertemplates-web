@@ -1,0 +1,17 @@
+<footer id='footer' data-color-scheme='dark'>
+    <style ht-pipe='css:style#components'>
+        footer footer-menu {
+            margin-bottom: var(--gutter-2x, 30px);
+        }
+    </style>
+    <content-container>
+        <footer-menu ht-include='fragments/footer-menu.html'></footer-menu>
+        <p>
+            <span>Designed by <a href='https://herd.works'>Herd Works</a> in Portland, Oregon</span>
+            &copy; <param ht-param='site.copyright' default='2026' />
+        </p>
+    </content-container>
+
+    <!-- Page.js -->
+    <script ht-template='asset:page.assets' ht-if='asset==page.js' ht-attrs='src:asset' defer></script>
+</footer>

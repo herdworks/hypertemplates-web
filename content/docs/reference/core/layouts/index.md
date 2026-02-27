@@ -1,5 +1,6 @@
 ---
 created_at: 2025-01-26T11:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: Layouts
 description: HyperTemplates Layout reference documentation.
 breadcrumb: Layouts
@@ -19,7 +20,6 @@ HyperTemplates layouts are the most important building block in the HyperTemplat
 
 ### Example
 -----------
-
 
 This example shows a simple HyperTemplates layout.
 

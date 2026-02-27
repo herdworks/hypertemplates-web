@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta ht-include='partials/head.html'></meta>
+        <meta ht-include='fragments/head.html'></meta>
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='blog'/>
@@ -24,12 +24,12 @@
         </style>
     </head>
     <body>
-        <header ht-include='partials/sections/header.html'></header>
+        <header ht-include='fragments/sections/header.html'></header>
         <section id='contact'>
             <content-container>
                 <content-row grid>
                     <content-column>
-                        <contact-form ht-include='partials/contact-form'></contact-form>
+                        <contact-form ht-include='fragments/contact-form'></contact-form>
                     </content-column>
                     <content-column>
                         <content-block ht-content='html:page.content'></content-block>
@@ -38,6 +38,6 @@
             </content-container>
         </section>
         <content-whitespace></content-whitespace>
-        <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
+        <footer ht-include='fragments/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>

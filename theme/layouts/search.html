@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta ht-include='partials/head.html'></meta>
+        <meta ht-include='fragments/head.html'></meta>
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='search' />
@@ -37,16 +37,16 @@
         </style>
     </head>
     <body>
-        <header ht-include='partials/sections/header.html'></header>
+        <header ht-include='fragments/sections/header.html'></header>
         <section id='search'>
             <content-container>
-                <hyper-finder ht-include='partials/hyper-finder.html' src='/atom.xml' scope='main'></hyper-finder>
+                <hyper-finder ht-include='fragments/hyper-finder.html' src='/atom.xml' scope='main'></hyper-finder>
                 <search-results>
                     <p itemprop='placeholder'>Your search results will appear here.</p>
                 </search-results>
             </content-container>
         </section>
         <content-whitespace></content-whitespace>
-        <footer ht-include='partials/sections/footer.html'></footer>
+        <footer ht-include='fragments/sections/footer.html'></footer>
     </body>
 </html>

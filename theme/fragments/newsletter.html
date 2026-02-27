@@ -1,0 +1,32 @@
+<section id='newsletter' data-color-scheme='gray'>
+    <style ht-pipe='css:style#components'>
+        #newsletter {
+            padding: 50px 0;
+        }
+        #newsletter content-row {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gutter-2x, 30px);
+        }
+        #newsletter content-column:last-child {
+            width: 100%;
+            align-self: center;
+        }
+        @media screen and (max-width: 1279px) {
+            #newsletter content-row {
+                grid-template-columns: 1fr;
+                grid-auto-flow: row;
+            }
+        }
+    </style>
+    <content-container>
+        <content-row grid>
+            <content-column>
+                <h3 ht-content='page.newsletter.title,layout.newsletter_title,data.newsletter.title'>The Newsletter</h3>
+                <p ht-content='page.newsletter.description,layout.newsletter_description,data.newsletter.description'>Subscribe to the newsletter and never miss a post.</p>
+            </content-column>
+            <content-column>
+                <uni-form ht-include='fragments/uni-form' ht-template='form:data.newsletter.form'></uni-form>
+            </content-column>
+        </content-row>
+    </content-container>
+</section>

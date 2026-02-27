@@ -1,5 +1,6 @@
 ---
 created_at: 2025-05-22T12:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: ht-query attribute
 summary: |
     `ht-query` attribute reference documentation
@@ -27,7 +28,7 @@ The `ht-query` attribute is used to annotate URLs with query parameters.
 One use case for `ht-query` is to append a "version query" to `<link>` and `<script>` tag `href` and `src` attributes for [cache busting](#cache-busting) purposes.
 Let's see how that works in the following example.
 
-<code-snippet ht-block filename='partials/head.html' highlight='3-8,11' line-numbers='on'>
+<code-snippet ht-block filename='fragments/head.html' highlight='3-8,11' line-numbers='on'>
 
 ```html
 <!-- Global Styles -->

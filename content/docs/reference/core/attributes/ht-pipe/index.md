@@ -1,5 +1,6 @@
 ---
 created_at: 2025-05-22T12:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: ht-pipe attribute
 summary: |
     `ht-pipe` attribute reference documentation
@@ -21,7 +22,7 @@ The `ht-pipe` [attribute] _moves_ target elements or target element contents.
 
 This example shows the `ht-pipe` attribute being used to template a `<style>` element.
 
-<code-snippet ht-block filename='theme/partials/footer.html' highlight='2'>
+<code-snippet ht-block filename='theme/fragments/footer.html' highlight='2'>
 
 ```html
 <footer>
@@ -59,9 +60,9 @@ Let's see what would happen if our example `<footer>` element is loaded from the
         </style>
     </head>
     <body>
-        <header ht-include='partials/header'></header>
-        <article ht-include='partials/article'></header>
-        <footer ht-include='partials/footer'></footer>
+        <header ht-include='fragments/header'></header>
+        <article ht-include='fragments/article'></header>
+        <footer ht-include='fragments/footer'></footer>
     </body>
 </html>
 ```
@@ -186,7 +187,7 @@ The `css` and `javascript` pipe types are aliases for `text`.
 ```
 
 In this example, we're creating a text pipe to move the contents of the target `<style>` element to the `style#components` element.
-Text pipes make it possible to aggregate snippets of code from multiple layout partials into a single element.
+Text pipes make it possible to aggregate snippets of code from multiple layout fragments into a single element.
 
 
 <!-- Links -->

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta ht-include='partials/head.html'></meta>
+        <meta ht-include='fragments/head.html'></meta>
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='home'/>
@@ -33,20 +33,20 @@
         </style>
     </head>
     <body>
-        <header ht-include='partials/sections/hero.html' data-color-scheme='primary'></header>
-        <!-- <section ht-include='partials/logo-roll.html' data-color-scheme='light'></section> -->
-        <banner-message ht-include='partials/banner-message' data-color-scheme='light'></banner-message>
+        <header ht-include='fragments/sections/hero.html' data-color-scheme='primary'></header>
+        <!-- <section ht-include='fragments/logo-roll.html' data-color-scheme='light'></section> -->
+        <banner-message ht-include='fragments/banner-message' data-color-scheme='light'></banner-message>
         <section id='features' data-color-scheme='light'>
             <content-container>
                 <bento-overview>
                     <h2 ht-content='html:page.features.title'></h2>
                     <content-block ht-content='markdown:page.features.overview'></content-block>
                 </bento-overview>
-                <bento-box ht-include='partials/bento-box'></bento-box>
+                <bento-box ht-include='fragments/bento-box'></bento-box>
             </content-container>
         </section>
         <content-whitespace></content-whitespace>
-        <section ht-include='partials/newsletter.html' data-color-scheme='gradient'></section>
-        <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
+        <section ht-include='fragments/newsletter.html' data-color-scheme='gradient'></section>
+        <footer ht-include='fragments/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>

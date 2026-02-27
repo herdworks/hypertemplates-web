@@ -1,5 +1,6 @@
 ---
 created_at: 2025-02-06T12:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: Core
 summary: |
     HyperTemplates Core Reference
@@ -15,6 +16,11 @@ This reference documents the core specification itself.
 : The HyperTemplates HTML layout reference.
 
   <learn-more ht-block href='/docs/reference/core/layouts/'></learn-more>
+
+**Fragments**
+: The HyperTemplates HTML fragment reference.
+
+  <learn-more ht-block href='/docs/reference/core/fragments/'></learn-more>
 
 **Attributes**
 : The HyperTemplates HTML attribute reference.

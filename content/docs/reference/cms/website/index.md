@@ -1,5 +1,6 @@
 ---
 created_at: 2025-02-10T12:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: Website
 description: Website reference documentation.
 summary: |
@@ -155,7 +156,6 @@ See [custom properties] for more information.
   description: the pure-HTML templating system for the modern web.
   ...: ...
   author:
-      username: "@hypertemplates.net"
       name: "HyperTemplates"
       href: "/"
       favicon: "/favicon.ico"
@@ -283,8 +283,11 @@ See [custom properties] for more information.
         content_dir:  "content",
         data_dir:  "data",
         drafts_dir:  "drafts",
+        fragments_dir: "fragments",
+        layouts_dir:  "layouts",
         static_dir:  "static",
-        theme_dir:  "theme",
+        themes_dir:  "themes",
+        theme:  "./theme.json",
         tag_layout: "default",
         tag_path: "tags",
         refresh_interval: 0,
@@ -318,14 +321,26 @@ See [custom properties] for more information.
 
     Configures the draft pages subdirectory.
 
+  * `site.config.fragments_dir` (default: `"fragments"`)
+
+    Configures the fragment pages subdirectory.
+
+  * `site.config.layouts_dir` (default: `"layouts"`)
+
+    Configures the layouts subdirectory.
+
   * `site.config.static_dir` (default: `"static"`)
 
     Configures the static assets subdirectory.
 
-  * `site.config.theme_dir` (default: `"theme"`)
+  * `site.config.themes_dir` (default: `"themes"`)
 
-    Configures the theme subdirectory (e.g. layouts, theme assets, etc).
-    Set `site.config.theme_dir: "."` to use the website root directory as the theme directory.
+    Configures the themes subdirectory.
+
+  * `site.config.theme` (default: `"./theme.json"`)
+
+    Configures the current theme.
+    Set `site.config.theme: "./theme."` to use the website root directory as the theme directory.
 
   * `site.config.tag_layout` (default: `"tag.html"`)
 

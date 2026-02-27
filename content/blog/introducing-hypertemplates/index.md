@@ -1,6 +1,6 @@
 ---
 created_at: 2025-06-12T08:00:00-07:00
-updated_at: 2025-06-12T08:00:00-07:00
+updated_at: 2026-02-26T10:00:00-08:00
 layout: post
 title: Introducing HyperTemplates
 description: |
@@ -19,7 +19,8 @@ tags:
 Two things happen very early on in a persons journey to learn HTML – they create their first web page (!), and eventually they create a second.
 The moment that second page exists, the seemingly simple journey becomes a lifelong _quest_ to find the best templating system to keep some portion of two or more web pages in sync.
 
-If you have discovered templating solutions you actually enjoy using, this post might not interest you, and that is OK!
+If you have discovered templating solutions you actually _enjoy_ using, this post might not interest you, and that is OK!
+Go forth and [make hypertext](https://makehypertext.com)!
 For everyone else, welcome. :wave:
 
 <!--more-->

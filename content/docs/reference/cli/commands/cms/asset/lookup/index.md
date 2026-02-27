@@ -1,0 +1,59 @@
+---
+created_at: 2025-03-04T14:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
+title: hyperctl cms asset lookup
+summary: |
+    `hyperctl cms asset lookup` command reference.
+breadcrumb: lookup
+---
+
+## `hyperctl cms asset lookup` command
+
+<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+
+### Overview
+------------
+
+Lookup a static asset by its path.
+The `hyperctl cms asset lookup` command reads website configuration and searches the configured theme, website, and content subdirectories for the asset source file.
+
+<doc-quote ht-block info>
+
+**hyperctl's `which` command.** The `hyperctl cms asset lookup` command is similar to the POSIX `which` command, which is used to lookup the binary for a given command.
+In a similar way, the `hyperctl cms asset lookup` command is used to determine which source file is being used for a given asset path.
+
+See the [asset hierarchy] reference for more information.
+
+</doc-quote>
+
+### Usage
+---------
+
+```plaintext
+lookup a static asset by its path.
+
+Usage:
+        hyperctl cms asset lookup [options] <path>
+
+Options:
+        -c, --config  path to the website configuration file. (required) (env: HYPER_CONFIG) (default: site.yaml)
+        -h, --help    Display help information.
+```
+
+### Options
+-----------
+
+**`-c`, `--config`**
+: Path to the website configuration file (`site.yaml` or `site.json`).
+
+  Defaults to the `HYPER_CONFIG` environment variable, if set.
+
+  To configure a default, use the `export` command.
+
+  ```plaintext
+  export HYPER_CONFIG="site.yaml"
+  ```
+
+<!-- Links -->
+[`site.config.static_dir`]: /docs/reference/cms/website/#site-config
+[asset hierarchy]: /docs/reference/cms/assets/#asset-hierarchy

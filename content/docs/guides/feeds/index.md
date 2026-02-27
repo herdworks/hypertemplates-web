@@ -1,5 +1,6 @@
 ---
 created_at: 2025-05-20T15:00:00-07:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: Feeds & Feed Pages
 description: How to create feeds and feed pages with HyperTemplates.
 breadcrumb: Feeds
@@ -180,7 +181,7 @@ Let's see how these two components work together in the following guide.
   <!DOCTYPE html>
   <html lang='en-US'>
       <head>
-          <meta ht-include='partials/head' />
+          <meta ht-include='fragments/head' />
   
           <!-- Layout Properties -->
           <meta name='layout:name' content='blog'/>
@@ -192,7 +193,7 @@ Let's see how these two components work together in the following guide.
           <style id='layout'></style>
       </head>
       <body>
-          <header ht-include='partials/hero'></header>
+          <header ht-include='fragments/hero'></header>
           <main>
               <feed-entry ht-template='entry:page.feed.pages;site:site'>
                   <post-meta>
@@ -208,7 +209,7 @@ Let's see how these two components work together in the following guide.
                   <a ht-attrs='href:entry.path' ht-if='entry.path'>Continue reading...</a>
               </feed-entry>
           </main>
-          <footer ht-include='partials/footer'></footer>
+          <footer ht-include='fragments/footer'></footer>
       </body>
   </html>
   ```

@@ -1,5 +1,6 @@
 ---
 created_at: 2025-05-22T12:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: ht-base attribute
 summary: |
     `ht-base` attribute reference documentation
@@ -63,11 +64,11 @@ Let's look at how that works in the following example which shows the `ht-base` 
 ```html
 <html lang='en-US'>
     <head>
-        <meta ht-include='partials/head.html' />
+        <meta ht-include='fragments/head.html' />
         <style>/* insert feed styles here */</style>
     </head>
     <body>
-        <header ht-include='partials/header.html'></header>
+        <header ht-include='fragments/header.html'></header>
         <main>
             <feed-entry ht-template='entry:page.feed.pages' ht-base='src:entry.path'>
                 <entry-meta>
@@ -79,7 +80,7 @@ Let's look at how that works in the following example which shows the `ht-base` 
                 </entry-link>
             </feed-entry>
         </main>
-        <footer ht-include='partials/footer'></footer>
+        <footer ht-include='fragments/footer'></footer>
     </body>
 </html>
 ```

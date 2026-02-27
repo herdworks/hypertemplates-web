@@ -1,0 +1,19 @@
+<header id='header' data-color-scheme='primary'>
+    <style id='header-style' ht-pipe='css:style#components' >
+        header > content-container {
+            display: grid;
+            justify-items: center;
+            margin-top: var(--whitespace, 50px);
+
+            & h1, p {
+                text-align: center;
+            }
+        }
+    </style>
+    <nav ht-include='fragments/nav'></nav>
+    <sidebar-menu ht-include='fragments/sidebar-menu'></sidebar-menu>
+    <content-container ht-if='page.title'>
+        <h1 rel='title' ht-content='text:page.title'>Title</h1>
+        <param ht-param='markdown:page.summary,page.description' />
+    </content-container>
+</header>

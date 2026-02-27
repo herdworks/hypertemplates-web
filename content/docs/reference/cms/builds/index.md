@@ -1,5 +1,6 @@
 ---
 created_at: 2025-02-10T12:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: Builds
 summary: The HyperTexting CMS "builds" reference
 ---
@@ -65,7 +66,7 @@ Builds have three primary inputs:
 1. Discovers website [pages] from the configured `site.config.content_dir` (default: `./content`)
 1. Discovers website draft pages from the configured `site.config.drafts_dir` (default: `./drafts`)
 1. Loads build pages
-1. Loads discovered website pages (this is a no-op for full-site builds)
+1. Loads discovered website pages (this is a no-op for complete builds)
 1. Loads build page feeds
 1. Loads build page tag feeds (auto-generates tag pages as needed)
 1. Validates the build
@@ -74,11 +75,11 @@ Builds have three primary inputs:
 1. Writes pages to disk (`index.html` files)
 1. Calculates build statistics
 
-### Full-site builds
---------------------
+### Complete builds
+-------------------
 
-By default, HyperTemplates performs full-site builds like a traditional static site generator.
-Full site builds scan the configured `site.config.content_dir` (default: `./content`) for page index files (`index.md`, `index.markdown`, `index.yaml`, `index.yml`, or `index.json`) and provides a list of all discovered paths with the build [input parameters].
+By default, HyperTemplates performs complete builds like a traditional static site generator.
+Complete builds scan the configured `site.config.content_dir` (default: `./content`) for [page files] and provides a list of all discovered paths with the build [input parameters].
 
 ### Incremental builds
 ----------------------
@@ -196,3 +197,4 @@ macbook $
 [hashtag]: /docs/reference/core/markdown/#hashtags
 [deterministic]: https://en.wikipedia.org/wiki/Deterministic_system
 [incremental builds]: #incremental-builds
+[page files]: /docs/reference/cms/page/#page-files

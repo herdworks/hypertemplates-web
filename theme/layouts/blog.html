@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta ht-include='partials/head' />
+        <meta ht-include='fragments/head' />
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='blog'/>
@@ -27,18 +27,20 @@
         </style>
     </head>
     <body>
-        <header ht-include='partials/blog/hero' data-color-scheme='light'></header>
-        <section data-color-scheme='light'>
-            <content-container>
-                <feed-entry ht-template='page:page.feed.pages; site:site' ht-base='src:page.path;href:page.path'>
-                    <post-card ht-include='partials/hyper/post-card'></post-card>
-                    <post-content ht-content='markdown:page.summary,page.content'></post-content>
-                    <learn-more ht-block ht-attrs='href:page.path' label='Continue reading'></learn-more>
-                </feed-entry>
-            </content-container>
-        </section>
+        <header ht-include='fragments/blog/hero' data-color-scheme='light'></header>
+        <main>
+            <section data-color-scheme='light'>
+                <content-container>
+                    <feed-entry ht-template='page:page.feed.pages; site:site' ht-base='src:page.path;href:page.path'>
+                        <post-card ht-include='fragments/hyper/post-card'></post-card>
+                        <post-content ht-content='markdown:page.summary,page.content'></post-content>
+                        <learn-more ht-block ht-attrs='href:page.path' label='Continue reading'></learn-more>
+                    </feed-entry>
+                </content-container>
+            </section>
+        </main>
         <content-whitespace data-color-scheme='light'></content-whitespace>
-        <section ht-include='partials/newsletter'></section>
-        <footer ht-include='partials/sections/footer.html'></footer>
+        <section ht-include='fragments/newsletter'></section>
+        <footer ht-include='fragments/sections/footer.html'></footer>
     </body>
 </html>

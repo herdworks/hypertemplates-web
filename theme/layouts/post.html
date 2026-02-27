@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta ht-include='partials/head.html'></meta>
+        <meta ht-include='fragments/head.html'></meta>
         <meta http-equiv="refresh" content="0; url=/" ht-attrs='content:page.refresh' ht-if='page.content==' />
 
         <!-- Layout Properties -->
@@ -20,7 +20,7 @@
         <style id='layout'></style>
     </head>
     <body data-color-scheme='light'>
-        <header ht-include='partials/blog/header.html'></header>
+        <header ht-include='fragments/blog/header.html'></header>
         <content-whitespace></content-whitespace>
         <section id='post' data-color-scheme='light'>
             <style ht-pipe='css:style#components'>
@@ -31,11 +31,11 @@
             <content-container>
                 <article itemscope itemtype='https://schema.org/Article'>
                     <article-meta>
-                        <post-card ht-include='partials/hyper/post-card'></post-card>
+                        <post-card ht-include='fragments/hyper/post-card'></post-card>
                     </article-meta>
                     <article-body ht-content='markdown:page.summary,page.content' summary></article-body>
                     <article-attachments>
-                        <attachment-gallery ht-include='partials/attachment-gallery'></attachment-gallery>
+                        <attachment-gallery ht-include='fragments/attachment-gallery'></attachment-gallery>
                     </article-attachments>
                     <article-body ht-content='markdown:page.more' more></article-body>
                 </article>
@@ -43,7 +43,7 @@
             <auto-anchor scope='article'></auto-anchor>
         </section>
         <content-whitespace></content-whitespace>
-        <section ht-include='partials/newsletter.html'></section>
-        <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
+        <section ht-include='fragments/newsletter.html'></section>
+        <footer ht-include='fragments/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>

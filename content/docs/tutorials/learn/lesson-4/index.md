@@ -1,5 +1,6 @@
 ---
 created_at: 2025-05-25T08:00:00-07:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: "Introducing: ht-include"
 description: Learn how template includes work in HyperTemplates
 summary: |
@@ -27,20 +28,20 @@ Let's see how to do this with the `ht-include` attribute.
 ### Exercises
 -------------
 
-**EXERCISE 1: Create layout partials**
-: Create new `<header>` and `<footer>` layout partials.
+**EXERCISE 1: Create layout fragments**
+: Create new `<header>` and `<footer>` layout fragments.
 
   First let's create a new subdirectory and add two new files to our project.
 
   ```plaintext
-  mkdir partials
-  touch partials/header.html partials/footer.html
+  mkdir fragments
+  touch fragments/header.html fragments/footer.html
   ```
 
-  Now lets add the `<header>` layout to `partials/header.html`.
+  Now lets add the `<header>` layout to `fragments/header.html`.
   While we're at it, let's flesh it out a little bit by adding some navigation links.
 
-  <code-snippet ht-block filename='partials/header.html'>
+  <code-snippet ht-block filename='fragments/header.html'>
 
   ```html
   <header ht-if='title'>
@@ -56,9 +57,9 @@ Let's see how to do this with the `ht-include` attribute.
 
   </code-snippet>
 
-  Next, let's add the `<footer>` layout to `partials/footer.html`.
+  Next, let's add the `<footer>` layout to `fragments/footer.html`.
 
-  <code-snippet ht-block filename='partials/footer.html'>
+  <code-snippet ht-block filename='fragments/footer.html'>
 
   ```html
   <footer ht-if='copyright'>
@@ -87,7 +88,7 @@ Let's see how to do this with the `ht-include` attribute.
           <meta name='description' ht-attrs='content:description'>
       </head>
       <body>
-          <header ht-include='partials/header.html' id='header'></header>
+          <header ht-include='fragments/header.html' id='header'></header>
           <main>
               <article ht-content='markdown:content'>
                   <h2>Hello, world</h2>
@@ -96,7 +97,7 @@ Let's see how to do this with the `ht-include` attribute.
                   </p>
               </article>
           </main>
-          <footer ht-include='partials/footer' id='footer'></footer>
+          <footer ht-include='fragments/footer' id='footer'></footer>
       </body>
   </html>
   ```
@@ -110,12 +111,12 @@ Let's see how to do this with the `ht-include` attribute.
   hyperctl render -d content/index.md -l layouts/default.html > index.html
   ```
 
-  HyperTemplates replaced our placeholder `<header>` and `<footer>` elements with the contents of `partials/header.html` and `partials/footer`, respectively.
+  HyperTemplates replaced our placeholder `<header>` and `<footer>` elements with the contents of `fragments/header.html` and `fragments/footer`, respectively.
 
   <doc-quote ht-block>
 
   **PROTIP:** did you notice that one of our includes was not like the other one?
-  We included our header with `ht-include='partials/header.html`, but our footer with `ht-include='partials/footer'`, sans file extension.
+  We included our header with `ht-include='fragments/header.html`, but our footer with `ht-include='fragments/footer'`, sans file extension.
   This shorthand include reference **Just Works&trade;** in because HyperTemplates is a pure-HTML templating system, so we can safely assume that included file should have an .html extension. 🤌
 
   </doc-quote>

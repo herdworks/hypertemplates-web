@@ -1,5 +1,6 @@
 ---
 created_at: 2025-01-26T11:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: Themes
 summary: |
     Themes
@@ -23,7 +24,7 @@ A theme is a directory containing at least two files:
 * `layouts/default.html`
 
 <mark>These are the only requirements for a HyperTemplates theme</mark>.
-However, themes typically contain additional resources organized into subdirectories such as `layouts/`, `partials/`, and `static/`.
+However, themes typically contain additional resources organized into subdirectories such as `layouts/`, `fragments/`, and `static/`.
 
 **Example**
 
@@ -33,7 +34,7 @@ layouts/
     home.html
     blog.html
     post.html
-partials/
+fragments/
     head.html
     header.html
     footer.html
@@ -62,10 +63,10 @@ Themes are configured using the `theme.json` file.
     "description": "A super basic example theme",
     "version": "0.1.0",
     "config": {
-        "layouts_dir": "layouts",
-        "static_dir": "static",
         "blocks_dir": "blocks",
-        "contenttypes_dir": "types"
+        "layouts_dir": "layouts",
+        "fragments_dir": "fragments",
+        "static_dir": "static"
     }
 }
 ```
@@ -136,6 +137,22 @@ Themes are configured using the `theme.json` file.
   }
   ```
 
+**`theme.config.fragments_dir`**
+: The theme fragments directory (optional).
+  The default value is `fragments`.
+  See the [fragments reference] for more information.
+
+  **Example**
+
+  ```json
+  { 
+    "name": "Example Theme",
+    "config": {
+        "fragments_dir": "fragments"
+    }
+  }
+  ```
+
 
 **`theme.config.static_dir`**
 : The theme static directory (optional).
@@ -149,6 +166,21 @@ Themes are configured using the `theme.json` file.
     "name": "Example Theme",
     "config": {
         "static_dir": "assets"
+    }
+  }
+  ```
+
+**`theme.config.data_dir`**
+: The theme template data directory (optional).
+  The default value is `data`.
+  
+  **Example**
+
+  ```json
+  { 
+    "name": "Example Theme",
+    "config": {
+        "data_dir": "data"
     }
   }
   ```
@@ -189,6 +221,8 @@ Themes are configured using the `theme.json` file.
 [layouts]: /docs/reference/core/layouts/
 [template attribute]: /docs/reference/core/attributes/
 [layouts reference]: /docs/reference/core/layouts/
+[fragments reference]: /docs/reference/core/fragments/
+[data reference]: /docs/reference/core/data/
 [assets reference]: /docs/reference/cms/assets/
 [asset hierarchy]: /docs/reference/cms/assets/#asset-hierarchy
 [content types reference]: /docs/reference/cms/content-types/

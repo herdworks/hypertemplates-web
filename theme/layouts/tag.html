@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta ht-include='partials/head' />
+        <meta ht-include='fragments/head' />
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='tag'/>
@@ -26,19 +26,19 @@
         </style>
     </head>
     <body>
-        <header ht-include='partials/blog/hero'></header>
+        <header ht-include='fragments/blog/hero'></header>
         <section data-color-scheme='light'>
             <content-container>
                 <feed-entry ht-template='entry:page.feed.pages;page:page;site:site' style='display: block;'>
                     <meta name='entry' ht-attrs='content:entry' />
-                    <post-card ht-include='partials/hyper/post-card' ht-template='entity:entry.byline,page.byline,site.byline; page:entry'></post-card>
+                    <post-card ht-include='fragments/hyper/post-card' ht-template='entity:entry.byline,page.byline,site.byline; page:entry'></post-card>
                     <post-content ht-content='markdown:entry.summary,entry.content'></post-content>
                     <learn-more ht-block ht-attrs='href:entry.path' label='Continue reading'></learn-more>
                 </feed-entry>
             </content-container>
         </section>
         <content-whitespace data-color-scheme='light'></content-whitespace>
-        <section ht-include='partials/newsletter'></section>
-        <footer ht-include='partials/sections/footer.html'></footer>
+        <section ht-include='fragments/newsletter'></section>
+        <footer ht-include='fragments/sections/footer.html'></footer>
     </body>
 </html>

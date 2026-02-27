@@ -1,5 +1,6 @@
 ---
 created_at: 2025-05-19T14:00:00-08:00
+updated_at: 2026-02-26T10:00:00-08:00
 layout: default
 title: Link Verification
 summary: |
@@ -72,11 +73,11 @@ Let's see how to add `rel='me'` link to an entire website or an individual page 
           <link ht-template='link:site.links' ht-attrs='rel:link.rel; href:link.href'>
       </head>
       <body>
-          <header ht-include='partials/header' id='header'></header>
+          <header ht-include='fragments/header' id='header'></header>
           <main>
-              <article ht-include='partials/article'></article>
+              <article ht-include='fragments/article'></article>
           </main>
-          <footer ht-include='partials/footer' id='footer'></footer>
+          <footer ht-include='fragments/footer' id='footer'></footer>
       </body>
   </html>
   ```
@@ -131,11 +132,11 @@ Let's see how to add `rel='me'` link to an entire website or an individual page 
           <link ht-template='link:page.links' ht-attrs='rel:link.rel; href:link.href'>
       </head>
       <body>
-          <header ht-include='partials/header' id='header'></header>
+          <header ht-include='fragments/header' id='header'></header>
           <main>
-              <article ht-include='partials/article'></article>
+              <article ht-include='fragments/article'></article>
           </main>
-          <footer ht-include='partials/footer' id='footer'></footer>
+          <footer ht-include='fragments/footer' id='footer'></footer>
       </body>
   </html>
   ```

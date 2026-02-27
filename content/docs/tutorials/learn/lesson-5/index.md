@@ -1,5 +1,6 @@
 ---
 created_at: 2025-05-25T08:00:00-07:00
+updated_at: 2026-02-26T10:00:00-08:00
 title: "Introducing: ht-template"
 description: Learn how template iterators work in HyperTemplates
 summary: |
@@ -46,9 +47,9 @@ Let's see how template iterators work in the following exercises.
 : Use the [`ht-template`] attribute to repeat some portion layout once per occurrence of a [template data property].
 
   Let's template those hard-coded `<nav>` links we added in the [previous lesson](../lesson-5/) so that we can more easily manage them from [template data].
-  To do that we'll need to modify the layout in `partials/header.html` as follows:
+  To do that we'll need to modify the layout in `fragments/header.html` as follows:
 
-  <code-snippet ht-block filename='partials/header.html' highlight='4-6'>
+  <code-snippet ht-block filename='fragments/header.html' highlight='4-6'>
 
   ```html
   <header ht-if='title'>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
-        <meta ht-include='partials/head.html'></meta>
+        <meta ht-include='fragments/head.html'></meta>
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='features'/>
@@ -15,14 +15,14 @@
         <style id='layout'></style>
     </head>
     <body>
-        <header ht-include='partials/sections/header.html'></header>
+        <header ht-include='fragments/sections/header.html'></header>
         <section data-color-scheme='light'>
             <content-container>
                 <main ht-content='markdown:page.content'></main>
             </content-container>
         </section>
         <content-whitespace data-color-scheme='light'></content-whitespace>
-        <section ht-include='partials/newsletter.html'></section>
-        <footer ht-include='partials/sections/footer.html' data-color-scheme='dark'></footer>
+        <section ht-include='fragments/newsletter.html'></section>
+        <footer ht-include='fragments/sections/footer.html' data-color-scheme='dark'></footer>
     </body>
 </html>
