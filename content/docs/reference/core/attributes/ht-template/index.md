@@ -151,6 +151,26 @@ Two auto-generated template data properties are available during `ht-template` i
 * `ht.index` a one-indexed integer representing the position in the loop
 * `ht.count` the count of items in the collection
 
+#### Placeholder template
+-------------------------
+
+An HTML element with an `ht-template` attribute is called an "placeholder template".
+Placeholder and their child elements (if any) are cloned once per iteration of the referenced [template data] value(s).
+
+<code-snippet ht-block filename='fragments/nav.html' highlight='2-4' line-numbers='on'>
+
+```html
+<nav>
+    <a ht-template='link:site.nav' ht-attrs='href:link.href'>
+        <span ht-content='link.label'></span>
+    </a>
+</nav>
+```
+
+</code-snippet>
+
+In this example, the `<a>` element together with its child `<span>` element make up an iterator template.
+
 #### Limit and offset
 ---------------------
 
@@ -160,9 +180,8 @@ Use `ht-offset` to skip the first n items in the `ht-template` template data.
 
 <doc-quote ht-block info>
 
-The `ht-offset='X'` and `ht-limit='Y'` attributes can be used together to "skip the first X elements, and show up to Y elements".
-
-The following example shows how to configure a feed page with three "featured posts", followed by the remaining posts. 
+The following example shows how to configure a feed page with three "featured posts", followed by any remaining posts.
+Both blocks are using the same `page.feed.pages` template data.
 
 <code-snippet ht-block filename='fragments/blog.html'>
 
@@ -196,29 +215,21 @@ The following example shows how to configure a feed page with three "featured po
 
 </code-snippet>
 
-</doc-quote>
-
-#### Placeholder template
--------------------------
-
-An HTML element with an `ht-template` attribute is called an "placeholder template".
-Placeholder and their child elements (if any) are cloned once per iteration of the referenced [template data] value(s).
-
-<code-snippet ht-block filename='fragments/nav.html' highlight='2-4' line-numbers='on'>
+If the recent posts block should be further constrained to show a limited number of items, the `ht-limit` attribute could be used alongside `ht-offset`.
 
 ```html
-<nav>
-    <a ht-template='link:site.nav' ht-attrs='href:link.href'>
-        <span ht-content='link.label'></span>
+<recent-posts>
+    <a ht-template='post:page.feed.pages' ht-offset='3' ht-limit='6' ht-attr='href:post.href'>
+        <!-- Recent Post Layout -->
     </a>
-</nav>
+</recent-posts>
 ```
 
-</code-snippet>
+_NOTE: `ht-limit` is always applied as a **count**, not a **range**.
+The equivalent Javascript is an [`Array.slice()`] expression of `arr.slice(offset, offset+limit)`.
+In the example above that would be `arr.slice(3, 3+6)` (up to 6 items), not `arr.slice(3, 6)` (up to 3 items)._
 
-In this example, the `<a>` element together with its child `<span>` element make up an iterator template.
-
-
+</doc-quote>
 
 <!-- Links -->
 [`ht-content`]: /docs/reference/core/attributes/ht-content/
@@ -236,3 +247,4 @@ In this example, the `<a>` element together with its child `<span>` element make
 [attribute syntax]: #attribute-syntax
 [HTML `DocumentFragment`]: https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
 [HTML `Document`]: https://developer.mozilla.org/en-US/docs/Web/API/Document
+[`Array.slice()`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice

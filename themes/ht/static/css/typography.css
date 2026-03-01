@@ -109,7 +109,7 @@ ol li {
 
 p > code {
     text-wrap: wrap;
-    word-break: break-all;
+    word-break: normal;
 }
 
 blockquote {

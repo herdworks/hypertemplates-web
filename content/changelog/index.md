@@ -8,6 +8,10 @@ summary: |
 
 # Changelog
 
+## `hyperctl` v0.18.1 (2026-03-01)
+
+* Fixed [`hyperctl theme package`](/docs/reference/cli/commands/theme/package/) now includes the `theme.json` configuration file in the generated theme archive.
+
 ## `hyperctl` v0.18.0 (2026-02-26)
 
 * Added [`ht.*` template data namespace](/docs/reference/core/data/#template-data-sources), and `ht.version` & `ht.release_date` properties

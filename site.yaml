@@ -36,7 +36,8 @@ links:
     href: https://mastodon.social/@herdworks
 config:
     tidy_mode: true
-    tag_layout: "tag.html"
+    tag_layout: tag.html
+    builds_dir: .builds
     themes_dir: themes
     theme: themes/ht/theme.json
 provider:

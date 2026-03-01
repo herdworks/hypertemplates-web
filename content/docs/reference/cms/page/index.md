@@ -224,7 +224,6 @@ All properties are string data types unless otherwise noted.
   title: Introducing HyperTemplates
   description: The pure-HTML templating system for the modern web.
   author:
-      username: "@calebhailey.com"
       name: "Caleb Hailey"
       href: "https://calebhailey.com"
       favicon: "https://calebhailey.com/favicon.ico"

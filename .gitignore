@@ -1,6 +1,7 @@
 archive/*
 branding/*
-builds/*
 drafts/*
+builds/*
+.builds/*
 .envrc
 *.tar.gz

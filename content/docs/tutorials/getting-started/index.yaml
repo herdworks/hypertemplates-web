@@ -44,26 +44,26 @@ guide:
               If you're interested in trying out beta releases of HyperTemplates for Windows, please [join the community](https://hypertexting.community) and check out [`hyperctl` for Windows](https://hypertexting.community/t/help-us-test-hyperctl-for-windows/52).
 
         - title: Create your first HyperTemplates website
-          description: Use the `hyperctl new website` command to start a new website project.
+          description: Use the `hyperctl cms new website` command to start a new website project.
           instructions: |
-            Start a new HyperTemplates project with the [`hyperctl new website`](/docs/reference/cli/commands/new/website/) command.
+            Start a new HyperTemplates project with the [`hyperctl cms new website`](/docs/reference/cli/commands/cms/new/website/) command.
 
             ```shell
-            hyperctl new website -b "https://acmeinc.com" -t "Acme Inc" acme-website
+            hyperctl cms new website -b "https://acmeinc.com" -t "Acme Inc" acme-website
             cd acme-website
             ```
 
-            The `hyperctl new website` command provides some basic scaffolding for a new website, including your `site.yaml` configuration file, a landing page, some example layout templates, and more.
+            The `hyperctl cms new website` command provides some basic scaffolding for a new website, including your `site.yaml` configuration file, a landing page, some example layout templates, and more.
 
             Feel free to explore the generated files in your text editor, or move on to the next step to start the development server and view your new website in a browser.
 
         - title: Start the development server
           description: View your new HyperTemplates website in a browser!
           instructions: |
-            Start the HyperTemplates development server with the [`hyperctl server`](/docs/reference/cli/commands/server/) command.
+            Start the HyperTemplates development server with the [`hyperctl dev server`](/docs/reference/cli/commands/dev/server/) command.
 
             ```shell
-            hyperctl server --config site.yaml
+            hyperctl dev server --config site.yaml
             ```
 
             Now open your browser to [http://localhost:8080](http://localhost:8080) to view your new HyperTemplates website!
