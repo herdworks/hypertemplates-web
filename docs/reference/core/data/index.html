@@ -1,0 +1,1484 @@
+<!DOCTYPE html><html lang="en-US"><head>
+        <!-- Global Metadata -->
+<meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; https://plausible.io; style-src &#39;self&#39; &#39;unsafe-inline&#39;; connect-src &#39;self&#39; https://*; img-src &#39;self&#39; https://*; media-src &#39;self&#39; https://*;"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+
+<title>HyperTemplates | Template Data</title>
+<meta name="description" content="Learn more about the HyperTemplates data model."/>
+<meta name="publisher" content="HyperTemplates"/>
+<meta name="creator" content="HyperTemplates"/>
+<meta name="author" content="HyperTemplates"/>
+<meta name="referrer" content="origin"/>
+<meta name="color-scheme" content="light dark"/>
+<meta name="build_id" content="100"/>
+
+<!-- OpenGraph Metadata -->
+<!-- "See http://ogp.me/ for more information" -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" ht-attrs="content:page.slug"/>
+<meta property="og:title" content="Template Data"/>
+<meta property="og:description" content="Learn more about the HyperTemplates data model."/>
+
+
+
+<!-- Twitter Metadata -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Template Data"/>
+<meta name="twitter:description" content="Learn more about the HyperTemplates data model."/>
+<meta name="twitter:site" content="@herdworks"/>
+<meta name="twitter:creator" content="@herdworks"/>
+
+
+<!-- Global Links -->
+
+<link rel="canonical" href="https://hypertemplates.net/docs/reference/core/data/"/>
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180"/><link rel="icon" href="/img/apple-touch-icon.png" sizes="180x180"/><link rel="icon" href="/img/favicon-128x128.png" sizes="128x128"/><link rel="icon" href="/img/favicon-192x192.png" sizes="192x192"/><link rel="icon" href="/img/favicon-256x256.png" sizes="256x256"/><link rel="icon" href="/img/favicon-512x512.png" sizes="512x512"/><link rel="me" href="https://github.com/hypertemplates"/><link rel="me" href="https://mastodon.social/@herdworks"/>
+
+<!-- Global Styles -->
+<link rel="stylesheet" href="/css/reset.css"/>
+<link rel="stylesheet" href="/css/variables.css?version=100"/>
+<link rel="stylesheet" href="/css/colors.css?version=100"/>
+<link rel="stylesheet" href="/css/typography.css?version=100"/>
+<link rel="stylesheet" href="/css/grid.css?version=100"/>
+<link rel="stylesheet" href="/css/styles.css?version=100"/>
+<link rel="stylesheet" href="/css/chroma-base16-snazzy.css?version=100"/>
+
+<!-- Global Scripts -->
+<script src="/js/main.js?version=100" defer=""></script>
+<script src="https://plausible.io/js/script.file-downloads.outbound-links.js" data-domain="hypertemplates.net" defer=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+        <!-- Layout Properties -->
+        <meta name="layout:name" content="default"/>
+        <meta name="breadcrumb" content="Data"/>
+
+        <!-- Layout Components -->
+        <script src="/js/components/doc-breadcrumbs.js?v=3" defer=""></script>
+        <script src="/js/components/auto-anchor.js" defer=""></script>
+        <script src="/js/components/auto-toc.js" defer=""></script>
+        <script src="/js/components/code-snippet.js" defer=""></script>
+        <script src="/js/components/footer-menu.js" defer=""></script>
+        <script src="/js/components/edit-this-page.js" defer=""></script>
+
+        <!-- Layout Styles -->
+        <style id="components">
+        header > content-container {
+            display: grid;
+            justify-items: center;
+            margin-top: var(--whitespace, 50px);
+
+            & h1, p {
+                text-align: center;
+            }
+        }
+    
+        nav content-container {
+            display: grid;
+            grid-template-areas: "learn logo develop button";
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr auto 1fr 0;
+            --link-underline-color: none;
+        }
+        nav a[rel='home'] svg {
+            height: 100px;
+            width: auto;
+        }
+        nav-links {
+            display: flex;
+            column-gap: var(--gutter-1x, 15px);
+            align-items: center;
+            align-content: center;
+            font-size: 1.25rem;
+            font-weight: bolder;
+        }
+        nav-links[rel='learn'] {
+            grid-area: learn;
+            flex-direction: row;
+        }
+        nav-links[rel='develop'] {
+            grid-area: develop;
+            flex-direction: row-reverse;
+        }
+        nav-button {
+            grid-area: button;
+            display: none;
+            flex-direction: row;
+            justify-items: end;
+            justify-content: end;
+            align-items: center;
+
+            & button:first-of-type {
+                width: 48px;
+                height: 48px;
+                padding: 4px;
+                background-color: var(--accent-shade);
+                color: rgba(255,255,255,0.8);
+            }
+
+            & svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        @media screen and (max-width: 767px) {
+            nav content-container {
+                grid-template-columns: 0 auto 0 auto;
+            }
+            nav-links[rel='learn'] { display: none; }
+            nav-links[rel='develop'] { display: none; }
+            nav-button { display: flex; }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1279px) {}
+        @media screen and (min-width: 1280px) {}
+    
+        sidebar-autofocus[hidden] {
+            display: none;
+        }
+        sidebar-autofocus:not([hidden]) {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            z-index: 10;
+        }
+    
+        sidebar-menu {
+            /* variables */
+            --width: min(360px, 70vw);
+
+            display: block;
+            position: fixed;
+            top: 0;
+            right: calc(var(--width) * -1);
+            height: 100vh;
+            width: var(--width);
+            z-index: 999;
+            padding: var(--gutter-1x, 15px);
+            transition: right 0.35s ease-in-out;
+        }
+        sidebar-menu[active] {
+            right: 0;
+            transition: right 0.35s ease-in-out;
+        }
+        sidebar-menu menu {
+            display: flex;
+            flex-direction: column;
+
+            & svg {
+                height: 100px;
+                width: auto;
+                margin-bottom: 15px;
+                justify-self: center;
+            }
+            & li {
+                font-size: 1.25rem;
+                text-align: center;
+                list-style-type: none;
+                margin-bottom: 10px;
+            }
+        }
+    
+        code-snippet {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            min-height: fit-content;
+            margin: var(--gutter-2x, 30px) 0;
+        }
+        code-snippet window-chrome {
+            display: grid;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            height: 30px;
+            background-color: color-mix(in srgb, var(--accent-shade) 50%, transparent);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 0 15px;
+            align-content: center;
+            justify-content: start;
+            grid-template: 'button button button . title . actions';
+            grid-template-columns: 24px 24px 24px auto 1fr auto 72px;
+
+            & button {
+                grid-area: button / auto;
+                display: inline-block;
+                align-self: center;
+                justify-self: start;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                border-radius: 50%;
+            }
+
+            & span {
+                grid-area: title;
+                color: var(--text-color);
+                text-align: center;
+                font-size: 0.85em;
+            }
+        }
+        code-snippet window-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            min-height: fit-content;
+            padding: 0;
+            overflow-x: scroll;
+        }
+        code-snippet window-content > pre:has(code) {
+            margin: 0;
+        }
+        code-snippet window-content > pre,
+        code-snippet window-content > pre > code {
+            flex: 1;
+            tab-size: 2;
+        }
+        code-snippet[line-numbers='on'] .ln,
+        code-snippet[line-numbers='true'] .ln {
+            display: block;
+        }
+        code-snippet .line.highlighted .cl {
+            /* background-color: rgba(255,255,255,0.15); */
+            background-color: rgba(255, 255, 0, 0.25);
+            font-weight: 600;
+        }
+        code-snippet .line.highlighted .cl * {
+            margin-right: 0;
+        }
+        code-snippet window-content > p {
+            display: none;
+        }
+        code-snippet small {
+            width: 100%;
+            margin: var(--gutter-1x, 15px) 0;
+            text-align: center;
+        }
+    
+        code-snippet {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            min-height: fit-content;
+            margin: var(--gutter-2x, 30px) 0;
+        }
+        code-snippet window-chrome {
+            display: grid;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            height: 30px;
+            background-color: color-mix(in srgb, var(--accent-shade) 50%, transparent);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 0 15px;
+            align-content: center;
+            justify-content: start;
+            grid-template: 'button button button . title . actions';
+            grid-template-columns: 24px 24px 24px auto 1fr auto 72px;
+
+            & button {
+                grid-area: button / auto;
+                display: inline-block;
+                align-self: center;
+                justify-self: start;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                border-radius: 50%;
+            }
+
+            & span {
+                grid-area: title;
+                color: var(--text-color);
+                text-align: center;
+                font-size: 0.85em;
+            }
+        }
+        code-snippet window-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            min-height: fit-content;
+            padding: 0;
+            overflow-x: scroll;
+        }
+        code-snippet window-content > pre:has(code) {
+            margin: 0;
+        }
+        code-snippet window-content > pre,
+        code-snippet window-content > pre > code {
+            flex: 1;
+            tab-size: 2;
+        }
+        code-snippet[line-numbers='on'] .ln,
+        code-snippet[line-numbers='true'] .ln {
+            display: block;
+        }
+        code-snippet .line.highlighted .cl {
+            /* background-color: rgba(255,255,255,0.15); */
+            background-color: rgba(255, 255, 0, 0.25);
+            font-weight: 600;
+        }
+        code-snippet .line.highlighted .cl * {
+            margin-right: 0;
+        }
+        code-snippet window-content > p {
+            display: none;
+        }
+        code-snippet small {
+            width: 100%;
+            margin: var(--gutter-1x, 15px) 0;
+            text-align: center;
+        }
+    
+        code-snippet {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            min-height: fit-content;
+            margin: var(--gutter-2x, 30px) 0;
+        }
+        code-snippet window-chrome {
+            display: grid;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            height: 30px;
+            background-color: color-mix(in srgb, var(--accent-shade) 50%, transparent);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 0 15px;
+            align-content: center;
+            justify-content: start;
+            grid-template: 'button button button . title . actions';
+            grid-template-columns: 24px 24px 24px auto 1fr auto 72px;
+
+            & button {
+                grid-area: button / auto;
+                display: inline-block;
+                align-self: center;
+                justify-self: start;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                border-radius: 50%;
+            }
+
+            & span {
+                grid-area: title;
+                color: var(--text-color);
+                text-align: center;
+                font-size: 0.85em;
+            }
+        }
+        code-snippet window-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            min-height: fit-content;
+            padding: 0;
+            overflow-x: scroll;
+        }
+        code-snippet window-content > pre:has(code) {
+            margin: 0;
+        }
+        code-snippet window-content > pre,
+        code-snippet window-content > pre > code {
+            flex: 1;
+            tab-size: 2;
+        }
+        code-snippet[line-numbers='on'] .ln,
+        code-snippet[line-numbers='true'] .ln {
+            display: block;
+        }
+        code-snippet .line.highlighted .cl {
+            /* background-color: rgba(255,255,255,0.15); */
+            background-color: rgba(255, 255, 0, 0.25);
+            font-weight: 600;
+        }
+        code-snippet .line.highlighted .cl * {
+            margin-right: 0;
+        }
+        code-snippet window-content > p {
+            display: none;
+        }
+        code-snippet small {
+            width: 100%;
+            margin: var(--gutter-1x, 15px) 0;
+            text-align: center;
+        }
+    
+        doc-quote {
+            display: block;
+
+            --doc-quote-color: rgba(0,0,0,0.65);
+            --doc-quote-bg: color-mix(in srgb, var(--color-3) 50%, transparent);
+            --doc-quote-accent: rgba(0,0,0,0.25);
+        }
+        doc-quote[info] {
+            --doc-quote-color: rgb(8, 66, 152, 1.0); /* #084298 */
+            --doc-quote-bg: rgb(207, 226, 255, 1.0); /* #cfe2ff */
+            --doc-quote-accent: rgb(182, 212, 254, 1.0); /* #b6d4fe */
+        }
+        doc-quote[success],doc-quote[new] {
+            --doc-quote-color: #0f5132; /* #0f5132 */
+            --doc-quote-bg: #d1e7dd; /* #d1e7dd */
+            --doc-quote-accent: #badbcc; /* #badbcc */
+        }
+        doc-quote[notice],doc-quote[warning],doc-quote[caution] {
+            --doc-quote-color: rgba(102,77,3); /* #664d03 */
+            --doc-quote-bg: rgba(255,243,205); /* #fff3cd */
+            --doc-quote-accent: rgba(255,230,156); /* #ffe69c */
+        }
+        doc-quote[danger],doc-quote[error] {
+            --doc-quote-color: #58151c;
+            --doc-quote-bg: #f8d7da;
+            --doc-quote-accent: #f1aeb5; 
+        }
+        doc-quote blockquote {
+            display: block;
+            color: var(--doc-quote-color);
+            background-color: var(--doc-quote-bg);
+            margin: var(--gutter-1x, 15px) 0;
+            padding: var(--gutter-1x) var(--gutter-2x);
+            border-left: var(--gutter-1x) solid var(--doc-quote-accent);
+        }
+        doc-quote blockquote p:last-of-type {
+            margin-bottom: 0;
+        }
+        doc-quote blockquote :is(a, a:hover) {
+            font-weight: 600;
+            box-shadow: none;
+            text-decoration: underline;
+        }
+        doc-quote mark, [data-color-scheme] doc-quote mark {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        doc-quote blockquote blockquote {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-left: none;
+        }
+    
+        code-snippet {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            min-height: fit-content;
+            margin: var(--gutter-2x, 30px) 0;
+        }
+        code-snippet window-chrome {
+            display: grid;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            height: 30px;
+            background-color: color-mix(in srgb, var(--accent-shade) 50%, transparent);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 0 15px;
+            align-content: center;
+            justify-content: start;
+            grid-template: 'button button button . title . actions';
+            grid-template-columns: 24px 24px 24px auto 1fr auto 72px;
+
+            & button {
+                grid-area: button / auto;
+                display: inline-block;
+                align-self: center;
+                justify-self: start;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                border-radius: 50%;
+            }
+
+            & span {
+                grid-area: title;
+                color: var(--text-color);
+                text-align: center;
+                font-size: 0.85em;
+            }
+        }
+        code-snippet window-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            min-height: fit-content;
+            padding: 0;
+            overflow-x: scroll;
+        }
+        code-snippet window-content > pre:has(code) {
+            margin: 0;
+        }
+        code-snippet window-content > pre,
+        code-snippet window-content > pre > code {
+            flex: 1;
+            tab-size: 2;
+        }
+        code-snippet[line-numbers='on'] .ln,
+        code-snippet[line-numbers='true'] .ln {
+            display: block;
+        }
+        code-snippet .line.highlighted .cl {
+            /* background-color: rgba(255,255,255,0.15); */
+            background-color: rgba(255, 255, 0, 0.25);
+            font-weight: 600;
+        }
+        code-snippet .line.highlighted .cl * {
+            margin-right: 0;
+        }
+        code-snippet window-content > p {
+            display: none;
+        }
+        code-snippet small {
+            width: 100%;
+            margin: var(--gutter-1x, 15px) 0;
+            text-align: center;
+        }
+    
+        doc-quote {
+            display: block;
+
+            --doc-quote-color: rgba(0,0,0,0.65);
+            --doc-quote-bg: color-mix(in srgb, var(--color-3) 50%, transparent);
+            --doc-quote-accent: rgba(0,0,0,0.25);
+        }
+        doc-quote[info] {
+            --doc-quote-color: rgb(8, 66, 152, 1.0); /* #084298 */
+            --doc-quote-bg: rgb(207, 226, 255, 1.0); /* #cfe2ff */
+            --doc-quote-accent: rgb(182, 212, 254, 1.0); /* #b6d4fe */
+        }
+        doc-quote[success],doc-quote[new] {
+            --doc-quote-color: #0f5132; /* #0f5132 */
+            --doc-quote-bg: #d1e7dd; /* #d1e7dd */
+            --doc-quote-accent: #badbcc; /* #badbcc */
+        }
+        doc-quote[notice],doc-quote[warning],doc-quote[caution] {
+            --doc-quote-color: rgba(102,77,3); /* #664d03 */
+            --doc-quote-bg: rgba(255,243,205); /* #fff3cd */
+            --doc-quote-accent: rgba(255,230,156); /* #ffe69c */
+        }
+        doc-quote[danger],doc-quote[error] {
+            --doc-quote-color: #58151c;
+            --doc-quote-bg: #f8d7da;
+            --doc-quote-accent: #f1aeb5; 
+        }
+        doc-quote blockquote {
+            display: block;
+            color: var(--doc-quote-color);
+            background-color: var(--doc-quote-bg);
+            margin: var(--gutter-1x, 15px) 0;
+            padding: var(--gutter-1x) var(--gutter-2x);
+            border-left: var(--gutter-1x) solid var(--doc-quote-accent);
+        }
+        doc-quote blockquote p:last-of-type {
+            margin-bottom: 0;
+        }
+        doc-quote blockquote :is(a, a:hover) {
+            font-weight: 600;
+            box-shadow: none;
+            text-decoration: underline;
+        }
+        doc-quote mark, [data-color-scheme] doc-quote mark {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        doc-quote blockquote blockquote {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-left: none;
+        }
+    
+        doc-quote {
+            display: block;
+
+            --doc-quote-color: rgba(0,0,0,0.65);
+            --doc-quote-bg: color-mix(in srgb, var(--color-3) 50%, transparent);
+            --doc-quote-accent: rgba(0,0,0,0.25);
+        }
+        doc-quote[info] {
+            --doc-quote-color: rgb(8, 66, 152, 1.0); /* #084298 */
+            --doc-quote-bg: rgb(207, 226, 255, 1.0); /* #cfe2ff */
+            --doc-quote-accent: rgb(182, 212, 254, 1.0); /* #b6d4fe */
+        }
+        doc-quote[success],doc-quote[new] {
+            --doc-quote-color: #0f5132; /* #0f5132 */
+            --doc-quote-bg: #d1e7dd; /* #d1e7dd */
+            --doc-quote-accent: #badbcc; /* #badbcc */
+        }
+        doc-quote[notice],doc-quote[warning],doc-quote[caution] {
+            --doc-quote-color: rgba(102,77,3); /* #664d03 */
+            --doc-quote-bg: rgba(255,243,205); /* #fff3cd */
+            --doc-quote-accent: rgba(255,230,156); /* #ffe69c */
+        }
+        doc-quote[danger],doc-quote[error] {
+            --doc-quote-color: #58151c;
+            --doc-quote-bg: #f8d7da;
+            --doc-quote-accent: #f1aeb5; 
+        }
+        doc-quote blockquote {
+            display: block;
+            color: var(--doc-quote-color);
+            background-color: var(--doc-quote-bg);
+            margin: var(--gutter-1x, 15px) 0;
+            padding: var(--gutter-1x) var(--gutter-2x);
+            border-left: var(--gutter-1x) solid var(--doc-quote-accent);
+        }
+        doc-quote blockquote p:last-of-type {
+            margin-bottom: 0;
+        }
+        doc-quote blockquote :is(a, a:hover) {
+            font-weight: 600;
+            box-shadow: none;
+            text-decoration: underline;
+        }
+        doc-quote mark, [data-color-scheme] doc-quote mark {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        doc-quote blockquote blockquote {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-left: none;
+        }
+    
+        doc-quote {
+            display: block;
+
+            --doc-quote-color: rgba(0,0,0,0.65);
+            --doc-quote-bg: color-mix(in srgb, var(--color-3) 50%, transparent);
+            --doc-quote-accent: rgba(0,0,0,0.25);
+        }
+        doc-quote[info] {
+            --doc-quote-color: rgb(8, 66, 152, 1.0); /* #084298 */
+            --doc-quote-bg: rgb(207, 226, 255, 1.0); /* #cfe2ff */
+            --doc-quote-accent: rgb(182, 212, 254, 1.0); /* #b6d4fe */
+        }
+        doc-quote[success],doc-quote[new] {
+            --doc-quote-color: #0f5132; /* #0f5132 */
+            --doc-quote-bg: #d1e7dd; /* #d1e7dd */
+            --doc-quote-accent: #badbcc; /* #badbcc */
+        }
+        doc-quote[notice],doc-quote[warning],doc-quote[caution] {
+            --doc-quote-color: rgba(102,77,3); /* #664d03 */
+            --doc-quote-bg: rgba(255,243,205); /* #fff3cd */
+            --doc-quote-accent: rgba(255,230,156); /* #ffe69c */
+        }
+        doc-quote[danger],doc-quote[error] {
+            --doc-quote-color: #58151c;
+            --doc-quote-bg: #f8d7da;
+            --doc-quote-accent: #f1aeb5; 
+        }
+        doc-quote blockquote {
+            display: block;
+            color: var(--doc-quote-color);
+            background-color: var(--doc-quote-bg);
+            margin: var(--gutter-1x, 15px) 0;
+            padding: var(--gutter-1x) var(--gutter-2x);
+            border-left: var(--gutter-1x) solid var(--doc-quote-accent);
+        }
+        doc-quote blockquote p:last-of-type {
+            margin-bottom: 0;
+        }
+        doc-quote blockquote :is(a, a:hover) {
+            font-weight: 600;
+            box-shadow: none;
+            text-decoration: underline;
+        }
+        doc-quote mark, [data-color-scheme] doc-quote mark {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        doc-quote blockquote blockquote {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-left: none;
+        }
+    
+        doc-quote {
+            display: block;
+
+            --doc-quote-color: rgba(0,0,0,0.65);
+            --doc-quote-bg: color-mix(in srgb, var(--color-3) 50%, transparent);
+            --doc-quote-accent: rgba(0,0,0,0.25);
+        }
+        doc-quote[info] {
+            --doc-quote-color: rgb(8, 66, 152, 1.0); /* #084298 */
+            --doc-quote-bg: rgb(207, 226, 255, 1.0); /* #cfe2ff */
+            --doc-quote-accent: rgb(182, 212, 254, 1.0); /* #b6d4fe */
+        }
+        doc-quote[success],doc-quote[new] {
+            --doc-quote-color: #0f5132; /* #0f5132 */
+            --doc-quote-bg: #d1e7dd; /* #d1e7dd */
+            --doc-quote-accent: #badbcc; /* #badbcc */
+        }
+        doc-quote[notice],doc-quote[warning],doc-quote[caution] {
+            --doc-quote-color: rgba(102,77,3); /* #664d03 */
+            --doc-quote-bg: rgba(255,243,205); /* #fff3cd */
+            --doc-quote-accent: rgba(255,230,156); /* #ffe69c */
+        }
+        doc-quote[danger],doc-quote[error] {
+            --doc-quote-color: #58151c;
+            --doc-quote-bg: #f8d7da;
+            --doc-quote-accent: #f1aeb5; 
+        }
+        doc-quote blockquote {
+            display: block;
+            color: var(--doc-quote-color);
+            background-color: var(--doc-quote-bg);
+            margin: var(--gutter-1x, 15px) 0;
+            padding: var(--gutter-1x) var(--gutter-2x);
+            border-left: var(--gutter-1x) solid var(--doc-quote-accent);
+        }
+        doc-quote blockquote p:last-of-type {
+            margin-bottom: 0;
+        }
+        doc-quote blockquote :is(a, a:hover) {
+            font-weight: 600;
+            box-shadow: none;
+            text-decoration: underline;
+        }
+        doc-quote mark, [data-color-scheme] doc-quote mark {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        doc-quote blockquote blockquote {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-left: none;
+        }
+    
+        code-snippet {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            min-height: fit-content;
+            margin: var(--gutter-2x, 30px) 0;
+        }
+        code-snippet window-chrome {
+            display: grid;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            height: 30px;
+            background-color: color-mix(in srgb, var(--accent-shade) 50%, transparent);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 0 15px;
+            align-content: center;
+            justify-content: start;
+            grid-template: 'button button button . title . actions';
+            grid-template-columns: 24px 24px 24px auto 1fr auto 72px;
+
+            & button {
+                grid-area: button / auto;
+                display: inline-block;
+                align-self: center;
+                justify-self: start;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                border-radius: 50%;
+            }
+
+            & span {
+                grid-area: title;
+                color: var(--text-color);
+                text-align: center;
+                font-size: 0.85em;
+            }
+        }
+        code-snippet window-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            min-height: fit-content;
+            padding: 0;
+            overflow-x: scroll;
+        }
+        code-snippet window-content > pre:has(code) {
+            margin: 0;
+        }
+        code-snippet window-content > pre,
+        code-snippet window-content > pre > code {
+            flex: 1;
+            tab-size: 2;
+        }
+        code-snippet[line-numbers='on'] .ln,
+        code-snippet[line-numbers='true'] .ln {
+            display: block;
+        }
+        code-snippet .line.highlighted .cl {
+            /* background-color: rgba(255,255,255,0.15); */
+            background-color: rgba(255, 255, 0, 0.25);
+            font-weight: 600;
+        }
+        code-snippet .line.highlighted .cl * {
+            margin-right: 0;
+        }
+        code-snippet window-content > p {
+            display: none;
+        }
+        code-snippet small {
+            width: 100%;
+            margin: var(--gutter-1x, 15px) 0;
+            text-align: center;
+        }
+    
+        #newsletter {
+            padding: 50px 0;
+        }
+        #newsletter content-row {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gutter-2x, 30px);
+        }
+        #newsletter content-column:last-child {
+            width: 100%;
+            align-self: center;
+        }
+        @media screen and (max-width: 1279px) {
+            #newsletter content-row {
+                grid-template-columns: 1fr;
+                grid-auto-flow: row;
+            }
+        }
+    
+        footer footer-menu {
+            margin-bottom: var(--gutter-2x, 30px);
+        }
+    
+        footer-menu {
+            display: block;
+            height: max-content;
+            width: 100%;
+        }
+        footer-menu menu {
+            display: grid;
+            grid-auto-flow: column; /* magic */
+            grid-auto-columns: 1fr; /* magic */
+            gap: var(--gutter-1x);
+        }
+        footer-menu menu menu-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            height: 100%;
+            min-height: 0;
+        }
+        footer-menu menu menu-group > * {
+            width: 100%;
+        }
+        footer-menu menu menu-group h5 {
+            margin-bottom: 15px;
+        }
+        footer-menu menu menu-group a,
+        footer-menu menu menu-group a:hover {
+            text-decoration: none;
+            margin-bottom: 5px;
+            box-shadow: none;
+        }
+        @media screen and (max-width: 767px) {
+            footer-menu menu {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-flow: unset;
+                grid-auto-columns: unset;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1279px) {}
+        @media screen and (min-width: 1280px) {}
+    </style>
+        <style id="style">
+            doc-breadcrumbs {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin-bottom: var(--whitespace);
+                overflow: scroll;
+                scrollbar-width: none;  /* Firefox */
+                -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            }
+
+            doc-breadcrumbs::-webkit-scrollbar { 
+                display: none;  /* Safari and Chrome */
+            }
+
+            doc-breadcrumbs doc-breadcrumb {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                align-content: center;
+                white-space: nowrap;
+
+                & :is(svg,img) {
+                    display: inline;
+                    height: 1.0rem;
+                    margin: 0 var(--gutter-1x, 15px);
+                }
+
+                & a {
+                    display: inline;
+                    color: inherit !important;
+                }
+            }
+
+            doc-breadcrumb:last-of-type :is(svg,img) { display: none; }
+
+            [data-color-scheme] auto-toc li a { font-weight: 500; }
+
+            hr { margin-bottom: var(--gutter-1x, 15px); }
+
+            :where(h1, h2, h3, h4, h5, h6):not(:first-child) {
+                margin-top: 1.5em;
+            }
+
+            a[rel='anchor'] { display: inline; }
+
+            edit-this-page { 
+                display: flex; 
+                flex-direction: row; 
+                justify-content: end;
+                margin-top: var(--gutter-1x);
+            }
+            edit-this-page svg { display: inline; }
+        </style>
+    </head>
+    <body>
+        <header id="header" data-color-scheme="primary">
+    
+    <nav>
+    
+    <content-container>
+        <nav-links rel="learn">
+            <a href="/">Home</a><a href="/#features">Features</a><a href="/blog/">Blog</a>
+        </nav-links>
+        <a href="/" rel="home">
+            <svg viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.33093,0,0,1.33093,-200.495,332.95)">
+        <g transform="matrix(1,0,0,1,-5.68434e-14,-39.6758)">
+            <path d="M264.361,177.22C266.742,177.22 269.122,174.839 269.122,172.458L269.122,145.592C269.122,142.872 271.163,140.491 273.883,140.491L318.774,140.491C321.494,140.491 323.535,138.451 323.535,135.73L323.535,108.864C323.535,106.143 321.494,104.103 318.774,104.103L255.519,104.103C252.798,104.103 250.758,106.143 250.758,108.864L250.758,140.491L200.766,140.491C198.046,140.491 196.005,142.872 196.005,145.252L196.005,177.22L173.9,177.22C171.18,177.22 169.139,179.26 169.139,181.641L169.139,208.847C169.139,211.227 171.18,213.608 173.9,213.608L196.005,213.608L196.005,245.235C196.005,247.956 198.046,249.996 200.766,249.996L250.758,249.996L250.758,281.624C250.758,284.344 252.798,286.385 255.519,286.385L318.774,286.385C321.494,286.385 323.535,284.004 323.535,281.624L323.535,254.417C323.535,252.037 321.494,249.656 318.774,249.656L273.883,249.996C271.163,249.996 269.122,247.616 269.122,244.895L269.122,218.369C269.122,215.648 266.742,213.608 264.361,213.608L219.131,213.608C216.41,213.608 214.369,211.227 214.369,208.507L214.369,181.981C214.369,179.26 216.41,177.22 219.131,177.22L264.361,177.22Z" style="fill-rule:nonzero;"></path>
+            <path d="M893.62,177.22C896.341,177.22 898.721,179.26 898.721,181.981L898.721,208.507C898.721,211.227 896.341,213.608 893.62,213.608L848.73,213.608C846.009,213.608 843.968,215.648 843.968,218.369L843.968,244.895C843.968,247.616 841.588,249.996 838.867,249.996L793.977,249.656C791.256,249.656 789.216,252.037 789.216,254.417L789.216,281.624C789.216,284.004 791.256,286.385 793.977,286.385L857.232,286.385C859.952,286.385 861.993,284.344 861.993,281.624L861.993,249.996L911.984,249.996C914.705,249.996 916.745,247.956 916.745,245.235L916.745,213.608L938.85,213.608C941.571,213.608 943.611,211.227 943.611,208.847L943.611,181.641C943.611,179.26 941.571,177.22 938.85,177.22L916.745,177.22L916.745,145.252C916.745,142.872 914.705,140.491 911.984,140.491L861.993,140.491L861.993,108.864C861.993,106.143 859.952,104.103 857.232,104.103L793.977,104.103C791.256,104.103 789.216,106.143 789.216,108.864L789.216,135.73C789.216,138.451 791.256,140.491 793.977,140.491L838.867,140.491C841.588,140.491 843.968,142.872 843.968,145.592L843.968,172.458C843.968,174.839 846.009,177.22 848.73,177.22L893.62,177.22Z" style="fill-rule:nonzero;"></path>
+        </g>
+        <g>
+            <path d="M513.979,66.921L426.919,66.921L426.919,7.974C426.919,0.265 420.571,-6.083 412.862,-6.083L359.81,-6.083C352.101,-6.083 345.753,0.265 345.753,7.974L345.753,303.162C345.753,310.87 352.101,317.219 359.81,317.219L412.862,317.219C420.571,317.219 426.919,310.87 426.919,303.162L426.919,106.823C426.919,103.196 430.093,100.475 433.72,100.475L447.777,100.475C451.404,100.475 454.125,103.196 454.125,106.823L454.125,121.787C454.125,124.507 456.392,126.775 459.113,126.775L474.53,126.775C478.157,126.775 481.331,129.495 481.331,133.123L481.331,303.162C481.331,310.87 487.679,317.219 495.388,317.219L548.44,317.219C556.149,317.219 562.497,310.87 562.497,303.162L562.497,115.439C562.497,107.277 555.695,100.475 547.533,100.475L528.942,100.475L528.942,81.884C528.942,73.722 522.141,66.921 513.979,66.921Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M755.208,126.775C761.556,126.775 766.997,121.333 766.997,114.985L766.997,78.71C766.997,72.362 761.556,66.921 755.208,66.921L708.504,66.921L708.504,0.719C708.504,-2.909 705.33,-6.083 701.702,-6.083L667.241,-6.083C663.613,-6.083 660.893,-3.362 660.893,0.265L660.893,23.844C660.893,25.658 659.079,27.018 657.265,27.018L633.686,27.018C630.059,27.018 627.338,30.192 627.338,33.82L627.338,66.921L599.679,66.921C593.33,66.921 587.889,72.362 587.889,78.71L587.889,114.985C587.889,121.333 593.33,126.775 599.679,126.775L627.338,126.775L626.885,272.328C626.885,278.676 632.326,283.664 638.674,283.664L660.439,283.664L660.439,305.883C660.439,312.231 665.427,317.219 672.229,317.219L754.301,317.219C761.103,317.219 766.997,311.777 766.997,304.976L766.997,270.061C766.997,263.259 761.103,257.818 754.301,257.818L715.305,257.818C711.678,257.818 708.504,254.644 708.504,251.017L708.504,126.775L755.208,126.775Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+        </g>
+    </g>
+</svg>
+
+        </a>
+        <nav-links rel="develop">
+            <a href="/docs/reference/core/attributes/">Reference</a><a href="/docs/">Docs</a>
+        </nav-links>
+        <nav-button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path>
+</svg>
+
+            </button>
+        </nav-button>
+    </content-container>
+</nav>
+    <sidebar-autofocus hidden="">
+    
+</sidebar-autofocus>
+<sidebar-menu data-color-scheme="blur">
+    
+    <menu>
+        <svg viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.33093,0,0,1.33093,-200.495,332.95)">
+        <g transform="matrix(1,0,0,1,-5.68434e-14,-39.6758)">
+            <path d="M264.361,177.22C266.742,177.22 269.122,174.839 269.122,172.458L269.122,145.592C269.122,142.872 271.163,140.491 273.883,140.491L318.774,140.491C321.494,140.491 323.535,138.451 323.535,135.73L323.535,108.864C323.535,106.143 321.494,104.103 318.774,104.103L255.519,104.103C252.798,104.103 250.758,106.143 250.758,108.864L250.758,140.491L200.766,140.491C198.046,140.491 196.005,142.872 196.005,145.252L196.005,177.22L173.9,177.22C171.18,177.22 169.139,179.26 169.139,181.641L169.139,208.847C169.139,211.227 171.18,213.608 173.9,213.608L196.005,213.608L196.005,245.235C196.005,247.956 198.046,249.996 200.766,249.996L250.758,249.996L250.758,281.624C250.758,284.344 252.798,286.385 255.519,286.385L318.774,286.385C321.494,286.385 323.535,284.004 323.535,281.624L323.535,254.417C323.535,252.037 321.494,249.656 318.774,249.656L273.883,249.996C271.163,249.996 269.122,247.616 269.122,244.895L269.122,218.369C269.122,215.648 266.742,213.608 264.361,213.608L219.131,213.608C216.41,213.608 214.369,211.227 214.369,208.507L214.369,181.981C214.369,179.26 216.41,177.22 219.131,177.22L264.361,177.22Z" style="fill-rule:nonzero;"></path>
+            <path d="M893.62,177.22C896.341,177.22 898.721,179.26 898.721,181.981L898.721,208.507C898.721,211.227 896.341,213.608 893.62,213.608L848.73,213.608C846.009,213.608 843.968,215.648 843.968,218.369L843.968,244.895C843.968,247.616 841.588,249.996 838.867,249.996L793.977,249.656C791.256,249.656 789.216,252.037 789.216,254.417L789.216,281.624C789.216,284.004 791.256,286.385 793.977,286.385L857.232,286.385C859.952,286.385 861.993,284.344 861.993,281.624L861.993,249.996L911.984,249.996C914.705,249.996 916.745,247.956 916.745,245.235L916.745,213.608L938.85,213.608C941.571,213.608 943.611,211.227 943.611,208.847L943.611,181.641C943.611,179.26 941.571,177.22 938.85,177.22L916.745,177.22L916.745,145.252C916.745,142.872 914.705,140.491 911.984,140.491L861.993,140.491L861.993,108.864C861.993,106.143 859.952,104.103 857.232,104.103L793.977,104.103C791.256,104.103 789.216,106.143 789.216,108.864L789.216,135.73C789.216,138.451 791.256,140.491 793.977,140.491L838.867,140.491C841.588,140.491 843.968,142.872 843.968,145.592L843.968,172.458C843.968,174.839 846.009,177.22 848.73,177.22L893.62,177.22Z" style="fill-rule:nonzero;"></path>
+        </g>
+        <g>
+            <path d="M513.979,66.921L426.919,66.921L426.919,7.974C426.919,0.265 420.571,-6.083 412.862,-6.083L359.81,-6.083C352.101,-6.083 345.753,0.265 345.753,7.974L345.753,303.162C345.753,310.87 352.101,317.219 359.81,317.219L412.862,317.219C420.571,317.219 426.919,310.87 426.919,303.162L426.919,106.823C426.919,103.196 430.093,100.475 433.72,100.475L447.777,100.475C451.404,100.475 454.125,103.196 454.125,106.823L454.125,121.787C454.125,124.507 456.392,126.775 459.113,126.775L474.53,126.775C478.157,126.775 481.331,129.495 481.331,133.123L481.331,303.162C481.331,310.87 487.679,317.219 495.388,317.219L548.44,317.219C556.149,317.219 562.497,310.87 562.497,303.162L562.497,115.439C562.497,107.277 555.695,100.475 547.533,100.475L528.942,100.475L528.942,81.884C528.942,73.722 522.141,66.921 513.979,66.921Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M755.208,126.775C761.556,126.775 766.997,121.333 766.997,114.985L766.997,78.71C766.997,72.362 761.556,66.921 755.208,66.921L708.504,66.921L708.504,0.719C708.504,-2.909 705.33,-6.083 701.702,-6.083L667.241,-6.083C663.613,-6.083 660.893,-3.362 660.893,0.265L660.893,23.844C660.893,25.658 659.079,27.018 657.265,27.018L633.686,27.018C630.059,27.018 627.338,30.192 627.338,33.82L627.338,66.921L599.679,66.921C593.33,66.921 587.889,72.362 587.889,78.71L587.889,114.985C587.889,121.333 593.33,126.775 599.679,126.775L627.338,126.775L626.885,272.328C626.885,278.676 632.326,283.664 638.674,283.664L660.439,283.664L660.439,305.883C660.439,312.231 665.427,317.219 672.229,317.219L754.301,317.219C761.103,317.219 766.997,311.777 766.997,304.976L766.997,270.061C766.997,263.259 761.103,257.818 754.301,257.818L715.305,257.818C711.678,257.818 708.504,254.644 708.504,251.017L708.504,126.775L755.208,126.775Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+        </g>
+    </g>
+</svg>
+
+        <li>
+            <a href="/" rel="">Home</a>
+        </li><li>
+            <a href="/#features" rel="">Features</a>
+        </li><li>
+            <a href="/blog/" rel="">Blog</a>
+        </li><li>
+            <a href="/docs/" rel="">Docs</a>
+        </li><li>
+            <a href="/docs/reference/cli/" rel="">CLI</a>
+        </li>
+    </menu>
+</sidebar-menu>
+
+    <content-container>
+        <h1 rel="title">Template Data</h1>
+        <p>Learn more about the HyperTemplates data model.</p>
+
+    </content-container>
+</header>
+
+        <section data-color-scheme="light">
+            <content-container>
+                <doc-breadcrumbs></doc-breadcrumbs>
+                <main><h2 id="template-data">Template Data</h2>
+<p><auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc></p>
+<h3 id="overview">Overview</h3>
+<hr/>
+<p>Template data is content in key-value pairs used to hydrate a layout template.
+Template data is generally managed as content files in Markdown, YAML, or JSON format.</p>
+<h3 id="example">Example</h3>
+<hr/>
+<p>This example shows an approximation of a <a href="#template-data-object">template data object</a>.</p>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="nx">updated_at</span><span class="o">:</span> <span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Template Data&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="nx">description</span><span class="o">:</span> <span class="s2">&#34;HyperTemplates generates template data from content files&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nx">author</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Jane Doe&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nx">href</span><span class="o">:</span> <span class="s2">&#34;https://janedoe.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;## Overview\n\nLorem ipsum, hipsters get some.&#34;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre><p><a href="/docs/reference/core/attributes/">Template attributes</a> reference template data using &#34;dot notation&#34; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors">property accessors</a>. The name of the property being accessed is the <a href="#template-data-keys">template data key</a>, and the value of the property being accessed is the <a href="#template-data-values">template data value</a>.</p>
+<p>In this sample, <code>title</code> and <code>author.name</code> are valid template data keys (property names), and their corresponding template data values (property values) are <code>Template Data</code> and <code>Jane Doe</code>.</p>
+<details><summary><strong>Example template data source files</strong></summary>
+<p>The example template data provided above could be managed via any one of the following source files in Markdown, YAML, or JSON format.
+The following example content files will generate identical template data.</p>
+<code-snippet filename="index.md" highlights="" line-numbers="" caption="">
+    <!-- code-snippet[filename]: the filename to be displayed in the window titlebar -->
+    <!-- code-snippet[highlights]: comma separated list of line number ranges (e.g. "5,10-15,20") -->
+    <!-- code-snippet[line-numbers]:bool display line numbers -->
+    <!-- code-snippet[caption]: a caption to be displayed below the window -->
+    
+    <window-chrome>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <span>index.md</span>
+    </window-chrome>
+    <window-content>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl">---
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">created_at: 2025-01-27T17:00:00-08:00
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">updated_at: 2025-01-27T17:00:00-08:00
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">title: Template Data
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">description: HyperTemplates generates template data from content files
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">author:
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    name: Jane Doe
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    href: https://janedoe.com
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">---
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="gu">## Overview
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="gu"></span>-----------
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl">Lorem ipsum, hipsters get some.
+</span></span></code></pre></window-content>
+    
+    <script src="/js/components/code-snippet.js"></script>
+</code-snippet>
+<code-snippet filename="index.yaml" highlights="" line-numbers="" caption="">
+    <!-- code-snippet[filename]: the filename to be displayed in the window titlebar -->
+    <!-- code-snippet[highlights]: comma separated list of line number ranges (e.g. "5,10-15,20") -->
+    <!-- code-snippet[line-numbers]:bool display line numbers -->
+    <!-- code-snippet[caption]: a caption to be displayed below the window -->
+    
+    <window-chrome>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <span>index.yaml</span>
+    </window-chrome>
+    <window-content>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">created_at</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="nt">updated_at</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Template Data</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">HyperTemplates generates template data from content files</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w"></span><span class="nt">author</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Jane Doe</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="nt">href</span><span class="p">:</span><span class="w"> </span><span class="l">https://janedoe.com</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w"></span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="sd">    ## Overview
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="sd">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="sd">    Lorem ipsum, hipsters get some.</span><span class="w">    
+</span></span></span></code></pre></window-content>
+    
+    <script src="/js/components/code-snippet.js"></script>
+</code-snippet>
+<code-snippet filename="index.json" highlights="" line-numbers="" caption="">
+    <!-- code-snippet[filename]: the filename to be displayed in the window titlebar -->
+    <!-- code-snippet[highlights]: comma separated list of line number ranges (e.g. "5,10-15,20") -->
+    <!-- code-snippet[line-numbers]:bool display line numbers -->
+    <!-- code-snippet[caption]: a caption to be displayed below the window -->
+    
+    <window-chrome>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <span>index.json</span>
+    </window-chrome>
+    <window-content>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="nt">&#34;updated_at&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;Template Data&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;HyperTemplates generates template data from content files&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nt">&#34;author&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Jane Doe&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nt">&#34;href&#34;</span><span class="p">:</span> <span class="s2">&#34;https://janedoe.com&#34;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nt">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;## Overview\n\nLorem ipsum, hipsters get some.&#34;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></window-content>
+    
+    <script src="/js/components/code-snippet.js"></script>
+</code-snippet>
+</details>
+<h3 id="specification">Specification</h3>
+<hr/>
+<h4 id="template-data-object">Template data object</h4>
+<hr/>
+<p>The HyperTemplates rendering system always expects key-value data as an input to hydrate a layout with.
+This key-value data input is referred to as the &#34;template data object&#34;.
+Template data objects <strong>do not</strong> have required fields.
+The only structural requirement for template data is that template data keys must be strings.</p>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">site</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;ACME Inc.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nx">favicon</span><span class="o">:</span> <span class="s2">&#34;favicon.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nx">page</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nx">layout</span><span class="o">:</span> <span class="s2">&#34;default.html&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Hello, world&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;Lorem ipsum, hipsters get some.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre><p>This is an approximation of a template data object.</p>
+<doc-quote notice="">
+    
+    <blockquote><p><strong>NOTE:</strong> Applications may combine template data from multiple sources into a single template data object before processing.
+For example, the <code>hyperctl build</code> command combines data from a website configuration file with individual page content into a single template data object.
+The resulting template data object maps the website configuration template data to the <code>site</code> key, and page template data to the <code>page</code> key, similar to the sample shown above.</p>
+<p>To learn more, please visit the <a href="/docs/reference/cms/">HyperTemplates content management system</a> and/or <a href="/docs/reference/cli/"><code>hyperctl</code></a> reference documentation.</p>
+</blockquote>
+</doc-quote>
+<h4 id="template-data-properties">Template data properties</h4>
+<hr/>
+<p>HyperTemplates <a href="#template-data-objects">template data objects</a> contain key-value pairs known as &#34;properties&#34;.
+A template data property has a <a href="#template-data-keys">key</a> and a <a href="#template-data-values">value</a>.</p>
+<code-snippet filename="" highlights="" line-numbers="on" caption="" highlight="9">
+    <!-- code-snippet[filename]: the filename to be displayed in the window titlebar -->
+    <!-- code-snippet[highlights]: comma separated list of line number ranges (e.g. "5,10-15,20") -->
+    <!-- code-snippet[line-numbers]:bool display line numbers -->
+    <!-- code-snippet[caption]: a caption to be displayed below the window -->
+    
+    <window-chrome>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <span></span>
+    </window-chrome>
+    <window-content>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">site</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;ACME Inc.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nx">favicon</span><span class="o">:</span> <span class="s2">&#34;favicon.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nx">page</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nx">layout</span><span class="o">:</span> <span class="s2">&#34;default.html&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Hello, world&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;Lorem ipsum, hipsters get some.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></window-content>
+    
+    <script src="/js/components/code-snippet.js"></script>
+</code-snippet>
+<p>In this example, line 9 contains a template data property with the key <code>page.title</code> and the value <code>Hello, world</code>.</p>
+<h4 id="template-data-keys">Template data keys</h4>
+<hr/>
+<p>Template data keys are &#34;dot notation&#34; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors">property accessors</a> to properties in a <a href="#template-data-object">template data object</a>. The name of the property being accessed is the template data key.</p>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">site</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;ACME Inc.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nx">favicon</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="nx">href</span><span class="o">:</span> <span class="s2">&#34;favicon.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="nx">sizes</span><span class="o">:</span> <span class="s2">&#34;128x128&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="nx">page</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nx">layout</span><span class="o">:</span> <span class="s2">&#34;default.html&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Hello, world&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;Lorem ipsum, hipsters get some.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre><p>In this example, there are 8 template data keys: <code>site</code>, <code>site.title</code>, <code>site.favicon</code>, <code>site.favicon.href</code>, <code>site.favicon.sizes</code>, <code>page</code>, <code>page.created_at</code>, <code>page.layout</code>, <code>page.title</code>, and <code>page.content</code>.</p>
+<doc-quote notice="">
+    
+    <blockquote><p><strong>NOTE:</strong> template data objects are <em>not</em> vanilla <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Javascript objects</a>, so template data keys may reference properties that do not exist (what would be considered &#34;undefined&#34; objects in Javascript parlance) without penalty.
+For example, in the sample above, the template data key <code>site.foo.bar</code> would simply result in a null value rather than an error due to <code>site.foo</code> being &#34;undefined&#34;.</p>
+</blockquote>
+</doc-quote>
+<doc-quote new="">
+    
+    <blockquote><p><strong>NEW:</strong> <code>hyperctl</code> version 0.19.0 adds support for template data array accessors.</p>
+<p><em><strong>NOTE:</strong> array items are 1-indexed, so there is no &#34;zero&#34; element.</em></p>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">page</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nx">layout</span><span class="o">:</span> <span class="s2">&#34;default.html&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Introducing, HyperTexting&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;Your news feed minus the ads, algorithms, and AI-generated slop.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nx">attachments</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="p">{</span> 
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">                <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;link&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">                <span class="nx">href</span><span class="o">:</span> <span class="s2">&#34;https://makehypertext.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="p">{</span> 
+</span></span><span class="line"><span class="ln">13</span><span class="cl">                <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;link&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">                <span class="nx">href</span><span class="o">:</span> <span class="s2">&#34;https://hypertemplates.net&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">                <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;link&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">                <span class="nx">href</span><span class="o">:</span> <span class="s2">&#34;https://hypertexting.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre><p>Given this example template data object, the <code>page.attachments</code> objects can now be access directly:</p>
+<ul>
+<li><code>page.attachments.1.href</code> = <a href="https://makehypertext.com">https://makehypertext.com</a></li>
+<li><code>page.attachments.2.href</code> = <a href="https://hypertemplates.net">https://hypertemplates.net</a></li>
+<li><code>page.attachments.3.href</code> = <a href="https://hypertexting.com">https://hypertexting.com</a></li>
+</ul>
+</blockquote>
+</doc-quote>
+<h4 id="template-data-values">Template data values</h4>
+<hr/>
+<p>Template data values are values of properties being accessed in a <a href="#template-data-object">template data object</a>.</p>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">site</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;ACME Inc.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nx">favicon</span><span class="o">:</span> <span class="s2">&#34;favicon.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nx">page</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&#34;2025-01-27T17:00:00-08:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nx">layout</span><span class="o">:</span> <span class="s2">&#34;default.html&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Hello, world&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="nx">content</span><span class="o">:</span> <span class="s2">&#34;Lorem ipsum, hipsters get some.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre><p>In this example, the template data value for the key <code>page.title</code> is <code>Hello, world</code>.</p>
+<h4 id="template-data-sources">Template data sources</h4>
+<hr/>
+<p>At a high level, the HyperTemplates core specification is primarily concerned with HTML templates (layouts) and template data (content) as inputs, which are used to generate individual web pages (HTML documents) as outputs.
+However, the HyperTemplates core templating engine doesn&#39;t actually have any built-in concept of data sources (i.e. where the template data comes from).
+The closest thing to a completely unopinionated implementation of the HyperTemplates core templating engine is the <a href="/docs/reference/cli/commands/render/"><code>hyperctl render</code></a> command, which accepts a single data file as an input.</p>
+<p>In most implementations multiple data sources are combined into a single template data object.
+The <a href="/docs/reference/cms/">HyperTemplates CMS</a> is one such implementation, which incorporates several data sources:</p>
+<dl>
+<dt><strong>ht (builtins)</strong></dt>
+<dd><code>ht.*</code> prefixed template data properties provided by HyperTemplates, including <code>ht.version</code>, <code>ht.release_date</code>, and template iterator properties (see <a href="../attributes/ht-template/#template-data"><code>ht-template</code> template data</a>).</dd>
+<dt><strong>build</strong></dt>
+<dd><code>build.*</code> prefixed template data properties generated by the <a href="/docs/reference/cli/commands/build/"><code>hyperctl build</code></a> command, including <code>build.id</code> (see <a href="/docs/reference/cms/builds/">builds</a>).</dd>
+<dt><strong>env</strong></dt>
+<dd><code>env.*</code> prefixed template data properties sourced from <code>HT_</code> environment variables (see <a href="#environment-data">environment data</a>).</dd>
+<dt><strong>site</strong></dt>
+<dd><code>site.*</code> prefixed template data properties sourced from <code>site.yaml</code> or <code>site.json</code> (including <a href="/docs/reference/cms/website/#custom-properties">custom website properties</a>)</dd>
+<dt><strong>global</strong></dt>
+<dd><code>data.*</code> prefixed template data properties sourced from data files in <code>site.data_dir</code> (supports YAML, JSON, and OPML formats; see <a href="/docs/reference/cms/namespaces/">namespaces</a>)</dd>
+<dt><strong>theme</strong></dt>
+<dd><code>theme.*</code> prefixed template data properties sourced from data files in <code>theme.data_dir</code> (supports YAML, JSON, and OPML formats; see <a href="/docs/reference/cms/namespaces/">namespaces</a>)</dd>
+<dt><strong>layout</strong></dt>
+<dd><code>layout.*</code> prefixed template data sourced from <code>&lt;meta&gt;</code> elements with <code>layout:</code> prefixed <code>name</code> attributes (see <a href="#layout-data">layout data</a>)</dd>
+<dt><strong>page</strong></dt>
+<dd><code>page.*</code> prefixed template data sourced from page data files (supports Markdown, YAML, and JSON formats; includes <a href="/docs/reference/cms/page/#custom-properties">custom page properties</a>)</dd>
+</dl>
+<p>The site, page, and namespace data sources are technically outside of the scope of the core specification (i.e. this document), but we are enumerating them here for reference.</p>
+<doc-quote notice="">
+    
+    <blockquote><p><strong>NOTE:</strong> The HyperTemplates CLI (<code>hyperctl</code>) and libraries (coming soon) have built-in support for parsing template data from files in Markdown, YAML, and JSON formats. These files may still be considered valid template data if they are &#34;empty&#34;, however <em>completely</em> empty JSON files (containing zero bytes) may cause JSON parsing errors in some implementations, so a JSON format template data source would be considered empty (and still valid) as long as they contain opening and closing curly braces (i.e. <code>{}</code>).</p>
+</blockquote>
+</doc-quote>
+<h5 id="environment-data">Environment data</h5>
+<hr/>
+<p>Template data properties can be provided at build time using the <code>HT_</code> prefix.
+Environment template data can be nested using underscores.</p>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln">1</span><span class="cl">export HT_lang=&#34;en&#34;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">export HT_version=&#34;v1&#34;
+</span></span><span class="line"><span class="ln">3</span><span class="cl">export HT_example_foo=&#34;bar&#34;
+</span></span><span class="line"><span class="ln">4</span><span class="cl">export HT_example_bar=&#34;baz&#34;
+</span></span></code></pre><pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">env</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">lang</span><span class="o">:</span> <span class="s2">&#34;en&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nx">version</span><span class="o">:</span> <span class="s2">&#34;v1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="nx">example</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="nx">foo</span><span class="o">:</span> <span class="s2">&#34;bar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="nx">bar</span><span class="o">:</span> <span class="s2">&#34;baz&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre><h5 id="layout-data">Layout data</h5>
+<hr/>
+<p>Additional layout-scoped data can be added to any layout or other layout fragment as <code>&lt;meta&gt;</code> elements with <code>layout:</code> prefixed name attributes.</p>
+<doc-quote notice="">
+    
+    <blockquote><p><strong>NOTE:</strong> layout data <code>&lt;meta&gt;</code> elements are queried with an <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors#attrvalue_4"><code>[attr^=value]</code> prefix selector</a>, equivalent to:</p>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&#34;meta[name^=&#39;layout:&#39;]&#34;</span><span class="p">)</span>
+</span></span></code></pre></blockquote>
+</doc-quote>
+<!-- Layout data is useful for providing fallback values for template slots in strict mode. -->
+<p><strong>Example:</strong></p>
+<code-snippet filename="" highlights="" line-numbers="on" caption="">
+    <!-- code-snippet[filename]: the filename to be displayed in the window titlebar -->
+    <!-- code-snippet[highlights]: comma separated list of line number ranges (e.g. "5,10-15,20") -->
+    <!-- code-snippet[line-numbers]:bool display line numbers -->
+    <!-- code-snippet[caption]: a caption to be displayed below the window -->
+    
+    <window-chrome>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <span></span>
+    </window-chrome>
+    <window-content>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln">1</span><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;layout:name&#39;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#39;default&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;layout:copyright&#39;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#39;Herd Works Inc&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;layout:copyyear&#39;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#39;2024&#39;</span><span class="p">&gt;</span>
+</span></span></code></pre></window-content>
+    
+    <script src="/js/components/code-snippet.js"></script>
+</code-snippet>
+<p>In this example three layout data properties are defined:</p>
+<ul>
+<li>A <code>layout.name</code> property, with the value of <code>default</code> (line 1)</li>
+<li>A <code>layout.copyright</code> property, with the value of <code>Herd Works Inc</code> (line 2)</li>
+<li>A <code>layout.copyyear</code> property, with the value of <code>2024</code> (line 3)</li>
+</ul>
+<!-- Links -->
+</main>
+                <auto-anchor></auto-anchor>
+                <edit-this-page org="herdworks" repo="hypertemplates-web" rel="edit" prefix="content/" hidden="">
+                    Edit this page on GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="18" height="18"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+                </edit-this-page>
+                <edit-this-page org="herdworks" repo="hypertemplates-web" rel="edit" prefix="theme/layouts/" suffix=".html" hidden="" pathname="default">
+                    Edit this layout on GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="18" height="18"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+                </edit-this-page>
+            </content-container>
+        </section>
+        <content-whitespace data-color-scheme="light"></content-whitespace>
+        <section id="newsletter" data-color-scheme="gray">
+    
+    <content-container>
+        <content-row grid="">
+            <content-column>
+                <h3>💬 Join the community</h3>
+                <p>Stay up-to-date with the latest releases and other news from the Team behind HyperTemplates.
+Ask the developers questions, get help from the community, and share your creations! 🎨
+</p>
+            </content-column>
+            <content-column>
+                <uni-form>
+    <style>
+        uni-form {
+            display: block;
+            flex-direction: row;
+            justify-content: right;
+            width: 100%;
+            --border-radius: 10px;
+        }
+
+        uni-form form {
+            display: flex;
+            flex-direction: row;
+            flex-basis: 100%;
+            justify-content: flex-start;
+            width: 100%;
+        }
+        uni-form form form-group:first-of-type {
+            flex: 1;
+        }
+        uni-form form form-group[hidden] {
+            flex: 0;
+        }
+
+        uni-form form-group label {
+            display: none;
+        }
+
+        uni-form form-group input {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: none;
+            border: 0;
+        }
+        uni-form form-group input[hidden] {
+            display: none;
+        }
+        uni-form form-group:first-of-type input {
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+        uni-form form-group:last-of-type input {
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        uni-form form-group input[type='submit'] {
+            font-weight: bold;
+        }
+    </style>
+    <form action="https://hypertexting.community/signup">
+        <form-group data-group="email">
+            <label for="email">Email<span title="required" aria-label="required"> *</span></label>
+            <input class="form-control" name="email" id="email" tabindex="101" type="email" placeholder="you@example.com" required=""/>
+        </form-group>
+        <form-group class="humanoid" data-group="humanoid" hidden="">
+            <label for="humanoid">Are you human?</label>
+            <checkbox-group>
+                <input class="form-control form-checkbox" name="humanoid" id="humanoid" tabindex="102" value="human" type="checkbox"/>
+                <span class="checkbox-label">I am human</span>
+            </checkbox-group>
+        </form-group>
+        <form-group data-group="uid"><input class="form-control" name="uid" id="uid" tabindex="103" placeholder=" aria-label=" type="hidden" hidden=""/></form-group>
+        <form-group data-group="href"><input class="form-control" name="href" id="href" tabindex="104" placeholder=" aria-label=" type="hidden" hidden=""/></form-group>
+        <form-group>
+            <input class="form-control form-submit" id="form-submit" tabindex="105" type="submit" aria-label="Subscribe" value="Subscribe"/>
+        </form-group>
+    </form>
+</uni-form>
+
+            </content-column>
+        </content-row>
+    </content-container>
+</section>
+        <footer id="footer" data-color-scheme="dark">
+    
+    <content-container>
+        <footer-menu columns="4">
+    
+    <a href="/#features" rel="Product">Features</a><a href="/downloads/" rel="Product">Downloads</a><a href="/blog/" rel="Product">Blog</a><a href="/docs/tutorials/getting-started/" rel="Getting Started">Try HyperTemplates</a><a href="/docs/tutorials/learn/" rel="Getting Started">Learn HyperTemplates</a><a href="/docs/" rel="Resources">Docs</a><a href="/community/" rel="Resources">Community 💬</a><a href="https://herd.works" rel="Resources">Company 🏢</a>
+</footer-menu>
+
+        <p>
+            <span>Designed by <a href="https://herd.works">Herd Works</a> in Portland, Oregon</span>
+            © 2026
+        </p>
+    </content-container>
+
+    <!-- Page.js -->
+    
+</footer>
+
+    
+
+</body></html>

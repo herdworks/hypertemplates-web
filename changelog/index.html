@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="en-US"><head>
+        <!-- Global Metadata -->
+<meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; https://plausible.io; style-src &#39;self&#39; &#39;unsafe-inline&#39;; connect-src &#39;self&#39; https://*; img-src &#39;self&#39; https://*; media-src &#39;self&#39; https://*;"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+
+<title>HyperTemplates | HyperTemplates Changelog</title>
+<meta name="description" content="The HyperTemplates Changelog"/>
+<meta name="publisher" content="HyperTemplates"/>
+<meta name="creator" content="HyperTemplates"/>
+<meta name="author" content="HyperTemplates"/>
+<meta name="referrer" content="origin"/>
+<meta name="color-scheme" content="light dark"/>
+<meta name="build_id" content="100"/>
+
+<!-- OpenGraph Metadata -->
+<!-- "See http://ogp.me/ for more information" -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" ht-attrs="content:page.slug"/>
+<meta property="og:title" content="HyperTemplates Changelog"/>
+<meta property="og:description" content="The HyperTemplates Changelog"/>
+
+
+
+<!-- Twitter Metadata -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HyperTemplates Changelog"/>
+<meta name="twitter:description" content="The HyperTemplates Changelog"/>
+<meta name="twitter:site" content="@herdworks"/>
+<meta name="twitter:creator" content="@herdworks"/>
+
+
+<!-- Global Links -->
+
+<link rel="canonical" href="https://hypertemplates.net/changelog/"/>
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180"/><link rel="icon" href="/img/apple-touch-icon.png" sizes="180x180"/><link rel="icon" href="/img/favicon-128x128.png" sizes="128x128"/><link rel="icon" href="/img/favicon-192x192.png" sizes="192x192"/><link rel="icon" href="/img/favicon-256x256.png" sizes="256x256"/><link rel="icon" href="/img/favicon-512x512.png" sizes="512x512"/><link rel="me" href="https://github.com/hypertemplates"/><link rel="me" href="https://mastodon.social/@herdworks"/>
+
+<!-- Global Styles -->
+<link rel="stylesheet" href="/css/reset.css"/>
+<link rel="stylesheet" href="/css/variables.css?version=100"/>
+<link rel="stylesheet" href="/css/colors.css?version=100"/>
+<link rel="stylesheet" href="/css/typography.css?version=100"/>
+<link rel="stylesheet" href="/css/grid.css?version=100"/>
+<link rel="stylesheet" href="/css/styles.css?version=100"/>
+<link rel="stylesheet" href="/css/chroma-base16-snazzy.css?version=100"/>
+
+<!-- Global Scripts -->
+<script src="/js/main.js?version=100" defer=""></script>
+<script src="https://plausible.io/js/script.file-downloads.outbound-links.js" data-domain="hypertemplates.net" defer=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+        <!-- Layout Properties -->
+        <meta name="layout:name" content="default"/>
+        <meta name="breadcrumb" content="HyperTemplates Changelog"/>
+
+        <!-- Layout Components -->
+        <script src="/js/components/doc-breadcrumbs.js?v=3" defer=""></script>
+        <script src="/js/components/auto-anchor.js" defer=""></script>
+        <script src="/js/components/auto-toc.js" defer=""></script>
+        <script src="/js/components/code-snippet.js" defer=""></script>
+        <script src="/js/components/footer-menu.js" defer=""></script>
+        <script src="/js/components/edit-this-page.js" defer=""></script>
+
+        <!-- Layout Styles -->
+        <style id="components">
+        header > content-container {
+            display: grid;
+            justify-items: center;
+            margin-top: var(--whitespace, 50px);
+
+            & h1, p {
+                text-align: center;
+            }
+        }
+    
+        nav content-container {
+            display: grid;
+            grid-template-areas: "learn logo develop button";
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr auto 1fr 0;
+            --link-underline-color: none;
+        }
+        nav a[rel='home'] svg {
+            height: 100px;
+            width: auto;
+        }
+        nav-links {
+            display: flex;
+            column-gap: var(--gutter-1x, 15px);
+            align-items: center;
+            align-content: center;
+            font-size: 1.25rem;
+            font-weight: bolder;
+        }
+        nav-links[rel='learn'] {
+            grid-area: learn;
+            flex-direction: row;
+        }
+        nav-links[rel='develop'] {
+            grid-area: develop;
+            flex-direction: row-reverse;
+        }
+        nav-button {
+            grid-area: button;
+            display: none;
+            flex-direction: row;
+            justify-items: end;
+            justify-content: end;
+            align-items: center;
+
+            & button:first-of-type {
+                width: 48px;
+                height: 48px;
+                padding: 4px;
+                background-color: var(--accent-shade);
+                color: rgba(255,255,255,0.8);
+            }
+
+            & svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        @media screen and (max-width: 767px) {
+            nav content-container {
+                grid-template-columns: 0 auto 0 auto;
+            }
+            nav-links[rel='learn'] { display: none; }
+            nav-links[rel='develop'] { display: none; }
+            nav-button { display: flex; }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1279px) {}
+        @media screen and (min-width: 1280px) {}
+    
+        sidebar-autofocus[hidden] {
+            display: none;
+        }
+        sidebar-autofocus:not([hidden]) {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            z-index: 10;
+        }
+    
+        sidebar-menu {
+            /* variables */
+            --width: min(360px, 70vw);
+
+            display: block;
+            position: fixed;
+            top: 0;
+            right: calc(var(--width) * -1);
+            height: 100vh;
+            width: var(--width);
+            z-index: 999;
+            padding: var(--gutter-1x, 15px);
+            transition: right 0.35s ease-in-out;
+        }
+        sidebar-menu[active] {
+            right: 0;
+            transition: right 0.35s ease-in-out;
+        }
+        sidebar-menu menu {
+            display: flex;
+            flex-direction: column;
+
+            & svg {
+                height: 100px;
+                width: auto;
+                margin-bottom: 15px;
+                justify-self: center;
+            }
+            & li {
+                font-size: 1.25rem;
+                text-align: center;
+                list-style-type: none;
+                margin-bottom: 10px;
+            }
+        }
+    
+        #newsletter {
+            padding: 50px 0;
+        }
+        #newsletter content-row {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gutter-2x, 30px);
+        }
+        #newsletter content-column:last-child {
+            width: 100%;
+            align-self: center;
+        }
+        @media screen and (max-width: 1279px) {
+            #newsletter content-row {
+                grid-template-columns: 1fr;
+                grid-auto-flow: row;
+            }
+        }
+    
+        footer footer-menu {
+            margin-bottom: var(--gutter-2x, 30px);
+        }
+    
+        footer-menu {
+            display: block;
+            height: max-content;
+            width: 100%;
+        }
+        footer-menu menu {
+            display: grid;
+            grid-auto-flow: column; /* magic */
+            grid-auto-columns: 1fr; /* magic */
+            gap: var(--gutter-1x);
+        }
+        footer-menu menu menu-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            height: 100%;
+            min-height: 0;
+        }
+        footer-menu menu menu-group > * {
+            width: 100%;
+        }
+        footer-menu menu menu-group h5 {
+            margin-bottom: 15px;
+        }
+        footer-menu menu menu-group a,
+        footer-menu menu menu-group a:hover {
+            text-decoration: none;
+            margin-bottom: 5px;
+            box-shadow: none;
+        }
+        @media screen and (max-width: 767px) {
+            footer-menu menu {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-flow: unset;
+                grid-auto-columns: unset;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1279px) {}
+        @media screen and (min-width: 1280px) {}
+    </style>
+        <style id="style">
+            doc-breadcrumbs {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin-bottom: var(--whitespace);
+                overflow: scroll;
+                scrollbar-width: none;  /* Firefox */
+                -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            }
+
+            doc-breadcrumbs::-webkit-scrollbar { 
+                display: none;  /* Safari and Chrome */
+            }
+
+            doc-breadcrumbs doc-breadcrumb {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                align-content: center;
+                white-space: nowrap;
+
+                & :is(svg,img) {
+                    display: inline;
+                    height: 1.0rem;
+                    margin: 0 var(--gutter-1x, 15px);
+                }
+
+                & a {
+                    display: inline;
+                    color: inherit !important;
+                }
+            }
+
+            doc-breadcrumb:last-of-type :is(svg,img) { display: none; }
+
+            [data-color-scheme] auto-toc li a { font-weight: 500; }
+
+            hr { margin-bottom: var(--gutter-1x, 15px); }
+
+            :where(h1, h2, h3, h4, h5, h6):not(:first-child) {
+                margin-top: 1.5em;
+            }
+
+            a[rel='anchor'] { display: inline; }
+
+            edit-this-page { 
+                display: flex; 
+                flex-direction: row; 
+                justify-content: end;
+                margin-top: var(--gutter-1x);
+            }
+            edit-this-page svg { display: inline; }
+        </style>
+    </head>
+    <body>
+        <header id="header" data-color-scheme="primary">
+    
+    <nav>
+    
+    <content-container>
+        <nav-links rel="learn">
+            <a href="/">Home</a><a href="/#features">Features</a><a href="/blog/">Blog</a>
+        </nav-links>
+        <a href="/" rel="home">
+            <svg viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.33093,0,0,1.33093,-200.495,332.95)">
+        <g transform="matrix(1,0,0,1,-5.68434e-14,-39.6758)">
+            <path d="M264.361,177.22C266.742,177.22 269.122,174.839 269.122,172.458L269.122,145.592C269.122,142.872 271.163,140.491 273.883,140.491L318.774,140.491C321.494,140.491 323.535,138.451 323.535,135.73L323.535,108.864C323.535,106.143 321.494,104.103 318.774,104.103L255.519,104.103C252.798,104.103 250.758,106.143 250.758,108.864L250.758,140.491L200.766,140.491C198.046,140.491 196.005,142.872 196.005,145.252L196.005,177.22L173.9,177.22C171.18,177.22 169.139,179.26 169.139,181.641L169.139,208.847C169.139,211.227 171.18,213.608 173.9,213.608L196.005,213.608L196.005,245.235C196.005,247.956 198.046,249.996 200.766,249.996L250.758,249.996L250.758,281.624C250.758,284.344 252.798,286.385 255.519,286.385L318.774,286.385C321.494,286.385 323.535,284.004 323.535,281.624L323.535,254.417C323.535,252.037 321.494,249.656 318.774,249.656L273.883,249.996C271.163,249.996 269.122,247.616 269.122,244.895L269.122,218.369C269.122,215.648 266.742,213.608 264.361,213.608L219.131,213.608C216.41,213.608 214.369,211.227 214.369,208.507L214.369,181.981C214.369,179.26 216.41,177.22 219.131,177.22L264.361,177.22Z" style="fill-rule:nonzero;"></path>
+            <path d="M893.62,177.22C896.341,177.22 898.721,179.26 898.721,181.981L898.721,208.507C898.721,211.227 896.341,213.608 893.62,213.608L848.73,213.608C846.009,213.608 843.968,215.648 843.968,218.369L843.968,244.895C843.968,247.616 841.588,249.996 838.867,249.996L793.977,249.656C791.256,249.656 789.216,252.037 789.216,254.417L789.216,281.624C789.216,284.004 791.256,286.385 793.977,286.385L857.232,286.385C859.952,286.385 861.993,284.344 861.993,281.624L861.993,249.996L911.984,249.996C914.705,249.996 916.745,247.956 916.745,245.235L916.745,213.608L938.85,213.608C941.571,213.608 943.611,211.227 943.611,208.847L943.611,181.641C943.611,179.26 941.571,177.22 938.85,177.22L916.745,177.22L916.745,145.252C916.745,142.872 914.705,140.491 911.984,140.491L861.993,140.491L861.993,108.864C861.993,106.143 859.952,104.103 857.232,104.103L793.977,104.103C791.256,104.103 789.216,106.143 789.216,108.864L789.216,135.73C789.216,138.451 791.256,140.491 793.977,140.491L838.867,140.491C841.588,140.491 843.968,142.872 843.968,145.592L843.968,172.458C843.968,174.839 846.009,177.22 848.73,177.22L893.62,177.22Z" style="fill-rule:nonzero;"></path>
+        </g>
+        <g>
+            <path d="M513.979,66.921L426.919,66.921L426.919,7.974C426.919,0.265 420.571,-6.083 412.862,-6.083L359.81,-6.083C352.101,-6.083 345.753,0.265 345.753,7.974L345.753,303.162C345.753,310.87 352.101,317.219 359.81,317.219L412.862,317.219C420.571,317.219 426.919,310.87 426.919,303.162L426.919,106.823C426.919,103.196 430.093,100.475 433.72,100.475L447.777,100.475C451.404,100.475 454.125,103.196 454.125,106.823L454.125,121.787C454.125,124.507 456.392,126.775 459.113,126.775L474.53,126.775C478.157,126.775 481.331,129.495 481.331,133.123L481.331,303.162C481.331,310.87 487.679,317.219 495.388,317.219L548.44,317.219C556.149,317.219 562.497,310.87 562.497,303.162L562.497,115.439C562.497,107.277 555.695,100.475 547.533,100.475L528.942,100.475L528.942,81.884C528.942,73.722 522.141,66.921 513.979,66.921Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M755.208,126.775C761.556,126.775 766.997,121.333 766.997,114.985L766.997,78.71C766.997,72.362 761.556,66.921 755.208,66.921L708.504,66.921L708.504,0.719C708.504,-2.909 705.33,-6.083 701.702,-6.083L667.241,-6.083C663.613,-6.083 660.893,-3.362 660.893,0.265L660.893,23.844C660.893,25.658 659.079,27.018 657.265,27.018L633.686,27.018C630.059,27.018 627.338,30.192 627.338,33.82L627.338,66.921L599.679,66.921C593.33,66.921 587.889,72.362 587.889,78.71L587.889,114.985C587.889,121.333 593.33,126.775 599.679,126.775L627.338,126.775L626.885,272.328C626.885,278.676 632.326,283.664 638.674,283.664L660.439,283.664L660.439,305.883C660.439,312.231 665.427,317.219 672.229,317.219L754.301,317.219C761.103,317.219 766.997,311.777 766.997,304.976L766.997,270.061C766.997,263.259 761.103,257.818 754.301,257.818L715.305,257.818C711.678,257.818 708.504,254.644 708.504,251.017L708.504,126.775L755.208,126.775Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+        </g>
+    </g>
+</svg>
+
+        </a>
+        <nav-links rel="develop">
+            <a href="/docs/reference/core/attributes/">Reference</a><a href="/docs/">Docs</a>
+        </nav-links>
+        <nav-button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path>
+</svg>
+
+            </button>
+        </nav-button>
+    </content-container>
+</nav>
+    <sidebar-autofocus hidden="">
+    
+</sidebar-autofocus>
+<sidebar-menu data-color-scheme="blur">
+    
+    <menu>
+        <svg viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.33093,0,0,1.33093,-200.495,332.95)">
+        <g transform="matrix(1,0,0,1,-5.68434e-14,-39.6758)">
+            <path d="M264.361,177.22C266.742,177.22 269.122,174.839 269.122,172.458L269.122,145.592C269.122,142.872 271.163,140.491 273.883,140.491L318.774,140.491C321.494,140.491 323.535,138.451 323.535,135.73L323.535,108.864C323.535,106.143 321.494,104.103 318.774,104.103L255.519,104.103C252.798,104.103 250.758,106.143 250.758,108.864L250.758,140.491L200.766,140.491C198.046,140.491 196.005,142.872 196.005,145.252L196.005,177.22L173.9,177.22C171.18,177.22 169.139,179.26 169.139,181.641L169.139,208.847C169.139,211.227 171.18,213.608 173.9,213.608L196.005,213.608L196.005,245.235C196.005,247.956 198.046,249.996 200.766,249.996L250.758,249.996L250.758,281.624C250.758,284.344 252.798,286.385 255.519,286.385L318.774,286.385C321.494,286.385 323.535,284.004 323.535,281.624L323.535,254.417C323.535,252.037 321.494,249.656 318.774,249.656L273.883,249.996C271.163,249.996 269.122,247.616 269.122,244.895L269.122,218.369C269.122,215.648 266.742,213.608 264.361,213.608L219.131,213.608C216.41,213.608 214.369,211.227 214.369,208.507L214.369,181.981C214.369,179.26 216.41,177.22 219.131,177.22L264.361,177.22Z" style="fill-rule:nonzero;"></path>
+            <path d="M893.62,177.22C896.341,177.22 898.721,179.26 898.721,181.981L898.721,208.507C898.721,211.227 896.341,213.608 893.62,213.608L848.73,213.608C846.009,213.608 843.968,215.648 843.968,218.369L843.968,244.895C843.968,247.616 841.588,249.996 838.867,249.996L793.977,249.656C791.256,249.656 789.216,252.037 789.216,254.417L789.216,281.624C789.216,284.004 791.256,286.385 793.977,286.385L857.232,286.385C859.952,286.385 861.993,284.344 861.993,281.624L861.993,249.996L911.984,249.996C914.705,249.996 916.745,247.956 916.745,245.235L916.745,213.608L938.85,213.608C941.571,213.608 943.611,211.227 943.611,208.847L943.611,181.641C943.611,179.26 941.571,177.22 938.85,177.22L916.745,177.22L916.745,145.252C916.745,142.872 914.705,140.491 911.984,140.491L861.993,140.491L861.993,108.864C861.993,106.143 859.952,104.103 857.232,104.103L793.977,104.103C791.256,104.103 789.216,106.143 789.216,108.864L789.216,135.73C789.216,138.451 791.256,140.491 793.977,140.491L838.867,140.491C841.588,140.491 843.968,142.872 843.968,145.592L843.968,172.458C843.968,174.839 846.009,177.22 848.73,177.22L893.62,177.22Z" style="fill-rule:nonzero;"></path>
+        </g>
+        <g>
+            <path d="M513.979,66.921L426.919,66.921L426.919,7.974C426.919,0.265 420.571,-6.083 412.862,-6.083L359.81,-6.083C352.101,-6.083 345.753,0.265 345.753,7.974L345.753,303.162C345.753,310.87 352.101,317.219 359.81,317.219L412.862,317.219C420.571,317.219 426.919,310.87 426.919,303.162L426.919,106.823C426.919,103.196 430.093,100.475 433.72,100.475L447.777,100.475C451.404,100.475 454.125,103.196 454.125,106.823L454.125,121.787C454.125,124.507 456.392,126.775 459.113,126.775L474.53,126.775C478.157,126.775 481.331,129.495 481.331,133.123L481.331,303.162C481.331,310.87 487.679,317.219 495.388,317.219L548.44,317.219C556.149,317.219 562.497,310.87 562.497,303.162L562.497,115.439C562.497,107.277 555.695,100.475 547.533,100.475L528.942,100.475L528.942,81.884C528.942,73.722 522.141,66.921 513.979,66.921Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M755.208,126.775C761.556,126.775 766.997,121.333 766.997,114.985L766.997,78.71C766.997,72.362 761.556,66.921 755.208,66.921L708.504,66.921L708.504,0.719C708.504,-2.909 705.33,-6.083 701.702,-6.083L667.241,-6.083C663.613,-6.083 660.893,-3.362 660.893,0.265L660.893,23.844C660.893,25.658 659.079,27.018 657.265,27.018L633.686,27.018C630.059,27.018 627.338,30.192 627.338,33.82L627.338,66.921L599.679,66.921C593.33,66.921 587.889,72.362 587.889,78.71L587.889,114.985C587.889,121.333 593.33,126.775 599.679,126.775L627.338,126.775L626.885,272.328C626.885,278.676 632.326,283.664 638.674,283.664L660.439,283.664L660.439,305.883C660.439,312.231 665.427,317.219 672.229,317.219L754.301,317.219C761.103,317.219 766.997,311.777 766.997,304.976L766.997,270.061C766.997,263.259 761.103,257.818 754.301,257.818L715.305,257.818C711.678,257.818 708.504,254.644 708.504,251.017L708.504,126.775L755.208,126.775Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+        </g>
+    </g>
+</svg>
+
+        <li>
+            <a href="/" rel="">Home</a>
+        </li><li>
+            <a href="/#features" rel="">Features</a>
+        </li><li>
+            <a href="/blog/" rel="">Blog</a>
+        </li><li>
+            <a href="/docs/" rel="">Docs</a>
+        </li><li>
+            <a href="/docs/reference/cli/" rel="">CLI</a>
+        </li>
+    </menu>
+</sidebar-menu>
+
+    <content-container>
+        <h1 rel="title">HyperTemplates Changelog</h1>
+        <p>Stay up-to-date with the latest HyperTemplates releases, including the <code>hyperctl</code> CLI.</p>
+
+    </content-container>
+</header>
+
+        <section data-color-scheme="light">
+            <content-container>
+                <doc-breadcrumbs></doc-breadcrumbs>
+                <main><h1 id="changelog">Changelog</h1>
+<h2 id="hyperctl-v0182-2026-04-12"><code>hyperctl</code> v0.18.2 (2026-04-12)</h2>
+<ul>
+<li>Added <code>byline.username</code> field for backwards compatibility with very early versions of <code>hyperctl</code></li>
+<li>Fixed a race condition in <code>hyperctl dev server</code> that would cause the server to crash intermittently</li>
+<li>Fixed a bug that generated broken URLs in Atom feed <code>&lt;link rel=&#39;self&#39;&gt;</code> elements;
+we&#39;re not properly <em>joining</em> &#34;atom.xml&#34; instead of <em>concatenating</em> &#34;atom.xml&#34; to page paths</li>
+</ul>
+<h2 id="hyperctl-v0181-2026-03-01"><code>hyperctl</code> v0.18.1 (2026-03-01)</h2>
+<ul>
+<li>Fixed <a href="/docs/reference/cli/commands/theme/package/"><code>hyperctl theme package</code></a> now includes the <code>theme.json</code> configuration file in the generated theme archive.</li>
+</ul>
+<h2 id="hyperctl-v0180-2026-02-26"><code>hyperctl</code> v0.18.0 (2026-02-26)</h2>
+<ul>
+<li>Added <a href="/docs/reference/core/data/#template-data-sources"><code>ht.*</code> template data namespace</a>, and <code>ht.version</code> &amp; <code>ht.release_date</code> properties</li>
+<li>Added <a href="/docs/reference/core/data/#template-data-sources"><code>env.*</code> template data namespace</a> (for <code>HT_*</code> environment variables)</li>
+<li>Added <a href="/docs/reference/core/data/#template-data-sources"><code>theme.*</code></a> template data namespace – themes can now provide default template data</li>
+<li>Added <a href="/docs/reference/core/data/#template-data-sources"><code>block.*</code></a> template data namespace for <code>ht-block</code> elements</li>
+<li>Added <a href="/docs/reference/cms/page/#page-canonical_url"><code>page.canonical_url</code></a> computed property (equivalent to <code>site.base_url</code> + <code>page.path</code>)</li>
+<li>Added <a href="/docs/reference/core/attributes/ht-template/#limit-and-offset"><code>ht-offset</code> and <code>ht-limit</code></a> parameters for configuring <code>ht-template</code> iterators</li>
+<li>Added <a href="/docs/reference/cli/commands/theme/ls/"><code>hyperctl theme ls</code></a>, <a href="/docs/reference/cli/commands/theme/ls/"><code>hyperctl theme install</code></a>, and <a href="/docs/reference/cli/commands/theme/ls/"><code>hyperctl theme package</code></a> commands</li>
+<li>Added <a href="/docs/reference/core/themes/#theme-config-fragments_dir"><code>theme.config.fragments_dir</code></a> and <a href="/docs/reference/core/themes/#theme-config-data_dir"><code>theme.config.data_dir</code></a> configuration settings</li>
+<li>Added HyperMark word count extension, computes a <a href="/docs/reference/cms/page/#page-wordcount"><code>page.wordcount</code> property</a> for parsed Markdown documents</li>
+<li>Added support for <code>page.md</code>, <code>page.yaml</code>, and <code>page.json</code> <a href="/docs/reference/cms/page/#page-files">page files</a></li>
+<li>Added support for <a href="/docs/reference/cms/page/#static-pages">&#34;static&#34; pages</a>, created via <code>index.html</code> or <code>page.html</code> files (e.g. <code>content/**/index.html</code>)</li>
+<li>Added support for <a href="/docs/reference/core/attributes/ht-attrs/#attribute-maps"><code>ht-attrs</code> <em>maps</em></a>, mapping template data keys to element attribute names</li>
+<li>Changed <code>site.author</code> → <a href="/docs/reference/cms/website/#site-byline"><code>site.byline</code></a></li>
+<li>Changed <code>page.author</code> → <a href="/docs/reference/cms/page/#page-byline"><code>page.byline</code></a></li>
+<li>Changed <code>hyperctl new</code> → <a href="/docs/reference/cli/commands/cms/new/"><code>hyperctl cms new</code></a></li>
+<li>Changed <code>hyperctl asset</code> → <a href="/docs/reference/cli/commands/cms/asset/"><code>hyperctl cms asset</code></a></li>
+<li>Changed <code>hyperctl content-type</code> → <a href="/docs/reference/cli/commands/cms/content-type/"><code>hyperctl cms content-type</code></a></li>
+<li>Changed <code>hyperctl data</code> → <a href="/docs/reference/cli/commands/cms/data/"><code>hyperctl cms data</code></a></li>
+<li>Changed <code>hyperctl page</code> → <a href="/docs/reference/cli/commands/cms/page/"><code>hyperctl cms page</code></a></li>
+<li>Changed <code>hyperctl build</code> → <a href="/docs/reference/cli/commands/build/complete/"><code>hyperctl build complete</code></a></li>
+<li>Changed <code>hyperctl generate</code> → <a href="/docs/reference/cli/commands/build/incremental/"><code>hyperctl build incremental</code></a></li>
+<li>Changed <code>hyperctl deploy</code> → <a href="/docs/reference/cli/commands/deploy/complete/"><code>hyperctl deploy complete</code></a></li>
+<li>Changed <code>hyperctl publish</code> → <a href="/docs/reference/cli/commands/deploy/incremental/"><code>hyperctl deploy incremental</code></a></li>
+<li>Changed <code>hyperctl graph</code> → <a href="/docs/reference/cli/commands/dev/graph/"><code>hyperctl dev graph</code></a></li>
+<li>Changed <code>hyperctl mimetype</code> → <a href="/docs/reference/cli/commands/dev/mimetype/"><code>hyperctl dev mimetype</code></a></li>
+<li>Changed <code>hyperctl render</code> → <a href="/docs/reference/cli/commands/dev/render/"><code>hyperctl dev render</code></a></li>
+<li>Changed <code>hyperctl server</code> → <a href="/docs/reference/cli/commands/dev/server/"><code>hyperctl dev server</code></a></li>
+<li>Removed <code>data.env.*</code> template data in favor of <a href="/docs/reference/core/data/#template-data-sources">new <code>env.*</code> namespace</a></li>
+<li>Removed <code>data.ht.*</code> template data in favor of <a href="/docs/reference/core/data/#template-data-sources">new <code>ht.*</code> namespace</a></li>
+<li>Removed <code>page.author.username</code> (what would have become <code>page.byline.username</code>)</li>
+<li>Removed <code>page.contributors[*].username</code> (contributors have the same properties as a <a href="/docs/reference/cms/page/#page-byline"><code>page.byline</code></a>)</li>
+</ul>
+</main>
+                <auto-anchor></auto-anchor>
+                <edit-this-page org="herdworks" repo="hypertemplates-web" rel="edit" prefix="content/" hidden="">
+                    Edit this page on GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="18" height="18"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+                </edit-this-page>
+                <edit-this-page org="herdworks" repo="hypertemplates-web" rel="edit" prefix="theme/layouts/" suffix=".html" hidden="" pathname="default">
+                    Edit this layout on GitHub <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="18" height="18"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+                </edit-this-page>
+            </content-container>
+        </section>
+        <content-whitespace data-color-scheme="light"></content-whitespace>
+        <section id="newsletter" data-color-scheme="gray">
+    
+    <content-container>
+        <content-row grid="">
+            <content-column>
+                <h3>💬 Join the community</h3>
+                <p>Stay up-to-date with the latest releases and other news from the Team behind HyperTemplates.
+Ask the developers questions, get help from the community, and share your creations! 🎨
+</p>
+            </content-column>
+            <content-column>
+                <uni-form>
+    <style>
+        uni-form {
+            display: block;
+            flex-direction: row;
+            justify-content: right;
+            width: 100%;
+            --border-radius: 10px;
+        }
+
+        uni-form form {
+            display: flex;
+            flex-direction: row;
+            flex-basis: 100%;
+            justify-content: flex-start;
+            width: 100%;
+        }
+        uni-form form form-group:first-of-type {
+            flex: 1;
+        }
+        uni-form form form-group[hidden] {
+            flex: 0;
+        }
+
+        uni-form form-group label {
+            display: none;
+        }
+
+        uni-form form-group input {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: none;
+            border: 0;
+        }
+        uni-form form-group input[hidden] {
+            display: none;
+        }
+        uni-form form-group:first-of-type input {
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+        uni-form form-group:last-of-type input {
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        uni-form form-group input[type='submit'] {
+            font-weight: bold;
+        }
+    </style>
+    <form action="https://hypertexting.community/signup">
+        <form-group data-group="email">
+            <label for="email">Email<span title="required" aria-label="required"> *</span></label>
+            <input class="form-control" name="email" id="email" tabindex="101" type="email" placeholder="you@example.com" required=""/>
+        </form-group>
+        <form-group class="humanoid" data-group="humanoid" hidden="">
+            <label for="humanoid">Are you human?</label>
+            <checkbox-group>
+                <input class="form-control form-checkbox" name="humanoid" id="humanoid" tabindex="102" value="human" type="checkbox"/>
+                <span class="checkbox-label">I am human</span>
+            </checkbox-group>
+        </form-group>
+        <form-group data-group="uid"><input class="form-control" name="uid" id="uid" tabindex="103" placeholder=" aria-label=" type="hidden" hidden=""/></form-group>
+        <form-group data-group="href"><input class="form-control" name="href" id="href" tabindex="104" placeholder=" aria-label=" type="hidden" hidden=""/></form-group>
+        <form-group>
+            <input class="form-control form-submit" id="form-submit" tabindex="105" type="submit" aria-label="Subscribe" value="Subscribe"/>
+        </form-group>
+    </form>
+</uni-form>
+
+            </content-column>
+        </content-row>
+    </content-container>
+</section>
+        <footer id="footer" data-color-scheme="dark">
+    
+    <content-container>
+        <footer-menu columns="4">
+    
+    <a href="/#features" rel="Product">Features</a><a href="/downloads/" rel="Product">Downloads</a><a href="/blog/" rel="Product">Blog</a><a href="/docs/tutorials/getting-started/" rel="Getting Started">Try HyperTemplates</a><a href="/docs/tutorials/learn/" rel="Getting Started">Learn HyperTemplates</a><a href="/docs/" rel="Resources">Docs</a><a href="/community/" rel="Resources">Community 💬</a><a href="https://herd.works" rel="Resources">Company 🏢</a>
+</footer-menu>
+
+        <p>
+            <span>Designed by <a href="https://herd.works">Herd Works</a> in Portland, Oregon</span>
+            © 2026
+        </p>
+    </content-container>
+
+    <!-- Page.js -->
+    
+</footer>
+
+    
+
+</body></html>

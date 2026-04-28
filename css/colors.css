@@ -1,0 +1,250 @@
+html {
+    /* Color Palette */
+    --color-1: rgb(246, 246, 246);
+    --color-2: rgba(246, 237, 228);
+    --color-2-dark: rgba(100, 90, 80, 1.0);
+    --color-3: rgb(236, 120, 184);
+    --color-3-dark: rgba(236, 120, 184, 0.50);
+    --color-4: rgb(152, 147, 143);
+    --color-5: rgb(36, 36, 36);
+
+    --color-red: #ff5c57;
+    --color-orange: #ff9f43;
+    --color-yellow: #f3f99d;
+    --color-green: rgb(90, 247, 142);
+    --color-blue: rgb(87, 199, 255);
+    --color-purple: rgb(255, 106, 193);
+
+    /* Gradients */
+    --gradient-bg-1: linear-gradient(90deg, #f6ede4, #ec78b8);
+    --gradient-bg-1-dark: linear-gradient(90deg, #242424, var(--color-3-dark));
+
+    /* Other Colors */
+    --color-transparent: rgba(0,0,0,0.0);
+    --color-link-blue: rgba(0, 213, 255, 0.75);
+    /* --color-red: rgba(255, 59, 48,0.75); */
+    /* --color-green: rgba(76, 217, 100, 1.0); */
+
+    --color-blinky-pink: rgba(236, 127, 255, 1.0);
+    --color-blinky-pink-light: rgba(236, 127, 255, 0.5);
+    --color-blinky-pink-lighter: rgba(236, 127, 255, 0.25);
+
+    --color-eggplant-purple: rgba(125,84,137,1.0);
+    --color-eggplant-purple-light: rgba(125,84,137,0.75);
+    --color-eggplant-purple-lighter: rgba(125,84,137,0.5);
+
+    --alert-yellow-bg: rgba(255,243,205,1.0); /* #fff3cd */
+    --alert-yellow-accent: rgba(255,230,156,0.5); /* #ffe69c */
+
+    --color-transition: 500ms;
+}
+
+/* Color Schemes */
+/* Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#color-scheme */
+/* Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color */
+[data-color-scheme], [data-color-scheme='light'] {
+    --background-color: light-dark(var(--color-1), var(--color-5));
+    --accent-color: light-dark(var(--color-3), var(--color-3-dark));
+    --accent-tint: rgba(255,255,255,0.75);
+    --accent-shade: rgba(0,0,0,0.75);
+    --outline-color: light-dark(rgba(0,0,0,0.25), rgba(255,255,255,0.25));
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: light-dark(rgba(0,0,0,0.9), rgba(255,255,255,0.9));
+    --subheading-color: light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6));
+    --text-color: light-dark(rgba(0,0,0,0.9), rgba(255,255,255,0.9));
+    --text-color-alt: light-dark(rgba(0,0,0,0.7), rgba(255,255,255,0.7));
+    --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --form-input-background-color: rgba(255, 255, 255, 1.0);
+    --form-input-text-color: rgba(0,0,0,0.9);
+    --form-input-placeholder-color: rgba(0,0,0,0.5);
+    --button-background-color: var(--color-3);
+    --button-background-color-hover: var(--color-1);
+    --button-text-color: rgba(255,255,255,0.9);
+    --button-text-color-hover: rgba(0,0,0,0.9);
+}
+
+[data-color-scheme='dark'] {
+    --background-color: rgba(0,0,0,1.0);
+    --accent-color: var(--color-3);
+    --accent-tint: rgba(255,255,255,0.75);
+    --accent-shade: rgba(0,0,0,0.5);
+    --outline-color: rgba(255,255,255,0.50);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: rgba(255,255,255,0.75);
+    --subheading-color: rgba(255,255,255,0.50);
+    --text-color: rgba(255,255,255,0.75);
+    --link-underline-color: var(--color-3);
+    --form-input-background-color: var(--color-4);
+    --form-input-text-color: rgba(0,0,0,0.9);
+    --form-input-placeholder-color: rgba(0,0,0,0.3);
+    --button-background-color: var(--color-3);
+    --button-background-color-hover: var(--color-3);
+    --button-text-color: rgba(0,0,0,0.9);
+    --button-text-color-hover: rgba(255,255,255,0.9);
+}
+
+[data-color-scheme='primary'] {
+    --background-color: light-dark(var(--color-2), var(--color-2-dark));
+    --accent-color: light-dark(var(--color-3), var(--color-1));
+    --accent-tint: light-dark(rgba(255,255,255,0.75), rgba(255,255,255,0.80));
+    --accent-shade: light-dark(rgba(0,0,0,0.75), rgba(0,0,0,0.65));
+    --outline-color: light-dark(rgba(255,255,255,1.0), var(--color-5));
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: light-dark(rgba(0,0,0,0.9), rgba(255,255,255,1.0));
+    --subheading-color: light-dark(rgba(0,0,0,0.7), rgba(255,255,255,0.9));
+    --text-color: light-dark(rgba(0,0,0,0.7), rgba(255,255,255,0.9));
+    --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --form-input-background-color: light-dark(rgba(255,255,255,0.50), rgba(0,0,0,1.0));
+    --form-input-text-color: light-dark(rgba(0,0,0,0.8), rgba(255,255,255,0.7));
+    --form-input-placeholder-color: light-dark(rgba(0,0,0,0.3), rgba(255,255,255,0.4));
+    --button-background-color: var(--color-3);
+    --button-background-color-hover: light-dark(rgba(255,255,255,0.75), var(--color-1));
+    --button-text-color: light-dark(rgba(255,255,255,0.9), rgba(0,0,0,0.5));
+    --button-text-color-hover: light-dark(rgba(0,0,0,0.9), rgba(255,255,255,0.9));
+}
+
+[data-color-scheme='gray'] {
+    --background-color: light-dark(var(--color-4), rgba(0,0,0,0));
+    --accent-color: rgba(0,0,0,0.25);
+    --accent-tint: rgba(255,255,255,0.80);
+    --accent-shade: rgba(0,0,0,0.65);
+    --outline-color: var(--color-5);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: rgba(255,255,255,1.0);
+    --subheading-color: rgba(255,255,255,0.9);
+    --text-color: rgba(255,255,255,0.9);
+    --link-underline-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --form-input-background-color: rgba(0,0,0,1.0);
+    --form-input-text-color: rgba(255,255,255,0.7);
+    --form-input-placeholder-color: rgba(255,255,255,0.4);
+    --button-background-color: var(--color-3);
+    --button-background-color-hover: var(--color-1);
+    --button-text-color: rgba(0,0,0,0.5);
+    --button-text-color-hover: rgba(255,255,255,0.9);
+}
+
+[data-color-scheme='blur'] {
+    --background-color: rgba(0,0,0,0.50);
+    --accent-color: var(--color-3);
+    --accent-tint: rgba(255,255,255,0.25);
+    --accent-shade: rgba(0,0,0,0.15);
+    --outline-color: rgba(255,255,255,0.5);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: rgba(255,255,255,0.75);
+    --subheading-color: rgba(255,255,255,0.50);
+    --text-color: rgba(255,255,255,0.75);
+    --link-underline-color: none;
+    --form-input-background-color: var(--color-2);
+    --form-input-text-color: rgba(0,0,0,0.9);
+    --form-input-placeholder-color: rgba(0,0,0,0.5);
+    --button-background-color: rgba(255,255,255,0.25);
+    --button-background-color-hover: rgba(255,255,255,0.25);
+    --button-text-color: rgba(0,0,0,0.9);
+    --button-text-color-hover: rgba(255,255,255,0.9);
+
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+[data-color-scheme='gradient'] {
+    --background-color: light-dark(var(--gradient-bg-1), var(--gradient-bg-1-dark));
+    --accent-color: var(--color-5);
+    --accent-tint: rgba(255,255,255,0.25);
+    --accent-shade: rgba(0,0,0,0.15);
+    --outline-color: rgba(0,0,0,1.0);
+    --highlight-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --heading-color: light-dark(rgba(0,0,0,0.75), rgba(255,255,255,0.75));
+    --subheading-color: rgba(255,255,255,0.50);
+    --text-color: light-dark(rgba(0,0,0,0.75), rgba(255,255,255,0.75));
+    --link-underline-color: none;
+    --form-input-background-color: rgba(0,0,0,1.0);
+    --form-input-text-color: rgba(255,255,255,0.9);
+    --form-input-placeholder-color: rgba(255,255,255,0.5);
+    --button-background-color: rgba(255,255,255,0.25);
+    --button-background-color-hover: rgba(255,255,255,0.25);
+    --button-text-color: rgba(0,0,0,0.9);
+    --button-text-color-hover: rgba(255,255,255,0.9);
+
+    background-image: var(--gradient-bg-1);
+}
+@media (prefers-color-scheme: dark) { [data-color-scheme='gradient'] { background-image: var(--gradient-bg-1-dark); }}
+
+/* Applied colors */
+[data-color-scheme] {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+[data-color-scheme] :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--heading-color);
+}
+
+[data-color-scheme] :where(p, a, a:hover, code, svg, time, li) {
+    color: inherit;
+}
+
+[data-color-scheme] :where(mark) {
+    color: inherit;
+    background-color: var(--highlight-color);
+}
+
+[data-color-scheme] :where(code:not(pre code)) {
+    background-color: color-mix(in srgb, var(--accent-shade) 25%, transparent);
+}
+
+[data-color-scheme] form form-group input {
+    background-color: var(--form-input-background-color);
+    color: var(--form-input-text-color);
+}
+[data-color-scheme] form input::placeholder {
+    color: var(--form-input-placeholder-color);
+}
+
+/* Defaults & non-themed styles */
+.draft {
+    color: var(--color-red);
+}
+
+/* Defaults & non-themed styles */
+.draft {
+    color: var(--color-red);
+}
+red-heart {
+    color: var(--color-red);
+}
+
+/* Grayscales */
+[data-grayscale] {
+    transition: filter var(--color-transition);
+}
+[data-grayscale]:hover {
+    transition: filter var(--color-transition);
+    filter: grayscale(0.0);
+}
+[data-grayscale='50'] {
+    filter: grayscale(0.50);
+}
+[data-grayscale='75'] {
+    filter: grayscale(0.75);
+}
+[data-grayscale='100'] {
+    filter: grayscale(1.00);
+}
+
+@media (prefers-color-scheme: light) {
+    [prefers-color-scheme=light] { display: unset; }
+    [prefers-color-scheme=dark] { display: none; }
+}
+
+@media (prefers-color-scheme: dark) {
+    [prefers-color-scheme=light] { display: none; }
+    [prefers-color-scheme=dark] { display: unset; }
+}
+
+
+/* @media screen and (prefers-color-scheme: dark) {
+    [data-color-scheme] {
+        filter: brightness(50%);
+    }
+} */

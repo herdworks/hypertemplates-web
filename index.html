@@ -1,0 +1,931 @@
+<!DOCTYPE html><html lang="en-US"><head>
+        <!-- Global Metadata -->
+<meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; https://plausible.io; style-src &#39;self&#39; &#39;unsafe-inline&#39;; connect-src &#39;self&#39; https://*; img-src &#39;self&#39; https://*; media-src &#39;self&#39; https://*;"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+<title>HyperTemplates</title>
+
+<meta name="description" content="The pure-HTML templating system for the modern web."/>
+<meta name="publisher" content="HyperTemplates"/>
+<meta name="creator" content="HyperTemplates"/>
+<meta name="author" content="HyperTemplates"/>
+<meta name="referrer" content="origin"/>
+<meta name="color-scheme" content="light dark"/>
+<meta name="build_id" content="100"/>
+
+<!-- OpenGraph Metadata -->
+<!-- "See http://ogp.me/ for more information" -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" ht-attrs="content:page.slug"/>
+<meta property="og:title" content="HyperTemplates"/>
+<meta property="og:description" content="The pure-HTML templating system for the modern web."/>
+<meta property="og:image" content="/cover.png"/>
+<meta property="og:video" content="https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4"/>
+
+<!-- Twitter Metadata -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HyperTemplates"/>
+<meta name="twitter:description" content="The pure-HTML templating system for the modern web."/>
+<meta name="twitter:site" content="@herdworks"/>
+<meta name="twitter:creator" content="@herdworks"/>
+
+
+<!-- Global Links -->
+
+<link rel="canonical" href="https://hypertemplates.net/"/>
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180"/><link rel="icon" href="/img/apple-touch-icon.png" sizes="180x180"/><link rel="icon" href="/img/favicon-128x128.png" sizes="128x128"/><link rel="icon" href="/img/favicon-192x192.png" sizes="192x192"/><link rel="icon" href="/img/favicon-256x256.png" sizes="256x256"/><link rel="icon" href="/img/favicon-512x512.png" sizes="512x512"/><link rel="me" href="https://github.com/hypertemplates"/><link rel="me" href="https://mastodon.social/@herdworks"/>
+
+<!-- Global Styles -->
+<link rel="stylesheet" href="/css/reset.css"/>
+<link rel="stylesheet" href="/css/variables.css?version=100"/>
+<link rel="stylesheet" href="/css/colors.css?version=100"/>
+<link rel="stylesheet" href="/css/typography.css?version=100"/>
+<link rel="stylesheet" href="/css/grid.css?version=100"/>
+<link rel="stylesheet" href="/css/styles.css?version=100"/>
+<link rel="stylesheet" href="/css/chroma-base16-snazzy.css?version=100"/>
+
+<!-- Global Scripts -->
+<script src="/js/main.js?version=100" defer=""></script>
+<script src="https://plausible.io/js/script.file-downloads.outbound-links.js" data-domain="hypertemplates.net" defer=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+        <!-- Layout Properties -->
+        <meta name="layout:name" content="home"/>
+
+        <!-- Layout Components -->
+        <script src="/js/components/footer-menu.js" defer=""></script>
+        <script src="/js/components/dismiss-button.js" defer=""></script>
+
+        <!-- Layout Styles -->
+        <style id="components">
+        header {
+            --link-underline-color: none !important;
+        }
+        header nav {
+            display: grid;
+            grid-template-areas: "logo button";
+            grid-template-rows: 1fr;
+            grid-template-columns: auto 0;
+        }
+        header nav-button {
+            display: none;
+            flex-direction: row;
+            justify-items: end;
+            justify-content: end;
+            align-items: center;
+
+            & button:first-of-type {
+                width: 48px;
+                height: 48px;
+                padding: 4px;
+                background-color: var(--accent-shade);
+                color: rgba(255,255,255,0.8);
+            }
+
+            & svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        header svg {
+            width: min(300px, 100%);
+            height: auto;
+        }
+        header h1 {
+            font-family: "RetroGaming";
+            font-size: 36px;
+            color: var(--color-3) !important;
+            text-shadow: -4px -4px rgba(0,0,0,1.0);
+            /* -webkit-text-stroke-width: 2px; */
+            /* -webkit-text-stroke-color: rgba(0,0,0,1.0); */
+        }
+        header content-row[grid] {
+            display: grid;
+            grid-template-columns: calc(40% - var(--gutter-1x)) calc(60% - var(--gutter-1x));
+            gap: var(--gutter-2x);
+            align-self: unset;
+        }
+        header content-column {
+            width: 100%;
+            max-width: inherit;
+        }
+        header p:last-of-type {
+            margin-bottom: var(--gutter-2x, 30px);
+        }
+        header link-button a {
+            margin: 5px 5px 5px 0;
+        }
+        header a[rel='downloads'] {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 10px 0;
+            column-gap: 5px;
+            & svg {
+                display: inline;
+                height: 1.0rem;
+                width: auto;
+            }
+        }
+        header content-column:last-of-type {
+            margin-bottom: calc(var(--whitespace, 50px) * -1);
+        }
+        header code-snippet {
+            margin: 0;
+            height: 100%;
+        }
+        header code-snippet pre,
+        header code-snippet code {
+            font-size: 0.90rem;
+        }
+        @media screen and (max-width: 767px) {
+            header content-row[grid] {
+                grid-template-columns: 100%;
+                grid-auto-flow: row;
+            }
+            header nav {
+                grid-template-columns: auto auto;
+            }
+            header nav-button { 
+                display: flex; 
+            }
+        }
+    
+        code-snippet {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            min-height: fit-content;
+            margin: var(--gutter-2x, 30px) 0;
+        }
+        code-snippet window-chrome {
+            display: grid;
+            width: 100%;
+            max-width: var(--max-width, 100%);
+            height: 30px;
+            background-color: color-mix(in srgb, var(--accent-shade) 50%, transparent);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 0 15px;
+            align-content: center;
+            justify-content: start;
+            grid-template: 'button button button . title . actions';
+            grid-template-columns: 24px 24px 24px auto 1fr auto 72px;
+
+            & button {
+                grid-area: button / auto;
+                display: inline-block;
+                align-self: center;
+                justify-self: start;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                border-radius: 50%;
+            }
+
+            & span {
+                grid-area: title;
+                color: var(--text-color);
+                text-align: center;
+                font-size: 0.85em;
+            }
+        }
+        code-snippet window-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            min-height: fit-content;
+            padding: 0;
+            overflow-x: scroll;
+        }
+        code-snippet window-content > pre:has(code) {
+            margin: 0;
+        }
+        code-snippet window-content > pre,
+        code-snippet window-content > pre > code {
+            flex: 1;
+            tab-size: 2;
+        }
+        code-snippet[line-numbers='on'] .ln,
+        code-snippet[line-numbers='true'] .ln {
+            display: block;
+        }
+        code-snippet .line.highlighted .cl {
+            /* background-color: rgba(255,255,255,0.15); */
+            background-color: rgba(255, 255, 0, 0.25);
+            font-weight: 600;
+        }
+        code-snippet .line.highlighted .cl * {
+            margin-right: 0;
+        }
+        code-snippet window-content > p {
+            display: none;
+        }
+        code-snippet small {
+            width: 100%;
+            margin: var(--gutter-1x, 15px) 0;
+            text-align: center;
+        }
+    
+        sidebar-autofocus[hidden] {
+            display: none;
+        }
+        sidebar-autofocus:not([hidden]) {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            z-index: 10;
+        }
+    
+        sidebar-menu {
+            /* variables */
+            --width: min(360px, 70vw);
+
+            display: block;
+            position: fixed;
+            top: 0;
+            right: calc(var(--width) * -1);
+            height: 100vh;
+            width: var(--width);
+            z-index: 999;
+            padding: var(--gutter-1x, 15px);
+            transition: right 0.35s ease-in-out;
+        }
+        sidebar-menu[active] {
+            right: 0;
+            transition: right 0.35s ease-in-out;
+        }
+        sidebar-menu menu {
+            display: flex;
+            flex-direction: column;
+
+            & svg {
+                height: 100px;
+                width: auto;
+                margin-bottom: 15px;
+                justify-self: center;
+            }
+            & li {
+                font-size: 1.25rem;
+                text-align: center;
+                list-style-type: none;
+                margin-bottom: 10px;
+            }
+        }
+    
+        video-player {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: var(--gutter-3x);
+            margin-bottom: var(--gutter-3x);
+        }
+        video-player video {
+            width: 65%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        video-player figcaption {
+            margin-bottom: var(--gutter-200, 30px);
+        }
+        video-player figcaption p {
+            font-size: 0.9rem;
+            width: var(--figure-default-width);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        video-player figcaption p a {
+            font-size: inherit;
+            color: inherit;
+        }
+        video-player video-controls button {
+            display: none;
+        }
+
+        @media screen and (min-width: 1280px) {}
+        @media screen and (min-width: 768px) and (max-width: 1279px) { 
+            video-player video { width: 80%; }
+        }
+        @media screen and (max-width: 767px) {
+            video-player video { width: 90%; }
+        }
+    
+        video-player {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: var(--gutter-3x);
+            margin-bottom: var(--gutter-3x);
+        }
+        video-player video {
+            width: 65%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        video-player figcaption {
+            margin-bottom: var(--gutter-200, 30px);
+        }
+        video-player figcaption p {
+            font-size: 0.9rem;
+            width: var(--figure-default-width);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        video-player figcaption p a {
+            font-size: inherit;
+            color: inherit;
+        }
+        video-player video-controls button {
+            display: none;
+        }
+
+        @media screen and (min-width: 1280px) {}
+        @media screen and (min-width: 768px) and (max-width: 1279px) { 
+            video-player video { width: 80%; }
+        }
+        @media screen and (max-width: 767px) {
+            video-player video { width: 90%; }
+        }
+    
+        bento-box {
+            display: grid;
+            width: 100%;
+            grid-auto-rows: 1fr;
+            grid-template-columns: var(--bento-box-columns);
+            grid-auto-flow: dense;
+            gap: var(--gutter-1x);
+        }
+        bento-box bento-card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            grid-row: var(--bento-card-rows, span 4);
+            grid-column: var(--bento-card-columns, span 1);
+            border: 1px solid color-mix(in srgb, var(--outline-color), transparent 50%);
+            border-radius: var(--gutter-1x);
+            overflow: hidden;
+        }
+        bento-box > :not(bento-card) {
+            display: none;
+        }
+        bento-card h3 {
+            margin: var(--gutter-1x);
+        }
+        bento-card p {
+            margin: 0 15px 15px 15px;
+        }
+        bento-card p:last-of-type {
+            flex: 1;
+        }
+        bento-card a {
+            display: inline;
+            width: fit-content;
+            margin: 0 15px 15px;
+        }
+
+        bento-box:not([columns]),
+        bento-box[columns='12'] {
+            --bento-box-columns: repeat(12, 1fr);
+            --bento-card-columns: span 4;
+        }
+        bento-box[columns='15'] {
+            --bento-box-columns: repeat(15, 1fr);
+            --bento-card-columns: span 5;
+        }
+        bento-box[columns='16'] {
+            --bento-box-columns: repeat(16, 1fr);
+            --bento-card-columns: span 4;
+        }
+        bento-box > bento-card[width='1'] { --bento-card-columns: span 1; }
+        bento-box > bento-card[width='2'] { --bento-card-columns: span 2; }
+        bento-box > bento-card[width='3'] { --bento-card-columns: span 3; }
+        bento-box > bento-card[width='4'] { --bento-card-columns: span 4; }
+        bento-box > bento-card[width='5'] { --bento-card-columns: span 5; }
+        bento-box > bento-card[width='6'] { --bento-card-columns: span 6; }
+        bento-box > bento-card[width='7'] { --bento-card-columns: span 7; }
+        bento-box > bento-card[width='8'] { --bento-card-columns: span 8; }
+        bento-box > bento-card[width='9'] { --bento-card-columns: span 9; }
+        bento-box > bento-card[width='10'] { --bento-card-columns: span 10; }
+        bento-box > bento-card[width='11'] { --bento-card-columns: span 11; }
+        bento-box > bento-card[width='12'] { --bento-card-columns: span 12; }
+        bento-box > bento-card[width='13'] { --bento-card-columns: span 13; }
+        bento-box > bento-card[width='14'] { --bento-card-columns: span 14; }
+        bento-box > bento-card[width='15'] { --bento-card-columns: span 15; }
+        bento-box > bento-card[width='16'] { --bento-card-columns: span 16; }
+        bento-box > bento-card[height='1'] { --bento-card-rows: span 1; }
+        bento-box > bento-card[height='2'] { --bento-card-rows: span 2; }
+        bento-box > bento-card[height='3'] { --bento-card-rows: span 3; }
+        bento-box > bento-card[height='4'] { --bento-card-rows: span 4; }
+        bento-box > bento-card[height='5'] { --bento-card-rows: span 5; }
+        bento-box > bento-card[height='6'] { --bento-card-rows: span 6; }
+        bento-box > bento-card[height='7'] { --bento-card-rows: span 7; }
+        bento-box > bento-card[height='8'] { --bento-card-rows: span 8; }
+        bento-box > bento-card[height='9'] { --bento-card-rows: span 9; }
+        bento-box > bento-card[height='10'] { --bento-card-rows: span 10; }
+        @media screen and (max-width: 767px) {
+            bento-box,
+            bento-box[columns] {
+                --bento-box-columns: repeat(10, 1fr);
+            }
+            bento-box > bento-card {
+                --bento-card-columns: span 10 !important;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1279px) {
+            bento-box,
+            bento-box[columns] {
+                --bento-box-columns: repeat(10, 1fr);
+            }
+            bento-box > bento-card {
+                --bento-card-columns: span 5 !important;
+            }
+        }
+        @media screen and (min-width: 1280px) {}
+    
+        #newsletter {
+            padding: 50px 0;
+        }
+        #newsletter content-row {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gutter-2x, 30px);
+        }
+        #newsletter content-column:last-child {
+            width: 100%;
+            align-self: center;
+        }
+        @media screen and (max-width: 1279px) {
+            #newsletter content-row {
+                grid-template-columns: 1fr;
+                grid-auto-flow: row;
+            }
+        }
+    
+        footer footer-menu {
+            margin-bottom: var(--gutter-2x, 30px);
+        }
+    
+        footer-menu {
+            display: block;
+            height: max-content;
+            width: 100%;
+        }
+        footer-menu menu {
+            display: grid;
+            grid-auto-flow: column; /* magic */
+            grid-auto-columns: 1fr; /* magic */
+            gap: var(--gutter-1x);
+        }
+        footer-menu menu menu-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            height: 100%;
+            min-height: 0;
+        }
+        footer-menu menu menu-group > * {
+            width: 100%;
+        }
+        footer-menu menu menu-group h5 {
+            margin-bottom: 15px;
+        }
+        footer-menu menu menu-group a,
+        footer-menu menu menu-group a:hover {
+            text-decoration: none;
+            margin-bottom: 5px;
+            box-shadow: none;
+        }
+        @media screen and (max-width: 767px) {
+            footer-menu menu {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-flow: unset;
+                grid-auto-columns: unset;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1279px) {}
+        @media screen and (min-width: 1280px) {}
+    </style>
+        <style id="layout">
+            header[data-color-scheme="gray"] svg#logo > g > g path { fill: var(--color-1) !important }
+            header[data-color-scheme="gray"] svg#logo > g > g:nth-child(2) path { fill: var(--color-5) !important; }
+
+            bento-overview {
+                display: grid;
+                width: 100%;
+                justify-content: center;
+                justify-items: center;
+                text-align: center;
+                margin-bottom: var(--gutter-2x, 30px);
+            }
+            bento-overview h2 {
+                margin-bottom: 15px;
+            }
+            bento-overview p:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="hero" data-color-scheme="primary">
+    
+    <content-container>
+        <content-row grid="">
+            <content-column>
+                <!-- <h1 ht-content='text:page.title'>Title</h1> -->
+                <nav>
+                    <svg width="100%" height="100%" viewBox="0 0 840 360" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" id="logo">
+    <g transform="matrix(1.72963,0,0,1.72963,-1047.54,66.2729)">
+        <g>
+            <path d="M654.108,-9.018L634.682,-9.018L634.682,-22.171C634.682,-23.891 633.265,-25.308 631.545,-25.308L619.707,-25.308C617.987,-25.308 616.571,-23.891 616.571,-22.171L616.571,43.696C616.571,45.416 617.987,46.832 619.707,46.832L631.545,46.832C633.265,46.832 634.682,45.416 634.682,43.696L634.682,-0.114C634.682,-0.924 635.39,-1.531 636.199,-1.531L639.336,-1.531C640.145,-1.531 640.752,-0.924 640.752,-0.114L640.752,3.224C640.752,3.832 641.258,4.337 641.865,4.337L645.305,4.337C646.115,4.337 646.823,4.944 646.823,5.754L646.823,43.696C646.823,45.416 648.239,46.832 649.959,46.832L661.797,46.832C663.517,46.832 664.934,45.416 664.934,43.696L664.934,1.808C664.934,-0.013 663.416,-1.531 661.595,-1.531L657.447,-1.531L657.447,-5.679C657.447,-7.5 655.929,-9.018 654.108,-9.018Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M715.725,-9.018L703.584,-9.018C702.066,-9.018 700.852,-7.804 700.852,-6.185L700.852,37.827C700.852,38.637 700.144,39.345 699.233,39.345L696.4,39.345C695.489,39.345 694.781,38.637 694.781,37.827L694.781,35.095C694.781,34.286 694.073,33.578 693.263,33.578L690.329,33.578C689.52,33.578 688.71,32.87 688.71,31.959L688.71,-6.185C688.71,-7.804 687.496,-9.018 685.979,-9.018L673.331,-9.018C671.814,-9.018 670.6,-7.804 670.6,-6.185L670.6,36.006C670.6,37.827 672.016,39.244 673.837,39.244L678.087,39.244L678.087,43.493C678.087,45.314 679.503,46.731 681.324,46.731L699.739,46.832C700.346,46.832 700.852,47.338 700.852,47.945L700.852,56.747C700.852,57.658 700.144,58.366 699.233,58.366L696.4,58.366C695.489,58.366 694.781,57.658 694.781,56.747L694.781,52.296C694.781,51.385 694.073,50.778 693.263,50.778L672.522,50.778C671.409,50.778 670.6,51.587 670.6,52.599L670.6,56.545C670.6,57.557 671.409,58.468 672.522,58.468L678.087,58.468L678.087,62.515C678.087,64.336 679.503,65.752 681.324,65.752L708.238,65.752C710.059,65.752 711.475,64.336 711.475,62.515L711.475,58.468L715.725,58.468C717.546,58.468 718.963,56.95 718.963,55.23L718.963,-5.679C718.963,-7.5 717.546,-9.018 715.725,-9.018Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M765.504,42.785L765.504,39.345L768.944,39.345C771.17,39.345 772.992,37.524 772.992,35.298L772.992,2.617C772.992,0.29 771.17,-1.531 768.944,-1.531L765.504,-1.531L765.504,-4.87C765.504,-7.197 763.683,-9.018 761.457,-9.018L728.979,-9.018C726.551,-9.018 724.629,-7.096 724.629,-4.667L724.629,61.705C724.629,63.931 726.45,65.752 728.676,65.752L738.692,65.752C741.019,65.752 742.739,63.931 742.739,61.705L742.739,46.832L761.457,46.832C763.683,46.832 765.504,45.011 765.504,42.785ZM744.358,-1.531L747.292,-1.531C748.102,-1.531 748.81,-0.823 748.81,-0.013L748.81,2.82C748.81,3.629 749.518,4.337 750.328,4.337L753.262,4.337C754.173,4.337 754.881,5.046 754.881,5.855L754.881,37.827C754.881,38.637 754.173,39.345 753.262,39.345L750.429,39.345C749.518,39.345 748.81,38.637 748.81,37.827L748.81,34.994C748.81,34.185 748.203,33.578 747.394,33.578L744.358,33.578C743.448,33.578 742.739,32.87 742.739,31.959L742.739,-0.013C742.739,-0.823 743.448,-1.531 744.358,-1.531Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M824.086,-1.531L819.533,-1.531L819.533,-6.084C819.533,-7.703 818.218,-9.018 816.599,-9.018L789.079,-9.018C787.46,-9.018 786.145,-7.703 786.145,-6.084L786.145,-1.531L781.592,-1.531C779.973,-1.531 778.658,-0.216 778.658,1.403L778.658,36.411C778.658,38.03 779.973,39.345 781.592,39.345L786.145,39.345L786.145,43.898C786.145,45.517 787.46,46.832 789.079,46.832L816.599,46.832C818.218,46.832 819.533,45.517 819.533,43.898L819.533,39.345L824.086,39.345C825.705,39.345 827.021,38.03 827.021,36.411L827.021,33.578C827.021,31.757 825.604,30.34 823.783,30.34L812.046,30.34C810.326,30.34 808.91,31.757 808.91,33.578L808.91,37.928C808.91,38.738 808.201,39.345 807.392,39.345L804.357,39.345C803.547,39.345 802.839,38.738 802.839,37.928L802.839,34.994C802.839,34.185 802.232,33.578 801.423,33.578L798.286,33.578C797.477,33.578 796.768,32.87 796.768,32.06L796.768,28.013C796.768,27.204 797.477,26.495 798.387,26.495L823.277,26.495C825.301,26.495 827.021,24.775 827.021,22.651L827.021,1.403C827.021,-0.216 825.705,-1.531 824.086,-1.531ZM796.768,11.622L796.768,-0.114C796.768,-0.924 797.477,-1.531 798.286,-1.531L801.423,-1.531C802.232,-1.531 802.839,-0.924 802.839,-0.114L802.839,2.82C802.839,3.629 803.446,4.337 804.256,4.337L807.392,4.337C808.201,4.337 808.91,4.944 808.91,5.754L808.91,11.622C808.91,12.533 808.201,13.14 807.392,13.14L798.387,13.14C797.477,13.14 796.768,12.533 796.768,11.622Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M843.108,-9.018C841.489,-9.018 840.174,-7.703 840.174,-6.084L840.174,-1.531L835.621,-1.531C834.002,-1.531 832.686,-0.216 832.686,1.403L832.686,43.898C832.686,45.517 834.002,46.832 835.621,46.832L847.863,46.832C849.482,46.832 850.797,45.517 850.797,43.898L850.797,-0.114C850.797,-0.924 851.506,-1.531 852.315,-1.531L855.451,-1.531C856.261,-1.531 856.868,-0.924 856.868,-0.114L856.868,2.82C856.868,3.629 857.475,4.337 858.284,4.337L861.421,4.337C862.23,4.337 862.939,4.944 862.939,5.754L862.939,10.003C862.939,11.723 864.355,13.14 866.075,13.14L877.812,13.14C879.633,13.14 881.049,11.723 881.049,10.003L881.049,-5.882C881.049,-7.602 879.633,-9.018 877.913,-9.018L843.108,-9.018Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+        </g>
+        <g transform="matrix(1.01588,0,0,1.03312,-10.6047,-1.37375)">
+            <g transform="matrix(1,0,0,1,16.4385,8.29658)">
+                <path d="M915.045,6.057C915.753,6.057 916.462,5.349 916.462,4.641L916.462,-3.352C916.462,-4.162 917.069,-4.87 917.878,-4.87L931.234,-4.87C932.043,-4.87 932.65,-5.477 932.65,-6.286L932.65,-14.279C932.65,-15.089 932.043,-15.696 931.234,-15.696L912.415,-15.696C911.605,-15.696 910.998,-15.089 910.998,-14.279L910.998,-4.87L896.125,-4.87C895.316,-4.87 894.708,-4.162 894.708,-3.453L894.708,6.057L888.132,6.057C887.322,6.057 886.715,6.664 886.715,7.373L886.715,15.467C886.715,16.175 887.322,16.883 888.132,16.883L894.708,16.883L894.708,26.293C894.708,27.102 895.316,27.709 896.125,27.709L910.998,27.709L910.998,37.119C910.998,37.928 911.605,38.535 912.415,38.535L931.234,38.535C932.043,38.535 932.65,37.827 932.65,37.119L932.65,29.025C932.65,28.317 932.043,27.608 931.234,27.608L917.878,27.709C917.069,27.709 916.462,27.001 916.462,26.192L916.462,18.3C916.462,17.491 915.753,16.883 915.045,16.883L901.589,16.883C900.779,16.883 900.172,16.175 900.172,15.366L900.172,7.474C900.172,6.664 900.779,6.057 901.589,6.057L915.045,6.057Z" style="fill-rule:nonzero;"></path>
+            </g>
+            <g transform="matrix(1.45968,0,0,1.45968,-414.182,38.1966)">
+                <path d="M956.629,-7.602L951.57,-7.602L951.57,-12.357L956.225,-12.357C956.832,-12.357 957.338,-12.762 957.338,-13.369L957.338,-18.731C957.338,-19.338 956.832,-19.844 956.123,-19.844L951.57,-19.844L951.57,-24.094C951.57,-24.701 951.065,-25.207 950.457,-25.207L945.196,-25.207C944.589,-25.207 944.083,-24.701 944.083,-24.094L944.083,-19.844L939.53,-19.844C938.822,-19.844 938.316,-19.338 938.316,-18.731L938.316,-13.369C938.316,-12.762 938.822,-12.357 939.429,-12.357L944.083,-12.357L944.083,-7.602L939.024,-7.602C938.62,-7.602 938.316,-7.298 938.316,-6.893L938.316,-1.227C938.316,-0.62 938.822,-0.114 939.429,-0.114L944.69,-0.114C945.297,-0.114 945.904,-0.62 945.904,-1.227L945.904,-7.602L949.749,-7.602L949.749,-1.227C949.749,-0.62 950.255,-0.114 950.963,-0.114L956.225,-0.114C956.832,-0.114 957.338,-0.62 957.338,-1.227L957.338,-6.893C957.338,-7.298 957.034,-7.602 956.629,-7.602Z" style="fill-rule:nonzero;"></path>
+            </g>
+            <g transform="matrix(1,0,0,1,26.6067,8.29658)">
+                <path d="M994.065,6.057C994.874,6.057 995.583,6.664 995.583,7.474L995.583,15.366C995.583,16.175 994.874,16.883 994.065,16.883L980.71,16.883C979.9,16.883 979.293,17.491 979.293,18.3L979.293,26.192C979.293,27.001 978.585,27.709 977.775,27.709L964.42,27.608C963.611,27.608 963.003,28.317 963.003,29.025L963.003,37.119C963.003,37.827 963.611,38.535 964.42,38.535L983.239,38.535C984.048,38.535 984.656,37.928 984.656,37.119L984.656,27.709L999.529,27.709C1000.34,27.709 1000.95,27.102 1000.95,26.293L1000.95,16.883L1007.52,16.883C1008.33,16.883 1008.94,16.175 1008.94,15.467L1008.94,7.373C1008.94,6.664 1008.33,6.057 1007.52,6.057L1000.95,6.057L1000.95,-3.453C1000.95,-4.162 1000.34,-4.87 999.529,-4.87L984.656,-4.87L984.656,-14.279C984.656,-15.089 984.048,-15.696 983.239,-15.696L964.42,-15.696C963.611,-15.696 963.003,-15.089 963.003,-14.279L963.003,-6.286C963.003,-5.477 963.611,-4.87 964.42,-4.87L977.775,-4.87C978.585,-4.87 979.293,-4.162 979.293,-3.352L979.293,4.641C979.293,5.349 979.9,6.057 980.71,6.057L994.065,6.057Z" style="fill-rule:nonzero;"></path>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,0,-20.2356)">
+            <path d="M653.905,115.633C655.322,115.633 656.536,114.419 656.536,113.002L656.536,104.908C656.536,103.492 655.322,102.278 653.905,102.278L643.484,102.278L643.484,87.506C643.484,86.696 642.776,85.988 641.966,85.988L634.277,85.988C633.467,85.988 632.86,86.595 632.86,87.404L632.86,92.666C632.86,93.07 632.456,93.374 632.051,93.374L626.79,93.374C625.98,93.374 625.373,94.082 625.373,94.892L625.373,102.278L619.201,102.278C617.785,102.278 616.571,103.492 616.571,104.908L616.571,113.002C616.571,114.419 617.785,115.633 619.201,115.633L625.373,115.633L625.272,148.111C625.272,149.528 626.486,150.64 627.903,150.64L632.759,150.64L632.759,155.598C632.759,157.015 633.872,158.128 635.39,158.128L653.703,158.128C655.221,158.128 656.536,156.914 656.536,155.396L656.536,147.605C656.536,146.087 655.221,144.873 653.703,144.873L645.002,144.873C644.192,144.873 643.484,144.165 643.484,143.356L643.484,115.633L653.905,115.633Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M707.631,109.765L703.078,109.765L703.078,105.212C703.078,103.593 701.762,102.278 700.144,102.278L672.623,102.278C671.004,102.278 669.689,103.593 669.689,105.212L669.689,109.765L665.136,109.765C663.517,109.765 662.202,111.08 662.202,112.699L662.202,147.706C662.202,149.325 663.517,150.64 665.136,150.64L669.689,150.64L669.689,155.193C669.689,156.812 671.004,158.128 672.623,158.128L700.144,158.128C701.762,158.128 703.078,156.812 703.078,155.193L703.078,150.64L707.631,150.64C709.25,150.64 710.565,149.325 710.565,147.706L710.565,144.873C710.565,143.052 709.148,141.636 707.327,141.636L695.591,141.636C693.871,141.636 692.454,143.052 692.454,144.873L692.454,149.224C692.454,150.033 691.746,150.64 690.936,150.64L687.901,150.64C687.092,150.64 686.383,150.033 686.383,149.224L686.383,146.29C686.383,145.48 685.776,144.873 684.967,144.873L681.83,144.873C681.021,144.873 680.313,144.165 680.313,143.356L680.313,139.309C680.313,138.499 681.021,137.791 681.932,137.791L706.821,137.791C708.845,137.791 710.565,136.071 710.565,133.946L710.565,112.699C710.565,111.08 709.25,109.765 707.631,109.765ZM680.313,122.918L680.313,111.181C680.313,110.372 681.021,109.765 681.83,109.765L684.967,109.765C685.776,109.765 686.383,110.372 686.383,111.181L686.383,114.115C686.383,114.925 686.99,115.633 687.8,115.633L690.936,115.633C691.746,115.633 692.454,116.24 692.454,117.049L692.454,122.918C692.454,123.828 691.746,124.435 690.936,124.435L681.932,124.435C681.021,124.435 680.313,123.828 680.313,122.918Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M791.507,109.765L787.359,109.765L787.359,105.616C787.359,103.795 785.841,102.278 784.02,102.278L726.45,102.278C724.932,102.278 723.718,103.492 723.718,105.009L723.718,109.765L718.963,109.765C717.445,109.765 716.231,110.979 716.231,112.496L716.231,154.991C716.231,156.711 717.647,158.128 719.367,158.128L731.205,158.128C732.925,158.128 734.342,156.711 734.342,154.991L734.342,111.181C734.342,110.372 735.05,109.765 735.859,109.765L738.996,109.765C739.805,109.765 740.412,110.372 740.412,111.181L740.412,114.52C740.412,115.127 740.918,115.633 741.525,115.633L744.965,115.633C745.775,115.633 746.483,116.24 746.483,117.049L746.483,154.991C746.483,156.306 747.292,157.318 748.405,157.925C748.81,158.026 749.215,158.128 749.62,158.128L761.457,158.128C762.469,158.128 763.38,157.622 764.088,156.711L764.088,156.61C764.29,156.306 764.391,156.104 764.493,155.902L764.493,155.699L764.594,155.193L764.594,111.181C764.594,110.372 765.302,109.765 766.01,109.765L769.248,109.765C769.956,109.765 770.664,110.372 770.664,111.181L770.664,114.52C770.664,115.127 771.17,115.633 771.676,115.633L775.217,115.633C776.027,115.633 776.735,116.24 776.735,117.049L776.735,154.991C776.735,156.711 778.152,158.128 779.872,158.128L791.608,158.128C793.429,158.128 794.846,156.711 794.846,154.991L794.846,113.104C794.846,111.282 793.328,109.765 791.507,109.765Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M841.388,154.081L841.388,150.64L844.828,150.64C847.054,150.64 848.875,148.819 848.875,146.593L848.875,113.913C848.875,111.586 847.054,109.765 844.828,109.765L841.388,109.765L841.388,106.426C841.388,104.099 839.567,102.278 837.341,102.278L804.863,102.278C802.434,102.278 800.512,104.2 800.512,106.628L800.512,173.001C800.512,175.227 802.333,177.048 804.559,177.048L814.576,177.048C816.903,177.048 818.623,175.227 818.623,173.001L818.623,158.128L837.341,158.128C839.567,158.128 841.388,156.306 841.388,154.081ZM820.242,109.765L823.176,109.765C823.985,109.765 824.693,110.473 824.693,111.282L824.693,114.115C824.693,114.925 825.402,115.633 826.211,115.633L829.145,115.633C830.056,115.633 830.764,116.341 830.764,117.151L830.764,149.123C830.764,149.932 830.056,150.64 829.145,150.64L826.312,150.64C825.402,150.64 824.693,149.932 824.693,149.123L824.693,146.29C824.693,145.48 824.086,144.873 823.277,144.873L820.242,144.873C819.331,144.873 818.623,144.165 818.623,143.255L818.623,111.282C818.623,110.473 819.331,109.765 820.242,109.765Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M862.028,87.404L862.028,92.666C862.028,93.07 861.623,93.374 861.219,93.374L856.059,93.374C855.249,93.374 854.541,94.082 854.541,94.892L854.541,155.396C854.541,156.914 855.755,158.128 857.273,158.128L869.92,158.128C871.438,158.128 872.652,156.914 872.652,155.396L872.652,87.506C872.652,86.696 871.943,85.988 871.134,85.988L863.445,85.988C862.635,85.988 862.028,86.595 862.028,87.404Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M923.038,109.765L919.194,109.765L919.194,105.92C919.194,103.896 917.575,102.278 915.551,102.278L889.447,102.278C887.424,102.278 885.805,103.896 885.805,105.92L885.805,109.765L881.96,109.765C879.937,109.765 878.318,111.384 878.318,113.407L878.318,116.847C878.318,118.567 879.633,119.882 881.353,119.882L893.393,119.882C895.113,119.882 896.428,118.567 896.428,116.847L896.428,110.878C896.428,110.271 896.934,109.765 897.541,109.765L901.386,109.765C901.993,109.765 902.499,110.271 902.499,110.878L902.499,114.115C902.499,114.925 903.207,115.633 904.017,115.633L907.356,115.633C907.963,115.633 908.57,116.139 908.57,116.847L908.57,123.221C908.57,123.93 907.963,124.435 907.356,124.435L889.346,124.435C887.424,124.435 885.805,126.054 885.805,128.078L885.805,131.923L881.859,131.923C879.937,131.923 878.318,133.541 878.318,135.464L878.318,154.182C878.318,156.408 880.139,158.229 882.365,158.229L922.735,158.229C924.859,158.229 926.681,156.408 926.681,154.182L926.681,113.407C926.681,111.384 925.062,109.765 923.038,109.765ZM907.052,150.64L904.017,150.64C903.207,150.64 902.499,150.033 902.499,149.224L902.499,146.695C902.499,145.683 901.69,144.873 900.577,144.873L897.946,144.873C897.137,144.873 896.428,144.165 896.428,143.356L896.428,139.106C896.428,138.398 897.036,137.791 897.845,137.791L907.153,137.791C907.963,137.791 908.57,138.398 908.57,139.106L908.57,149.224C908.57,150.033 907.862,150.64 907.052,150.64Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M969.681,115.633C971.098,115.633 972.312,114.419 972.312,113.002L972.312,104.908C972.312,103.492 971.098,102.278 969.681,102.278L959.26,102.278L959.26,87.506C959.26,86.696 958.552,85.988 957.742,85.988L950.053,85.988C949.243,85.988 948.636,86.595 948.636,87.404L948.636,92.666C948.636,93.07 948.232,93.374 947.827,93.374L942.566,93.374C941.756,93.374 941.149,94.082 941.149,94.892L941.149,102.278L934.977,102.278C933.561,102.278 932.347,103.492 932.347,104.908L932.347,113.002C932.347,114.419 933.561,115.633 934.977,115.633L941.149,115.633L941.048,148.111C941.048,149.528 942.262,150.64 943.679,150.64L948.535,150.64L948.535,155.598C948.535,157.015 949.648,158.128 951.166,158.128L969.479,158.128C970.997,158.128 972.312,156.914 972.312,155.396L972.312,147.605C972.312,146.087 970.997,144.873 969.479,144.873L960.778,144.873C959.968,144.873 959.26,144.165 959.26,143.356L959.26,115.633L969.681,115.633Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M1023.41,109.765L1018.85,109.765L1018.85,105.212C1018.85,103.593 1017.54,102.278 1015.92,102.278L988.399,102.278C986.78,102.278 985.465,103.593 985.465,105.212L985.465,109.765L980.912,109.765C979.293,109.765 977.978,111.08 977.978,112.699L977.978,147.706C977.978,149.325 979.293,150.64 980.912,150.64L985.465,150.64L985.465,155.193C985.465,156.812 986.78,158.128 988.399,158.128L1015.92,158.128C1017.54,158.128 1018.85,156.812 1018.85,155.193L1018.85,150.64L1023.41,150.64C1025.03,150.64 1026.34,149.325 1026.34,147.706L1026.34,144.873C1026.34,143.052 1024.92,141.636 1023.1,141.636L1011.37,141.636C1009.65,141.636 1008.23,143.052 1008.23,144.873L1008.23,149.224C1008.23,150.033 1007.52,150.64 1006.71,150.64L1003.68,150.64C1002.87,150.64 1002.16,150.033 1002.16,149.224L1002.16,146.29C1002.16,145.48 1001.55,144.873 1000.74,144.873L997.606,144.873C996.797,144.873 996.089,144.165 996.089,143.356L996.089,139.309C996.089,138.499 996.797,137.791 997.707,137.791L1022.6,137.791C1024.62,137.791 1026.34,136.071 1026.34,133.946L1026.34,112.699C1026.34,111.08 1025.03,109.765 1023.41,109.765ZM996.089,122.918L996.089,111.181C996.089,110.372 996.797,109.765 997.606,109.765L1000.74,109.765C1001.55,109.765 1002.16,110.372 1002.16,111.181L1002.16,114.115C1002.16,114.925 1002.77,115.633 1003.58,115.633L1006.71,115.633C1007.52,115.633 1008.23,116.24 1008.23,117.049L1008.23,122.918C1008.23,123.828 1007.52,124.435 1006.71,124.435L997.707,124.435C996.797,124.435 996.089,123.828 996.089,122.918Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M1080.37,117.96L1080.37,112.092C1080.37,110.776 1079.36,109.765 1078.04,109.765L1072.88,109.765L1072.88,104.605C1072.88,103.289 1071.87,102.278 1070.56,102.278L1042.43,102.278C1040.81,102.278 1039.49,103.593 1039.49,105.212L1039.49,109.765L1034.94,109.765C1033.32,109.765 1032.01,111.08 1032.01,112.699L1032.01,127.977C1032.01,129.292 1033.02,130.304 1034.33,130.304L1039.49,130.304L1039.49,135.464C1039.49,136.779 1040.51,137.791 1041.82,137.791L1060.74,137.791C1061.55,137.791 1062.26,138.499 1062.26,139.309L1062.26,143.356C1062.26,144.165 1061.55,144.873 1060.74,144.873L1057.61,144.873C1056.8,144.873 1056.19,145.48 1056.19,146.29L1056.19,149.224C1056.19,150.033 1055.58,150.64 1054.77,150.64L1051.63,150.64C1050.83,150.64 1050.12,150.033 1050.12,149.224L1050.12,144.873C1050.12,143.052 1048.7,141.636 1046.98,141.636L1035.24,141.636C1033.42,141.636 1032.01,143.052 1032.01,144.873L1032.01,148.01C1032.01,149.528 1033.22,150.742 1034.74,150.742L1039.49,150.742L1039.49,155.396C1039.49,156.914 1040.71,158.128 1042.23,158.128L1069.95,158.128C1071.57,158.128 1072.88,156.812 1072.88,155.193L1072.88,150.64L1077.44,150.64C1079.05,150.64 1080.37,149.325 1080.37,147.706L1080.37,134.25C1080.37,133.036 1079.36,131.923 1078.04,131.923L1072.88,131.923L1072.88,126.763C1072.88,125.548 1071.87,124.435 1070.56,124.435L1051.74,124.435C1050.83,124.435 1050.12,123.828 1050.12,122.918L1050.12,111.181C1050.12,110.372 1050.83,109.765 1051.63,109.765L1054.77,109.765C1055.58,109.765 1056.19,110.372 1056.19,111.181L1056.19,114.115C1056.19,114.925 1056.8,115.633 1057.61,115.633L1060.84,115.633C1061.55,115.633 1062.16,116.24 1062.16,116.948L1062.16,117.96C1062.16,119.073 1063.07,120.085 1064.18,120.085L1078.35,120.085C1079.46,120.085 1080.37,119.073 1080.37,117.96Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+        </g>
+    </g>
+</svg>
+
+                    <nav-button>
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path>
+</svg>
+
+                        </button>
+                    </nav-button>
+                </nav>
+                <p><p>The pure-HTML templating system for the modern web.
+Rediscover the simple joy of making websites.
+No Javascript frameworks required.</p>
+</p>
+                <link-button>
+    <a href="/docs/tutorials/getting-started/">Get Started</a>
+</link-button><link-button>
+    <a href="/docs">Docs</a>
+</link-button>
+
+                <a href="/downloads/" rel="downloads">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128l-368 0zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39L344 184c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 134.1-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z"></path></svg>
+                    Download version
+                    <span>0.19.0</span>
+                </a>
+            </content-column>
+            <content-column><code-snippet filename="layout.html" highlights="" line-numbers="" caption="">
+    <!-- code-snippet[filename]: the filename to be displayed in the window titlebar -->
+    <!-- code-snippet[highlights]: comma separated list of line number ranges (e.g. "5,10-15,20") -->
+    <!-- code-snippet[line-numbers]:bool display line numbers -->
+    <!-- code-snippet[caption]: a caption to be displayed below the window -->
+    
+    <window-chrome>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <button role="presentation"></button>
+        <span>layout.html</span>
+    </window-chrome>
+    <window-content>
+<pre tabindex="0" class="chroma"><code><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;en-US&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="c">&lt;!-- Global Defaults --&gt;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">ht-include</span><span class="o">=</span><span class="s">&#39;fragments/head.html&#39;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="c">&lt;!-- Layout Metadata, Links, Styles, and Scripts --&gt;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="p">&lt;</span><span class="nt">title</span> <span class="na">ht-content</span><span class="o">=</span><span class="s">&#39;page.title,site.title&#39;</span><span class="p">&gt;</span>Placeholder Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">ht-attrs</span><span class="o">=</span><span class="s">&#39;content:page.description,site.description&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;description&#39;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#39;Placeholder description&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="c">/* Layout-specific styles */</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;/js/components/my-component.js&#39;</span> <span class="na">defer</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="p">&lt;</span><span class="nt">header</span> <span class="na">ht-include</span><span class="o">=</span><span class="s">&#39;fragments/header.html&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">            <span class="p">&lt;</span><span class="nt">article</span> <span class="na">ht-content</span><span class="o">=</span><span class="s">&#39;markdown:page.content&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Placeholder content...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">            <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">ht-include</span><span class="o">=</span><span class="s">&#39;fragments/footer&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></window-content>
+    
+    <script src="/js/components/code-snippet.js"></script>
+</code-snippet>
+</content-column>
+        </content-row>
+    </content-container>
+    <sidebar-autofocus hidden="">
+    
+</sidebar-autofocus>
+<sidebar-menu data-color-scheme="blur">
+    
+    <menu>
+        <svg viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.33093,0,0,1.33093,-200.495,332.95)">
+        <g transform="matrix(1,0,0,1,-5.68434e-14,-39.6758)">
+            <path d="M264.361,177.22C266.742,177.22 269.122,174.839 269.122,172.458L269.122,145.592C269.122,142.872 271.163,140.491 273.883,140.491L318.774,140.491C321.494,140.491 323.535,138.451 323.535,135.73L323.535,108.864C323.535,106.143 321.494,104.103 318.774,104.103L255.519,104.103C252.798,104.103 250.758,106.143 250.758,108.864L250.758,140.491L200.766,140.491C198.046,140.491 196.005,142.872 196.005,145.252L196.005,177.22L173.9,177.22C171.18,177.22 169.139,179.26 169.139,181.641L169.139,208.847C169.139,211.227 171.18,213.608 173.9,213.608L196.005,213.608L196.005,245.235C196.005,247.956 198.046,249.996 200.766,249.996L250.758,249.996L250.758,281.624C250.758,284.344 252.798,286.385 255.519,286.385L318.774,286.385C321.494,286.385 323.535,284.004 323.535,281.624L323.535,254.417C323.535,252.037 321.494,249.656 318.774,249.656L273.883,249.996C271.163,249.996 269.122,247.616 269.122,244.895L269.122,218.369C269.122,215.648 266.742,213.608 264.361,213.608L219.131,213.608C216.41,213.608 214.369,211.227 214.369,208.507L214.369,181.981C214.369,179.26 216.41,177.22 219.131,177.22L264.361,177.22Z" style="fill-rule:nonzero;"></path>
+            <path d="M893.62,177.22C896.341,177.22 898.721,179.26 898.721,181.981L898.721,208.507C898.721,211.227 896.341,213.608 893.62,213.608L848.73,213.608C846.009,213.608 843.968,215.648 843.968,218.369L843.968,244.895C843.968,247.616 841.588,249.996 838.867,249.996L793.977,249.656C791.256,249.656 789.216,252.037 789.216,254.417L789.216,281.624C789.216,284.004 791.256,286.385 793.977,286.385L857.232,286.385C859.952,286.385 861.993,284.344 861.993,281.624L861.993,249.996L911.984,249.996C914.705,249.996 916.745,247.956 916.745,245.235L916.745,213.608L938.85,213.608C941.571,213.608 943.611,211.227 943.611,208.847L943.611,181.641C943.611,179.26 941.571,177.22 938.85,177.22L916.745,177.22L916.745,145.252C916.745,142.872 914.705,140.491 911.984,140.491L861.993,140.491L861.993,108.864C861.993,106.143 859.952,104.103 857.232,104.103L793.977,104.103C791.256,104.103 789.216,106.143 789.216,108.864L789.216,135.73C789.216,138.451 791.256,140.491 793.977,140.491L838.867,140.491C841.588,140.491 843.968,142.872 843.968,145.592L843.968,172.458C843.968,174.839 846.009,177.22 848.73,177.22L893.62,177.22Z" style="fill-rule:nonzero;"></path>
+        </g>
+        <g>
+            <path d="M513.979,66.921L426.919,66.921L426.919,7.974C426.919,0.265 420.571,-6.083 412.862,-6.083L359.81,-6.083C352.101,-6.083 345.753,0.265 345.753,7.974L345.753,303.162C345.753,310.87 352.101,317.219 359.81,317.219L412.862,317.219C420.571,317.219 426.919,310.87 426.919,303.162L426.919,106.823C426.919,103.196 430.093,100.475 433.72,100.475L447.777,100.475C451.404,100.475 454.125,103.196 454.125,106.823L454.125,121.787C454.125,124.507 456.392,126.775 459.113,126.775L474.53,126.775C478.157,126.775 481.331,129.495 481.331,133.123L481.331,303.162C481.331,310.87 487.679,317.219 495.388,317.219L548.44,317.219C556.149,317.219 562.497,310.87 562.497,303.162L562.497,115.439C562.497,107.277 555.695,100.475 547.533,100.475L528.942,100.475L528.942,81.884C528.942,73.722 522.141,66.921 513.979,66.921Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+            <path d="M755.208,126.775C761.556,126.775 766.997,121.333 766.997,114.985L766.997,78.71C766.997,72.362 761.556,66.921 755.208,66.921L708.504,66.921L708.504,0.719C708.504,-2.909 705.33,-6.083 701.702,-6.083L667.241,-6.083C663.613,-6.083 660.893,-3.362 660.893,0.265L660.893,23.844C660.893,25.658 659.079,27.018 657.265,27.018L633.686,27.018C630.059,27.018 627.338,30.192 627.338,33.82L627.338,66.921L599.679,66.921C593.33,66.921 587.889,72.362 587.889,78.71L587.889,114.985C587.889,121.333 593.33,126.775 599.679,126.775L627.338,126.775L626.885,272.328C626.885,278.676 632.326,283.664 638.674,283.664L660.439,283.664L660.439,305.883C660.439,312.231 665.427,317.219 672.229,317.219L754.301,317.219C761.103,317.219 766.997,311.777 766.997,304.976L766.997,270.061C766.997,263.259 761.103,257.818 754.301,257.818L715.305,257.818C711.678,257.818 708.504,254.644 708.504,251.017L708.504,126.775L755.208,126.775Z" style="fill:rgb(236,120,184);fill-rule:nonzero;"></path>
+        </g>
+    </g>
+</svg>
+
+        <li>
+            <a href="/" rel="">Home</a>
+        </li><li>
+            <a href="/#features" rel="">Features</a>
+        </li><li>
+            <a href="/blog/" rel="">Blog</a>
+        </li><li>
+            <a href="/docs/" rel="">Docs</a>
+        </li><li>
+            <a href="/docs/reference/cli/" rel="">CLI</a>
+        </li>
+    </menu>
+</sidebar-menu>
+
+</header>
+
+        <!-- <section ht-include='fragments/logo-roll.html' data-color-scheme='light'></section> -->
+        <banner-message class="dismissed" data-color-scheme="light">
+    <style>
+        banner-message { --radius: 50vh; }
+        banner-message { display: block; box-sizing: border-box; height: auto; max-height: 150px; }
+        banner-message:not(.dismissed) { transition: max-height 750ms ease-in 500ms; }
+        banner-message.dismissed { max-height: 0; }
+        banner-message :where(content-row, banner-pill) {
+            width: fit-content;
+            margin: 8px;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: var(--radius);
+        }
+        banner-message banner-pill {
+            text-transform: uppercase;
+            padding: 0.125em 0.75em;
+            font-weight: bold;
+            margin-right: 0;
+        }
+        banner-message content-row > a { 
+            display: flex; 
+            flex-direction: row;
+            align-content: center;
+            align-items: center;
+            margin: 0;
+            box-shadow: none;
+            text-wrap: nowrap;
+            max-width: 65%;
+            overflow-x: clip;
+        }
+        banner-message a svg { display: inline; margin-left: 5px; }
+        banner-message dismiss-button { cursor: pointer; margin-right: 16px; }
+        banner-message:not(:first-of-type) { display: none; } /* only show the first banner */
+        @media (prefers-color-scheme: light) {
+            banner-message[data-color-scheme='light'] :is(content-row, banner-pill) {
+                background-color: rgba(0,0,0,0.10);
+            }
+        }
+        @media screen and (max-width: 767px) {
+            banner-message { font-size: 0.9rem; }
+        }
+    </style>
+    <content-container flex="" center="">
+        <content-row flex="" spread="" aligned="">
+            <banner-pill><small>new</small></banner-pill>
+            <a href="/blog/introducing-hypertemplates/">
+                <span>Read the introductory blog post</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="18" height="18"><!--!Font Awesome Pro 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.--><path d="M301.7 250.3c3.1 3.1 3.1 8.2 0 11.3l-216 216c-3.1 3.1-8.2 3.1-11.3 0s-3.1-8.2 0-11.3L284.7 256 74.3 45.7c-3.1-3.1-3.1-8.2 0-11.3s8.2-3.1 11.3 0l216 216z"></path></svg>
+            </a>
+            <dismiss-button dismisses="banner-message" toggle="dismissed" id="introducing-hypertemplates">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="18" height="18"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg>
+            </dismiss-button>
+        </content-row>
+    </content-container>
+</banner-message>
+
+        <section id="features" data-color-scheme="light">
+            <content-container>
+                <bento-overview>
+                    <h2>What is HyperTemplates?</h2>
+                    <content-block><p>HyperTemplates is the pure-HTML templating system for the modern web.
+<strong>HyperTemplates makes it easier to <em>make websites</em>, one template at a time</strong>.
+Build incredible websites with pure HTML, CSS, and Javascript.
+No frameworks, no build tools, no sacrifices, and no nonsense (unless you&#39;re into those sorts of things).</p>
+<video-player src="" poster="/cover.png" caption="" video="https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4" prefers-color-scheme="light">
+    
+    <video controls="" preload="none" poster="/cover.png">
+        <source type="video/mp4" src="https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4"/>
+    </video>
+    
+</video-player>
+<video-player src="" poster="/cover-dark.png" caption="" video="https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4" prefers-color-scheme="dark">
+    
+    <video controls="" preload="none" poster="/cover-dark.png">
+        <source type="video/mp4" src="https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4"/>
+    </video>
+    
+</video-player>
+</content-block>
+                </bento-overview>
+                <bento-box columns="12">
+    
+    <bento-card width="6" height="3">
+        <span hidden="">map[description:Rediscover the simple joy of _building **modern** websites as nature intended_... with HTML, CSS, and vanilla Javascript. :sparkles:
+ height:3 href:/docs/ title:Pure-HTML templating width:6]</span>
+        <h3>Pure-HTML templating</h3>
+        <p><p>Rediscover the simple joy of <em>building <strong>modern</strong> websites as nature intended</em>... with HTML, CSS, and vanilla Javascript. ✨</p>
+</p>
+        <a href="/docs/">Learn more →</a>
+    </bento-card><bento-card width="6" height="3">
+        <span hidden="">map[description:Fully featured Static site generator (`hyperctl`) with support for Markdown, YAML, JSON, and more.
+ height:3 href:/docs/reference/cli/ title:Static site generator width:6]</span>
+        <h3>Static site generator</h3>
+        <p><p>Fully featured Static site generator (<code>hyperctl</code>) with support for Markdown, YAML, JSON, and more.</p>
+</p>
+        <a href="/docs/reference/cli/">Learn more →</a>
+    </bento-card><bento-card width="8" height="3">
+        <span hidden="">map[description:Manage HyperTemplates websites by using the official app for iPhone, iPad, and Mac to perform full-site builds and deployments, or generate and publish incremental builds (single pages). height:3 href:https://hypertexting.com title:Native apps (coming soon) width:8]</span>
+        <h3>Native apps (coming soon)</h3>
+        <p><p>Manage HyperTemplates websites by using the official app for iPhone, iPad, and Mac to perform full-site builds and deployments, or generate and publish incremental builds (single pages).</p>
+</p>
+        <a href="https://hypertexting.com">Learn more →</a>
+    </bento-card><bento-card width="4" height="3">
+        <span hidden="">map[description:Hyper means _FAST_! HyperTemplates build times rival Hugo, with most smaller sites (dozens of pages) building in less than 100ms.
+ height:3 href:/blog/the-need-for-speed/ title:Designed for &lt;em&gt;speed&lt;/em&gt; width:4]</span>
+        <h3>Designed for <em>speed</em></h3>
+        <p><p>Hyper means <em>FAST</em>! HyperTemplates build times rival Hugo, with most smaller sites (dozens of pages) building in less than 100ms.</p>
+</p>
+        <a href="/blog/the-need-for-speed/">Learn more →</a>
+    </bento-card><bento-card width="4" height="3">
+        <span hidden="">map[description:Auto-generates multiple RSS (ATOM) feeds, including a primary feed and multiple tag-based feeds. height:3 href:/docs/reference/cms/feeds/ title:Automatic feed generation width:4]</span>
+        <h3>Automatic feed generation</h3>
+        <p><p>Auto-generates multiple RSS (ATOM) feeds, including a primary feed and multiple tag-based feeds.</p>
+</p>
+        <a href="/docs/reference/cms/feeds/">Learn more →</a>
+    </bento-card><bento-card width="4" height="3">
+        <span hidden="">map[description:Easily track changes between builds thanks to fully reproducible builds. height:3 href:/docs/reference/cms/builds/#reproducible-builds title:Reproducible builds width:4]</span>
+        <h3>Reproducible builds</h3>
+        <p><p>Easily track changes between builds thanks to fully reproducible builds.</p>
+</p>
+        <a href="/docs/reference/cms/builds/#reproducible-builds">Learn more →</a>
+    </bento-card><bento-card width="4" height="3">
+        <span hidden="">map[description:Generate and publish single pages and related ATOM feeds to S3-compatible hosting providers. height:3 href:/docs/reference/cms/builds/#incremental-builds title:Incremental builds width:4]</span>
+        <h3>Incremental builds</h3>
+        <p><p>Generate and publish single pages and related ATOM feeds to S3-compatible hosting providers.</p>
+</p>
+        <a href="/docs/reference/cms/builds/#incremental-builds">Learn more →</a>
+    </bento-card><bento-card width="4" height="3">
+        <span hidden="">map[description:The `hyperctl` CLI comes with a built-in development server with live reloading. height:3 href:/docs/reference/cli/commands/server/ title:Development server width:4]</span>
+        <h3>Development server</h3>
+        <p><p>The <code>hyperctl</code> CLI comes with a built-in development server with live reloading.</p>
+</p>
+        <a href="/docs/reference/cli/commands/server/">Learn more →</a>
+    </bento-card><bento-card width="8" height="3">
+        <span hidden="">map[description:HyperTemplates websites can be hosted anywhere that serves static files, including GitHub Pages, Cloudflare Pages, Netlify, Vercel, or even your homelab server. HyperTemplates really shines when used with any S3-compatible hosting provider, including AWS S3, Cloudflare R2, Fastly Object Storage, Digital Ocean Spaces, and more. height:3 href:/docs/reference/cms/providers/ title:Hosted anywhere width:8]</span>
+        <h3>Hosted anywhere</h3>
+        <p><p>HyperTemplates websites can be hosted anywhere that serves static files, including GitHub Pages, Cloudflare Pages, Netlify, Vercel, or even your homelab server. HyperTemplates really shines when used with any S3-compatible hosting provider, including AWS S3, Cloudflare R2, Fastly Object Storage, Digital Ocean Spaces, and more.</p>
+</p>
+        <a href="/docs/reference/cms/providers/">Learn more →</a>
+    </bento-card>
+</bento-box>
+            </content-container>
+        </section>
+        <content-whitespace></content-whitespace>
+        <section id="newsletter" data-color-scheme="gradient">
+    
+    <content-container>
+        <content-row grid="">
+            <content-column>
+                <h3>💬 Join the community</h3>
+                <p>Stay up-to-date with the latest releases and other news from the Team behind HyperTemplates.
+Ask the developers questions, get help from the community, and share your creations! 🎨
+</p>
+            </content-column>
+            <content-column>
+                <uni-form>
+    <style>
+        uni-form {
+            display: block;
+            flex-direction: row;
+            justify-content: right;
+            width: 100%;
+            --border-radius: 10px;
+        }
+
+        uni-form form {
+            display: flex;
+            flex-direction: row;
+            flex-basis: 100%;
+            justify-content: flex-start;
+            width: 100%;
+        }
+        uni-form form form-group:first-of-type {
+            flex: 1;
+        }
+        uni-form form form-group[hidden] {
+            flex: 0;
+        }
+
+        uni-form form-group label {
+            display: none;
+        }
+
+        uni-form form-group input {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: none;
+            border: 0;
+        }
+        uni-form form-group input[hidden] {
+            display: none;
+        }
+        uni-form form-group:first-of-type input {
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+        uni-form form-group:last-of-type input {
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        uni-form form-group input[type='submit'] {
+            font-weight: bold;
+        }
+    </style>
+    <form action="https://hypertexting.community/signup">
+        <form-group data-group="email">
+            <label for="email">Email<span title="required" aria-label="required"> *</span></label>
+            <input class="form-control" name="email" id="email" tabindex="101" type="email" placeholder="you@example.com" required=""/>
+        </form-group>
+        <form-group class="humanoid" data-group="humanoid" hidden="">
+            <label for="humanoid">Are you human?</label>
+            <checkbox-group>
+                <input class="form-control form-checkbox" name="humanoid" id="humanoid" tabindex="102" value="human" type="checkbox"/>
+                <span class="checkbox-label">I am human</span>
+            </checkbox-group>
+        </form-group>
+        <form-group data-group="uid"><input class="form-control" name="uid" id="uid" tabindex="103" placeholder=" aria-label=" type="hidden" hidden=""/></form-group>
+        <form-group data-group="href"><input class="form-control" name="href" id="href" tabindex="104" placeholder=" aria-label=" type="hidden" hidden=""/></form-group>
+        <form-group>
+            <input class="form-control form-submit" id="form-submit" tabindex="105" type="submit" aria-label="Subscribe" value="Subscribe"/>
+        </form-group>
+    </form>
+</uni-form>
+
+            </content-column>
+        </content-row>
+    </content-container>
+</section>
+        <footer id="footer" data-color-scheme="dark">
+    
+    <content-container>
+        <footer-menu columns="4">
+    
+    <a href="/#features" rel="Product">Features</a><a href="/downloads/" rel="Product">Downloads</a><a href="/blog/" rel="Product">Blog</a><a href="/docs/tutorials/getting-started/" rel="Getting Started">Try HyperTemplates</a><a href="/docs/tutorials/learn/" rel="Getting Started">Learn HyperTemplates</a><a href="/docs/" rel="Resources">Docs</a><a href="/community/" rel="Resources">Community 💬</a><a href="https://herd.works" rel="Resources">Company 🏢</a>
+</footer-menu>
+
+        <p>
+            <span>Designed by <a href="https://herd.works">Herd Works</a> in Portland, Oregon</span>
+            © 2026
+        </p>
+    </content-container>
+
+    <!-- Page.js -->
+    <script defer="" src="page.js"></script>
+</footer>
+
+    
+
+</body></html>
