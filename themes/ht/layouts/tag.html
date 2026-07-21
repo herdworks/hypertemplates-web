@@ -26,14 +26,14 @@
         </style>
     </head>
     <body>
-        <header ht-include='fragments/blog/hero'></header>
+        <header ht-include='fragments/blog/hero' data-color-scheme='primary'></header>
         <section data-color-scheme='light'>
             <content-container>
                 <feed-entry ht-template='entry:page.feed.pages;page:page;site:site' style='display: block;'>
-                    <meta name='entry' ht-attrs='content:entry' />
+                    <meta ht-apply name='entry' content='${ entry }' />
                     <post-card ht-include='fragments/hyper/post-card' ht-template='entity:entry.byline,page.byline,site.byline; page:entry'></post-card>
-                    <post-content ht-content='markdown:entry.summary,entry.content'></post-content>
-                    <learn-more ht-block ht-attrs='href:entry.path' label='Continue reading'></learn-more>
+                    <post-content ht-apply>${ markdown (get "entry.summary,entry.content") }</post-content>
+                    <learn-more ht-block ht-apply href='${ entry.path }' label='Continue reading'></learn-more>
                 </feed-entry>
             </content-container>
         </section>

@@ -1,9 +1,219 @@
 ---
-namespace: downloads
-latest: 0.18.1
+latest: 0.22.0
 releases:
+  - version: 0.22.0
+    date: "2026-06-03T12:00:00-07:00"
+    description: |
+      **NEW:** `hyperctl` version 0.22.0 with streamlined `hyperctl build` and `hyperctl deploy` commands, support for build logs, and generated Atom feed improvements.
+      
+      * Added support for converting `hypertexting.Page` link attachments to Atom entry "related" links
+      * Added support for converting `hypertexting.Page` image, audio, video, document, and file attachments to Atom entry "enclosure" links
+      * Added `--data-file` and `--log-file` options to `hyperctl build`, `hyperctl deploy`, and `hyperctl dev server`.
+      * Combined `hyperctl build complete` and `hyperctl build incremental` into a single `hyperctl build` command, with new `hyperctl build --incremental --page <path>` arguments.
+      * Combined `hyperctl deploy complete` and `hyperctl deploy incremental` into a single `hyperctl deploy` command, with new `hyperctl deploy --incremental --page <path>` arguments.
+      * Changed deployments to pass explicit hyperproviders deployment modes: full deploys use `replacement`, while incremental deploys use `overlay`.
+      * Updated command call sites for the new `hypertexting-go` `Build` / `BuildConfig` APIs and explicit writer logging APIs.
+      * Updated `github.com/herdworks/hypertexting-go` to `v0.34.0` with renamed `hypertexting.HyperBuild` → `hypertexting.Build` and new/simplified `hypertexting.BuildConfig` options that replace the growing number of `build.Execute()` arguments. 
+      * Updated `github.com/herdworks/hyperproviders-go` to `v0.23.0` with support for new `.deploymentignore` files
+      * Updated `github.com/herdworks/hypertemplates-go` to `v0.30.0` with io.Writer support for improved logging.
+      * Updated `github.com/herdworks/hyperfeed-go` to `v0.20.0` with improved Atom, RSS, and JSON Feed parser handling for related/external links versus enclosure attachments, deduplicates item attachments by normalized href, and enclosure link classification fixes.
+      * Updated `github.com/herdworks/hypergraph-go` to `v0.19.1` with updated feed discovery that skips `.well-known` URIs.
+
+      Please visit the [CHANGELOG](/changelog/) for a complete list of improvements. 
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_v0.22.0_darwin_universal.tar.gz
+            href: /downloads/hyperctl_v0.22.0_darwin_universal.tar.gz
+          - name: hyperctl_v0.22.0_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_v0.22.0_darwin_arm64.tar.gz
+          - name: hyperctl_v0.22.0_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_v0.22.0_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_v0.22.0_linux_arm64.tar.gz
+            href: /downloads/hyperctl_v0.22.0_linux_arm64.tar.gz
+          - name: hyperctl_v0.22.0_linux_amd64.tar.gz
+            href: /downloads/hyperctl_v0.22.0_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_v0.22.0_windows_arm64.tar.gz
+            href: /downloads/hyperctl_v0.22.0_windows_arm64.tar.gz
+          - name: hyperctl_v0.22.0_windows_amd64.tar.gz
+            href: /downloads/hyperctl_v0.22.0_windows_amd64.tar.gz
+  - version: 0.21.0
+    date: "2026-05-27T16:00:00-07:00"
+    description: |
+      **NEW:** `hyperctl` version 0.21.0 adds support for file-based [hosting provider secrets](/docs/reference/cms/providers/#provider-secrets).
+
+      Please visit the [CHANGELOG](/changelog/) for a complete list of improvements. 
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_v0.21.0_darwin_universal.tar.gz
+            href: /downloads/hyperctl_v0.21.0_darwin_universal.tar.gz
+          - name: hyperctl_v0.21.0_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_v0.21.0_darwin_arm64.tar.gz
+          - name: hyperctl_v0.21.0_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_v0.21.0_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_v0.21.0_linux_arm64.tar.gz
+            href: /downloads/hyperctl_v0.21.0_linux_arm64.tar.gz
+          - name: hyperctl_v0.21.0_linux_amd64.tar.gz
+            href: /downloads/hyperctl_v0.21.0_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_v0.21.0_windows_arm64.tar.gz
+            href: /downloads/hyperctl_v0.21.0_windows_arm64.tar.gz
+          - name: hyperctl_v0.21.0_windows_amd64.tar.gz
+            href: /downloads/hyperctl_v0.21.0_windows_amd64.tar.gz
+
+  - version: 0.20.1
+    date: "2026-05-27T09:00:00-07:00"
+    description: |
+      Version 0.20.1 includes all of the improvements from 0.20.0 and is recommended for all users. 
+
+      Fixed a bug in `hyperctl dev server`, `hyperctl build`, and `hyperctl deploy` that was removing trailing slashes from canonical URLs in Atom feeds.
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_v0.20.1_darwin_universal.tar.gz
+            href: /downloads/hyperctl_v0.20.1_darwin_universal.tar.gz
+          - name: hyperctl_v0.20.1_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_v0.20.1_darwin_arm64.tar.gz
+          - name: hyperctl_v0.20.1_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_v0.20.1_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_v0.20.1_linux_arm64.tar.gz
+            href: /downloads/hyperctl_v0.20.1_linux_arm64.tar.gz
+          - name: hyperctl_v0.20.1_linux_amd64.tar.gz
+            href: /downloads/hyperctl_v0.20.1_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_v0.20.1_windows_arm64.tar.gz
+            href: /downloads/hyperctl_v0.20.1_windows_arm64.tar.gz
+          - name: hyperctl_v0.20.1_windows_amd64.tar.gz
+            href: /downloads/hyperctl_v0.20.1_windows_amd64.tar.gz
+
+  - version: 0.20.0
+    date: "2026-05-12T08:00:00-07:00"
+    description: |
+      **NEW:** `hyperctl` v0.20.0 is a substantial release that adds support for a new [`ht-apply` directive](/docs/reference/core/directives/ht-apply/), [template variables](/docs/reference/core/variables/), [templating plugins](/docs/reference/core/plugins/) (!), [computed template data](/docs/reference/cms/namespaces/#computed-namespaces), git-based hosting [providers](/docs/reference/cms/providers/), multi-provider hosting [environments](/docs/reference/cms/website/#site-environments), and more. 
+
+      > **BREAKING**: hyperctl v0.20.0 drops support for the `site.config.drafts_dir` – drafts are now defined by setting `draft:true` in page data files. 
+      > This release also changes template data namespace names which are now derived from their file path.
+
+      * Added a new [`ht-apply` directive](/docs/reference/core/directives/ht-apply/) to perform [variable substitution](/docs/reference/core/variables/).
+        HyperTemplates now supports `${ ... }` variables, which can be used in element attributes and element text nodes.
+      
+      * Added support for a `--ht-value( ... )` variable substitution in layout `<style>` elements.
+      
+      * Added support for extending HyperTemplates with [plugins](/docs/reference/core/plugins/), including [template variable plugins](/docs/reference/core/variables/#template-variable-plugins), and [computed namespace plugins](/docs/reference/cms/namespaces/#computed-namespace-plugins).
+        A plugin is a Javascript file that exports a default function, accepts positional arguments, and has access to predefined local bindings.
+      
+      * Added [builtins](/docs/reference/cms/builtins/) for providing automated templating features powered by layout [fragments](/docs/reference/core/fragments/).
+        Builtins can be disabled and/or overriden by adding layout fragments to your theme.
+      
+      * Added new [`site.providers`](/docs/reference/cms/website#site-providers) (plural) setting for configuring named providers, and HyperTemplates now supports git-based hosting services using the new `git` provider.
+      
+      * Added a new [`site.environments`](/docs/reference/cms/website#site-environments) setting for configuring named hosting environments, consisting of one or more providers:
+      
+      * Added [`page.ugly_url`](/docs/reference/cms/page/#page-ugly_url) so pages can generate `<path>.html` pages instead of `<path>/index.html` pages.
+      
+      * Added support for [CSV template data files](/docs/reference/core/data/#csv). 
+        Delimited data must contain a header row, and header rows must have unique non-empty column names. 
+
+      Please visit the [CHANGELOG](/changelog/#hyperctl-v0-20-0-2026-05-12) for a complete list of improvements. 
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_v0.20.0_darwin_universal.tar.gz
+            href: /downloads/hyperctl_v0.20.0_darwin_universal.tar.gz
+          - name: hyperctl_v0.20.0_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_v0.20.0_darwin_arm64.tar.gz
+          - name: hyperctl_v0.20.0_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_v0.20.0_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_v0.20.0_linux_arm64.tar.gz
+            href: /downloads/hyperctl_v0.20.0_linux_arm64.tar.gz
+          - name: hyperctl_v0.20.0_linux_amd64.tar.gz
+            href: /downloads/hyperctl_v0.20.0_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_v0.20.0_windows_arm64.tar.gz
+            href: /downloads/hyperctl_v0.20.0_windows_arm64.tar.gz
+          - name: hyperctl_v0.20.0_windows_amd64.tar.gz
+            href: /downloads/hyperctl_v0.20.0_windows_amd64.tar.gz
+  - version: 0.19.0
+    date: "2026-04-21T12:30:00-07:00"
+    description: |
+      **NEW:** [`hyperctl`](/docs/reference/cli/) version v0.19.0 adds support for `site.pages`, `site.drafts`, and `site.assets` [template data](/docs/reference/core/data/#template-data-sources), 
+      and brings several improvements to [`ht-block` elements](/docs/reference/core/attributes/ht-block/), including access to `page.*` template data from `ht-block` templates.
+
+      * Added `site.pages`, `site.drafts`, and `site.assets` to template data
+      * Added `page.*` template data to `ht-block`
+      * Added support for [template data array accessors](/docs/reference/core/data/#template-data-keys) (e.g. `page.attachments.1.kind`)
+      * Added support for `ht-block` user data
+      * Improved markdown detection of inline vs block-level `ht-block` elements  
+        _NOTE: block-level `ht-block` elements should no longer be wrapped in `<p>` tags._
+      * Improved markdown detection of `<!--more-->` comments (now allows whitespace variants, e.g. `<!-- more -->`)
+
+      Please visit the [CHANGELOG](/changelog/#hyperctl-v0-19-0-2026-04-21) for a complete list of improvements. 
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_v0.19.0_darwin_universal.tar.gz
+            href: /downloads/hyperctl_v0.19.0_darwin_universal.tar.gz
+          - name: hyperctl_v0.19.0_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_v0.19.0_darwin_arm64.tar.gz
+          - name: hyperctl_v0.19.0_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_v0.19.0_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_v0.19.0_linux_arm64.tar.gz
+            href: /downloads/hyperctl_v0.19.0_linux_arm64.tar.gz
+          - name: hyperctl_v0.19.0_linux_amd64.tar.gz
+            href: /downloads/hyperctl_v0.19.0_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_v0.19.0_windows_arm64.tar.gz
+            href: /downloads/hyperctl_v0.19.0_windows_arm64.tar.gz
+          - name: hyperctl_v0.19.0_windows_amd64.tar.gz
+            href: /downloads/hyperctl_v0.19.0_windows_amd64.tar.gz
+  - version: 0.18.2
+    date: "2026-04-12T10:30:00-07:00"
+    description: |
+      Version 0.18.2 includes all of the improvements from 0.18.0 and is recommended for all users. 
+
+      Fixed a bug in `hyperctl dev server` that would cause the server to crash intermittently, and 
+      a bug that generated broken URLs in Atom feed `<link rel='self'>` elements.
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_v0.18.2_darwin_universal.tar.gz
+            href: /downloads/hyperctl_v0.18.2_darwin_universal.tar.gz
+          - name: hyperctl_v0.18.2_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_v0.18.2_darwin_arm64.tar.gz
+          - name: hyperctl_v0.18.2_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_v0.18.2_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_v0.18.2_linux_arm64.tar.gz
+            href: /downloads/hyperctl_v0.18.2_linux_arm64.tar.gz
+          - name: hyperctl_v0.18.2_linux_amd64.tar.gz
+            href: /downloads/hyperctl_v0.18.2_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_v0.18.2_windows_arm64.tar.gz
+            href: /downloads/hyperctl_v0.18.2_windows_arm64.tar.gz
+          - name: hyperctl_v0.18.2_windows_amd64.tar.gz
+            href: /downloads/hyperctl_v0.18.2_windows_amd64.tar.gz
+
   - version: 0.18.1
-    date: "2026-03-01T10:00:00-08:00"
+    date: "2026-03-01T10:00:00-07:00"
     description: |
       Version 0.18.1 includes all of the improvements from 0.18.0 and is recommended for all users. 
 

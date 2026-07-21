@@ -35,7 +35,7 @@ This example shows an approximation of a [template data object](#template-data-o
 }
 ```
 
-[Template attributes] reference template data using "dot notation" [property accessors]. The name of the property being accessed is the [template data key](#template-data-keys), and the value of the property being accessed is the [template data value](#template-data-values).
+[Template directives] reference template data using "dot notation" [property accessors]. The name of the property being accessed is the [template data key](#template-data-keys), and the value of the property being accessed is the [template data value](#template-data-values).
 
 In this sample, `title` and `author.name` are valid template data keys (property names), and their corresponding template data values (property values) are `Template Data` and `Jane Doe`.
 
@@ -193,10 +193,50 @@ Template data keys are "dot notation" [property accessors] to properties in a [t
 
 In this example, there are 8 template data keys: `site`, `site.title`, `site.favicon`, `site.favicon.href`, `site.favicon.sizes`, `page`, `page.created_at`, `page.layout`, `page.title`, and `page.content`.
 
+
 <doc-quote ht-block notice>
 
 **NOTE:** template data objects are _not_ vanilla [Javascript objects], so template data keys may reference properties that do not exist (what would be considered "undefined" objects in Javascript parlance) without penalty.
 For example, in the sample above, the template data key `site.foo.bar` would simply result in a null value rather than an error due to `site.foo` being "undefined".
+
+</doc-quote>
+
+<doc-quote ht-block new>
+
+**NEW:** `hyperctl` version 0.19.0 adds support for template data array accessors. 
+
+_**NOTE:** array items are 1-indexed, so there is no "zero" element._
+
+```javascript
+{
+    page: {
+        created_at: "2025-01-27T17:00:00-08:00",
+        layout: "default.html",
+        title: "Introducing, HyperTexting",
+        content: "Your news feed minus the ads, algorithms, and AI-generated slop.",
+        attachments: [
+            { 
+                type: "link",
+                href: "https://makehypertext.com",
+            },
+            { 
+                type: "link",
+                href: "https://hypertemplates.net",
+            },
+            {
+                type: "link",
+                href: "https://hypertexting.com",
+            }
+        ]
+    },
+}
+```
+
+Given this example template data object, the `page.attachments` objects can now be access directly:
+
+* `page.attachments[1].href` = https://makehypertext.com
+* `page.attachments[2].href` = https://hypertemplates.net
+* `page.attachments[3].href` = https://hypertexting.com
 
 </doc-quote>
 
@@ -222,6 +262,187 @@ Template data values are values of properties being accessed in a [template data
 
 In this example, the template data value for the key `page.title` is `Hello, world`.
 
+#### Template data formats
+--------------------------
+
+**Markdown**
+: HyperTemplates supports [Markdown] template data files with [YAML frontmatter].
+  The rendered Markdown contents (sans frontmatter) are parsed as the `content` property.
+
+  **Example**
+
+  <code-snippet ht-block filename='content/about/index.md'>
+
+  ```plaintext
+  ---
+  title: HyperTemplates
+  description: The pure-HTML templating system for the modern web
+  ---
+
+  Rediscover the simple joy of [making websites](https://makehypertext.com). 
+  
+  No Javascript frameworks required.
+  ```
+
+  </code-snippet>
+
+  The resulting template data object will contain the following properties: 
+
+  ```javascript
+  {
+    title: "HyperTemplates",
+    description: "The pure-HTML templating system for the modern web",
+    content: "<p>Rediscover the simple joy of <a href='https://makehypertext.com'>making websites</a>.</p>\n<p>No Javascript frameworks required.</p>"
+  }
+  ```
+
+  <doc-quote ht-block warning>
+  **NOTE:** markdown content in markdown is automatically converted to HTML.
+  </doc-quote>
+
+**YAML**
+: HyperTemplates supports [YAML] template data files.
+
+  **Example**
+
+  <code-snippet ht-block filename='content/about/index.yaml'>
+
+  ```yaml
+  title: HyperTemplates
+  description: The pure-HTML templating system for the modern web
+  content: |
+    Rediscover the simple joy of [making websites](https://makehypertext.com). 
+  
+    No Javascript frameworks required.
+  ```
+
+  </code-snippet>
+
+  The resulting template data object will contain the following properties: 
+
+  ```javascript
+  {
+    title: "HyperTemplates",
+    description: "The pure-HTML templating system for the modern web",
+    content: "Rediscover the simple joy of [making websites](https://makehypertext.com).\n\nNo Javascript frameworks required."
+  }
+  ```
+
+  <doc-quote ht-block warning>
+  **NOTE:** [Markdown] content in YAML files is _not_ automatically converted to HTML, but raw Markdown can be converted to HTML using the [template variable `markdown` function](/docs/reference/core/variables/#markdown-function).
+  </doc-quote>
+
+**JSON**
+: HyperTemplates supports [JSON] template data files.
+
+  **Example**
+
+  <code-snippet ht-block filename='content/about/index.yaml'>
+
+  ```json
+  {
+    "title": "HyperTemplates",
+    "description": "The pure-HTML templating system for the modern web",
+    "content": "Rediscover the simple joy of [making websites](https://makehypertext.com).\n\nNo Javascript frameworks required."
+  }
+  ```
+
+  </code-snippet>
+
+  The resulting template data object will contain the following properties: 
+
+  ```javascript
+  {
+    title: "HyperTemplates",
+    description: "The pure-HTML templating system for the modern web",
+    content: "Rediscover the simple joy of [making websites](https://makehypertext.com).\n\nNo Javascript frameworks required."
+  }
+  ```
+
+  <doc-quote ht-block warning>
+  **NOTE:** [Markdown](/docs/reference/core/markdown/) content in JSON files is _not_ automatically converted to HTML, but raw Markdown can be converted to HTML using the [template variable `markdown` function](/docs/reference/core/variables/#markdown-function).
+  </doc-quote>
+
+**CSV**
+: HyperTemplates support [CSV] template data files.
+
+  **Example**
+
+  <code-snippet ht-block filename='data/example.csv'>
+
+  ```csv
+  name,email,phone
+  Jane Doe,jane@example.com,1-800-555-1234
+  John Doe,john@example.com,1-800-555-5678
+  ```
+
+  </code-snippet>
+
+  The resulting template data file will contain the following properties: 
+
+  ```javascript
+  {
+    "rows": [
+        { name: "Jane Doe", email: "jane@example.com", phone: "1-800-555-1234" },
+        { name: "John Doe", email: "john@example.com", phone: "1-800-555-5678" }
+    ]
+  }
+  ```
+
+**OPML**
+: HyperTemplates supports [OPML] template data files.
+
+  **Example**
+
+  <code-snippet ht-block filename='data/following.opml'>
+
+  ```opml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <opml version="1.0">
+      <head>
+          <title>Following</title>
+      </head>
+      <body>
+          <outline text="HyperTemplates" title="HyperTemplates" htmlUrl="https://hypertemplates.net/" xmlUrl="https://hypertemplates.net/blog/atom.xml"></outline>
+          <outline text="HyperTexting" title="HyperTexting" htmlUrl="https://hypertexting.com/" xmlUrl="https://hypertexting.com/atom.xml"></outline>
+      </body>
+  </opml>
+  ```
+
+  </code-snippet>
+
+  The resulting template data will will contain the following properties: 
+
+  ```javascript
+  {
+    head: {
+        title: "Following"
+    },
+    body: {
+        outlines: [
+            {
+                "text": "HyperTemplates",
+                "title": "HyperTemplates",
+                "htmlUrl": "https://hypertemplates.net/",
+                "xmlUrl": "https://hypertemplates.net/blog/atom.xml"
+            },
+            {
+                "text": "HyperTexting",
+                "title": "HyperTexting",
+                "htmlUrl": "https://hypertexting.com/",
+                "xmlUrl": "https://hypertexting.com/atom.xml"
+            }
+        ]
+    }
+  }
+  ```
+
+  <doc-quote ht-block protip>
+  **PROTIP:** OPML template data is a great way to add a `/following` page to your personal website!
+  Just export OPML subscription lists from your RSS feed reader and/or podcast app, drop them in your [`site.config.data_dir`](/docs/reference/cms/website/#site-config-data_dir), and share your follows!
+  </doc-quote>
+
+
 #### Template data sources
 --------------------------
 
@@ -230,7 +451,7 @@ However, the HyperTemplates core templating engine doesn't actually have any bui
 The closest thing to a completely unopinionated implementation of the HyperTemplates core templating engine is the [`hyperctl render`] command, which accepts a single data file as an input.
 
 In most implementations multiple data sources are combined into a single template data object.
-The [HyperTemplates CMS] is one such implementation, which incorporates several data sources: 
+The [HyperTemplates CMS] is one such implementation, which incorporates several data sources in its [build context]: 
 
 **ht (builtins)**
 : `ht.*` prefixed template data properties provided by HyperTemplates, including `ht.version`, `ht.release_date`, and template iterator properties (see [`ht-template` template data]).
@@ -244,7 +465,7 @@ The [HyperTemplates CMS] is one such implementation, which incorporates several 
 **site**
 : `site.*` prefixed template data properties sourced from `site.yaml` or `site.json` (including [custom website properties])
 
-**global**
+**data**
 : `data.*` prefixed template data properties sourced from data files in `site.data_dir` (supports YAML, JSON, and OPML formats; see [namespaces])
 
 **theme**
@@ -325,21 +546,29 @@ In this example three layout data properties are defined:
 * A `layout.copyright` property, with the value of `Herd Works Inc` (line 2)
 * A `layout.copyyear` property, with the value of `2024` (line 3)
 
+
 <!-- Links -->
 [Javascript object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [Javascript objects]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [HyperTemplates content management system]: /docs/reference/cms/
 [`hyperctl`]: /docs/reference/cli/
-[Template attributes]: /docs/reference/core/attributes/
+[Template directives]: /docs/reference/core/directives/
 [property accessors]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors
 [`hyperctl render`]: /docs/reference/cli/commands/render/
 [`hyperctl build`]: /docs/reference/cli/commands/build/
 [HyperTemplates CMS]: /docs/reference/cms/
+[build context]: /docs/reference/cms/builds/#build-context
+[`ht-template` template data]: /docs/reference/core/directives/ht-template/#template-data
 [custom website properties]: /docs/reference/cms/website/#custom-properties
 [custom page properties]: /docs/reference/cms/page/#custom-properties
 [namespaces]: /docs/reference/cms/namespaces/
-[`ht-template` template data]: ../attributes/ht-template/#template-data
 [builds]: /docs/reference/cms/builds/
 [build]: /docs/reference/cms/builds/
-[`ht-template` template data]: /docs/reference/core/attributes/ht-template/#template-data
 [environment data]: #environment-data
+[Markdown]: /docs/reference/core/markdown/
+[YAML frontmatter]: /docs/reference/core/markdown/#frontmatter
+[YAML]: https://yaml.org
+[JSON]: https://www.json.org/json-en.html
+[CSV]: https://flatfile.com/blog/what-is-a-csv-file-guide-to-uses-and-benefits/
+[OPML]: https://opml.org
+

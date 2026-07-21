@@ -175,7 +175,7 @@ Content types are configured using four top-level properties:
 
   * `timestamp`: the current time in milliseconds since epoch (see [`Date.now()`])
   * `title-kabob`: the `page.title` in [Kabob case]
-  * `title_camel`: the `page.title` in [Snake case]
+  * `title_snake`: the `page.title` in [Snake case]
   * `manual`: a slug should be provided by the user
   * `uuid`: a UUIDv4 (e.g. `2ad660a0-1df1-42c3-bf56-bf97539837d8`)
   * `none`: no slug (uses `spec.path` as the page path)

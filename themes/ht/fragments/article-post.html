@@ -62,17 +62,17 @@
         }
     </style>
     <article-meta>
-        <a href='#' itemprop='favicon' ht-attrs='href:page.byline.href,site.byline.href'>
-            <img src='' ht-attrs='src:page.byline.favicon,site.byline.favicon' />
+        <a ht-apply itemprop='favicon' href='${ page.byline.href, site.byline.href, "" }'>
+            <img ht-apply src='${ page.byline.favicon, site.byline.favicon, "" }' />
         </a>
-        <a href='#' itemprop='displayname' ht-attrs='href:page.byline.href,site.byline.href'>
-            <span ht-content='text:page.byline.name,site.byline.name'></span>
+        <a ht-apply itemprop='displayname' href='${ page.byline.href, site.byline.href, "" }'>
+            <span ht-apply>${ page.byline.name, site.byline.name, "" }</span>
         </a>
-        <a href='#' itemprop='details' ht-attrs='href:page.byline.href,site.byline.href'>
-            <span ht-content='text:page.byline.username,site.byline.username'></span>
+        <a ht-apply itemprop='details' href='${ page.byline.href, site.byline.href, "" }'>
+            <span ht-apply>${ page.byline.username,site.byline.username }</span>
             <span>•</span>
-            <date-time ht-include='fragments/date-time' ht-attrs='data-timestamp:page.created_at'></date-time>
+            <date-time ht-include='fragments/date-time' ht-apply data-timestamp='${ page.created_at }'></date-time>
         </a>
     </article-meta>
-    <article-body ht-content='markdown:page.content'></article-body>
+    <article-body ht-apply>${ markdown page.content }</article-body>
 </article>

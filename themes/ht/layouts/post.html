@@ -2,7 +2,7 @@
 <html lang='en-US'>
     <head>
         <meta ht-include='fragments/head.html'></meta>
-        <meta http-equiv="refresh" content="0; url=/" ht-attrs='content:page.refresh' ht-if='page.content==' />
+        <meta ht-apply ht-if='page.content==' http-equiv="refresh" content="0; url=/" content='${ page.refresh }' />
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='post'/>
@@ -10,10 +10,10 @@
         <meta name='layout:newsletter_description' content='Get this and other posts delivered to your inbox. No more than one email per week, no fewer than one email per month.'>
 
         <!-- Layout Components -->
-        <script src='/js/components/hyper-feed.js' defer></script>
-        <script src='/js/components/relative-time.js' defer></script>
-        <script src='/js/components/auto-anchor.js' defer></script>
-        <script src='/js/components/footer-menu.js' defer></script>
+        <script ht-apply src='/js/components/hyper-feed.js?v=${ site.version, build.id }' defer></script>
+        <script ht-apply src='/js/components/relative-time.js?v=${ site.version, build.id }' defer></script>
+        <script ht-apply src='/js/components/auto-anchor.js?v=${ site.version, build.id }' defer></script>
+        <script ht-apply src='/js/components/footer-menu.js?v=${ site.version, build.id }' defer></script>
 
         <!-- Layout Styles -->
         <style id='components'></style>
@@ -33,11 +33,14 @@
                     <article-meta>
                         <post-card ht-include='fragments/hyper/post-card'></post-card>
                     </article-meta>
-                    <article-body ht-content='markdown:page.summary,page.content' summary></article-body>
+                    <article-body ht-apply summary>
+                        <h2 ht-apply ht-if='page.title'>${ page.title }</h2>
+                        ${ markdown ( get "page.summary,page.content" ) }
+                    </article-body>
                     <article-attachments>
                         <attachment-gallery ht-include='fragments/attachment-gallery'></attachment-gallery>
                     </article-attachments>
-                    <article-body ht-content='markdown:page.more' more></article-body>
+                    <article-body ht-apply more>${ markdown page.more }</article-body>
                 </article>
             </content-container>
             <auto-anchor scope='article'></auto-anchor>

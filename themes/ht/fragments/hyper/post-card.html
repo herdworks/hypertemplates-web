@@ -1,4 +1,4 @@
-<post-card itemscope itemtype='https://schema.org/Person' ht-attrs='itemtype:page.byline.kind,site.byline.kind'>
+<post-card ht-apply itemscope itemtype='https://schema.org/Person' itemtype='${ page.byline.kind, site.byline.kind, "" }'>
     <style ht-pipe='css:style#components'>
         post-card :is(a, a:hover) {
             text-decoration: none;
@@ -49,22 +49,22 @@
             display: none;
         }
     </style>
-    <a itemprop='favicon' ht-attrs='href:page.byline.href,site.byline.href'>
-        <img src='' itemprop='image' ht-attrs='src:page.byline.favicon,site.byline.favicon' />
+    <a ht-apply itemprop='favicon' href='${ page.byline.href, site.byline.href, "" }'>
+        <img ht-apply itemprop='image' src='${ page.byline.favicon, site.byline.favicon, "" }' />
     </a>
-    <a itemprop='name' ht-attrs='href:page.byline.href,site.byline.href'>
-        <param ht-param='page.byline.name,site.byline.name' default='My Website' />
+    <a ht-apply itemprop='name' href='${ page.byline.href, site.byline.href, "" }'>
+        ${ page.byline.name, site.byline.name, "My Website" }
     </a>
     <div itemprop='details'>
-        <a ht-attrs='href:page.byline.href,site.byline.href'>
-            <span itemprop='username'>
-                <param ht-param='page.byline.username,site.byline.username' default='@mywebsite.com' />
+        <a ht-apply href='${ page.byline.href, site.byline.href, "" }'>
+            <span ht-apply itemprop='username'>
+                ${ page.byline.username, site.byline.username, "@mywebsite.com" }
             </span>
         </a>
-        <a ht-attrs='href:page.path' href='.'>
+        <a ht-apply href='${ page.path }'>
             <relative-time>
-                <time ht-attrs='datetime:page.updated_at,page.created_at'>
-                    <param ht-param='page.updated_at,page.created_at' />
+                <time ht-apply datetime='${ page.created_at, page.updated_at, site.created_at, "" }'>
+                    ${ page.created_at, page.updated_at, site.created_at, "" }
                 </time>
             </relative-time>
         </a>

@@ -1,0 +1,28 @@
+<appstore-download size='48'>
+    <style ht-pipe='css:style#components'>
+        appstore-download {
+            display: block;
+            width: 100%;
+            margin: var(--gutter-2x, 30px) 0;
+        }
+        appstore-download > :is(a, a:hover) {
+            width: 100%;
+            box-shadow: none;
+        }
+        appstore-download > a > svg {
+            color: unset;
+            fill: unset;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <a href='https://apps.apple.com/us/app/hypertexting/id6744946286'>
+        <svg ht-apply
+             ht-include='fragments/icons/appstore-download.svg'           
+             width='auto'
+             height='${ block.size, block.height, "64" }'
+             title='Download HyperTexting on the App Store'
+             alt='Download HyperTexting on the App Store'>
+        </svg>
+    </a>
+</appstore-download>

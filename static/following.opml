@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+        <title>Following</title>
+        <ownerEmail>contact@hypertemplates.net</ownerEmail>
+        <dateCreated>Fri, 12 Jun 2026 09:00:00 +0700</dateCreated>
+        <dateModified>Fri, 12 Jun 2026 09:00:00 +0700</dateModified>
+        <docs>http://www.opml.org/spec2</docs>
+    </head>
+    <body>
+        <outline text="@hypertexting.com" title="HyperTexting" htmlUrl="https://hypertexting.com" xmlUrl="https://hypertexting.com/atom.xml" faviconUrl="https://hypertexting.com/img/favicon-256x256.png"></outline>
+        <outline text="@herd.works" title="Herd Works" htmlUrl="https://herd.works" xmlUrl="https://herd.works/blog/index.xml" faviconUrl="https://herd.works/favicon_512x512.png?v=1"></outline>
+        <outline text="@calebhailey.com" title="Caleb Hailey" htmlUrl="https://calebhailey.com" xmlUrl="https://calebhailey.com/atom.xml" faviconUrl="https://calebhailey.com/favicon.jpeg"></outline>
+    </body>
+</opml>

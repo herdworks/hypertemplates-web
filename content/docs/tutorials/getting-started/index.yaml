@@ -22,20 +22,22 @@ guide:
             * **MacOS**
 
               ```shell
-              curl -LO https://hypertemplates.net/downloads/hyperctl_0.14.2_darwin_universal.tar.gz
-              tar -xzf hyperctl_0.14.2_darwin_universal.tar.gz
+              curl -LO https://hypertemplates.net/downloads/hyperctl_v0.18.1_darwin_universal.tar.gz
+              tar -xzf hyperctl_v0.18.1_darwin_universal.tar.gz
               chmod +x hyperctl
-              sudo mv hyperctl /usr/local/bin/
+              sudo install -d /usr/local/bin/
+              sudo install hyperctl /usr/local/bin/
               hyperctl # run hyperctl to verify the installation and see the version number
               ```
 
             * **Linux**
 
               ```shell
-              curl -LO https://hypertemplates.net/downloads/hyperctl_0.14.2_linux_amd64.tar.gz
-              tar -xzf hyperctl_0.14.2_linux_amd64.tar.gz
+              curl -LO https://hypertemplates.net/downloads/hyperctl_v0.18.1_linux_amd64.tar.gz
+              tar -xzf hyperctl_v0.18.1_linux_amd64.tar.gz
               chmod +x hyperctl
-              sudo mv hyperctl /usr/local/bin/
+              sudo install -d /usr/local/bin/
+              sudo install hyperctl /usr/local/bin/
               hyperctl # run hyperctl to verify the installation and see the version number
               ```
 

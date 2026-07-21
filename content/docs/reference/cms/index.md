@@ -58,6 +58,11 @@ For more information on `hyperctl` itself, please visit the [CLI reference docum
 
   <learn-more ht-block href='./namespaces/'></learn-more>
 
+**Builtins**
+: Built-in templating features.
+
+  <learn-more ht-block href='./builtins/'></learn-more>
+
 **Content Types**
 : Content templates for generating new pages.
 

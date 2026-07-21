@@ -41,5 +41,5 @@
         @media screen and (min-width: 768px) and (max-width: 1279px) {}
         @media screen and (min-width: 1280px) {}
     </style>
-    <a ht-template='link:data.nav.footer' ht-attrs='href:link.href;rel:link.group' ht-content='text:link.label,link.title'></a>
+    <a ht-template='link:data.nav.footer' href='${ link.href }' rel='${ link.group }'>${ link.label, link.title }</a>
 </footer-menu>

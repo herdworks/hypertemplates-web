@@ -34,13 +34,12 @@
     </head>
     <body>
         <header ht-include='fragments/sections/hero.html' data-color-scheme='primary'></header>
-        <!-- <section ht-include='fragments/logo-roll.html' data-color-scheme='light'></section> -->
         <banner-message ht-include='fragments/banner-message' data-color-scheme='light'></banner-message>
         <section id='features' data-color-scheme='light'>
             <content-container>
                 <bento-overview>
-                    <h2 ht-content='html:page.features.title'></h2>
-                    <content-block ht-content='markdown:page.features.overview'></content-block>
+                    <h2 ht-apply>${ page.features.title }</h2>
+                    <content-block ht-apply>${ markdown page.features.overview }</content-block>
                 </bento-overview>
                 <bento-box ht-include='fragments/bento-box'></bento-box>
             </content-container>

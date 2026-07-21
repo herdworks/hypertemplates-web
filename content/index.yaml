@@ -30,8 +30,8 @@ hero:
                 <meta ht-include='fragments/head.html' />
 
                 <!-- Layout Metadata, Links, Styles, and Scripts -->
-                <title ht-content='page.title,site.title'>Placeholder Title</title>
-                <meta ht-attrs='content:page.description,site.description' name='description' content='Placeholder description'>
+                <title ht-apply>${ page.title, site.title, "Placeholder Title" }</title>
+                <meta ht-apply name='description' content='${ page.description, site.description, "Placeholder description." }'>
                 <style>
                     /* Layout-specific styles */
                 </style>
@@ -40,8 +40,8 @@ hero:
             <body>
                 <header ht-include='fragments/header.html'></header>
                 <main>
-                    <article ht-content='markdown:page.content'>
-                        <p>Placeholder content...</p>
+                    <article ht-apply>
+                        ${ page.content | markdown }
                     </article>
                 </main>
                 <footer ht-include='fragments/footer'></footer>
@@ -75,8 +75,8 @@ features:
         height: 3
         href: /docs/reference/cli/
 
-      - title: Native apps (coming soon)
-        description: Manage HyperTemplates websites by using the official app for iPhone, iPad, and Mac to perform full-site builds and deployments, or generate and publish incremental builds (single pages).
+      - title: Native applications
+        description: Post to your HyperTemplates websites using HyperTexting, a native app for iPhone (iPad and Mac coming soon).
         width: 8
         height: 3
         href: https://hypertexting.com
@@ -110,7 +110,7 @@ features:
         description: The `hyperctl` CLI comes with a built-in development server with live reloading.
         width: 4
         height: 3
-        href: /docs/reference/cli/commands/server/
+        href: /docs/reference/cli/commands/dev/server/
 
       - title: Hosted anywhere
         description: >-
@@ -125,7 +125,7 @@ draft:
     description: The HyperTemplates specification is a new system for HTML templating.
     width: 4
     height: 2
-    href: /docs/reference/core/attributes/
+    href: /docs/reference/core/directives/
   - title: Library
     description: At the core of HyperTemplates is a library called `libhypertemplates` that offers C bindings for HTML templating in native applications.
     width: 4

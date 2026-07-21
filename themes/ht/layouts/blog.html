@@ -31,10 +31,13 @@
         <main>
             <section data-color-scheme='light'>
                 <content-container>
-                    <feed-entry ht-template='page:page.feed.pages; site:site' ht-base='src:page.path;href:page.path'>
+                    <feed-entry ht-template='page:page.feed.pages; site:site' ht-base='src:page.canonical_url;href:page.canonical_url;poster:page.canonical_url'>
                         <post-card ht-include='fragments/hyper/post-card'></post-card>
-                        <post-content ht-content='markdown:page.summary,page.content'></post-content>
-                        <learn-more ht-block ht-attrs='href:page.path' label='Continue reading'></learn-more>
+                        <post-content ht-apply>
+                            <h2 ht-apply ht-if='page.title'>${ page.title }</h2>
+                            ${ markdown (get "page.summary, page.content" ) }
+                        </post-content>
+                        <learn-more ht-block ht-apply href='${ page.path }' label='Continue reading'></learn-more>
                     </feed-entry>
                 </content-container>
             </section>

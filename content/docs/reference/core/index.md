@@ -22,15 +22,25 @@ This reference documents the core specification itself.
 
   <learn-more ht-block href='/docs/reference/core/fragments/'></learn-more>
 
-**Attributes**
-: The HyperTemplates HTML attribute reference.
+**Directives**
+: The HyperTemplates HTML directive reference.
   
-  <learn-more ht-block href='/docs/reference/core/attributes/'></learn-more>
+  <learn-more ht-block href='/docs/reference/core/directives/'></learn-more>
 
 **Data**
 : Template data reference documentation.
 
   <learn-more ht-block href='/docs/reference/core/data/'></learn-more>
+
+**Variables**
+: The HyperTemplates variable subtitution reference.
+
+  <learn-more ht-block href='/docs/reference/core/variables/'></learn-more>
+
+**Plugins**
+: The HyperTemplates plugin system.
+
+  <learn-more ht-block href='/docs/reference/core/plugins/'></learn-more>
 
 **Markdown**
 : The HyperTemplates markdown rendering engine reference.

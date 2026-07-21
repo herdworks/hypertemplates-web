@@ -5,12 +5,15 @@ layout: post
 title: Introducing HyperTemplates
 description: |
     The pure-HTML templating system for the modern web.
+cover:
+  - src: cover.png
+    prefers-color-scheme: light
+  - src: cover-dark.png
+    prefers-color-scheme: dark
 video: https://customer-w9ndoyuzirardbjc.cloudflarestream.com/2eb2a40cfc8562635a0f14894c6c3987/downloads/default.mp4
 tags:
   - announcements
 ---
-
-## Introducing HyperTemplates
 
 > **TL;DR:** HyperTemplates is a pure-HTML templating system and static site generator. 
 > It was designed with the goal of making it easier to make websites, nay, @makehypertext.com. 

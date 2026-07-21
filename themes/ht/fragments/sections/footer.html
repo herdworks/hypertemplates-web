@@ -6,12 +6,12 @@
     </style>
     <content-container>
         <footer-menu ht-include='fragments/footer-menu.html'></footer-menu>
-        <p>
+        <p ht-apply>
             <span>Designed by <a href='https://herd.works'>Herd Works</a> in Portland, Oregon</span>
-            &copy; <param ht-param='site.copyright' default='2026' />
+            &copy; ${ site.copyright, "2026" }
         </p>
     </content-container>
 
     <!-- Page.js -->
-    <script ht-template='asset:page.assets' ht-if='asset==page.js' ht-attrs='src:asset' defer></script>
+    <script ht-template='asset:page.assets' ht-if='asset==page.js' src='${ asset }' defer data-asset></script>
 </footer>

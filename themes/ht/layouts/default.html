@@ -5,15 +5,15 @@
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='default'/>
-        <meta name='breadcrumb' ht-attrs='content:page.breadcrumb,page.title'>
+        <meta ht-apply name='breadcrumb' content='${ page.breadcrumb, page.title }'>
 
         <!-- Layout Components -->
-        <script src='/js/components/doc-breadcrumbs.js?v=3' defer></script>
-        <script src='/js/components/auto-anchor.js' defer></script>
-        <script src='/js/components/auto-toc.js' defer></script>
-        <script src='/js/components/code-snippet.js' defer></script>
-        <script src='/js/components/footer-menu.js' defer></script>
-        <script src='/js/components/edit-this-page.js' defer></script>
+        <script ht-apply src='/js/components/doc-breadcrumbs.js?v=${ site.version, build.id }' defer></script>
+        <script ht-apply src='/js/components/auto-anchor.js?v=${ site.version, build.id }' defer></script>
+        <script ht-apply src='/js/components/auto-toc.js?v=${ site.version, build.id }' defer></script>
+        <script ht-apply src='/js/components/code-snippet.js?v=${ site.version, build.id }' defer></script>
+        <script ht-apply src='/js/components/footer-menu.js?v=${ site.version, build.id }' defer></script>
+        <script ht-apply src='/js/components/edit-this-page.js?v=${ site.version, build.id }' defer></script>
 
         <!-- Layout Styles -->
         <style id='components'></style>
@@ -77,12 +77,12 @@
         <section data-color-scheme='light'>
             <content-container>
                 <doc-breadcrumbs></doc-breadcrumbs>
-                <main ht-content='markdown:page.content'></main>
+                <main ht-apply>${ markdown page.content }</main>
                 <auto-anchor></auto-anchor>
                 <edit-this-page org='herdworks' repo='hypertemplates-web' rel='edit' prefix='content/' hidden>
                     Edit this page on GitHub <svg ht-include='static/icons/github-brands.svg' width='18' height='18'></svg>
                 </edit-this-page>
-                <edit-this-page org='herdworks' repo='hypertemplates-web' rel='edit' prefix='theme/layouts/' ht-attrs='pathname:layout.name' suffix='.html' hidden>
+                <edit-this-page ht-apply org='herdworks' repo='hypertemplates-web' rel='edit' prefix='theme/layouts/' pathname='${ layout.name }' suffix='.html' hidden>
                     Edit this layout on GitHub <svg ht-include='static/icons/github-brands.svg' width='18' height='18'></svg>
                 </edit-this-page>
             </content-container>

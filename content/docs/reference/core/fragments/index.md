@@ -13,10 +13,17 @@ breadcrumb: Fragments
 ### Overview
 ------------
 
-A HyperTemplates fragment is an [HTML DocumentFragment].
+A HyperTemplates fragment is an [HTML `DocumentFragment`].
 Generally speaking, a HyperTemplates layout is an HTML fragment _template_ with at least one [HyperTemplates attribute], but this is not a hard requirement.
 
 HyperTemplates fragments are the most useful building block in the HyperTemplates templating system.
+
+<doc-quote ht-block notice>
+
+**What is a `DocumentFragment`?** An [HTML `DocumentFragment`] is a collection of one or more HTML elements, not a complete [HTML `Document`] containing a root `<html>` element with child `<head>` and `<body>` elements.
+
+</doc-quote>
+
 
 ### Example
 -----------
@@ -26,23 +33,9 @@ This example shows a simple HyperTemplates fragment.
 <code-snippet ht-block filename='layouts/default.html'>
 
 ```html
-<!DOCTYPE html>
-<html lang='en-US'>
-    <head>
-        <meta charset='utf-8'>
-        <title ht-content='page.title'></title>
-        <meta name='description' ht-attrs='content:page.description,site.description'>
-    </head>
-    <body>
-        <header>
-            <h1 ht-content='page.title'>Placeholder title</h1>
-        </header>
-        <article id='article' ht-content='markdown:page.content'></article>
-        <footer>
-            <p>&copy; 2024 HyperTemplates</p>
-        </footer>
-    </body>
-</html>
+<header>
+    <h1 ht-content='page.title'>Placeholder title</h1>
+</header>
 ```
 
 </code-snippet>
@@ -60,7 +53,8 @@ To learn more about how to develop HyperTemplates fragments, please visit the [H
 
 
 <!-- Links -->
-[HTML DocumentFragment]: https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
+[HTML `DocumentFragment`]: https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
+[HTML `Document`]: https://developer.mozilla.org/en-US/docs/Web/API/Document
 [HyperTemplates attribute reference]: /docs/reference/core/attributes
 [HyperTemplates attribute]: /docs/reference/core/attributes
 [template attribute]: /docs/reference/core/attributes

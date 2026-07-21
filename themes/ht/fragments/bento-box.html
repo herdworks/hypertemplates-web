@@ -1,4 +1,4 @@
-<bento-box columns='12'>
+<bento-box columns='12' card>
     <style ht-pipe='css:style#components'>
         bento-box {
             display: grid;
@@ -96,10 +96,9 @@
         }
         @media screen and (min-width: 1280px) {}
     </style>
-    <bento-card ht-template='card:page.features.highlights' ht-attrs='width:card.width;height:card.height'>
-        <span hidden ht-content='card'></span>
-        <h3 ht-if='card.title' ht-content='html:card.title'></h3>
-        <p ht-if='card.description' ht-content='markdown:card.description'></p>
-        <a ht-attrs='href:card.href'>Learn more &rightarrow;</a>
+    <bento-card ht-template='card:page.features.highlights' width='${ card.width }' height='${ card.height }'>
+        <h3 ht-apply ht-if='card.title'>${ card.title }</h3>
+        ${ card.description, "" | markdown }
+        <a ht-apply href='${ card.href }'>Learn more &rightarrow;</a>
     </bento-card>
 </bento-box>

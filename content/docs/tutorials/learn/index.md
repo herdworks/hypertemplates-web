@@ -57,8 +57,9 @@ There are only three requirements for this series of tutorials:
 
 
 <tutorial-nav ht-block 
-         next-href='./lesson-1/' 
-         next-label='Lesson 1: Introducing <code>ht-content</code>'></tutorial-nav>
+              next-href='./lesson-1/' 
+              next-label='Lesson 1: Introducing <code>ht-content</code>'>
+</tutorial-nav>
 
 
 <!-- Links -->

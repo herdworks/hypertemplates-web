@@ -43,9 +43,9 @@
             align-self: start;
         }
     </style>
-    <a href='#' itemprop='author' ht-attrs='href:site.byline.href'>
-        <img itemprop='favicon' ht-attrs='src:site.byline.favicon' />
-        <span itemprop='title' ht-content='text:site.byline.name'></span>
-        <span itemprop='subtitle' ht-content='text:site.byline.username'></span>
+    <a ht-apply itemprop='author' href='${ site.byline.href }'>
+        <img ht-apply itemprop='favicon' src='${ site.byline.favicon }' />
+        <span ht-apply itemprop='title'>${ site.byline.name }</span>
+        <span ht-apply itemprop='subtitle'>${ site.byline.username }</span>
     </a>
 </author-card>

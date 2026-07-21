@@ -29,26 +29,26 @@
     <body>
         <header ht-include='fragments/sections/header.html'></header>
         <section id='releases' data-color-scheme='light'>
-            <content-container>
-                <h2 ht-content='page.title'></h2>
-                <param ht-param='markdown:page.summary,page.content'>
+            <content-container ht-apply>
+                <h2 ht-apply>${ page.title }</h2>
+                ${ markdown (get "page.summary, page.content") }
                 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
                 <release-version ht-template='release:data.downloads.releases'>
                     <release-meta flex spread aligned>
-                        <h3>Version <param ht-param='release.version'> </h3>
+                        <h3 ht-apply>Version ${ release.version, "" }</h3>
                         <relative-time>
-                            <time ht-attrs='datetime:release.date' ht-content='release.date'>earlier this year</time>
+                            <time ht-apply datetime='${ release.date }'>${ release.date, "earlier this year" }</time>
                         </relative-time>
                     </release-meta>
-                    <doc-quote ht-block info ht-content='markdown:release.description'></doc-quote>
+                    <doc-quote ht-block ht-apply info>${ markdown release.description }</doc-quote>
                     <dl ht-template='platform:release.platforms'>
                         <dt>
-                            <strong ht-content='platform.name'>Platform X</strong>
+                            <strong ht-apply>${ platform.name, "Platform X" }</strong>
                         </dt>
                         <dd>
                             <download-file ht-template='download:platform.files'>
-                                <a ht-attrs='href:download.href'>
-                                    <code><param ht-param='download.name' default='platform_version_arch.tar.gz'></code>
+                                <a ht-apply href='${ download.href }'>
+                                    <code ht-apply>${ download.name, "platform_version_arch.tar.gz" }</code>
                                 </a>
                             </download-file>
                         </dd>

@@ -54,15 +54,15 @@ Last Modified              Title                       Draft  Path
 2025-01-30T12:00:00-08:00  Guides                      false  /docs/guides/
 2025-01-30T12:00:00-08:00  Reference                   false  /docs/reference/
 2025-01-30T12:00:00-08:00  Features                    false  /features/
-2025-01-30T12:00:00-08:00  Attributes                  false  /docs/reference/core/attributes/
+2025-01-30T12:00:00-08:00  Attributes                  false  /docs/reference/core/directives/
 2025-01-30T12:00:00-08:00  CLI                         false  /docs/reference/cli/
-2025-02-03T12:00:00-08:00  ht-include                  false  /docs/reference/core/attributes/ht-include/
-2025-02-03T12:00:00-08:00  ht-block                    false  /docs/reference/core/attributes/ht-block/
-2025-02-03T12:00:00-08:00  ht-attrs                    false  /docs/reference/core/attributes/ht-attrs/
-2025-02-03T12:00:00-08:00  ht-content                  false  /docs/reference/core/attributes/ht-content/
-2025-02-03T12:00:00-08:00  ht-template                 false  /docs/reference/core/attributes/ht-template/
-2025-02-03T12:00:00-08:00  ht-not                      false  /docs/reference/core/attributes/ht-not/
-2025-02-03T12:00:00-08:00  ht-if                       false  /docs/reference/core/attributes/ht-if/
+2025-02-03T12:00:00-08:00  ht-include                  false  /docs/reference/core/directives/ht-include/
+2025-02-03T12:00:00-08:00  ht-block                    false  /docs/reference/core/directives/ht-block/
+2025-02-03T12:00:00-08:00  ht-attrs                    false  /docs/reference/core/directives/ht-attrs/
+2025-02-03T12:00:00-08:00  ht-content                  false  /docs/reference/core/directives/ht-content/
+2025-02-03T12:00:00-08:00  ht-template                 false  /docs/reference/core/directives/ht-template/
+2025-02-03T12:00:00-08:00  ht-not                      false  /docs/reference/core/directives/ht-not/
+2025-02-03T12:00:00-08:00  ht-if                       false  /docs/reference/core/directives/ht-if/
 2025-02-04T12:00:00-08:00  The HyperTemplates Blog     false  /blog/
 2025-02-05T12:00:00-08:00  Pipeline                    false  /docs/reference/core/pipeline/
 2025-02-06T12:00:00-08:00  Core                        false  /docs/reference/core/

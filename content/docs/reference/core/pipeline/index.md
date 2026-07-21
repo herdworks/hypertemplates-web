@@ -22,7 +22,11 @@ summary: |
 
 1. **Includes** (`ht-include`)
 
-   <learn-more ht-block href='../attributes/ht-include/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-include/'></learn-more>
+
+1. **Builtins**
+
+   <learn-more ht-block href='/docs/reference/cms/builtins/'></learn-more>
 
 1. **Layout Data Parser**
 
@@ -30,39 +34,43 @@ summary: |
 
 1. **Inclusive Conditionals** (`ht-if`)
 
-   <learn-more ht-block href='../attributes/ht-if/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-if/'></learn-more>
 
 1. **Exclusive Conditionals** (`ht-not`)
 
-   <learn-more ht-block href='../attributes/ht-not/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-not/'></learn-more>
 
 1. **Templates** (`ht-template`)
 
-   <learn-more ht-block href='../attributes/ht-if/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-if/'></learn-more>
+
+1. **Variable Substitution** (`ht-apply`)
+
+   <learn-more ht-block href='/docs/reference/core/directives/ht-apply'></learn-more>
 
 1. **Attributes** (`ht-attrs`)
 
-   <learn-more ht-block href='../attributes/ht-attrs/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-attrs/'></learn-more>
 
 1. **Attribute Query Parameters** (`ht-query`)
 
-   <learn-more ht-block href='../attributes/ht-query/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-query/'></learn-more>
 
 1. **Content** (`ht-content`)
 
-   <learn-more ht-block href='../attributes/ht-content/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-content/'></learn-more>
 
 1. **Blocks** (`ht-block`)
 
-   <learn-more ht-block href='../attributes/ht-block/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-block/'></learn-more>
 
 1. **Pipes** (`ht-pipe`)
 
-   <learn-more ht-block href='../attributes/ht-pipe/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-pipe/'></learn-more>
 
 1. **Relative URLs** (`ht-base`)
 
-   <learn-more ht-block href='../attributes/ht-base/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-base/'></learn-more>
 
 #### Template recursion
 -----------------------

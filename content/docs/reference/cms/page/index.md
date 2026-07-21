@@ -207,6 +207,27 @@ All properties are string data types unless otherwise noted.
   If this value is present in a page index file, it will be overwritten.
   </doc-quote>
 
+**`page.ugly_url`**
+: Generates `<path>.html` pages instead of the default index pages (`<path>/index.html`).
+
+  **Example**
+
+  Use `page.ugly_url` to generate /404.html pages: 
+
+  <code-snippet ht-block filename='content/404/index.md' highlight='3'>
+
+  ```plaintext
+  ---
+  layout: notfound.html
+  ugly_url: true
+  unlisted: true
+  ---
+
+  Well this is embarrassing! We can't find the page you're looking for. 🤦🏽‍♂️
+  ```
+
+  </code-snippet>
+
 **`page.byline`**
 : The page author.
 

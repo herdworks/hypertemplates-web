@@ -6,6 +6,9 @@ title: HyperTemplates User Documentation
 breadcrumb: Documentation
 summary: |
     Home of the HyperTemplates tutorial, guide, and reference documentation.
+github:
+    page: content/index.md
+    layout: themes/ht/layouts/default.html
 ---
 
 ## HyperTemplates Documentation
@@ -99,7 +102,7 @@ This template tells HyperTemplates to make the following changes:
 1. Clone the `<a>` element once [**for each** entry **in**] the template data `site.nav` property, then process the cloned element as a nested template with a variable named `link`.
 1. Parse the contents of the template data `page.content` property as HTML and insert the parsed HTML into the `<main>` element.
 
-To learn more about HyperTemplates attributes, please visit the [attributes reference].
+To learn more about HyperTemplates directives, please visit the [directives reference].
 
 ### Data-driven templating
 --------------------------
@@ -199,10 +202,10 @@ The HyperTemplates [reference documentation](/docs/reference/) is organized arou
 
 
 <!-- Links -->
-[HyperTemplates HTML attributes]: /docs/reference/core/attributes/
-[HTML attributes]: /docs/reference/core/attributes/
+[HyperTemplates HTML attributes]: /docs/reference/core/directives/
+[HTML attributes]: /docs/reference/core/directives/
 [**for each** entry **in**]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
-[attributes reference]: /docs/reference/core/attributes/
+[directives reference]: /docs/reference/core/directives/
 [property accessors]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors
 [template data reference documentation]: /docs/reference/core/data/
 [core specification]: /docs/reference/core/

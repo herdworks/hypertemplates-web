@@ -1,6 +1,8 @@
 ---
-namespace: banners
 banners:
   - id: introducing-hypertemplates
     message: Read the introductory blog post
     href: /blog/introducing-hypertemplates/
+  - id: designing-an-ssg-for-iphone
+    message: Designing an SSG for iPhone
+    href: /blog/designing-an-ssg-for-iphone/

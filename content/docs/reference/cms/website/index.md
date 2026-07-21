@@ -55,12 +55,14 @@ A HyperTexting CMS website configuration file.
 base_url: https://hypertemplates.net
 title: HyperTemplates
 description: the pure-HTML templating system for the modern web.
+copyright: "2026"
 author:
     username: "@hypertemplates.net"
     name: HyperTemplates
     href: /
     favicon: /img/favicon-512x512.png
     email: contact@hypertemplates.net
+
 links:
   - rel: apple-touch-icon
     href: /img/apple-touch-icon.png
@@ -84,22 +86,27 @@ links:
     href: https://github.com/hypertemplates
   - rel: me
     href: https://mastodon.social/@herdworks
-copyright: "2025"
+
 config:
     tidy_mode: true
     theme_dir: theme
     tag_layout: tag
-provider:
+
+providers:
+  default:
     kind: s3
     endpoint: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com
     store: hypertemplates-net
     secrets:
-        - name: access_key_id
-          provider: env
-          key: AWS_ACCESS_KEY_ID
-        - name: secret_access_key
-          provider: env
-          key: AWS_SECRET_ACCESS_KEY
+      - name: access_key_id
+        provider: env
+        key: AWS_ACCESS_KEY_ID
+      - name: secret_access_key
+        provider: env
+        key: AWS_SECRET_ACCESS_KEY
+
+environments:
+  production: [s3]
 ```
 
 </code-snippet>
@@ -246,6 +253,84 @@ See [custom properties] for more information.
 
   </doc-quote>
 
+**`site.config`**
+: Website configuration settings.
+
+  **Sample**
+
+  <code-snippet ht-block filename='site.yaml' highlight=5-8>
+
+  ```yaml
+  ---
+  title: HyperTemplates
+  description: the pure-HTML templating system for the modern web.
+  ...: ...
+  config:
+    builds_dir: .builds
+    theme: themes/ht/theme.json
+    tag_layout: tag.html
+  ```
+
+  </code-snippet>
+
+  See [Configuration](#configuration) for more information.
+
+
+**`site.providers`**
+: A list of named hosting provider configurations.
+
+  **Sample**
+
+  <code-snippet ht-block filename='site.yaml' highlight=5-19>
+
+  ```yaml
+  ---
+  title: HyperTemplates
+  description: the pure-HTML templating system for the modern web.
+  ...: ...
+  providers:
+    default:
+      kind: s3
+      base_url: https://hypertemplates.net
+      endpoint: https://5a8b6c901ff20ee02892cf121b1ead54.r2.cloudflarestorage.com
+      config:
+        bucket: hypertemplates-web-prod
+      exclude:
+        paths:
+          - '(^|/)\.DS_Store$'
+      secrets:
+        - name: access_key_id
+          key: AWS_ACCESS_KEY_ID
+        - name: secret_access_key
+          key: AWS_SECRET_ACCESS_KEY
+  ```
+
+  </code-snippet>
+
+  See [Hosting Providers](#hosting-providers) for more information.
+
+**`site.environments`**
+: A list of named hosting environments.
+
+  **Sample**
+
+  <code-snippet ht-block filename='site.yaml' highlight=5-19>
+
+  ```yaml
+  ---
+  title: HyperTemplates
+  description: the pure-HTML templating system for the modern web.
+  ...: ...
+  environments:
+    default: [s3, cdn]
+    production: [s3, cdn]
+    staging: [github]
+  ```
+
+  </code-snippet>
+
+  See [Hosting Environments](#hosting-environments) for more information.
+
 **Custom properties**
 : All properties defined in `site.yaml` or `site.json` files are available as [template data properties] with the `site.` prefix.
   
@@ -268,97 +353,34 @@ See [custom properties] for more information.
 ### Configuration
 -----------------
 
-**`site.config`**
-: The website configuration.
+**`site.config.builds_dir`**
+: The build output directory (default: `"builds"`).
 
-  All `site.config` properties have default values, so these only need to be added to `site.yaml` or `site.json` if a value other than the default is preferred.
+**`site.config.data_dir`**
+: The [namespaced template data] subdirectory (default: `"data"`).
 
-  **Example**
+**`site.config.content_dir`** 
+: The content directory (default: `"content"`).
 
-  ```javascript
-  {
-    site: {
-      config: {
-        builds_dir:  "builds",
-        content_dir:  "content",
-        data_dir:  "data",
-        drafts_dir:  "drafts",
-        fragments_dir: "fragments",
-        layouts_dir:  "layouts",
-        static_dir:  "static",
-        themes_dir:  "themes",
-        theme:  "./theme.json",
-        tag_layout: "default",
-        tag_path: "tags",
-        refresh_interval: 0,
-        tidy_mode: true
-        markdown: {
-          mentions: {
-            href_prefix: "/tags/",
-            href_suffix: "/"
-          }
-        }
-      }
-    }
-  }
-  ```
+**`site.config.layouts_dir`** 
+: The [layouts] subdirectory (default: `"layouts"`).
 
-  The `site.config` property is a key:value template data object containing the following properties:
+**`site.config.fragments_dir`**
+: The [fragments] subdirectory (default: `"fragments"`).
 
-  * `site.config.builds_dir` (default: `"builds"`)
+**`site.config.static_dir`** 
+: The [static assets] subdirectory (default: `"static"`).
 
-    Configures the build output subdirectory.
+**`site.config.plugins_dir`**
+: The [template variable plugins] subdirectory (default: `"plugins"`).
 
-  * `site.config.content_dir` (default: `"content"`)
+**`site.config.themes_dir`**
+: The [themes] subdirectory (default: `"themes"`).
 
-    Configures the page content subdirectory.
+**`site.config.theme`** 
+: The active [theme] (default: `"./theme.json"`).
 
-  * `site.config.data_dir` (default: `"data"`)
-
-    Configures the [namespaced template data] subdirectory.
-
-  * `site.config.drafts_dir` (default: `"drafts"`)
-
-    Configures the draft pages subdirectory.
-
-  * `site.config.fragments_dir` (default: `"fragments"`)
-
-    Configures the fragment pages subdirectory.
-
-  * `site.config.layouts_dir` (default: `"layouts"`)
-
-    Configures the layouts subdirectory.
-
-  * `site.config.static_dir` (default: `"static"`)
-
-    Configures the static assets subdirectory.
-
-  * `site.config.themes_dir` (default: `"themes"`)
-
-    Configures the themes subdirectory.
-
-  * `site.config.theme` (default: `"./theme.json"`)
-
-    Configures the current theme.
-    Set `site.config.theme: "./theme."` to use the website root directory as the theme directory.
-
-  * `site.config.tag_layout` (default: `"tag.html"`)
-
-    See [`site.config.tag_layout`](#site-config-tag_layout) below.
-
-  * `site.config.refresh_interval` (default: integer `0`)
-
-    See [`site.config.refresh_interval`](#site-config-refresh_interval) below.
-
-  * `site.config.tidy_mode` (default: boolean `false`)
-
-    See [`site.config.tidy_mode`](#site-config-tidy_mode) below.
-  
-  * `site.config.markdown`
-
-    See [`site.config.markdown`](#site-config-markdown) below.
-
-  The directory configuration settings provide HyperTemplates with instructions on where to look for the various
+  Set `site.config.theme: "./theme."` to use the website root directory as the theme directory.
 
 **`site.config.tag_layout`**
 : Configures the layout to use for automatically generated tag pages (default: `"default"`).
@@ -366,38 +388,36 @@ See [custom properties] for more information.
 **`site.config.tag_path`**
 : Configures the path prefix for auto-generated tag pages (default: `"tag"`).
 
-**`site.config.refresh_interval`**
-: Configures [the `page.refresh` computed property](/docs/reference/cms/page/#page-refresh) interval for redirect pages.
-
 **`site.config.tidy_mode`**
-: Configures whether [template attributes] should be removed from rendered pages.
-  Set `site.config.tidy_mode: true` to strip all template attributes from generated HTML files.
+: Configures whether [template directives] should be removed from rendered pages.
+  Set `site.config.tidy_mode: true` to strip all template directives from generated HTML files.
 
 **`site.config.markdown`**
 : The website markdown configuration.
 
   **Sample**
 
-  ```javascript
-  {
-    site: {
-      config: {
-        markdown: {
-          mentions: {
-            href_prefix: "/tags/"
-            href_suffix: "/"
-          }
-        }
-      }
-    }
-  }
+  <code-snippet ht-block filename='site.yaml' highlight=5-19>
+
+  ```yaml
+  ---
+  title: HyperTemplates
+  description: the pure-HTML templating system for the modern web.
+  ...: ...
+  config:
+    markdown:
+      mentions:
+        href_prefix: /tags/
+        href_suffix: /
   ```
+
+  </code-snippet>
 
   The `site.config.markdown` property is a key:value template data object containing the following properties:
 
-  * `site.config.markdown.mentions` (default: `{}`)
-  * `site.config.markdown.mentions.href_prefix` (default: `"/tags/"`)
-  * `site.config.markdown.mentions.href_suffix` (default: `"/"`)
+  * `mentions` (default: `{}`)
+  * `mentions.href_prefix` (default: `"/tags/"`)
+  * `mentions.href_suffix` (default: `"/"`)
 
   <doc-quote ht-block info>
 
@@ -405,6 +425,126 @@ See [custom properties] for more information.
   Use `href_prefix: "https://x.com/hashtag/"` and `href_suffix: "/"` to create links to an external hashtag service.
 
   </doc-quote>
+
+
+### Hosting Providers
+---------------------
+
+**`site.providers.<name>`**
+: Hosting providers are named using a [template data key].
+
+  **Sample**
+
+  <code-snippet ht-block filename='site.yaml' highlight=6>
+
+  ```yaml
+  ---
+  title: HyperTemplates
+  description: the pure-HTML templating system for the modern web.
+  ...: ...
+  providers:
+    github:
+      kind: git
+      endpoint: git@github.com:herdworks/hypertemplates-web.git
+      config:
+        branch: gh-pages
+        publish_dir: .
+      secrets:
+        - name: ssh_private_key
+          key: GH_PRIVATE_KEY
+  ```
+
+  </code-snippet>
+
+  In this this example, we have configured a provider named `github`.
+
+**`site.providers.<name>.kind`**
+: The hosting provider kind (required).
+
+  **Supported provider kinds:**
+  * `s3` 
+  * `git`
+
+**`site.providers.<name>.endpoint`**
+: The hosting provider endpoint (required).
+  
+  All hosting providers require an endpoint URL.
+
+**`site.providers.<name>.config`**
+: Provider-specific configuration settings (optional).
+
+  **Examples**
+
+  ```yaml
+  providers:
+    cloudflare_r2:
+      kind: s3
+      endpoint: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com
+      config:
+        bucket: my-website
+      secets:
+        - name: access_key_id
+          key: AWS_ACCESS_KEY_ID
+        - name: secret_access_key
+          key: AWS_SECRET_ACCESS_KEY
+  ```
+
+**`site.providers.<name>.secrets`**
+: Authentication secrets for accessing the configured provider (required).
+
+
+### Hosting Environments
+------------------------
+
+**`site.environments.<name>`**
+: Hosting environments are named using a [template data key].
+
+  **Sample**
+
+  <code-snippet ht-block filename='site.yaml' highlight=6>
+
+  ```yaml
+  ---
+  title: HyperTemplates
+  description: the pure-HTML templating system for the modern web.
+  ...: ...
+  environments:
+    production: [git]
+  ```
+
+  </code-snippet>
+
+  In this this example, we have configured a hosting environment named `production`.
+
+**`site.environments.<name>` providers**
+: Hosting environments are configured by providing a list of [provider names](#site-providers-name).
+
+  **Sample**
+
+  <code-snippet ht-block filename='site.yaml' highlight='6,16'>
+
+  ```yaml
+  ---
+  title: HyperTemplates
+  description: the pure-HTML templating system for the modern web.
+  ...: ...
+  providers:
+    github:
+      kind: git
+      endpoint: git@github.com:herdworks/hypertemplates-web.git
+      config:
+        branch: gh-pages
+        publish_dir: .
+      secrets:
+        - name: ssh_private_key
+          key: GH_PRIVATE_KEY
+  environments:
+    production: [github]
+  ```
+
+  </code-snippet>
+
+  In this this example, we have configured the `production` environment to use the `github` provider. 
 
 ### Guides
 ----------
@@ -430,6 +570,12 @@ See [custom properties] for more information.
 [HTML `<meta>` attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta#attributes
 [`<link>` elements]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link
 [HTML `<link>` attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link#attributes
-[layouts]: /docs/reference/core/layouts/
 [namespaced template data]: /docs/reference/cms/namespaces/
-[template attributes]: /docs/reference/core/attributes/
+[layouts]: /docs/reference/core/layouts/
+[fragments]: /docs/reference/core/fragments/
+[static assets]: /docs/reference/cms/assets/
+[template variable plugins]: /docs/reference/core/variables/#template-variable-plugins
+[themes]: /docs/reference/core/themes/
+[template directives]: /docs/reference/core/directives/
+[HyperMark]: /docs/reference/core/markdown/
+[template data key]: /docs/reference/core/data/#template-data-keys

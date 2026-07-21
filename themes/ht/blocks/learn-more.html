@@ -1,4 +1,4 @@
-<learn-more label='Learn more' href='#'>
+<learn-more label href>
     <style ht-pipe='css:style#components'>
         learn-more {
             display: block;
@@ -15,8 +15,8 @@
             height: 18px;
         }
     </style>
-    <a href='' ht-attrs='href:block.href'>
-        <span ht-content='block.label'>Learn more</span>
+    <a ht-apply href='${ block.href }'>
+        <span ht-apply>${ block.label, "Learn more" }</span>
         <svg ht-include='static/icons/arrow-right-sharp-solid.svg'></svg>
     </a>
 </learn-more>

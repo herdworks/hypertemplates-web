@@ -96,7 +96,6 @@
     <content-container>
         <content-row grid>
             <content-column>
-                <!-- <h1 ht-content='text:page.title'>Title</h1> -->
                 <nav>
                     <svg ht-include='static/img/hypertemplates-logo-duo.svg' id='logo'></svg>
                     <nav-button>
@@ -105,15 +104,15 @@
                         </button>
                     </nav-button>
                 </nav>
-                <p ht-content='markdown:page.hero.summary,page.summary'>Summary</p>
+                <p ht-apply>${ markdown ( get "page.hero.summary, page.summary" "Summary" ) }</p>
                 <link-button ht-template='button:page.hero.ctas,page.ctas' ht-include='fragments/link-button'></link-button>
                 <a href='/downloads/' rel='downloads'>
                     <svg ht-include='static/icons/cloud-arrow-down-solid.svg'></svg>
                     Download version
-                    <span ht-content='text:data.downloads.latest'></span>
+                    <span ht-apply>${ data.downloads.latest }</span>
                 </a>
             </content-column>
-            <content-column ht-content='markdown:page.hero.sample'></content-column>
+            <content-column ht-apply>${ markdown page.hero.sample }</content-column>
         </content-row>
     </content-container>
     <sidebar-menu ht-include='fragments/sidebar-menu'></sidebar-menu>

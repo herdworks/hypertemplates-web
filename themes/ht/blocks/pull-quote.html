@@ -23,10 +23,10 @@
         }
     </style>
     <blockquote>
-        <span ht-content='html:block.content'></span>
+        <span ht-apply>${ block.content }</span>
         <cite ht-if='block.cite'>
-            <span ht-not='block.href' ht-content='text:block.cite'></span>
-            <a ht-if='block.href' ht-attrs='href:block.href' ht-content='text:block.cite'></a>
+            <span ht-not='block.href' ht-apply>${ block.cite }</span>
+            <a ht-if='block.href' ht-apply href='${ block.href }'>${ block.cite }</a>
         </cite>
     </blockquote>
 </pull-quote>

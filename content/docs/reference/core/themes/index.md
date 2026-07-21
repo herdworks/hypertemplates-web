@@ -200,6 +200,11 @@ Themes are configured using the `theme.json` file.
   }
   ```
 
+**`theme.config.plugins_dir`**
+: The [template variable plugins] directory.
+  The default value is `plugins`.
+  See [template variables] and [template plugins] documentation for more information.
+
 **`theme.config.contenttypes_dir`**
 : The content types directory.
   The default value is `types`.
@@ -226,3 +231,6 @@ Themes are configured using the `theme.json` file.
 [assets reference]: /docs/reference/cms/assets/
 [asset hierarchy]: /docs/reference/cms/assets/#asset-hierarchy
 [content types reference]: /docs/reference/cms/content-types/
+[template variable plugins]: /docs/reference/core/variables/#template-variable-plugins
+[template variables]: /docs/reference/core/variables/
+[template plugins]: /docs/reference/core/plugins/

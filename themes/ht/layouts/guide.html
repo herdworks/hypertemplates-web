@@ -112,18 +112,18 @@
                 <content-container>
                     <detail-guide>
                         <guide-overview>
-                            <h1 ht-content='page.guide.title'></h1>
-                            <h4 ht-content='page.guide.subtitle' ht-if='page.guide.subtitle'></h4>
-                            <content-block ht-content='markdown:page.guide.overview'></content-block>
+                            <h1 ht-apply>${ page.guide.title }</h1>
+                            <h4 ht-apply ht-if='page.guide.subtitle'>${ page.guide.subtitle }</h4>
+                            <content-block ht-apply>${ markdown page.guide.overview }</content-block>
                             <button action='#'>Let's go</button>
                         </guide-overview>
                         <details ht-template='step:page.guide.steps' name='guide' open>
                             <summary>
                                 <label><span></span></label>
-                                <h4 ht-content='text:step.title'></h3>
-                                <p ht-content='markdown:step.description'></p>
+                                <h4 ht-apply>${ step.title }</h3>
+                                <p ht-apply>${ markdown step.description }</p>
                             </summary>
-                            <param ht-param='markdown:step.instructions' />
+                            ${ markdown step.instructions }
                         </details>
                     </detail-guide>
                 </content-container>

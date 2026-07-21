@@ -1,5 +1,4 @@
 ---
-namespace: nav
 learn:
   - label: Home
     href: /
@@ -9,7 +8,7 @@ learn:
     href: /blog/
 develop:
   - label: Reference
-    href: /docs/reference/core/attributes/
+    href: /docs/reference/core/directives/
   - label: Docs
     href: /docs/
 sidebar:

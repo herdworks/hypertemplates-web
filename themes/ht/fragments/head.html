@@ -1,32 +1,35 @@
 <!-- Global Metadata -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*; img-src 'self' https://*; media-src 'self' https://*;">
+<meta ht-if='page.redirect' http-equiv='refresh' content='0; url=${ page.redirect }' ht-apply>
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes'>
-<title ht-content='page.title,site.title'></title>
-<meta name='description' ht-attrs='content:page.description,site.description' />
-<meta name='publisher' ht-attrs='content:site.byline.name' />
-<meta name='creator' ht-attrs='content:site.byline.name' />
-<meta name='author' ht-attrs='content:page.byline.name,site.byline.name' />
+<title ht-apply ht-if='page.path==/'>${ site.title }</title>
+<title ht-apply ht-if='page.path!=/'>${ site.title } | ${page.title, "✱" }</title>
+<meta ht-apply name='description' content='${ page.description,site.description }' />
+<meta ht-apply name='publisher' content='${ site.byline.name }' />
+<meta ht-apply name='creator' content='${ site.byline.name }' />
+<meta ht-apply name='author' content='${ page.byline.name, site.byline.name }' />
 <meta name='referrer' content='origin' />
 <meta name="color-scheme" content="light dark" />
-<meta name='build_id' ht-attrs='content:site.version,data.build.id' />
-<meta ht-template='meta:site.metadata' ht-attrs='name:meta.name; property:meta.property; content:meta.content' />
+<meta ht-apply name='build_id' content='${ site.version, data.build.id }' />
+<meta ht-template='meta:site.metadata' ht-attrs='meta' />
+<meta ht-template='meta:page.metadata' ht-attrs='meta' />
 <meta ht-include='fragments/open-graph'>
 <meta ht-include='fragments/twitter-card'>
 
 <!-- Global Links -->
-<link rel='icon' type='image/png' sizes="32x32" href='/favicon.png' ht-template='favicon:site.favicon,site.favicons' ht-attrs='rel:favicon.rel;href:favicon.href;sizes:favicon.sizes;type=favicon.type'>
-<link rel='canonical' ht-attrs='href:page.canonical_url'>
-<link ht-template='link:site.links' ht-attrs='rel:link.rel; href:link.href; sizes:link.sizes; type:link.type'>
+<link ht-template='favicon:site.favicon,site.favicons' rel='icon' type='image/png' sizes="32x32" href='/favicon.png' rel='${ favicon.rel }' href='${ favicon.href }' sizes='${ favicon.sizes }' type='${ favicon.type }'>
+<link ht-apply rel='canonical' href='${ page.canonical_url }'>
+<link ht-template='link:site.links' rel='${ link.rel, "" }' href='${ link.href }' sizes='${ link.sizes, "" }' type='${ link.type, "" }'>
 
 <!-- Global Styles -->
 <link rel='stylesheet' href='/css/reset.css'>
-<link rel='stylesheet' href='/css/variables.css' ht-query='href?version:site.version,data.build.id'>
-<link rel='stylesheet' href='/css/colors.css' ht-query='href?version:site.version,data.build.id'>
-<link rel='stylesheet' href='/css/typography.css' ht-query='href?version:site.version,data.build.id'>
-<link rel='stylesheet' href='/css/grid.css' ht-query='href?version:site.version,data.build.id'>
-<link rel='stylesheet' href='/css/styles.css' ht-query='href?version:site.version,data.build.id'>
-<link rel='stylesheet' href='/css/chroma-base16-snazzy.css' ht-query='href?version:site.version,data.build.id'>
+<link ht-apply rel='stylesheet' href='/css/variables.css?version=${ site.version, data.build.id }'>
+<link ht-apply rel='stylesheet' href='/css/colors.css?version=${ site.version, data.build.id }'>
+<link ht-apply rel='stylesheet' href='/css/typography.css?version=${ site.version, data.build.id }'>
+<link ht-apply rel='stylesheet' href='/css/grid.css?version=${ site.version, data.build.id }'>
+<link ht-apply rel='stylesheet' href='/css/styles.css?version=${ site.version, data.build.id }'>
+<link ht-apply rel='stylesheet' href='/css/chroma-base16-snazzy.css?version=${ site.version, data.build.id }'>
 
 <!-- Global Scripts -->
 <script src='/js/main.js' ht-query='src?version:site.version,data.build.id' defer></script>

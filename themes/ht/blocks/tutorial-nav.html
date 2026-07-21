@@ -54,14 +54,14 @@
                 border-color var(--color-transition);
         }
     </style>
-    <link-button ht-attrs='title:block.prev-label' title='none'>
-        <a rel='prev' ht-attrs='href:block.prev-href'>
-            <span>← PREV<br><param ht-param='html:block.prev-label'></span>
+    <link-button ht-apply ht-if='block.prev-href' title='${ block.prev-label }'>
+        <a ht-apply rel='prev' href='${ block.prev-href }'>
+            <span ht-apply>← PREV<br>${ block.prev-label }</span>
         </a>
     </link-button>
-    <link-button ht-attrs='title:block.next-label' title='none'>
-        <a rel='next' ht-attrs='href:block.next-href'>
-            <span>NEXT →<br><param ht-param='html:block.next-label'></span>
+    <link-button ht-apply title='${ block.next-label }'>
+        <a ht-apply rel='next' href='${ block.next-href }'>
+            <span ht-apply>NEXT →<br>${ block.next-label }</span>
         </a>
     </link-button>
 </tutorial-nav>
