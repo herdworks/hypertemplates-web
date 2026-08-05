@@ -1,5 +1,5 @@
 <tutorial-nav pref-label prev-href next-label next-href>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         tutorial-nav { 
             display: grid;
             grid-template-areas: "prev next";
@@ -54,12 +54,12 @@
                 border-color var(--color-transition);
         }
     </style>
-    <link-button ht-apply ht-if='block.prev-href' title='${ block.prev-label }'>
+    <link-button ht-apply ht-if='${ block.prev-href }' ht-if='${ block.prev-label }' title='${ block.prev-label }'>
         <a ht-apply rel='prev' href='${ block.prev-href }'>
             <span ht-apply>← PREV<br>${ block.prev-label }</span>
         </a>
     </link-button>
-    <link-button ht-apply title='${ block.next-label }'>
+    <link-button ht-apply ht-if='${ block.next-href }' ht-if='${ block.next-label }' title='${ block.next-label }'>
         <a ht-apply rel='next' href='${ block.next-href }'>
             <span ht-apply>NEXT →<br>${ block.next-label }</span>
         </a>

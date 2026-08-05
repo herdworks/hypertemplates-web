@@ -9,7 +9,7 @@ summary: |
 
 ## Pages reference
 
-<auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
+<auto-toc selectors="h3,h4,h5,h6,dl:not(:has(learn-more)) dt"></auto-toc>
 
 ### Overview
 ------------
@@ -257,12 +257,12 @@ All properties are string data types unless otherwise noted.
 
   </code-snippet>
 
-  The `site.byline` [template data property] should be used by layout and theme developers as the default value for the `<meta name='author'>` element.
+  The `page.byline` [template data property] should be used by layout and theme developers as the primary value for the `<meta name='author'>` element.
 
   **Example**
 
   ```html
-  <meta name='author' ht-attrs='content:page.byline.name,site.byline.name'>
+  <meta ht-apply name='author' content='${ page.byline.name, site.byline.name }'>
   ```
 
 **`page.title`**
@@ -273,24 +273,24 @@ All properties are string data types unless otherwise noted.
   **Example**
 
   ```html
-  <title ht-content='page.title,site.title'></title>
+  <title ht-apply>${ page.title, site.title }</title>
   ```
 
 **`page.description`**
 : The page description.
 
-  The `page.description` [template data property] should be used by layout and theme developers as the default value for the `<meta name='description'>` element.
+  The `page.description` [template data property] should be used by layout and theme developers as the primary value for the `<meta name='description'>` element.
 
   **Example**
 
   ```html
-  <meta name='description' ht-attrs='content:page.description,site.description'>
+  <meta ht-apply name='description' content='${ page.description, site.description }'>
   ```
 
 **`page.content`**
 : The page content.
 
-  The `page.content` property should be used by layout and theme developers as the default value for the primary content element of a given page.
+  The `page.content` property should be used by layout and theme developers as the primary value for the primary content element of a given page.
 
   **Sample**
 
@@ -406,7 +406,7 @@ All properties are string data types unless otherwise noted.
   **Example**
 
   ```html
-  <meta ht-template='meta:page.metadata' ht-attrs='name:meta.name; property:meta.property; content:meta.content'>
+  <meta ht-each='meta in ${ page.metadata }' name='${ meta.name }' property='${ meta.property }' content='${ meta.content }'>
   ```
 
   <doc-quote ht-block>
@@ -442,7 +442,7 @@ All properties are string data types unless otherwise noted.
   The `page.links` [template data property] should be used by theme developers as a source for [`<link>` elements].
 
   ```html
-  <link ht-template='link:page.links' ht-attrs='rel:link.rel; href:link.href; type:link.type; sizes:link.sizes'>
+  <link ht-each='link in ${ page.links }' rel='${ link.rel }' href='${ link.href }' type='${ link.type }' sizes='${ link.sizes }'>
   ```
 
   <doc-quote ht-block>
@@ -509,19 +509,14 @@ All properties are string data types unless otherwise noted.
   </code-snippet>
 
 
-  The `page.redirect` property is used by HyperTemplates to generate the [`page.refresh` computed property](#page-refresh) (see below).
-
-**`page.refresh`**
-: The `page.refresh` property is a computed property used for configuring redirects.
-
-  The `page.refresh` property should be used by layout and theme developers as the default value for HTML redirects.
+  The `page.redirect` property should be used by layout and theme developers as the primary value for HTML redirects.
 
   **Example**
 
   <code-snippet ht-block filename='redirect.html'>
 
   ```html
-  <meta http-equiv="refresh" content="0; url=/" ht-attrs='content:page.refresh' />
+  <meta ht-apply ht-if='${ page.redirect }' http-equiv="refresh" content="0; url=${ page.redirect }" />
   ```
 
   </code-snippet>
@@ -545,15 +540,15 @@ All properties are string data types unless otherwise noted.
 
   ```html
   <header>
-    <img ht-template='asset:page.assets' ht-if='asset==cover.png,cover.jpg,cover.jpeg' src='asset' alt='Cover image' />
-    <h1 ht-content='page.title'></h1>
+    <img ht-each='asset in ${ page.assets }' ht-if='${ asset } == cover.png OR ${ asset } == cover.jpg OR ${ asset } == cover.jpeg' src='asset' alt='Cover image' />
+    <h1 ht-apply>${ page.title, "" }</h1>
   </header>
   ```
 
   In this example, a header cover image is only displayed if an asset named `cover.png`, `cover.jpg`, or `cover.jpeg` is displayed.
 
   ```html
-  <script ht-template='asset:page.assets' ht-if='asset==page.js' src='asset' defer></script>
+  <script ht-each='asset in ${ page.assets }' ht-if='${ asset } == page.js' src='${ asset }' defer></script>
   ```
 
   In this example, a `<script>` tag is only added if an asset named `page.js` is present.
@@ -588,12 +583,12 @@ All properties are string data types unless otherwise noted.
   **Example**
 
   ```html
-  <attachment-gallery ht-template='attachment:page.attachments'>
-    <link-attachment ht-if='attachment.kind==link'></link-attachment>
-    <video-attachment ht-if='attachment.kind==video'></video-attachment>
-    <image-attachment ht-if='attachment.kind==image'></image-attachment>
-    <audio-attachment ht-if='attachment.kind==audio'></audio-attachment>
-    <file-attachment ht-if='attachment.kind==file'></file-attachment>
+  <attachment-gallery ht-each='attachment in ${ page.attachments }'>
+    <link-attachment ht-if='${ attachment.kind } == link'></link-attachment>
+    <video-attachment ht-if='${ attachment.kind } == video'></video-attachment>
+    <image-attachment ht-if='${ attachment.kind } == image'></image-attachment>
+    <audio-attachment ht-if='${ attachment.kind } == audio'></audio-attachment>
+    <file-attachment ht-if='${ attachment.kind } == file'></file-attachment>
   </attachment-gallery>
   ```
 
@@ -754,13 +749,15 @@ All properties are string data types unless otherwise noted.
 
   ```html
   <section id='feed'>
-      <feed-entry ht-template='entry:page.feed.pages'>
+      <feed-entry ht-each='page in ${ page.feed.pages }'>
           <post-metadata>
-              <h4 ht-content='entry.title' ht-if='entry.title'></h4>
-              <time ht-attrs='datetime:entry.updated_at,entry.created_at' ht-content='entry.updated_at,entry.created_at'></time>
+              <h4 ht-apply ht-if='${ page.title }'>${ page.title }</h4>
+              <time ht-apply datetime='${ page.updated_at, page.created_at }'>
+                ${ page.updated_at, page.created_at }
+              </time>
           </post-metadata>
-          <post-summary ht-content='markdown:entry.summary,entry.content'></post-summary>
-          <learn-more ht-block ht-attrs='href:entry.path' label='Continue reading'></learn-more>
+          <post-summary ht-apply>${ markdown(page.summary, page.content) }</post-summary>
+          <learn-more ht-apply ht-block href='${ page.path }' label='Continue reading'></learn-more>
       </feed-entry>
   </section>
   ```
@@ -802,7 +799,7 @@ All properties are string data types unless otherwise noted.
 **Add a blog page**
 : Create your first blog using feed pages!
 
-  <learn-more ht-block href='/docs/guides/feeds'>
+  <learn-more ht-block href='/docs/guides/feeds' data-toc='h4' title='Add a blog page'>
 
 <!-- Links -->
 [page asset]: /docs/reference/cms/assets/
@@ -820,8 +817,8 @@ All properties are string data types unless otherwise noted.
 [`<link>` elements]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link
 [HTML `<link>` attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link#attributes
 [attachments reference]: /docs/reference/cms/attachments/
-[feeds]: /docs/reference/cms/feed/
-[feeds reference documentation]: /docs/reference/cms/feed/
+[feeds]: /docs/reference/cms/feeds/
+[feeds reference documentation]: /docs/reference/cms/feeds/
 [Google RE2 syntax reference]: https://github.com/google/re2/wiki/Syntax
 [`hyperctl cms page ls`]: /docs/reference/cli/commands/cms/page/ls/
 [Markdown]: /docs/reference/core/markdown/

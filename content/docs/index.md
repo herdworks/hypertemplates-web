@@ -13,7 +13,7 @@ github:
 
 ## HyperTemplates Documentation
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Introduction to templating
 ------------------------------
@@ -59,7 +59,9 @@ To understand HyperTemplates, let's use a simple HTML5 document as an example.
             <h1>Welcome to ACME, Inc.</h1>
         </header>
         <main>
-            <p>Welcome to ACME, home of the anvil.</p>
+            <article>
+                <p>Welcome to ACME, home of the anvil.</p>
+            </article>
         </main>
     </body>
 </html>
@@ -67,27 +69,29 @@ To understand HyperTemplates, let's use a simple HTML5 document as an example.
 
 To convert this example document into a reusable template using HyperTemplates, all we need to do is annotate the document using [HyperTemplates HTML attributes].
 
-<code-snippet ht-block filename='template.html' highlight='5-6,10-16,18'>
+<code-snippet ht-block filename='template.html' highlight='5-6,10-15,19'>
 
 ```html
 <!DOCTYPE html>
 <html lang='en-US'>
     <head>
         <meta charset='utf-8'>
-        <title ht-content='page.title,site.title'>ACME Inc</title>
-        <meta name='description' ht-attrs='content:page.description,site.description'>
+        <title ht-apply>${ site.title, "ACME Inc" }</title>
+        <meta ht-apply name='description' content='${ page.description, site.description, "ACME Inc, makers of fine anvil products." }'>
     </head>
     <body>
         <header>
-            <nav ht-if='site.nav'>
+            <nav ht-if='${ site.nav }'>
                 <img src='/img/logo.png' alt='ACME Inc company logo (an anvil)' />
-                <a href ht-template='link:site.nav' ht-attrs='href:link.href'>
-                    <span ht-content='link.label,link.title'></span>
+                <a ht-each='link in ${ site.nav }' href='${ link.href, "#" }'>
+                    <span ht-apply>${ link.label, link.title, "Placeholder" }</span>
                 </a>
             </nav>
-            <h1 ht-content='page.title,site.title'>Welcome to ACME, Inc.</h1>
+            <h1 ht-apply>${ page.title, site.title, "Welcome to ACME, Inc." }</h1>
         </header>
-        <main ht-content='html:page.content'></main>
+        <main>
+            <article ht-apply>${ page.content }</article>
+        </main>
     </body>
 </html>
 ```
@@ -96,11 +100,12 @@ To convert this example document into a reusable template using HyperTemplates, 
 
 This template tells HyperTemplates to make the following changes:
 
-1. Replace the contents of the `<title>` and `<h1>` elements with the contents of the template data `page.title` or `site.title` property.
-1. Replace the page description `<meta>` element `content` attribute with the contents of the template data `page.description` or `site.description` property.
+1. Replace the contents of the `<title>` and `<h1>` elements with the template data `page.title` or `site.title` property.
+1. Replace the page description `<meta>` element `content` attribute with the template data `page.description` or `site.description` property.
 1. Remove the `<nav>` element if the template data does not contain a `site.nav` property.
-1. Clone the `<a>` element once [**for each** entry **in**] the template data `site.nav` property, then process the cloned element as a nested template with a variable named `link`.
-1. Parse the contents of the template data `page.content` property as HTML and insert the parsed HTML into the `<main>` element.
+1. Clone the `<a>` element once [**for each** entry **in**] the template data `site.nav` property, then 
+1. Process each cloned `<a>` element as a nested template with a variable named `link` (e.g. using the `link.label`, `link.title`, and `link.href` properties).
+1. Insert the template data `page.content` property as HTML elements into the `<article>` element. 
 
 To learn more about HyperTemplates directives, please visit the [directives reference].
 
@@ -117,9 +122,18 @@ Template data is generally managed as content files in Markdown, YAML, or JSON f
     site: {
         title: "HyperTemplates",
         description: "HyperTemplates is the pure-HTML templating system for the modern web.",
-        favicon:
-            href: "/img/apple-touch-icon.png",
-            rel: "apple-touch-icon"
+        byline: {
+            name: "HyperTemplates",
+            href: "https://hypertemplates.net",
+            favicon: "/img/apple-touch-icon.png",
+        },
+        links: [
+            { rel: "apple-touch-icon", href: "/img/apple-touch-icon.png" },
+            { rel: "icon", href: "/img/favicon_256x256.png", sizes: "256x256" },
+            { rel: "icon", href: "/img/favicon_128x128.png", sizes: "128x128" },
+            { rel: "icon", href: "/img/favicon_64x64.png", sizes: "64x64" },
+            { rel: "me", href: "https://github.com/herdworks" },
+        ]
         nav: [
             { label: "Home", href: "/" },
             { label: "Features", href: "/features/" },
@@ -136,7 +150,7 @@ Template data is generally managed as content files in Markdown, YAML, or JSON f
 ```
 
 HyperTemplates layouts contain [HTML attributes] that reference template data properties using "dot notation" [property accessors].
-For example, the `site.favicon.href` property has a value of `/img/apple-touch-icon.png`.
+For example, the `site.byline.favicon` property has a value of `/img/apple-touch-icon.png`.
 
 To learn more about how HyperTemplates handles template data, please visit the [template data reference documentation].
 
@@ -156,12 +170,12 @@ Visit the [tutorials] section for a complete list of available tutorials, or jum
 **Quick Start**
 : Get started with HyperTemplates in three easy steps!
   
-  <learn-more ht-block href='/docs/tutorials/getting-started/'></learn-more>
+  <learn-more ht-block href='/docs/tutorials/getting-started/' data-toc='h5' title='Quick Start'></learn-more>
 
 **Learn HyperTemplates**
 : Learn the core building blocks of HyperTemplates.
 
-  <learn-more ht-block href='/docs/tutorials/learn/'></learn-more>
+  <learn-more ht-block href='/docs/tutorials/learn/' data-toc='h5' title='Learn HyperTemplates'></learn-more>
 
 #### How-To Guides
 ------------------
@@ -171,8 +185,12 @@ Visit the [guides] section for a complete list of available guides, or jump righ
 **Feeds**
 : How to configure feeds and feed pages (e.g. a blog).
   
-  <learn-more ht-block href='/docs/guides/feeds/'></learn-more>
+  <learn-more ht-block href='/docs/guides/feeds/' data-toc='h5' title='Feeds'></learn-more>
 
+**Link Verification**
+: How to add `rel="me"` links for third-party link verification.
+  
+  <learn-more ht-block href='/docs/guides/link-verification/' data-toc='h5' title='Link Verification'></learn-more>
 
 #### Reference Documentation
 ----------------------------
@@ -183,22 +201,22 @@ The HyperTemplates [reference documentation](/docs/reference/) is organized arou
 **Core Specification**
 : The HyperTemplates core specification.
   
-  <learn-more ht-block href='/docs/reference/core/'></learn-more>
+  <learn-more ht-block href='/docs/reference/core/' data-toc='h5' title='Core Specification'></learn-more>
 
 **Content Management System (CMS)**
 : The HyperTexting content management system (CMS).
 
-  <learn-more ht-block href='/docs/reference/cms/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cms/' data-toc='h5' title='Content Management System (CMS)'></learn-more>
 
 **Command Line Interface (CLI)**
 : `hyperctl` is a static site generator based on HyperTemplates.
 
-  <learn-more ht-block href='/docs/reference/cli/'></learn-more>
+  <learn-more ht-block href='/docs/reference/cli/' data-toc='h5' title='Command Line Interface (CLI)'></learn-more>
 
 **Apps**
 : HyperTexting (coming soon) is the official HyperTemplates app for iPhone, iPad, and Mac.
 
-  <learn-more ht-block href='https://hypertexting.com'></learn-more>
+  <learn-more ht-block href='https://hypertexting.com' data-toc='h5' title='HyperTexting'></learn-more>
 
 
 <!-- Links -->

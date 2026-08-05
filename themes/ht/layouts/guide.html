@@ -11,7 +11,7 @@
         <script src='/js/components/footer-menu.js' defer></script>
 
         <!-- Layout Styles -->
-        <style id='components'></style>
+        <style id='components' ht-pipe='from "style.component" as css'></style>
         <style id='layout'>
             header {
                 & :is(a, a:hover) {
@@ -113,17 +113,17 @@
                     <detail-guide>
                         <guide-overview>
                             <h1 ht-apply>${ page.guide.title }</h1>
-                            <h4 ht-apply ht-if='page.guide.subtitle'>${ page.guide.subtitle }</h4>
-                            <content-block ht-apply>${ markdown page.guide.overview }</content-block>
+                            <h4 ht-apply ht-if='${ page.guide.subtitle }'>${ page.guide.subtitle }</h4>
+                            <content-block ht-apply>${ markdown(page.guide.overview) }</content-block>
                             <button action='#'>Let's go</button>
                         </guide-overview>
-                        <details ht-template='step:page.guide.steps' name='guide' open>
+                        <details ht-each='step in ${ page.guide.steps }' name='guide' open>
                             <summary>
                                 <label><span></span></label>
                                 <h4 ht-apply>${ step.title }</h3>
-                                <p ht-apply>${ markdown step.description }</p>
+                                <p ht-apply>${ markdown(step.description) }</p>
                             </summary>
-                            ${ markdown step.instructions }
+                            ${ markdown(step.instructions) }
                         </details>
                     </detail-guide>
                 </content-container>

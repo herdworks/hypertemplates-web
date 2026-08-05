@@ -9,7 +9,7 @@ breadcrumb: page
 
 ## `hyperctl cms new page` command
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Overview
 ------------
@@ -105,7 +105,7 @@ Options:
 **`--content-type`**
 : Name of the [content type] to use for generating the new page.
 
-  Use the [`hyperctl content-type ls`] command to get a list of available content types for the configured website theme.
+  Use the [`hyperctl cms content-type ls`] command to get a list of available content types for the configured website theme.
 
   **Example**
 
@@ -132,7 +132,7 @@ Options:
 
 <!-- Links -->
 [content type]: /docs/reference/cms/content-types/
-[`hyperctl content-type ls`]: /docs/reference/cli/commands/content-type/ls/
+[`hyperctl cms content-type ls`]: /docs/reference/cli/commands/content-type/ls/
 [`page.layout`]: /docs/reference/cms/page/#page-layout
 [`page.title`]: /docs/reference/cms/page/#page-title
 [`page.description`]: /docs/reference/cms/page/#page-description

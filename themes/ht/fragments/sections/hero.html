@@ -1,5 +1,5 @@
 <header id='hero' data-color-scheme='primary'>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         header {
             --link-underline-color: none !important;
         }
@@ -104,15 +104,15 @@
                         </button>
                     </nav-button>
                 </nav>
-                <p ht-apply>${ markdown ( get "page.hero.summary, page.summary" "Summary" ) }</p>
-                <link-button ht-template='button:page.hero.ctas,page.ctas' ht-include='fragments/link-button'></link-button>
+                <p ht-apply>${ markdown (page.hero.summary, page.summary, "Summary") }</p>
+                <link-button ht-include='fragments/link-button' ht-each='button in ${ page.hero.ctas, page.ctas }'></link-button>
                 <a href='/downloads/' rel='downloads'>
                     <svg ht-include='static/icons/cloud-arrow-down-solid.svg'></svg>
                     Download version
                     <span ht-apply>${ data.downloads.latest }</span>
                 </a>
             </content-column>
-            <content-column ht-apply>${ markdown page.hero.sample }</content-column>
+            <content-column ht-apply>${ markdown(page.hero.sample) }</content-column>
         </content-row>
     </content-container>
     <sidebar-menu ht-include='fragments/sidebar-menu'></sidebar-menu>

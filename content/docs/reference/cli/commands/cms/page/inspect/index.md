@@ -9,7 +9,7 @@ breadcrumb: inspect
 
 ## `hyperctl cms page inspect` command
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Overview
 ------------

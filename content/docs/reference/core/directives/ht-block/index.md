@@ -34,23 +34,24 @@ This example shows the `ht-block` directive being used to enhance a [Markdown] c
 ### Example
 -----------
 
-This example shows the `ht-content` directive being used to template the `<title>` and `<h1>` elements.
+This example shows the `ht-apply` directive being used to template the `<title>`, `<meta>`, `<h1>`, and `<article>` elements.
 
-<code-snippet ht-block filename='layout.html' highlight='5,9' line-numbers='on'>
+<code-snippet ht-block filename='layout.html' highlight='5-6,10,12-14' line-numbers='on'>
 
 ```html
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset='utf-8'>
-        <title ht-content='page.title,site.title'>Placeholder Title</title>
+        <title ht-apply>${ site.title } | ${ "Placeholder Title" }</title>
+        <meta ht-apply name='description' content='${ page.description, site.description }'>
     </head>
     <body>
         <header>
-            <h1 ht-content='page.title'>Hello, world.</h1>
+            <h1 ht-apply>${ page.title, "Hello, world." }</h1>
         </header>
-        <article>
-            <p>Lorem ipsum, hipsters get some.</p>
+        <article ht-apply>
+            ${ markdown(page.content, "") }
         </article>
     </body>
 </html>
@@ -61,7 +62,7 @@ This example shows the `ht-content` directive being used to template the `<title
 
 </code-snippet>
 
-In fact, this example is an excerpt from the [`ht-content` reference documentation] content file.
+In fact, this example is an excerpt from the [`ht-apply` reference documentation] content file.
 
 #### Supported elements
 -----------------------
@@ -84,13 +85,15 @@ Lorem ipsum, hipsters get some.
 </pull-quote>
 ```
 
+<!-- NOTE: the uses of "ht-block attribute" and "ht-block attribute values" are correct here -->
+
 This example demonstrates that `ht-block` directives are invoked by the presence of the `ht-block` attribute (i.e. `ht-block` attribute values are ignored).
 
 #### Custom element include sources
 -----------------------------------
 
 HyperTemplates processes HTML elements with the `ht-block` directive as nested layout templates.
-In practice, `ht-block` elements are what you might expect if you combined [`ht-include`] and [`ht-template`], with one important difference: unlike the `ht-include` directive, `ht-block` uses tag names to lookup the corresponding layout fragment.
+In practice, `ht-block` elements are what you might expect if you combined [`ht-include`] and [`ht-each`], with one important difference: unlike the `ht-include` directive, `ht-block` uses tag names to lookup the corresponding layout fragment.
 
 **Example**
 
@@ -104,8 +107,8 @@ In this example Markdown document, the `ht-block` directive will cause HyperTemp
 ---------------------------------
 
 HyperTemplates processes HTML elements with the `ht-block` directive as nested layout templates with access to `page.*` and `block.*` template data properties.
-In practice, `ht-block` elements are what you might expect if you combined [`ht-include`] and [`ht-template`].
-`ht-block` differs from `ht-template` in how their respective [template data objects] are constructed.
+In practice, `ht-block` elements are what you might expect if you combined [`ht-include`] and [`ht-each`].
+`ht-block` differs from `ht-each` in how their respective [template data objects] are constructed.
 The `ht-block` directive will cause HyperTemplates to construct a template data object using the placeholder element attributes as [template data properties], plus a property called `block.content` with the body of the element as its value.
 
 **Example**
@@ -199,11 +202,11 @@ In `hyperctl` versions 0.19.0 and newer, the resulting template data would also 
 [custom elements]: https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
 [hugo shortcodes]: https://gohugo.io/content-management/shortcodes/
 [markdown]: /docs/reference/core/markdown/
-[`ht-content` reference documentation]: /docs/reference/core/directives/ht-content/#example
+[`ht-apply` reference documentation]: /docs/reference/core/directives/ht-apply/#example
 [void elements]: https://developer.mozilla.org/en-US/docs/Glossary/Void_element
 [HTML boolean attribute]: https://developer.mozilla.org/en-US/docs/Glossary/Boolean/HTML
 [`ht-include`]: /docs/reference/core/directives/ht-include/
-[`ht-template`]: /docs/reference/core/directives/ht-template/
+[`ht-each`]: /docs/reference/core/directives/ht-each/
 [template data objects]: /docs/reference/core/data/#template-data-object
 [template data properties]: /docs/reference/core/data/#template-data-properties
 [template data sources]: /docs/reference/core/data/#template-data-sources

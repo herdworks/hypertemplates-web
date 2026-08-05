@@ -1,5 +1,5 @@
 <doc-quote>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         doc-quote {
             display: block;
 
@@ -51,5 +51,5 @@
             border-left: none;
         }
     </style>
-    <blockquote ht-apply>${ markdown block.content }</blockquote>
+    <blockquote ht-apply>${ markdown(block.content) }</blockquote>
 </doc-quote>

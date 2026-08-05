@@ -8,9 +8,72 @@ summary: |
 
 # Changelog
 
+## `hyperctl` v0.23.0 (2026-08-04)
+
+**NEW:** `hyperctl` version 0.23.0 with simplified set of [templating directives](/docs/reference/core/directives/), and a `hyperctl theme migrate` command to help with migrating legacy directives.
+
+In `hyperctl` version 0.23.0 we managed to add several new features while _reducing_ the total number of template directives by 38.5% (from 13 to 8). The five (!) removed directives are all obviated by the expressivenes of the new `${ ... }` [template variables](/docs/reference/core/variables/) system introduced in v0.20.0. It's now possible to develop most websites use only five templating directives: [`ht-include`](/docs/reference/core/directives/ht-include/), [`ht-if`](/docs/reference/core/directives/ht-if), [`ht-each`](/docs/reference/core/directives/ht-each/), [`ht-apply`](/docs/reference/core/directives/ht-apply/), and [`ht-block`](/docs/reference/core/directives/ht-block/).
+
+### CHANGES
+-----------
+
+* Added new `ht-each` directive with new and improved `ht-each='item in ${ variable }'` syntax.
+
+  <learn-more ht-block href='/docs/reference/core/directives/ht-each/#directive-syntax'></learn-more>
+
+* Added new `hyperctl theme migrate` command with idempotent migration of legacy directives. 
+
+  <learn-more ht-block href='/docs/reference/cli/commands/theme/migrate/'></learn-more>
+
+* **BREAKING:** changed the template variable function invocation syntax to use parenthetical argument lists.
+
+  <learn-more ht-block href='/docs/reference/core/variables/#template-variable-functions'></learn-more>
+
+* **BREAKING:** changed the CSS template variable syntax from `--ht-value(...)` to `--ht-var(...)`.
+
+  <learn-more ht-block href='/docs/reference/core/variables/#template-variable-syntax'></learn-more>
+
+* **BREAKING:** changed `ht-pipe` directive to pull-based `ht-pipe='from "selector"'` expressions.  
+
+  _BONUS: `ht-pipe` directives now deduplicate piped contents!_
+
+  <learn-more ht-block href='/docs/reference/core/directives/ht-pipe/'></learn-more>
+
+* **BREAKING:** removed the `ht-template` in favor of the `ht-each` directive. 
+
+  <learn-more ht-block href='/docs/reference/core/directives/ht-each/'></learn-more>
+
+* **BREAKING:** removed the `ht-not` directive in favor of a more expressive `ht-if` directive.
+
+  You could already express `ht-not='${ page.foo }==bar'` as `ht-if='${ page.foo } != "bar"'`, but as of v0.23.0 you can now also replace `ht-not='${ page.foo }'` with `ht-if='!${ page.foo }'` thanks to the new `!` [unary operator](/docs/reference/core/directives/ht-if/#unary-expressions).
+
+  <learn-more ht-block href='/docs/reference/core/directives/ht-if/#directive-syntax'></learn-more>
+
+* **BREAKING:** removed the `ht-content` directive in favor of using `ht-apply` for content templating.
+
+  <learn-more ht-block href='/docs/reference/core/directives/ht-apply/'></learn-more>
+
+* **BREAKING:** removed the `ht-attr` directive in favor of using `ht-apply` for attribute templating;  
+
+  _NOTE: `ht-attrs` (plural) is still supported, but only for [attribute maps](/docs/reference/core/directives/ht-attrs/#attribute-maps)._
+
+  <learn-more ht-block href='/docs/reference/core/directives/ht-apply/'></learn-more>
+
+* **BREAKING:** removed the `ht-query` directive in favor of using [`ht-apply`] for URL attribute [string interpolation](/docs/reference/core/variables/#string-interpolation).
+
+  <learn-more ht-block href='/docs/reference/core/directives/ht-apply/'></learn-more>
+
+* **BREAKING:** removed the `ht-param` directive in favor of using [`ht-apply`] with template variables for [string interpolation](/docs/reference/core/variables/#string-interpolation).
+
+  <learn-more ht-block href='/docs/reference/core/directives/ht-apply/'></learn-more>
+
+
 ## `hyperctl` v0.22.0 (2026-06-03)
 
 **NEW:** `hyperctl` version 0.22.0 streamlines the `hyperctl build` and `hyperctl deploy` commands, adds support for build logs, and improves handling of page attachments in generated Atom feeds.
+
+### CHANGES
+-----------
 
 * Added support for converting `hypertexting.Page` attachments to Atom entry links.
   
@@ -48,6 +111,9 @@ summary: |
 
 **NEW:** `hyperctl` v0.21.0 adds support for file-based secrets and drops the `git` provider `ssh_key_path` secret.
 
+### CHANGES
+-----------
+
 * Added support for reading secrets from a new files [secret provider](/docs/reference/cms/providers/#secrets-providers).  
 
 ## `hyperctl` v0.20.0 (2026-05-12)
@@ -58,6 +124,9 @@ summary: |
 **BREAKING**: hyperctl v0.20.0 drops support for the `site.config.drafts_dir` – drafts are now defined by setting `draft:true` in page data files. 
 This release also changes template data namespace names which are now derived from their file path.
 </doc-quote>
+
+### CHANGES
+-----------
 
 * Added a new [`ht-apply` directive](/docs/reference/core/directives/ht-apply/) to perform [variable substitution](/docs/reference/core/variables/).
   HyperTemplates now supports `${ ... }` variables, which can be used in element attributes and element text nodes.
@@ -75,7 +144,7 @@ This release also changes template data namespace names which are now derived fr
 
   ```html
   <head>
-    <style id='components'></style>
+    <style id='components' ht-pipe='from "style.component" as css'></style>
     <style id='layout' ht-apply>
       :root {
         --color-1: --ht-value("page.colors.primary,site.colors.primary", rgba(236, 120, 184, 1.0));
@@ -160,7 +229,7 @@ This release also changes template data namespace names which are now derived fr
 
 * Added [`page.ugly_url`](/docs/reference/cms/page/#page-ugly_url) so pages can generate `<path>.html` pages instead of `<path>/index.html` pages.
 
-  <learn-more ht-block href='/docs/reference/page/#page-ugly_url'></learn-more>
+  <learn-more ht-block href='/docs/reference/cms/page/#page-ugly_url'></learn-more>
 
 * Added support for [CSV template data files](/docs/reference/core/data/#csv). 
   Delimited data must contain a header row, and header rows must have unique non-empty column names. 
@@ -192,7 +261,7 @@ This release also changes template data namespace names which are now derived fr
 ## `hyperctl` v0.19.0 (2026-04-21)
 
 **NEW:** [`hyperctl`](/docs/reference/cli/) version v0.19.0 adds support for `site.pages`, `site.drafts`, and `site.assets` [template data](/docs/reference/core/data/#template-data-sources), 
-and brings several improvements to [`ht-block` elements](/docs/reference/core/attributes/ht-block/), including access to `page.*` template data from `ht-block` templates.
+and brings several improvements to [`ht-block` elements](/docs/reference/core/directives/ht-block/), including access to `page.*` template data from `ht-block` templates.
 
 * Added `site.pages`, `site.drafts`, and `site.assets` to template data
 * Added `page.*` template data to `ht-block`

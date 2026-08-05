@@ -9,7 +9,7 @@ breadcrumb: content-type
 
 ## `hyperctl cms content-type` command
 
-<auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
+<auto-toc selectors="h3,h4,h5,h6"></auto-toc>
 
 ### Overview
 ------------
@@ -42,9 +42,9 @@ The `hyperctl cms content-type` command has the following subcommands:
 **`ls`**
 : The `hyperctl cms content-type ls` command lists content types.
 
-  <learn-more ht-block href='./ls/'></learn-more>
+  <learn-more ht-block href='./ls/' data-toc='h4' title='ls'></learn-more>
 
 **`inspect`**
 : The `hyperctl cms content-type inspect` command inspects content types.
 
-  <learn-more ht-block href='./inspect/'></learn-more>
+  <learn-more ht-block href='./inspect/' data-toc='h4' title='inspect'></learn-more>

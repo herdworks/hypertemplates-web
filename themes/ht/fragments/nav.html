@@ -1,5 +1,5 @@
 <nav>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         nav content-container {
             display: grid;
             grid-template-areas: "learn logo develop button";
@@ -61,13 +61,13 @@
     </style>
     <content-container>
         <nav-links rel='learn'>
-            <a ht-template='link:data.nav.learn' href='${ link.href }' rel='${ link.title, "" }'>${ link.label, link.title }</a>
+            <a ht-each='link in ${ data.nav.learn }' href='${ link.href }' rel='${ link.title, "" }'>${ link.label, link.title }</a>
         </nav-links>
         <a href='/' rel='home'>
             <svg ht-include='static/img/ht-logo-duo.svg'></svg>
         </a>
         <nav-links rel='develop'>
-            <a ht-template='link:data.nav.develop' href='${ link.href }' rel='${ link.title, "" }'>${ link.label, link.title }</a>
+            <a ht-each='link in ${ data.nav.develop }' href='${ link.href }' rel='${ link.title, "" }'>${ link.label, link.title }</a>
         </nav-links>
         <nav-button>
             <button>

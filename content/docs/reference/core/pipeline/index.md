@@ -7,7 +7,7 @@ summary: |
 
 ## HyperTemplates Pipeline Reference
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Overview
 ------------
@@ -32,50 +32,33 @@ summary: |
 
    <learn-more ht-block href='../data/#layout-data'></learn-more>
 
-1. **Inclusive Conditionals** (`ht-if`)
+1. **Template Conditionals** (`ht-if`)
 
    <learn-more ht-block href='/docs/reference/core/directives/ht-if/'></learn-more>
 
-1. **Exclusive Conditionals** (`ht-not`)
+1. **Template Iterators** (`ht-each`)
 
-   <learn-more ht-block href='/docs/reference/core/directives/ht-not/'></learn-more>
-
-1. **Templates** (`ht-template`)
-
-   <learn-more ht-block href='/docs/reference/core/directives/ht-if/'></learn-more>
+   <learn-more ht-block href='/docs/reference/core/directives/ht-each/'></learn-more>
 
 1. **Variable Substitution** (`ht-apply`)
 
    <learn-more ht-block href='/docs/reference/core/directives/ht-apply'></learn-more>
 
-1. **Attributes** (`ht-attrs`)
+1. **Attributes Maps** (`ht-attrs`)
 
    <learn-more ht-block href='/docs/reference/core/directives/ht-attrs/'></learn-more>
-
-1. **Attribute Query Parameters** (`ht-query`)
-
-   <learn-more ht-block href='/docs/reference/core/directives/ht-query/'></learn-more>
-
-1. **Content** (`ht-content`)
-
-   <learn-more ht-block href='/docs/reference/core/directives/ht-content/'></learn-more>
 
 1. **Blocks** (`ht-block`)
 
    <learn-more ht-block href='/docs/reference/core/directives/ht-block/'></learn-more>
 
-1. **Pipes** (`ht-pipe`)
-
-   <learn-more ht-block href='/docs/reference/core/directives/ht-pipe/'></learn-more>
-
 1. **Relative URLs** (`ht-base`)
 
    <learn-more ht-block href='/docs/reference/core/directives/ht-base/'></learn-more>
 
-#### Template recursion
------------------------
+1. **Pipes** (`ht-pipe`)
 
-🚧 Coming soon... 🚧
+   <learn-more ht-block href='/docs/reference/core/directives/ht-pipe/'></learn-more>
 
 <!-- Links -->
 [template data properties]: #

@@ -9,7 +9,7 @@ summary: |
 
 ## Website reference
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Overview
 ------------
@@ -56,7 +56,7 @@ base_url: https://hypertemplates.net
 title: HyperTemplates
 description: the pure-HTML templating system for the modern web.
 copyright: "2026"
-author:
+byline:
     username: "@hypertemplates.net"
     name: HyperTemplates
     href: /
@@ -134,18 +134,18 @@ See [custom properties] for more information.
   **Example**
 
   ```html
-  <title ht-content='page.title,site.title'></title>
+  <title ht-apply>${ page.title, site.title, "Placeholder" }</title>
   ```
 
 **`site.description`**
 : The website description.
 
-  The `site.description` [template data property] should be used by theme developers as the default value for the `<meta name='description'>` element.
+  The `site.description` [template data property] should be used by theme developers as the fallback or default value for the `<meta name='description'>` element.
 
   **Example**
 
   ```html
-  <meta name='description' ht-attrs='content:page.description,site.description'>
+  <meta ht-apply name='description' content='${ page.description, site.description }'>
   ```
 
 **`site.byline`**
@@ -162,7 +162,7 @@ See [custom properties] for more information.
   title: HyperTemplates
   description: the pure-HTML templating system for the modern web.
   ...: ...
-  author:
+  byline:
       name: "HyperTemplates"
       href: "/"
       favicon: "/favicon.ico"
@@ -171,12 +171,12 @@ See [custom properties] for more information.
 
   </code-snippet>
 
-  The `site.byline` [template data property] should be used by theme developers as the default value for the `<meta name='author'>` element and related page metadata (e.g. [OpenGraph Protocol]).
+  The `site.byline` [template data property] should be used by theme developers as the default/fallback value for the `<meta name='author'>` element and related page metadata (e.g. [OpenGraph Protocol]).
 
   **Example**
 
   ```html
-  <meta name='author' ht-attrs='content:page.byline.name,site.byline.name'>
+  <meta ht-apply name='author' content='${ page.byline.name, site.byline.name }'>
   ```
 
 **`site.metadata`**
@@ -211,7 +211,7 @@ See [custom properties] for more information.
   **Example**
 
   ```html
-  <meta ht-template='meta:site.metadata' ht-attrs='name:meta.name; property:meta.property; content:meta.content'>
+  <meta ht-each='meta in ${ site.metadata }' name='${ meta.name }' property='${ meta.property }' content='${ meta.content }'>
   ```
 
   <doc-quote ht-block>
@@ -244,7 +244,7 @@ See [custom properties] for more information.
   The `site.links` [template data property] should be used by theme developers as a source for [`<link>` elements].
 
   ```html
-  <link ht-template='link:site.links' ht-attrs='rel:link.rel; href:link.href; type:link.type; sizes:link.sizes'>
+  <link ht-each='link in ${ site.links }' rel='${ link.rel }' href='${ link.href }' type='${ link.type }' sizes='${ link.sizes }'>
   ```
 
   <doc-quote ht-block>
@@ -552,7 +552,7 @@ See [custom properties] for more information.
 **Link Verification**
 : How to configure link verification using `rel="me"` links.
   
-  <learn-more ht-block href='/docs/guides/link-verification/'></learn-more>
+  <learn-more ht-block href='/docs/guides/link-verification/' data-toc='h4' title='Link Verification'></learn-more>
 
 
 

@@ -1,5 +1,5 @@
 <article>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         article {
             display: grid;
             width: 100%;
@@ -74,5 +74,5 @@
             <date-time ht-include='fragments/date-time' ht-apply data-timestamp='${ page.created_at }'></date-time>
         </a>
     </article-meta>
-    <article-body ht-apply>${ markdown page.content }</article-body>
+    <article-body ht-apply>${ markdown(page.content) }</article-body>
 </article>

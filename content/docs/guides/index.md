@@ -8,7 +8,7 @@ breadcrumb: Guides
 
 ## HyperTemplates Guides
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
 ------------
@@ -22,12 +22,12 @@ If you are new to HyperTemplates, check out the [tutorials] section.
 **Feeds & Feed Pages**
 : How to configure feeds and feed pages (e.g. a blog).
   
-  <learn-more ht-block href='./feeds/'></learn-more>
+  <learn-more ht-block href='./feeds/' data-toc='h4' title='Feeds & Feed Pages'></learn-more>
 
 **Link Verification**
 : How to add `rel="me"` links for third-party link verification.
   
-  <learn-more ht-block href='./link-verification/'></learn-more>
+  <learn-more ht-block href='./link-verification/' data-toc='h4' title='Link Verification'></learn-more>
 
 ### Discussion
 

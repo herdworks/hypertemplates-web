@@ -9,7 +9,7 @@ breadcrumb: ls
 
 ## `hyperctl cms page ls` command
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Overview
 ------------
@@ -99,7 +99,6 @@ Last Modified              Title                       Draft  Path
 2025-03-04T14:00:00-08:00  content-type                false  /docs/reference/cli/commands/content-type/
 2025-03-04T14:00:00-08:00  build                       false  /docs/reference/cli/commands/build/
 2025-04-14T12:00:00-08:00  Introducing HyperTemplates  false  /blog/introducing-hypertemplates/
-2025-04-15T10:57:14-07:00  The need for speed          false  /blog/the-need-for-speed/
 2025-05-19T14:00:00-08:00  Link Verification           false  /docs/guides/link-verification/
 2025-05-20T15:00:00-07:00  About Herd Works            false  /about/
 2025-05-20T15:00:00-07:00  Feed Pages                  false  /docs/guides/feeds/

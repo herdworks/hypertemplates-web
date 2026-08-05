@@ -1,21 +1,21 @@
 ---
 created_at: 2025-05-25T08:00:00-07:00
 updated_at: 2026-02-26T10:00:00-08:00
-title: "Introducing: ht-template"
+title: "Introducing: ht-each"
 description: Learn how template iterators work in HyperTemplates
 summary: |
     Learn how template iterators work in HyperTemplates
-breadcrumb: ht-template
+breadcrumb: ht-each
 ---
 
 ## Template Iterators Tutorial
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Goal
 --------
 
-In this lesson we will learn how to implement repeating elements in a layout template using the [`ht-template`] attribute.
+In this lesson we will learn how to implement repeating elements in a layout template using the [`ht-each`] directive.
 
 ### What is a template iterator?
 --------------------------------
@@ -35,38 +35,37 @@ Take this snippet from the [Hugo `range` documentation] for example:
 {{ end }}
 ```
 
-There's more Go code than HTML here!
+There's more Go code than HTML here, and this is a relatively simple example.
 
-Thankfully there are no such tradeoffs with HyperTemplates' namesake[^1] attribute.
-Let's see how template iterators work in the following exercises.
+Let's see how iterators work in HyperTemplates via the following exercises.
 
 ### Exercises
 -------------
 
 **EXERCISE 1: Create a template iterator**
-: Use the [`ht-template`] attribute to repeat some portion layout once per occurrence of a [template data property].
+: Use the [`ht-each`] directive to repeat some portion layout once per occurrence of a [template data property].
 
-  Let's template those hard-coded `<nav>` links we added in the [previous lesson](../lesson-5/) so that we can more easily manage them from [template data].
+  Let's template those hard-coded `<nav>` links we added in the [previous lesson](../lesson-4/) so that we can more easily manage them from [template data].
   To do that we'll need to modify the layout in `fragments/header.html` as follows:
 
   <code-snippet ht-block filename='fragments/header.html' highlight='4-6'>
 
   ```html
-  <header ht-if='title'>
+  <header ht-if='${ title }'>
       <nav>
           <menu>
-              <a ht-template='link:nav' ht-attrs='href:link.href,link.url'>
-                <span ht-content='link.title,link.label,link.name,link.text'></span>
+              <a ht-each='link in ${ nav }' href='${ link.href, link.url }'>
+                  ${ link.title, link.label, link.text, "" }
               </a>
           </menu>
       </nav>
-      <h1 ht-content='title'></h1>
+      <h1 ht-apply>${ title, "Placeholder" }</h1>
   </header>
   ```
 
   </code-snippet>
 
-  This `ht-template` attribute tells HyperTemplates to clone the `<a>` element for each item in the `nav` property and treat is as a nested layout template.
+  This `ht-each` directive tells HyperTemplates to clone the `<a>` element for each item in the `nav` property and treat is as a nested layout template.
   It assigns the value of each item in `nav` to a new variable called `link` and uses that as the template data for the nested template.
 
   Let's move on to the next step to see how the template data side of this equation works.
@@ -82,7 +81,7 @@ Let's see how template iterators work in the following exercises.
   ---
   title: Introduction to HTML templating
   description: My first HyperTemplates page!
-  coyright: 2025 Acme Inc
+  copyright: 2025 Acme Inc
   nav:
     - label: Home
       href: /
@@ -102,7 +101,7 @@ Let's see how template iterators work in the following exercises.
   OK, let's render the page again, then refresh the browser or view the updated `index.html` file to see what changed.
 
   ```plaintext
-  hyperctl render -d content/index.md -l layouts/default.html > index.html
+  hyperctl dev render -d content/index.md -l layouts/default.html > index.html
   ```
 
   We restored the original "Home" and "About" links, and easily added a third "Contact" link right from our template data!
@@ -110,10 +109,12 @@ Let's see how template iterators work in the following exercises.
   
   <doc-quote ht-block info>
 
-  **Did you notice?** We introduced another feature in this step: the `ht-content` attributes in the `<a>` element are referencing multiple properties: 
-  
-  ```plaintext
-  ht-content='link.title,link.label,link.name,link.text'
+  **Did you notice?** We introduced another feature in this step: the [template variables](/docs/reference/core/variables/) in the `<a>` element are referencing multiple properties: 
+
+  ```html
+  <a ht-each='link in ${ nav }' href='${ link.href, link.url }'>
+      ${ link.title, link.label, link.text, "" }
+  </a>
   ```
 
   It's a good thing because our `nav:` array had a mix of `label` and `title` properties, and `href` and `url` properties. 
@@ -128,7 +129,7 @@ Let's see how template iterators work in the following exercises.
 
 Congratulations, you've just completed the "Learn HyperTemplates" tutorial! 🏁
 
-In this lesson we replaced some repetitive layout with a template iterator using the `ht-template` attribute. 
+In this lesson we replaced some repetitive layout with a template iterator using the `ht-each` directive. 
 We also added a third navigation link!
 
 <doc-quote ht-block info>
@@ -137,31 +138,26 @@ We also added a third navigation link!
 
 Learn more about the concepts in this lesson:
 
-* [Attributes reference](/docs/reference/core/attributes/)
-  * [`ht-template` attribute](/docs/reference/core/ht-template/)
+* [Attributes reference](/docs/reference/core/directives/)
+* [`ht-each` directive](/docs/reference/core/directives/ht-each/)
 
 </doc-quote>
 
-Do you have any questions and/or feedback about `ht-template` or this "Learn HyperTemplates" tutorial? 
+Do you have any questions and/or feedback about `ht-each` or this "Learn HyperTemplates" tutorial? 
 Join the @hypertexting.community and visit [the "Getting Started" category]. :speech_balloon:
 
 When you're ready, let's go ahead and move on to the review. :point_right:
 
 <tutorial-nav ht-block 
-         prev-href='../lesson-4/' 
-         prev-label='Lesson 4: Introducing <code>ht-include</code>' 
-         next-href='../review/'
-         next-label='Tutorial Review'></tutorial-nav>
+    prev-href='../lesson-4/' 
+    prev-label='Lesson 4: Introducing <code>ht-include</code>' 
+    next-href='../review/'
+    next-label='Tutorial Review'>
+</tutorial-nav>
 
-
-<!-- Footnotes -->
-[^1]: In the earliest prototypes of HyperTemplates, all of the template attributes were prefixed with `hyper-`, so this attribute was originally called `hyper-template`.
-      Proving that [`for...in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) and [`for...of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) iterator support was possible in a pure-HTML templating system was one of the first major milestones in the HyperTemplates roadmap, so we continue to share the ~~story~~legend of the `hyper-template` for future generations.
-
-      In the end we changed the attribute prefix to `ht-` for brevity, but long live the `hyper-template`! 
 
 <!-- Links -->
-[`ht-template`]: /docs/reference/core/attributes/ht-template/
+[`ht-each`]: /docs/reference/core/directives/ht-each/
 [template data]: /docs/reference/core/data/
 [template data property]: /docs/reference/core/data/#template-data-property
 [template data object]: /docs/reference/core/data/#template-data-object

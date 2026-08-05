@@ -9,7 +9,7 @@ breadcrumb: build
 
 ## `hyperctl dev` command
 
-<auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
+<auto-toc selectors="h3,h4,h5,h6"></auto-toc>
 
 ### Overview
 ------------
@@ -44,22 +44,22 @@ The `hyperctl dev` command has the following subcommands:
 **`graph`**
 : The `hyperctl dev graph` command is a web scraping utility.
 
-  <learn-more ht-block href='./graph/'></learn-more>
+  <learn-more ht-block href='./graph/' data-toc='h4' title='graph'></learn-more>
 
 **`mimetype`**
 : The `hyperctl dev mimetype` command is a mimetype utility.
 
-  <learn-more ht-block href='./mimetype/'></learn-more>
+  <learn-more ht-block href='./mimetype/' data-toc='h4' title='mimetype'></learn-more>
 
 **`render`**
 : The `hyperctl dev render` command is a template rendering utility.
 
-  <learn-more ht-block href='./render/'></learn-more>
+  <learn-more ht-block href='./render/' data-toc='h4' title='render'></learn-more>
 
 **`server`**
 : The `hyperctl dev server` command is a live-reloading development server.
 
-  <learn-more ht-block href='./server/'></learn-more>
+  <learn-more ht-block href='./server/' data-toc='h4' title='server'></learn-more>
 
 
 <!-- Links -->

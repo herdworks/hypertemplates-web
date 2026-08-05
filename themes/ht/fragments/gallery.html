@@ -1,10 +1,10 @@
 <gallery-carousel data-topic="thread" rel="attachments" data-conditions="{}">
-    <gallery-container ht-if='page.gallery'>
-        <gallery-image class='fit-height contained' ht-template='image:page.gallery'>
+    <gallery-container ht-if='${ page.gallery }'>
+        <gallery-image ht-each='image in ${ page.gallery }' class='fit-height contained'>
             <img ht-apply src='${ image.src }'>
         </gallery-image>
     </gallery-container>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         gallery-carousel:empty {
             display: none;
         }

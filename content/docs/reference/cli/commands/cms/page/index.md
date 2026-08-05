@@ -9,7 +9,7 @@ breadcrumb: page
 
 ## `hyperctl cms page` command
 
-<auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
+<auto-toc selectors="h3,h4,h5,h6"></auto-toc>
 
 ### Overview 
 ------------
@@ -42,11 +42,11 @@ The `hyperctl cms page` command has the following subcommands:
 **`ls`**
 : The `hyperctl cms page ls` lists website pages.
 
-  <learn-more ht-block href='./ls/'></learn-more>
+  <learn-more ht-block href='./ls/' data-toc='h4' title='ls'></learn-more>
 
 **`inspect`**
 : The `hyperctl cms page inspect` inspects website pages.
 
-  <learn-more ht-block href='./inspect/'></learn-more>
+  <learn-more ht-block href='./inspect/' data-toc='h4' title='inspect'></learn-more>
 
 <!-- Links -->

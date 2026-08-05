@@ -1,5 +1,5 @@
 <sidebar-autofocus hidden>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         sidebar-autofocus[hidden] {
             display: none;
         }
@@ -18,7 +18,7 @@
     </style>
 </sidebar-autofocus>
 <sidebar-menu data-color-scheme='blur'>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         sidebar-menu {
             /* variables */
             --width: min(360px, 70vw);
@@ -57,7 +57,7 @@
     </style>
     <menu>
         <svg ht-include='static/img/ht-logo-duo.svg'></svg>
-        <li ht-template='link:data.nav.sidebar'>
+        <li ht-each='link in ${ data.nav.sidebar }'>
             <a ht-apply href='${ link.href }' rel='${ link.title, "" }'>${ link.label,link.title, "Placeholder" }</a>
         </li>
     </menu>

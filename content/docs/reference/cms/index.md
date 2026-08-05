@@ -7,7 +7,7 @@ summary: |
 
 ## Content management reference
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
 ------------
@@ -26,57 +26,62 @@ For more information on `hyperctl` itself, please visit the [CLI reference docum
 **Websites**
 : A website is the lowest level building block in the HyperTexting CMS.
   
-  <learn-more ht-block href='./website/'></learn-more>
+  <learn-more ht-block href='./website/' data-toc='h4' title='Websites'></learn-more>
 
 **Pages**
 : A website is a collection of pages.
 
-  <learn-more ht-block href='./page/'></learn-more>
+  <learn-more ht-block href='./page/' data-toc='h4' title='Pages'></learn-more>
+
+**Bylines**
+: A website or page author.
+
+  <learn-more ht-block href='./byline/' data-toc='h4' title='Bylines'></learn-more>
 
 **Assets**
 : A page may contain one or more assets (e.g. images and other files).
 
-  <learn-more ht-block href='./assets/'></learn-more>
+  <learn-more ht-block href='./assets/' data-toc='h4' title='Assets'></learn-more>
 
 **Attachments**
 : A page may feature one or more attachments (files or links).
 
-  <learn-more ht-block href='./attachments/'></learn-more>
+  <learn-more ht-block href='./attachments/' data-toc='h4' title='Attachments'></learn-more>
 
 **Tags**
 : Websites may organize smaller collections of pages using tags.
 
-  <learn-more ht-block href='./tags/'></learn-more>
+  <learn-more ht-block href='./tags/' data-toc='h4' title='Tags'></learn-more>
 
 **Feeds**
 : Website updates are organized into feeds.
 
-  <learn-more ht-block href='./feeds/'></learn-more>
+  <learn-more ht-block href='./feeds/' data-toc='h4' title='Feeds'></learn-more>
 
 **Namespaces**
 : Non-page content can be managed in custom data namespaces.
 
-  <learn-more ht-block href='./namespaces/'></learn-more>
+  <learn-more ht-block href='./namespaces/' data-toc='h4' title='Namespaces'></learn-more>
 
 **Builtins**
 : Built-in templating features.
 
-  <learn-more ht-block href='./builtins/'></learn-more>
+  <learn-more ht-block href='./builtins/' data-toc='h4' title='Builtins'></learn-more>
 
 **Content Types**
 : Content templates for generating new pages.
 
-  <learn-more ht-block href='./content-types/'></learn-more>
+  <learn-more ht-block href='./content-types/' data-toc='h4' title='Content Types'></learn-more>
 
 **Builds**
 : Websites generate output in the form of builds.
 
-  <learn-more ht-block href='./builds/'></learn-more>
+  <learn-more ht-block href='./builds/' data-toc='h4' title='Builds'></learn-more>
 
 **Providers**
 : Website hosting providers.
 
-  <learn-more ht-block href='./providers/'></learn-more>
+  <learn-more ht-block href='./providers/' data-toc='h4' title='Providers'></learn-more>
 
 <!-- Links -->
 [core specification]: /docs/reference/core/

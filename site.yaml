@@ -11,8 +11,6 @@ byline:
     favicon: /img/favicon-512x512.png
     href: /
 
-metadata: []
-
 links:
   - rel: apple-touch-icon
     href: /img/apple-touch-icon.png
@@ -38,6 +36,16 @@ links:
     href: https://mastodon.social/@herdworks
   - rel: following
     href: https://hypertemplates.net/following.opml
+
+metadata:
+  - name: creator 
+    content: Herd Works Inc
+  - name: publisher 
+    content: Herd Works Inc
+  - name: referrer
+    content: origin
+  - name: color-scheme
+    content: light dark
 
 config:
     tidy_mode: true
@@ -91,3 +99,18 @@ environments:
   production: [r2]
   staging: [r2preview]
   dev: [github]
+
+sync:
+  remote: https://hypertemplates.net
+  include:
+    paths:
+      - site.yaml
+      - content/**
+      - data/**
+      - static/**
+      - themes/**
+  ignore:
+    paths:
+      - .builds/**
+      - .DS_Store
+  max_file_size: 10MB

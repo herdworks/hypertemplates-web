@@ -1,6 +1,6 @@
 ---
 created_at: 2025-05-22T12:00:00-08:00
-updated_at: 2026-02-26T10:00:00-08:00
+updated_at: 2026-08-04T10:00:00-08:00
 title: ht-base directive
 summary: |
     `ht-base` directive reference documentation
@@ -13,14 +13,11 @@ summary: |
 ### Overview
 ------------
 
-The `ht-base` [attribute] specifies the base URL to use for all relative URLs in a given element. 
+The `ht-base` directive specifies a base URL to use for relative attribute URLs.
+The `ht-base` directive applies to the target element and its child elements.
 
-The `ht-base` directive is inspired by the [HTML `<base>` element] which serves a similar purpose.
-Unlike the `<base>` element which can only only be used once per document, there can be multiple `ht-base` elements in a template.
-
-<doc-quote ht-block caution>
-**NEW!** Available in `hyperctl` version 0.15.0 and later.
-</doc-quote>
+The `ht-base` directive is inspired by the [HTML `<base>` element], which serves a similar purpose.
+However, unlike the HTML <base> element (which can only only be used once per document), multiple `ht-base` directives can be used to configure more flexible relative URL resolution.
 
 ### Example
 -----------
@@ -29,11 +26,12 @@ The `ht-base` directive is used to resolve relative links.
 Let's take the following Markdown as an example.
 It defines an image with some alt text.
 
-<code-snippet ht-block filename='content/blog/hello-world/index.md' highlight='5' line-numbers='on'>
+<code-snippet ht-block filename='content/blog/hello-world/index.md' highlight='6' line-numbers='on'>
 
 ```plaintext
 ---
 title: Hello World
+canonical_url: https://example.com/blog/hello-world/
 ---
 
 ![blog post cover image description](cover.png)
@@ -43,41 +41,42 @@ Hello, world! 👋
 
 </code-snippet>
 
-This Markdown image references an image with the relative path `cover.png`.
-Given the page index file path of `content/blog/hello-world/index.md` we could expect to find the source image file at `content/blog/hello-world/cover.png`.
-This Markdown image would be rendered as follows:
+This Markdown contains an image with alt text and a relative path (`cover.png`), which would be rendered as follows:
 
 ```html
 <img src='cover.png' alt='blog post cover image description' />
 ```
 
-This would result in an image that is displayed correctly when viewed on the `/blog/hello-world/` page of our website.
-But what would happen if this `<img>` tag were to appear in a feed on the `/blog/` page?
-The browser would resolve `src='cover.png` to the URL `/blog/cover.png` instead of `/blog/hello-world/cover.png`.
+If this `<img>` element is rendered on a page at `https://example.com/blog/hello-world/`, the relative `src='cover.png'` attribute is implicitly resolved to `https://example.com/blog/hello-world/cover.png`.
+
+However, if this same `<img>` element is rendered in a feed page at `https://example.com/blog/`, the relative `src='cover.png'` attribute is implicitly resolved to `https://example.com/blog/cover.png`.
 
 <mark>This kind of templating challenge can be solved using the `ht-base` directive.</mark>
-Let's look at how that works in the following example which shows the `ht-base` directive being used to template a feed page `<blog-post>` element.
+Note how the `ht-base` directive is used to resolve `src` attribute URLs in the following layout:
 
 <code-snippet ht-block filename='layouts/feed.html' highlight='9'>
 
 ```html
 <html lang='en-US'>
     <head>
-        <meta ht-include='fragments/head.html' />
-        <style>/* insert feed styles here */</style>
+        <!-- standard head elements go here -->
     </head>
     <body>
         <header ht-include='fragments/header.html'></header>
         <main>
-            <feed-entry ht-template='entry:page.feed.pages' ht-base='src:entry.path'>
-                <entry-meta>
-                    <h3 ht-content='entry.title'>Post Title</h3>
-                </entry-meta>
-                <entry-summary ht-content='entry.summary,entry.content'></entry-summary>
-                <entry-link>
-                    <a ht-attrs='href:entry.path'>Continue reading &rightarrow;</a>
-                </entry-link>
-            </feed-entry>
+            <blog-feed>
+                <blog-post ht-each='page in ${ page.feed.pages }' ht-base='src on ${ page.canonical_url }'>
+                    <post-meta ht-if='${ page.title }'>
+                        <h3 ht-apply>${ page.title }</h3>
+                    </post-meta>
+                    <post-summary ht-apply>
+                        ${ markdown(page.summary, page.content) }
+                    </post-summary>
+                    <post-link>
+                        <a ht-apply href='${ page.canonical_url }'>Continue reading &rightarrow;</a>
+                    </post-link>
+                </blog-post>
+            </blog-feed>
         </main>
         <footer ht-include='fragments/footer'></footer>
     </body>
@@ -86,8 +85,21 @@ Let's look at how that works in the following example which shows the `ht-base` 
 
 </code-snippet>
 
-The `ht-base='src:entry.path'` directive instructs HyperTemplates to use the [template data] value of `entry.path` to resolve relative `src` attribute URLs.
-If we wanted to resolve `href` attributes as well, we could amend the directive to `ht-base='src:entry.path;href:entry.path'`.
+The `ht-base='src on ${ page.canonical_url }'` directive instructs HyperTemplates to use the [template data] value of `page.canonical_url` to resolve relative `src` attribute URLs.
+
+<doc-quote ht-block notice>
+
+**NOTE:** If we wanted to resolve `href` attributes in addition to `src` attributes, we could add a second `ht-base` directive (see [multiple directives](#multiple-directives)).
+
+```html
+<blog-post ht-each='page in ${ page.feed.pages }'
+           ht-base='src on ${ page.canonical_url }'
+           ht-base='href on ${ page.canonical_url }'>
+    <!-- post preview -->
+</blog-post>
+```
+
+</doc-quote>
 
 ### Specification
 -----------------
@@ -101,8 +113,8 @@ The `ht-base` directive can be used with any HTML element.
 
 ```html
 <blog-feed>
-    <blog-post ht-template='post:page.feed.pages' ht-base='src:post.path'>
-        <!-- Blog post layout -->
+    <blog-post ht-each='post in ${ page.feed.pages }' ht-base='src on ${ post.canonical_url }'>
+        <!-- post preview -->
     </blog-post>
 </blog-feed>
 ```
@@ -110,41 +122,41 @@ The `ht-base` directive can be used with any HTML element.
 #### Attribute syntax
 ---------------------
 
-The `ht-base` directive is expressed as a semicolon-separated list of `attribute:value` pairs. 
-
-The `attribute` is an [attribute selector] sans the square brackets (e.g. `src` or `href`). 
-HyperTemplates will wrap the provided `attribute` in square brackets, so `src` becomes `[src]` and query the rendered HTML for all child elements matching the attribute selector (i.e. `src` becomes `element.querySelectorAll("[src]")`).
-
-The `value` is comma-separated list of dot-notation style references to one or more [template data properties]. If multiple properties are defined for a given template variable, the first non-empty property will be used.
+Each `ht-base` directive may contain exactly one `attribute on ${ variable }` expression:
+The `attribute` is any attribute name that contains URL values (e.g. `src` or `href`).
+The `variable` is any [template variable] that resolves to an absolute URL.
 
 **Example**
 
 ```html
 <blog-feed>
-    <blog-post ht-template='page:page.feed.pages' ht-base='src:site.cdn,page.path; href:page.path'>
-        <!-- Blog post layout -->
+    <blog-post ht-each='post in ${ page.feed.pages }' ht-base='src on ${ post.canonical_url }'>
+        <!-- post preview -->
+    </blog-post>
+</blog-feed>
+```
+
+In this example, `ht-base` resolves all child `src` attributes using the value of `post.canonical_url`.
+
+#### Multiple directives
+------------------------
+
+Use multiple `ht-base` directives to configure URL resolvers for multiple attributes.
+When using multilple `ht-base` directives the attribute selectors must be unique (i.e. you cannot set two `ht-base='href on ${ ... }'` directives).
+
+```html
+<blog-feed>
+    <blog-post ht-each='page in ${ page.feed.pages }'
+               ht-base='src on ${ site.cdn.base_url, page.canonical_url }'
+               ht-base='href on ${ page.canonical_url }'>
+        <!-- post preview -->
     </blog-post>
 </blog-feed>
 ```
 
 In this example two `ht-base` directives are configured: one that will resolve `src` attributes, and one that will resolve `href` attributes.
-
-The `src:site.cdn,post.path` portion of the directive will use the `site.cdn` [custom property](/docs/reference/cms/website/#custom-properties) as the base URL (if configured), otherwise it will use the [`page.path`] property.
+The `${ site.cdn.base_url, page.canonical_url }` portion of the directive will use the `site.cdn.base_url` [custom property](/docs/reference/cms/website/#custom-properties) as the base URL (if configured), otherwise it will use the [`page.canonical_url`] property.
 Being able to configure a global/default value like `site.cdn` is helpful in case we use an external image hosting service like [Cloudflare Images].
-
-<doc-quote ht-block info>
-
-**NOTE:** because this example uses `ht-template='page:page.feed.pages'` to remap the `page.` prefix to the contents of pages in a feed (see [`page.feed.pages`]) rather than the _current page_, it will effectively resolve relative links for each page in the feed using the correct path.
-
-For example, let's assume `page.feed.pages` contains two pages with the following paths: 
-
-1. `/blog/hello-world/`
-1. `/blog/hello-again/`
-
-When `ht-template` processes the first page, the value of `page.path` will be `/blog/hello-world/`.
-When it processes the second page, the value of `page.path` will be `/blog/hello-again/`.
-
-</doc-quote>
 
 #### Absolute links
 -------------------
@@ -169,3 +181,5 @@ All other URLs are considered relative links and subject to resolution by `ht-ba
 [Cloudflare Images]: https://www.cloudflare.com/developer-platform/products/cloudflare-images/
 [data: URLs]: https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data
 [document fragment link]: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Creating_links#document_fragments
+[template variable]: /docs/reference/core/variables/
+[`page.canonical_url`]: /docs/reference/cms/page/#page-canonical_url

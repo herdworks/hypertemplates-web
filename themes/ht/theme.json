@@ -2,8 +2,9 @@
     "name": "HyperTemplates",
     "config": {
         "layouts_dir": "layouts",
-        "static_dir": "static",
+        "fragments_dir": "fragments",
         "blocks_dir": "blocks",
+        "static_dir": "static",
         "contenttypes_dir": "types"
     }
 }

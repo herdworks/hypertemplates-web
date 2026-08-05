@@ -9,7 +9,7 @@ breadcrumb: CLI
 
 ## `hyperctl`
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
 ------------
@@ -69,24 +69,24 @@ Options:
 **`cms`**
 : Content management tools.
 
-  <learn-more ht-block href='./commands/cms/'></learn-more>
+  <learn-more ht-block href='./commands/cms/' data-toc='h4' title='cms'></learn-more>
 
 **`theme`**
 : Theme management tools.
 
-  <learn-more ht-block href='./commands/theme/'></learn-more>
+  <learn-more ht-block href='./commands/theme/' data-toc='h4' title='theme'></learn-more>
 
 **`build`**
 : Build management tools.
 
-  <learn-more ht-block href='./commands/build/'></learn-more>
+  <learn-more ht-block href='./commands/build/' data-toc='h4' title='build'></learn-more>
 
 **`deploy`**
 : Deployment management tools.
 
-  <learn-more ht-block href='./commands/deploy/'></learn-more>
+  <learn-more ht-block href='./commands/deploy/' data-toc='h4' title='deploy'></learn-more>
 
 **`dev`**
 : Development tools.
 
-  <learn-more ht-block href='./commands/dev/'></learn-more>
+  <learn-more ht-block href='./commands/dev/' data-toc='h4' title='dev'></learn-more>

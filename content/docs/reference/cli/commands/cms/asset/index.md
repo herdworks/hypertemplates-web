@@ -9,7 +9,7 @@ breadcrumb: asset
 
 ## `hyperctl cms asset` command
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6'></auto-toc>
 
 ### Overview
 ------------
@@ -42,17 +42,17 @@ The `hyperctl cms asset` command has the following subcommands:
 **`add`**
 : `hyperctl cms asset add` reference documentation.
 
-  <learn-more ht-block href='./add/'></learn-more>
+  <learn-more ht-block href='./add/' data-toc='h4' title='add'></learn-more>
 
 **`ls`**
 : `hyperctl cms asset ls` reference documentation.
 
-  <learn-more ht-block href='./ls/'></learn-more>
+  <learn-more ht-block href='./ls/' data-toc='h4' title='ls'></learn-more>
 
 **`lookup`**
 : `hyperctl cms asset lookup` reference documentation.
 
-  <learn-more ht-block href='./lookup/'></learn-more>
+  <learn-more ht-block href='./lookup/' data-toc='h4' title='lookup'></learn-more>
 
 <!-- Links -->
 [assets]: /docs/reference/cms/assets/

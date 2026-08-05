@@ -10,7 +10,7 @@ breadcrumb: Learn
 ## Learn HyperTemplates
 -----------------------
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Goal
 --------
@@ -30,13 +30,13 @@ There are only three requirements for this series of tutorials:
 ### Lessons
 -----------
 
-**Lesson 1: `ht-content`**
+**Lesson 1: `ht-apply` (part 1)**
 : Learn more about content templating.
 
   <learn-more ht-block href='./lesson-1/'></learn-more>
 
-**Lesson 2: `ht-attrs`**
-: Learn more about HTML attribute templating.
+**Lesson 2: `ht-apply` (part 2)**
+: Learn more about attribute templating.
 
   <learn-more ht-block href='./lesson-2/'></learn-more>
 
@@ -50,7 +50,7 @@ There are only three requirements for this series of tutorials:
 
   <learn-more ht-block href='./lesson-4/'></learn-more>
 
-**Lesson 5: `ht-template`**
+**Lesson 5: `ht-each`**
 : Learn more about template iterators.
 
   <learn-more ht-block href='./lesson-5/'></learn-more>
@@ -58,10 +58,10 @@ There are only three requirements for this series of tutorials:
 
 <tutorial-nav ht-block 
               next-href='./lesson-1/' 
-              next-label='Lesson 1: Introducing <code>ht-content</code>'>
+              next-label='Lesson 1: Introducing <code>ht-apply</code> (part 1)'>
 </tutorial-nav>
 
 
 <!-- Links -->
-[template attributes]: /docs/reference/core/attributes/
+[template attributes]: /docs/reference/core/directives/
 [downloads]: /downloads/

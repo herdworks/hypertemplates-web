@@ -23,9 +23,9 @@ cta: subscribe
 ---
 
 What if posting to your website was as easy as sending a text message or posting on social media?
-That's the question that got us started down the path that ultimately became [HyperTexting](https://hypertexting.com).[^1] Today we want to share a sneak peak at the HyperTexting publishing experience and take a closer look at what it means to design a static site generator for iPhone. 
+That's the question that got us started down the path that ultimately became [HyperTexting](https://hypertexting.com).[^1] Today we want to share a sneak peek at the HyperTexting publishing experience and take a closer look at what it means to design a static site generator for iPhone. 
 
-<pull-quote ht-block>
+<pull-quote ht-block cite='Caleb Hailey'>
 
 Our mission with HyperTemplates and HyperTexting is to<br><mark>make it easy to @makehypertext.com</mark>.
 
@@ -67,7 +67,7 @@ Here's the build & deployment HT performed for the first video in this thread.
 
 <video-player ht-block orientation='vertical' src='https://customer-w9ndoyuzirardbjc.cloudflarestream.com/202b8139c414d1cb62c6187207de0735/downloads/default.mp4' poster='incremental-deployment-poster.png' caption=''></video-player>
 
-I hope you've enjoyed this sneak peak at the static site generator implementation in HyperTexting. Please visit the [HyperTexting CMS documentation](/docs/reference/cms/) and join the @hypertexting.community 💬 to learn more.
+I hope you've enjoyed this sneak peek at the static site generator implementation in HyperTexting. Please visit the [HyperTexting CMS documentation](/docs/reference/cms/) and join the @hypertexting.community 💬 to learn more.
 
 ✌️
 

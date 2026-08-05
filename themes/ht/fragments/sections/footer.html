@@ -1,5 +1,5 @@
 <footer id='footer' data-color-scheme='dark'>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         footer footer-menu {
             margin-bottom: var(--gutter-2x, 30px);
         }
@@ -13,5 +13,5 @@
     </content-container>
 
     <!-- Page.js -->
-    <script ht-template='asset:page.assets' ht-if='asset==page.js' src='${ asset }' defer data-asset></script>
+    <script ht-each='asset in ${ page.assets }' ht-if='${ asset } == page.js' src='${ asset }' defer data-asset></script>
 </footer>

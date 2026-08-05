@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang='en-US'>
-    <head>
-        <meta ht-include='fragments/head.html'></meta>
+<!DOCTYPE html><html lang='en-US'><head>
+        <meta ht-include='fragments/head.html'/>
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='home'/>
 
         <!-- Layout Components -->
-        <script src='/js/components/footer-menu.js' defer></script>
-        <script src='/js/components/dismiss-button.js' defer></script>
+        <script src='/js/components/footer-menu.js' defer=''></script>
+        <script src='/js/components/dismiss-button.js' defer=''></script>
 
         <!-- Layout Styles -->
-        <style id='components'></style>
+        <style id='components' ht-pipe='from "style.component" as css'></style>
         <style id='layout'>
             header[data-color-scheme="gray"] svg#logo > g > g path { fill: var(--color-1) !important }
             header[data-color-scheme="gray"] svg#logo > g > g:nth-child(2) path { fill: var(--color-5) !important; }
@@ -33,19 +31,20 @@
         </style>
     </head>
     <body>
-        <header ht-include='fragments/sections/hero.html' data-color-scheme='primary'></header>
-        <banner-message ht-include='fragments/banner-message' data-color-scheme='light'></banner-message>
-        <section id='features' data-color-scheme='light'>
+        <header ht-include="fragments/sections/hero.html" data-color-scheme="primary"></header>
+        <banner-message ht-include="fragments/banner-message" data-color-scheme="light"></banner-message>
+        <section id="features" data-color-scheme="light">
             <content-container>
                 <bento-overview>
-                    <h2 ht-apply>${ page.features.title }</h2>
-                    <content-block ht-apply>${ markdown page.features.overview }</content-block>
+                    <h2 ht-with='${page.features.title} as title'>${ title }</h2>
+                    <content-block ht-apply>${ markdown(page.features.overview) }</content-block>
                 </bento-overview>
-                <bento-box ht-include='fragments/bento-box'></bento-box>
+                <bento-box ht-include="fragments/bento-box"></bento-box>
             </content-container>
         </section>
         <content-whitespace></content-whitespace>
-        <section ht-include='fragments/newsletter.html' data-color-scheme='gradient'></section>
-        <footer ht-include='fragments/sections/footer.html' data-color-scheme='dark'></footer>
-    </body>
-</html>
+        <section ht-include="fragments/newsletter.html" data-color-scheme="gradient"></section>
+        <footer ht-include="fragments/sections/footer.html" data-color-scheme="dark"></footer>
+    
+
+</body></html>

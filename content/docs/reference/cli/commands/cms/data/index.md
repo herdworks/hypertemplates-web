@@ -9,7 +9,7 @@ breadcrumb: data
 
 ## `hyperctl cms data` command
 
-<auto-toc selectors="h3,h4,h5,h6,dl dt"></auto-toc>
+<auto-toc selectors="h3,h4,h5,h6"></auto-toc>
 
 ### Overview 
 ------------
@@ -41,12 +41,12 @@ The `hyperctl cms data` command has the following subcommands:
 **`ls`**
 : The `hyperctl cms data ls` command lists global data namespaces.
 
-  <learn-more ht-block href='./ls/'></learn-more>
+  <learn-more ht-block href='./ls/' data-toc='h4' title='ls'></learn-more>
 
 **`inspect`**
 : The `hyperctl cms data inspect` command inspects global data namespaces.
 
-  <learn-more ht-block href='./inspect/'></learn-more>
+  <learn-more ht-block href='./inspect/' data-toc='h4' title='inspect'></learn-more>
 
 <!-- Links -->
 [data namespaces]: /docs/reference/cms/namespaces/

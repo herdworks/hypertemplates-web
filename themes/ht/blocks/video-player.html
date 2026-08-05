@@ -1,5 +1,5 @@
 <video-player src poster caption orientation>
-    <style ht-pipe='css:style#components'>
+    <style class='component'>
         video-player {
             display: block;
             width: 100%;
@@ -49,5 +49,5 @@
     <video ht-apply controls preload='none' poster='${ block.poster }'>
         <source ht-apply src='${ block.src, block.video, "#" }' type="video/mp4">
     </video>
-    <figcaption ht-apply ht-if='block.caption'>${ markdown block.caption }</figcaption>
+    <figcaption ht-apply ht-if='${ block.caption }'>${ markdown(block.caption) }</figcaption>
 </video-player>

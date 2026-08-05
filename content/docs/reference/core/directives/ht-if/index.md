@@ -28,13 +28,13 @@ This example shows the `ht-if` directive being used to template the `<header>` e
 <html>
     <head>
         <meta charset='utf-8'>
-        <title ht-content='page.title,site.title'></title>
+        <title ht-apply>${ page.title, site.title }</title>
     </head>
     <body>
-        <header ht-if='page.title'>
-            <h1 ht-content='page.title'></h1>
+        <header ht-if='${ page.title }'>
+            <h1 ht-apply>${ page.title }</h1>
         </header>
-        <article ht-content='page.content'></article>
+        <article ht-apply>${ page.content, "Hello world." }</article>
     </body>
 </html>
 ```
@@ -84,72 +84,128 @@ The `<header>` element will be removed because the example template data did not
 The `ht-if` directive can be used with any HTML element.
 
 ```html
-<meta name='og:title' ht-if='data.opengraph' ht-attrs='content:data.opengraph.title'>
+<meta ht-apply ht-if='${ data.opengraph }' name='og:title' content='${ data.opengraph.title }'>
 ```
 
 #### Directive syntax
 ---------------------
 
-The `ht-if` directive defines templating conditions expressed as a semicolon-separated list of `property==value` pairs (delineated by the `==` characters).
+The `ht-if` directive supports a variety of conditional expressions consisting of the following components:
 
-The `property` is a comma-separated list of dot-notation style references to one or more [template data properties].
-If multiple properties are defined for a given conditional expression, the first non-empty property will be used.
+* **Variables**: all `ht-if` expressions _must_ include at least one `${ ... }` [template variable].
+* **Operator**: `ht-if` expressions may use a single operator, including: 
+  * the `!` [unary operator]
+  * a supported [binary operator] (`==`, `!=`, `~=`, and `!~`)
+  * a supported membership operator  (`in`, and `not in`)
+* **Literal values**: `ht-if` expressions may use literal values as conditional operands
 
-The `value` is a comma-separated list of values (e.g. a string, integer, float, etc).
-If no `value` is provided, the `ht-if` directive will evaluate `true` as long as the [template data property] exists, and the property value is not an empty string.
-If multiple values are defined for a given conditional expression, only one of the values must match for the condition to be evaluated as `true`.
+##### Existence expressions
+--------------------------
+
+The most basic `ht-if` directive is a `ht-if='${ ... }'` existence expression.
+Existence expressions evaluate `true` as long as the [template variable] returns a [truthy] value. 
+In HyperTemplates the number `0` is considered truthy, and `""` empty strings are considered [falsy].
 
 **Example**
 
 ```html
-<address ht-if='page.byline.kind,site.byline.kind==organization,company,business' ht-content='page.byline.address'></address>
+<meta ht-apply ht-if='${ page.redirect }' http-equiv='refresh' content='0; url=${ page.redirect }'>
 ```
 
-In this example, HyperTemplates will retain the `<address>` element if the value of the `page.byline.kind` or `site.byline.kind` [template data property] matches one of the the expected [conditional values] of `organization`, `company`, or `business`.
+In this example, the target `<meta>` element will be removed if `page.redirect` is not set.
 
-#### Inclusive templating
--------------------------
+##### Unary expressions
+----------------------
 
-The `ht-if` directive is used for _inclusive_ templating.
-If the condition evaluates as **`true`**, the target HTML element is **included**.
-See [`ht-not`] for _exclusive_ templating.
+HyperTemplates supports the [unary] `!` operator, which can be used to negate an [existence expression](#existence-expressions). 
 
-#### Conditional values
------------------------
+**Example**
 
-The `ht-if` directive can optionally define a comma-separated list of one or more expected conditional values (see [directive syntax]).
-
-To explain how conditional values are evaluated, consider the following example [template data]. 
-
-```javascript
-{
-    page: {
-        title: "Introducing: HyperTemplates",
-        author: {
-            name: "Herd Works Inc.",
-            href: "https://herd.works",
-            kind: "organization",
-        },
-        tags: [
-            "blog",
-            "announcement"
-        ]
-    }
-}
+```html
+<title ht-apply ht-if='!${ page.title }'>${ site.title }</title>
+<title ht-apply ht-if='${ page.title }'>${ site.title } | ${ page.title }</title>
 ```
 
-Given this example template data, the conditional expression `ht-if='page.byline.kind'` would evaluate `true` because the [template data property] exists and it not empty.
-However, the conditional expression `ht-if='page.byline.kind==person'` would evaluate `false` because the `page.byline.kind` property has a value of "organization", not "person".
+In this example, we are using the `!` operator to check if `page.title` is _not_ set. 
+If `page.title` is not set, or if it has no value, then the first `<title>` element is used and the second is discarded.
 
-##### Conditional expressions and arrays
-----------------------------------------
+##### Binary expressions
+------------------------
 
-When a conditional expression with a conditional value is used on a property that is an array, such as the `page.tags` property in this example, the value is compared to all of the values in the array.
-Please note the following examples based on the sample data shown above:
+HyperTemplates supports `==`, `!=`, `~=`, and `!~` [binary operators].
+A binary operator compares two values.
+The values being compared are called [operands], which can be [template variables] or literal values.
+All binary expressions must contain at least one [template variable] operand.
 
-* **`ht-if='page.tags'`** would evaluate `true` because the `page.tags` array is not empty
-* **`ht-if='page.tags==announcement'`** would evaluate `true` because `page.tags` contains the value `announcement`
-* **`ht-if='page.tags==news'`** would evaluate `false` because `page.tags` does not contain the value `news`
+**Examples**
+
+Compare a template variable with a literal value using the equality operator (`==`).
+
+```html
+<title ht-if='${ page.path } == "/"'>Home</title>
+```
+
+Compare two template variables using the inequality operator (`!=`). 
+
+```html
+<section ht-include='fragments/example' ht-if='${ page.foo } != ${ page.bar }'><section>
+```
+
+Evaluate a template variable using a mathing regular expression operator (`~=`). 
+
+```html
+<section ht-include='fragments/related-posts' ht-if='${ page.path } =~ "^/blog/"'></section>
+```
+
+##### Membership expressions
+
+HyperTemplates supports the `in` and `not in` membership operators.
+Membership expressions must use the `<operand> <operator> <collection>` syntax.
+Membership expression may use [template variables] or literal values as operands.
+Membership expressions _must_ use a [template variable] for the colection.
+
+**Examples**
+
+```html
+<section ht-include='fragments/testimonials' ht-if='${ page.service } in ${ data.testimonials.categories }'></section>
+```
+
+In this example, the testimonial section will be removed if the value of `${ page.service }` is not in the `data.testimonial.categories` collection.
+
+#### Logical operators
+
+##### Logical `OR` operator
+
+The `ht-if` expressions support the logical `OR` operator.
+The `OR` operator splits `ht-if` expressions into _statements_.
+Statements are evaluated from left to right until a statement evaluates to `true`.
+If the end of a logical `OR` expression is reached an no statement evaluated to `true`, the result is `false`.
+
+**Examples**
+
+```html
+<a ht-if='${ page.foo } == "bar" OR ${ page.foo } == "baz"' href='#'>
+    <!-- link content -->
+</a>
+```
+
+In this example, the `<a>` element will be retained if the value of `${ page.foo }` is "bar" or "baz".
+
+##### Logical `AND` operations
+
+Multiple `ht-if` directives can be added to a single element to express logical `AND` operations.
+Logical `AND` operations evaluate `ht-if` directives in HTML attribute order until an expression evaluates to `false`.
+Every `ht-if` expression in a logical `AND` operation must evaluate to `true`, otherwise the result is `false`.
+
+**Example**
+
+```html
+<a ht-if='${ page.foo } == "bar"' ht-if='${ page.bar } == "baz"' href='#'>
+    <!-- link content -->
+</a>
+```
+
+In this example, the `<a>` element will be retained if the value of `${ page.foo }` is "bar", AND the value of `${ page.bar }` is "baz".
 
 <!-- Links -->
 [attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
@@ -159,4 +215,11 @@ Please note the following examples based on the sample data shown above:
 [directive syntax]: #directive-syntax
 [conditional value]: #conditional-values
 [conditional values]: #conditional-values
-[`ht-not`]: /docs/reference/core/directives/ht-not/
+[unary]: https://en.wikipedia.org/wiki/Unary_operation
+[unary operator]: https://en.wikipedia.org/wiki/Unary_operation
+[binary]: https://en.wikipedia.org/wiki/Binary_operation
+[binary operator]: https://en.wikipedia.org/wiki/Binary_operation
+[template variable]: /docs/reference/core/variables/
+[truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+[falsy]: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+[operands]: https://en.wikipedia.org/wiki/Operand

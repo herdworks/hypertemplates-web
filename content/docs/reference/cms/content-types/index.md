@@ -8,7 +8,7 @@ summary: |
 
 ## Pages reference
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Overview
 ------------
@@ -43,28 +43,40 @@ Here's an example content type for publishing blog posts:
 ```yaml
 ---
 metadata:
-    name: Blog Post
-    description: Long-form editorial content.
-    icon: append.page
-    action: Publish Blog Post
+  name: Blog Post
+  description: Long-form editorial content.
+  icon: append.page
+  action: Publish Blog Post
 spec:
-    layout: post.html
-    format: markdown
-    path: /blog/
-    auto_slug: title-kabob
-    requires:
-        title: true
-        content: true
-    template:
-        content-type: page
-        foo: bar
-prompts:
-  - name: page
-    required: true
-    inputs:
-        title: {}
-        description: {}
-patches: [] # coming soon
+  layout: post.html
+  path: /blog/
+  uri_resolver: title-kabob
+  format: markdown
+  unlisted: false
+  requires:
+    title: true
+    content: true
+  template:
+    content-type: page
+    foo: bar
+  prompts:
+    - id: topic
+      type: drop-down
+      label: Topic
+      help: Choose a section for this article.
+      required: true
+      default: engineering
+      options:
+        - label: Announcement
+          value: announcement
+        - label: Engineering
+          value: engineering
+        - label: Design
+          value: design
+  patches:
+    - op: add
+      value_ref: topic
+      path: page.topic
 ```
 
 </code-snippet>
@@ -75,12 +87,10 @@ A new page created with this content type and the title "Hello World" would resu
 ### Properties
 --------------
 
-Content types are configured using four top-level properties: 
+Content types are configured using two top-level properties: 
 
 * [`metadata`](#metadata)
 * [`spec`](#spec)
-* [`prompts`](#prompts)
-* [`patches`](#patches)
 
 #### Metadata
 -------------
@@ -127,8 +137,19 @@ Content types are configured using four top-level properties:
 
   </doc-quote>
 
+**`metadata.action`**
+: A label for the post button (optional).
+
+  The default value is `Post`.
+
 #### Spec
 ---------
+
+  unlisted: false
+  requires:
+    title: true
+    content: true
+  template:
 
 **`spec.layout`**
 : The layout for pages generated using this content type (optional).
@@ -141,15 +162,6 @@ Content types are configured using four top-level properties:
   spec:
       layout: post.html
   ```
-
-**`spec.format`**
-: The file format that should be used to create page index files.
-
-  The supported formats are: 
-  
-  * **`markdown`:** create `index.md` files (default)
-  * **`yaml` or `yml`:** create `index.yaml` files
-  * **`json`:** create `index.json` files
 
 **`spec.path`**
 : The path prefix for pages created using this content type.
@@ -206,6 +218,20 @@ Content types are configured using four top-level properties:
 
   </doc-quote>
 
+**`spec.format`**
+: The file format that should be used to create page index files.
+
+  The supported formats are: 
+  
+  * **`markdown`:** create `index.md` files (default)
+  * **`yaml` or `yml`:** create `index.yaml` files
+  * **`json`:** create `index.json` files
+
+**`spec.unlisted`**
+: Whether the page should be included in feeds. See [`page.unlisted`](/docs/reference/cms/page/#page-unlisted) for more information.
+
+  The default value is `false`. 
+
 **`spec.requires`**
 : Required page elements.
 
@@ -240,13 +266,21 @@ Content types are configured using four top-level properties:
 
   Use the `spec.template` property to provide default [template data properties] for pages created from this content type.
 
-### Prompts
+**`spec.prompts`**
+: :construction: Coming soon... :construction:
 
-🚧 Coming soon... 🚧
+**`spec.patches`**
+: :construction: Coming soon... :construction:
+
+### Prompts
+-----------
+
+:construction: Coming soon... :construction:
 
 ### Patches
+-----------
 
-🚧 Coming soon... 🚧
+:construction: Coming soon... :construction:
 
 
 <!-- Links -->

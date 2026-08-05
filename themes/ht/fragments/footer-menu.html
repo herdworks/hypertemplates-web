@@ -1,5 +1,5 @@
-<footer-menu ht-if='data.nav.footer' columns='4'>
-    <style ht-pipe='css:style#components'>
+<footer-menu ht-if='${ data.nav.footer }' columns='4'>
+    <style class='component'>
         footer-menu {
             display: block;
             height: max-content;
@@ -41,5 +41,5 @@
         @media screen and (min-width: 768px) and (max-width: 1279px) {}
         @media screen and (min-width: 1280px) {}
     </style>
-    <a ht-template='link:data.nav.footer' href='${ link.href }' rel='${ link.group }'>${ link.label, link.title }</a>
+    <a ht-each='link in ${ data.nav.footer }' href='${ link.href }' rel='${ link.group }'>${ link.label, link.title }</a>
 </footer-menu>

@@ -12,7 +12,7 @@
         <script src='/js/components/footer-menu.js' defer></script>
 
         <!-- Layout Styles -->
-        <style id='components'></style>
+        <style id='components' ht-pipe='from "style.component" as css'></style>
         <style id='layout'>
             search-results {
                 display: grid;
@@ -40,7 +40,7 @@
         <header ht-include='fragments/sections/header.html'></header>
         <section id='search'>
             <content-container>
-                <hyper-finder ht-include='fragments/hyper-finder.html' src='/atom.xml' scope='main'></hyper-finder>
+                <hyper-finder ht-include='fragments/hyper-finder.html' src='/docs/atom.xml' scope='main'></hyper-finder>
                 <search-results>
                     <p itemprop='placeholder'>Your search results will appear here.</p>
                 </search-results>

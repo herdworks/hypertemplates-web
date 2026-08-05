@@ -12,6 +12,11 @@ summary: |
 HyperTemplates is the pure-HTML templating _system_ that includes a specification as well as various software packages that implement the templating system (e.g. [`hyperctl`]).
 This reference documents the core specification itself.
 
+**Directives**
+: The HyperTemplates HTML directive reference.
+  
+  <learn-more ht-block href='/docs/reference/core/directives/'></learn-more>
+
 **Layouts**
 : The HyperTemplates HTML layout reference.
 
@@ -21,11 +26,6 @@ This reference documents the core specification itself.
 : The HyperTemplates HTML fragment reference.
 
   <learn-more ht-block href='/docs/reference/core/fragments/'></learn-more>
-
-**Directives**
-: The HyperTemplates HTML directive reference.
-  
-  <learn-more ht-block href='/docs/reference/core/directives/'></learn-more>
 
 **Data**
 : Template data reference documentation.

@@ -9,7 +9,7 @@ breadcrumb: ht-if
 
 ## Conditional Templating Tutorial
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Goal
 --------
@@ -27,37 +27,32 @@ This is the problem that conditional templating solves.
 Most HTML templating systems are based on a more traditional programming language than HTML. 
 The added complexity introduced by having to learn a new language in order to write simple HTML temlpates is a tradeoff for access to features like [`if...else`], [`for...in`], and [`for...of`] logic.
 
-Let's see how HyperTemplates handles conditional templating with the [`ht-if`] attribute. 
+Let's see how HyperTemplates handles conditional templating with the [`ht-if`] directive. 
 
 ### Exercises
 -------------
 
 **EXERCISE 1: Add template conditions**
-: Use the `ht-if` attribute to show a `<header>` and `<footer>` if the `title` and `copyright` properties are present in the template data.
+: Use the `ht-if` directive to show a `<header>` and `<footer>` if the `title` and `copyright` properties are present in the template data.
 
-  <code-snippet ht-block filename='layouts/default.html' highlights='8-10,19-21'>
+  <code-snippet ht-block filename='layouts/default.html' highlights='8-10,14-16'>
 
   ```html
   <html lang='en-US'>
       <head>
           <meta charset='utf-8'>
-          <title ht-content='title'>Learn HyperTemplates</title>
-          <meta name='description' ht-attrs='content:description'>
+          <title ht-apply>${ title, "Learn HyperTemplates" }</title>
+          <meta ht-apply name='description' content='${ description }'>
       </head>
       <body>
-          <header ht-if='title'>
-              <h1 ht-content='title'></h1>
+          <header ht-if='${ title }'>
+              <h1 ht-apply>${ title }</h1>
           </header>
           <main>
-              <article ht-content='markdown:content'>
-                  <h2>Hello, world</h2>
-                  <p>
-                      This is an <a href='https://developer.mozilla.org/en-US/docs/Web/HTML'>HTML</a> layout!
-                  </p>
-              </article>
+              <article ht-apply>${ markdown(content) }</article>
           </main>
-          <footer ht-if='copyright'>
-              &copy; <span ht-content='copyright'>2024</span> &bullet; Powered by HyperTemplates&trade;
+          <footer ht-apply ht-if='${ copyright }'>
+              &copy; ${ copyright, "2024" } &bullet; Powered by HyperTemplates&trade;
           </footer>
       </body>
   </html>
@@ -66,18 +61,18 @@ Let's see how HyperTemplates handles conditional templating with the [`ht-if`] a
   </code-snippet>
 
   We've added two new [content sectioning] elements: `<header>` and `<footer>`.
-  We've also added some conditional logic to our template by configure the [`ht-if`] attribute on both of these elements.
-  The `ht-if` attribute retains HTML elements if the configured condition is true.
+  We've also added some conditional logic to our template by configure the [`ht-if`] directive on both of these elements.
+  The `ht-if` directive retains HTML elements if the configured condition is true.
   If the condition is false, the entire element – including any child elements – will be removed from the page.
   Let's take a closer look at the two conditionals we added: 
 
-  * `<header ht-if="title">`: retain if a property named `title` is provided
-  * `<footer ht-if="copyright">`: retain if a property named `footer` is provided
+  * `<header ht-if="${ title }">`: retain if a property named `title` is provided
+  * `<footer ht-if="${ copyright }">`: retain if a property named `footer` is provided
 
   Let's render the page again, then refresh the browser or view the updated `index.html` file to see what changed.
 
   ```plaintext
-  hyperctl render -d content/index.md -l layouts/default.html > index.html
+  hyperctl dev render -d content/index.md -l layouts/default.html > index.html
   ```
 
   Did you notice? 
@@ -93,7 +88,7 @@ Let's see how HyperTemplates handles conditional templating with the [`ht-if`] a
   ---
   title: Introduction to HTML templating
   description: My first HyperTemplates page!
-  coyright: 2025 Acme Inc
+  copyright: 2025 Acme Inc
   ---
   
   ## Hello, world
@@ -106,7 +101,7 @@ Let's see how HyperTemplates handles conditional templating with the [`ht-if`] a
   Now let's render the page again, then refresh the browser or view the updated `index.html` file to see what changed.
 
   ```plaintext
-  hyperctl render -d content/index.md -l layouts/default.html > index.html
+  hyperctl dev render -d content/index.md -l layouts/default.html > index.html
   ```
 
   If you see the footer then you're ready to move on to the next lesson. :raised_hands: 
@@ -114,7 +109,7 @@ Let's see how HyperTemplates handles conditional templating with the [`ht-if`] a
 ### Discussion
 --------------
 
-In this lesson, we added a `<header>` and `<footer>` to our layout and we learned how to dynamically show or hide content using the `ht-if` attribute.
+In this lesson, we added a `<header>` and `<footer>` to our layout and we learned how to dynamically show or hide content using the `ht-if` directive.
 Adding conditional logic facilitates template reuse ♻️ and makes our websites easier to reason about.
 
 Our example layout template is already well on its way to becoming something we could actually use for a real website.
@@ -127,9 +122,8 @@ It would be great if we could break it up into smaller pieces, and that's exactl
 
 Learn more about the concepts in this lesson:
 
-* [Attributes reference](/docs/reference/core/attributes/)
-  * [`ht-if` attribute](/docs/reference/core/ht-if/)
-  * [`ht-not` attribute](/docs/reference/core/ht-not/)
+* [Attributes reference](/docs/reference/core/directives/)
+* [`ht-if` directive](/docs/reference/core/directives/ht-if/)
 
 </doc-quote>
 
@@ -139,16 +133,17 @@ Join the @hypertexting.community and visit [the "Getting Started" category]. :sp
 When you're ready, let's go ahead and move on to lesson 4. :point_right:
 
 <tutorial-nav ht-block 
-         prev-href='../lesson-2/' 
-         prev-label='Lesson 2: Introducing <code>ht-attrs</code>' 
-         next-href='../lesson-4/' 
-         next-label='Lesson 4: Introducing <code>ht-include</code>'></tutorial-nav>
+    prev-href='../lesson-2/' 
+    prev-label='Lesson 2: Introducing <code>ht-apply</code> (part 2)' 
+    next-href='../lesson-4/' 
+    next-label='Lesson 4: Introducing <code>ht-include</code>'>
+</tutorial-nav>
 
 
 <!-- Links -->
 [template data]: /docs/reference/core/data/
 [content sectioning]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements#content_sectioning
-[`ht-if`]: /docs/reference/core/attributes/ht-if/
+[`ht-if`]: /docs/reference/core/directives/ht-if/
 [the "Getting Started" category]: https://hypertexting.community/c/hypertemplates/getting-started/
 [`if...else`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 [`for...in`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in

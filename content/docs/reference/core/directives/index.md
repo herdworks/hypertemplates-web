@@ -12,29 +12,29 @@ breadcrumb: Directives
 The core of HyperTemplates is a small but mighty set of `ht-*` prefixed [HTML attributes] called _templating directives_ that allow you to compose complex HTML documents from simple HTML templates.
 
 `ht-include`
-: **Replaces** the target HTML element with elements from an external source.
+: **Includes** the HTML fragments from external sources in place of target elements.
 
   <learn-more ht-block href='./ht-include/'></learn-more>
 
 `ht-if`
-: **Retains** the target HTML element if a condition is `true`.
+: **Removes** target HTML elements if one or more conditional are not met.
 
   <learn-more ht-block href='./ht-if/'></learn-more>
 
-`ht-not`
-: **Removes** the target HTML element if a condition is `true`.
+`ht-each`
+: **Iterates** over a data collection and templates the target HTML element once per item.
 
-  <learn-more ht-block href='./ht-not/'></learn-more>
-
-`ht-template`
-: **Repeats** the target HTML element once per occurrence of some content.
-
-  <learn-more ht-block href='./ht-template/'></learn-more>
+  <learn-more ht-block href='./ht-each/'></learn-more>
 
 `ht-apply`
 : **Replaces** template variables with strings, or Text and Element nodes.
 
   <learn-more ht-block href='./ht-apply/'></learn-more>
+
+`ht-block`
+: **Progressively enhances** the target HTML element.
+
+  <learn-more ht-block href='./ht-block/'></learn-more>
 
 `ht-attrs`
 : **Annotates** the target HTML element with one or more HTML attributes.
@@ -46,37 +46,17 @@ The core of HyperTemplates is a small but mighty set of `ht-*` prefixed [HTML at
 
   <learn-more ht-block href='./ht-base/'></learn-more>
 
-`ht-query`
-: **Annotates** URLs in target HTML attributes with query parameters.
-
-  <learn-more ht-block href='./ht-query/'></learn-more>
-
-`ht-param`
-: **Replaces** the target HTML element with Text or Element nodes.
-  
-  <learn-more ht-block href='./ht-param/'></learn-more>
-
-`ht-content`
-: **Inserts** text or HTML content to the target HTML element.
-  
-  <learn-more ht-block href='./ht-content/'></learn-more>
-
-`ht-block`
-: **Progressively enhances** the target HTML element.
-
-  <learn-more ht-block href='./ht-block/'></learn-more>
-
 `ht-pipe`
 : **Moves** the target HTML element or its contents to a destination element.
 
   <learn-more ht-block href='./ht-pipe/'></learn-more>
 
-<mark>This is the complete set of template attributes used by HyperTemplates.</mark>
+<mark>This is the complete set of template directives used by HyperTemplates.</mark>
 They were designed to be [easy to learn] and remember.
 
 <doc-quote ht-block notice>
 
-**NOTE:** HyperTemplates supports the [`data-` prefix] for all template directives (e.g. `ht-content` is the same as `data-ht-content`).
+**NOTE:** HyperTemplates supports the [`data-` prefix] for all template directives (e.g. `ht-include` is the same as `data-ht-include`).
 
 </doc-quote>
 

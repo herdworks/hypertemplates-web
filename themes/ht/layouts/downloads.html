@@ -13,7 +13,7 @@
         <script src='/js/components/footer-menu.js' defer></script>
 
         <!-- Layout Styles -->
-        <style id='components'></style>
+        <style id='components' ht-pipe='from "style.component" as css'></style>
         <style id='layout'>
             release-version {
                 display: block;
@@ -31,22 +31,22 @@
         <section id='releases' data-color-scheme='light'>
             <content-container ht-apply>
                 <h2 ht-apply>${ page.title }</h2>
-                ${ markdown (get "page.summary, page.content") }
+                ${ markdown(page.summary, page.content, "") }
                 <auto-toc selectors='h3,h4,h5,h6'></auto-toc>
-                <release-version ht-template='release:data.downloads.releases'>
+                <release-version ht-each='release in ${ data.downloads.releases }'>
                     <release-meta flex spread aligned>
                         <h3 ht-apply>Version ${ release.version, "" }</h3>
                         <relative-time>
                             <time ht-apply datetime='${ release.date }'>${ release.date, "earlier this year" }</time>
                         </relative-time>
                     </release-meta>
-                    <doc-quote ht-block ht-apply info>${ markdown release.description }</doc-quote>
-                    <dl ht-template='platform:release.platforms'>
+                    <doc-quote ht-block ht-apply info>${ markdown(release.description, "") }</doc-quote>
+                    <dl ht-each='platform in ${ release.platforms }'>
                         <dt>
                             <strong ht-apply>${ platform.name, "Platform X" }</strong>
                         </dt>
                         <dd>
-                            <download-file ht-template='download:platform.files'>
+                            <download-file ht-each='download in ${ platform.files }'>
                                 <a ht-apply href='${ download.href }'>
                                     <code ht-apply>${ download.name, "platform_version_arch.tar.gz" }</code>
                                 </a>

@@ -1,5 +1,5 @@
-<banner-message ht-template='banner:data.banners.banner,data.banners.banners,site.banner,site.banners' class='dismissed'>
-    <style ht-pipe='css:style#components'>
+<banner-message ht-each='banner in ${ data.banners.banner, data.banners.banners, site.banner, site.banners }' class='dismissed'>
+    <style class='component'>
         banner-message { --radius: 50vh; }
         banner-message { display: block; box-sizing: border-box; height: auto; max-height: 150px; }
         banner-message:not(.dismissed) { transition: max-height 750ms ease-in 500ms; }

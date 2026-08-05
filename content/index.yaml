@@ -41,7 +41,7 @@ hero:
                 <header ht-include='fragments/header.html'></header>
                 <main>
                     <article ht-apply>
-                        ${ page.content | markdown }
+                        ${ markdown(page.content) }
                     </article>
                 </main>
                 <footer ht-include='fragments/footer'></footer>
@@ -86,7 +86,7 @@ features:
           Hyper means _FAST_! HyperTemplates build times rival Hugo, with most smaller sites (dozens of pages) building in less than 100ms.
         width: 4
         height: 3
-        href: /blog/the-need-for-speed/
+        href: /blog/designing-an-ssg-for-iphone/
 
       - title: Automatic feed generation
         description: Auto-generates multiple RSS (ATOM) feeds, including a primary feed and multiple tag-based feeds.

@@ -1,6 +1,49 @@
 ---
-latest: 0.22.0
+latest: 0.23.0
 releases:
+  - version: 0.23.0
+    date: "2026-08-04T16:00:00-07:00"
+    description: |
+      **NEW:** `hyperctl` version 0.23.0 with redesigned templating directives [template variables](/docs/reference/core/variables/), and a `hyperctl theme migrate` command to help with migrating legacy directives.
+
+      * Added [new `ht-each` directive](/docs/reference/core/directives/ht-each/) with [`ht-each='item in ${ variable }'` syntax](/docs/reference/core/directives/ht-each/#directive-syntax). 
+      * Added [`hyperctl theme migrate` command](/docs/reference/cli/commands/theme/migrate/) with idempotent migration of legacy directives. 
+      * **BREAKING:** changed the [temlpate variable function invocation syntax](/docs/reference/core/variables/#template-variable-functions) to use parenthetical argument lists.
+      * **BREAKING:** changed the [CSS template variable syntax](/docs/reference/core/variables/#template-variable-syntax) from `--ht-value(...)` to `--ht-var(...)`.
+      * **BREAKING:** changed [`ht-pipe`](/docs/reference/core/directives/ht-pipe/) directive to pull-based `ht-pipe='from "selector"'` expressions.  
+        _NOTE: `ht-pipe` directives now deduplicate piped contents!_
+      * **BREAKING:** removed the `ht-template` in favor of the [`ht-each`](/docs/reference/core/directives/ht-each/) directive. 
+      * **BREAKING:** removed the `ht-not` directive in favor of a [more expressive `ht-if` directive](/docs/reference/core/directives/ht-if/#directive-syntax).
+      * **BREAKING:** removed the `ht-content` directive in favor of using [`ht-apply`] for content templating.
+      * **BREAKING:** removed the `ht-attr` directive in favor of using [`ht-apply`] for attribute templating;  
+        _NOTE: `ht-attrs` (plural) is still supported, but only for [attribute maps](/docs/reference/core/directives/ht-attrs/#attribute-maps)._
+      * **BREAKING:** removed the `ht-query` directive in favor of using [`ht-apply`] for URL attribute [string interpolation](/docs/reference/core/variables/#string-interpolation).
+      * **BREAKING:** removed the `ht-param` directive in favor of using [`ht-apply`] with template variables for [string interpolation](/docs/reference/core/variables/#string-interpolation).
+
+      Please visit the [CHANGELOG](/changelog/) for a complete list of improvements. 
+
+      [ht-apply]: /docs/reference/core/directives/ht-apply/
+    platforms:
+      - name: macOS
+        files:
+          - name: hyperctl_v0.23.0_darwin_universal.tar.gz
+            href: /downloads/hyperctl_v0.23.0_darwin_universal.tar.gz
+          - name: hyperctl_v0.23.0_darwin_arm64.tar.gz
+            href: /downloads/hyperctl_v0.23.0_darwin_arm64.tar.gz
+          - name: hyperctl_v0.23.0_darwin_amd64.tar.gz
+            href: /downloads/hyperctl_v0.23.0_darwin_amd64.tar.gz
+      - name: Linux
+        files:
+          - name: hyperctl_v0.23.0_linux_arm64.tar.gz
+            href: /downloads/hyperctl_v0.23.0_linux_arm64.tar.gz
+          - name: hyperctl_v0.23.0_linux_amd64.tar.gz
+            href: /downloads/hyperctl_v0.23.0_linux_amd64.tar.gz
+      - name: Windows (alpha)
+        files:
+          - name: hyperctl_v0.23.0_windows_arm64.tar.gz
+            href: /downloads/hyperctl_v0.23.0_windows_arm64.tar.gz
+          - name: hyperctl_v0.23.0_windows_amd64.tar.gz
+            href: /downloads/hyperctl_v0.23.0_windows_amd64.tar.gz
   - version: 0.22.0
     date: "2026-06-03T12:00:00-07:00"
     description: |
@@ -151,7 +194,7 @@ releases:
     date: "2026-04-21T12:30:00-07:00"
     description: |
       **NEW:** [`hyperctl`](/docs/reference/cli/) version v0.19.0 adds support for `site.pages`, `site.drafts`, and `site.assets` [template data](/docs/reference/core/data/#template-data-sources), 
-      and brings several improvements to [`ht-block` elements](/docs/reference/core/attributes/ht-block/), including access to `page.*` template data from `ht-block` templates.
+      and brings several improvements to [`ht-block` elements](/docs/reference/core/directives/ht-block/), including access to `page.*` template data from `ht-block` templates.
 
       * Added `site.pages`, `site.drafts`, and `site.assets` to template data
       * Added `page.*` template data to `ht-block`
@@ -245,7 +288,7 @@ releases:
     description: |
       **NEW:** version 0.18.0 is a significant new release that includes a number of new features, including: 
 
-      * [NEW `ht-limit` and `ht-offset` attributes](/docs/reference/core/attributes/ht-template/#limit-and-offset)
+      * [NEW `ht-limit` and `ht-offset` attributes](/docs/reference/core/directives/ht-each/#limit-and-offset)
       * [NEW `page.canonical_url` and `page.wordcount` computed properties](/docs/reference/cms/page/#properties)
       * Many improvements around [themes](/docs/reference/core/themes/) including a [new `theme.*` template data namespace](/docs/reference/core/data/#template-data-sources), and a [new `hyperctl theme` command](/docs/reference/cli/commands/theme/) for packaging and installing themes. 
 
@@ -363,13 +406,13 @@ releases:
     description: |
       **NEW**: Added support for overriding `site.config.content_dir`, `site.config.data_dir`, `site.config.static_dir`, and `site.config.theme` from command flags and/or environment variables.
       These changes make it possible to build multiple versions of a site from the same commit without needing to modify `site.yaml` or `site.json`.
-      See the [`hyperctl build`], [`hyperctl deploy`], [`hyperctl generate`], [`hyperctl publish`], and [`hyperctl server`] commands for more information.
+      See the [`hyperctl build`], [`hyperctl deploy`], [`hyperctl generate`], [`hyperctl publish`], and [`hyperctl dev server`] commands for more information.
 
       [`hyperctl build`]: /docs/reference/cli/commands/build/
       [`hyperctl deploy`]: /docs/reference/cli/commands/deploy/
       [`hyperctl generate`]: /docs/reference/cli/commands/generate/
       [`hyperctl publish`]: /docs/reference/cli/commands/publish/
-      [`hyperctl server`]: /docs/reference/cli/commands/server/
+      [`hyperctl dev server`]: /docs/reference/cli/commands/server/
     platforms:
       - name: macOS
         files:
@@ -398,7 +441,7 @@ releases:
       **CHANGES:** fixed a bug in [`ht-base`] processing order that was introduced in 0.16.0; 
       `ht-base` attributes must be processed *after* `ht-attrs`, `ht-content`, and `ht-block`.
 
-      [`ht-base`]: /docs/reference/core/attributes/ht-base/
+      [`ht-base`]: /docs/reference/core/directives/ht-base/
     platforms:
       - name: macOS
         files:
@@ -426,7 +469,7 @@ releases:
     description: |
       **NEW**: this release adds the [`ht-query`] attribute for annotating URLs (e.g. `href` and `src` attributes) with query parameters, and improves performance by as much as 25-35% by employing more concurrency in builds.
 
-      [`ht-query`]: /docs/reference/core/attributes/ht-query/
+      [`ht-query`]: /docs/reference/core/directives/ht-query/
     platforms:
       - name: macOS
         files:
@@ -454,9 +497,9 @@ releases:
     description: |
       **NEW**: this release adds the [`hyperctl asset ls` command], [`ht-base`] templating attribute, and two new template data properties are now available during `ht-template` iteration ([`ht.index` + `ht.count`]).
 
-      [`hyperctl asset ls` command]: /docs/reference/cli/commands/assets/ls/
-      [`ht-base`]: /docs/reference/core/attributes/ht-base/
-      [`ht.index` + `ht.count`]: /docs/reference/core/attributes/ht-template/#template-data
+      [`hyperctl asset ls` command]: /docs/reference/cli/commands/cms/asset/ls/
+      [`ht-base`]: /docs/reference/core/directives/ht-base/
+      [`ht.index` + `ht.count`]: /docs/reference/core/directives/ht-each/#template-data
     platforms:
       - name: macOS
         files:

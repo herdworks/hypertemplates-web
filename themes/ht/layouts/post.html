@@ -2,7 +2,7 @@
 <html lang='en-US'>
     <head>
         <meta ht-include='fragments/head.html'></meta>
-        <meta ht-apply ht-if='page.content==' http-equiv="refresh" content="0; url=/" content='${ page.refresh }' />
+        <meta ht-apply ht-if='${ page.content } == ""' http-equiv="refresh" content="0; url=/" content='${ page.refresh }' />
 
         <!-- Layout Properties -->
         <meta name='layout:name' content='post'/>
@@ -16,14 +16,14 @@
         <script ht-apply src='/js/components/footer-menu.js?v=${ site.version, build.id }' defer></script>
 
         <!-- Layout Styles -->
-        <style id='components'></style>
+        <style id='components' ht-pipe='from "style.component" as css'></style>
         <style id='layout'></style>
     </head>
     <body data-color-scheme='light'>
         <header ht-include='fragments/blog/header.html'></header>
         <content-whitespace></content-whitespace>
         <section id='post' data-color-scheme='light'>
-            <style ht-pipe='css:style#components'>
+            <style class='component'>
                 #post post-card {
                     margin-bottom: var(--gutter-2x, 30px);
                 }
@@ -34,13 +34,13 @@
                         <post-card ht-include='fragments/hyper/post-card'></post-card>
                     </article-meta>
                     <article-body ht-apply summary>
-                        <h2 ht-apply ht-if='page.title'>${ page.title }</h2>
-                        ${ markdown ( get "page.summary,page.content" ) }
+                        <h2 ht-apply ht-if='${ page.title }'>${ page.title }</h2>
+                        ${ markdown(page.summary, page.content, "") }
                     </article-body>
                     <article-attachments>
                         <attachment-gallery ht-include='fragments/attachment-gallery'></attachment-gallery>
                     </article-attachments>
-                    <article-body ht-apply more>${ markdown page.more }</article-body>
+                    <article-body ht-apply more>${ markdown(page.more) }</article-body>
                 </article>
             </content-container>
             <auto-anchor scope='article'></auto-anchor>

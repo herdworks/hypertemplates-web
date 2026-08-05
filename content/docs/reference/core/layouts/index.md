@@ -8,7 +8,7 @@ breadcrumb: Layouts
 
 ## Layouts
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Overview
 ------------
@@ -30,14 +30,14 @@ This example shows a simple HyperTemplates layout.
 <html lang='en-US'>
     <head>
         <meta charset='utf-8'>
-        <title ht-content='page.title'></title>
-        <meta name='description' ht-attrs='content:page.description,site.description'>
+        <title ht-apply>${ page.title, site.title }</title>
+        <meta ht-apply name='description' content='${ page.description, site.description }'>
     </head>
     <body>
         <header>
-            <h1 ht-content='page.title'>Placeholder title</h1>
+            <h1 ht-apply>${ page.title, "Placeholder title" }</h1>
         </header>
-        <article id='article' ht-content='markdown:page.content'></article>
+        <article ht-apply id='article'>${ markdown(page.content) }</article>
         <footer>
             <p>&copy; 2024 HyperTemplates</p>
         </footer>

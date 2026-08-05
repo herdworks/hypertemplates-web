@@ -1,20 +1,20 @@
 ---
 created_at: 2025-05-25T08:00:00-07:00
-title: "Introducing: ht-content"
+title: "Introducing: ht-apply (part 1)"
 description: Learn how content templating works in HyperTemplates
 summary: |
     Learn how content templating works in HyperTemplates
-breadcrumb: ht-content
+breadcrumb: ht-apply (part 1)
 ---
 
 ## Content Templating Tutorial
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Goal
 --------
 
-In this lesson we will create a reusable layout template using the [`ht-content`] attribute, and then create our first web page using HyperTemplates.
+In this lesson we will create a reusable layout template using the [`ht-apply`] directive, and then create our first web page using HyperTemplates.
 
 ### What is content templating?
 -------------------------------
@@ -57,7 +57,7 @@ Let's see how it works in these first few exercises.
       <body>
           <main>
               <article>
-                 <h2>Hello, world</h2>
+                 <h2>Hello world</h2>
                   <p>
                       This is an <a href='https://developer.mozilla.org/en-US/docs/Web/HTML'>HTML</a> layout!
                   </p>
@@ -95,12 +95,7 @@ Let's see how it works in these first few exercises.
       </head>
       <body>
           <main>
-              <article ht-content='markdown:content'>
-                 <h2>Hello, world</h2>
-                  <p>
-                      This is an <a href='https://developer.mozilla.org/en-US/docs/Web/HTML'>HTML</a> layout!
-                  </p>
-              </article>
+              <article ht-apply>${ markdown(content) }</article>
           </main>
       </body>
   </html>
@@ -108,9 +103,9 @@ Let's see how it works in these first few exercises.
   
   </code-snippet>
 
-  This layout templates the `<article>` element using the [`ht-content` attribute](/docs/reference/core/attributes/ht-content/).
+  This layout templates the `<article>` element body using [`ht-apply`] directive to perform template variable substitution. A [template variable] begins with `${` and ends with `}`. 
   
-  The `markdown:` prefix in our `ht-content` attribute tells HyperTemplates to [format](/docs/reference/core/attributes/ht-content/#content-formats) the `content` as [Markdown](/docs/reference/core/markdown/).
+  This example shows [the `markdown` function] being used inside of a template variable (i.e. `${ markdown(page.content) }`).
 
   Now let's move on to step 3 to create a new page using this layout as a template.
 
@@ -144,7 +139,7 @@ Let's see how it works in these first few exercises.
   OK, let's render our first page using HyperTemplates.
   
   ```shell
-  hyperctl render --data content/index.md --layout layouts/default.html > index.html
+  hyperctl dev render --data content/index.md --layout layouts/default.html > index.html
   ```
 
   This command created a file called `index.html`.
@@ -168,16 +163,11 @@ Let's see how it works in these first few exercises.
   <html lang='en-US'>
       <head>
           <meta charset='utf-8'>
-          <title ht-content='title'>Learn HyperTemplates</title>
+          <title ht-apply>${ title, "Learn HyperTemplates" }</title>
       </head>
       <body>
           <main>
-              <article ht-content='markdown:content'>
-                  <h2>Hello, world</h2>
-                  <p>
-                      This is an <a href='https://developer.mozilla.org/en-US/docs/Web/HTML'>HTML</a> layout!
-                  </p>
-              </article>
+              <article ht-apply>${ markdown(content) }</article>
           </main>
       </body>
   </html>
@@ -220,7 +210,7 @@ Let's see how it works in these first few exercises.
   OK, let's re-render our page and see what happens.
   
   ```shell
-  hyperctl render --data content/index.md --layout layouts/default.html > index.html
+  hyperctl dev render --data content/index.md --layout layouts/default.html > index.html
   ```
 
   If you still have `index.html` open in your browser you can refresh the page, otherwise open it again: 
@@ -236,7 +226,7 @@ Let's see how it works in these first few exercises.
 --------------
 
 In this lesson, we've just scratched the surface of what HyperTemplates can do. 
-We created a simple HTML layout and turned it into a reusable template with the `ht-content` attribute.
+We created a simple HTML layout and turned it into a reusable template with the `ht-apply` directive.
 We also created our first web page using HyperTemplates!
 The first of many!
 
@@ -247,32 +237,38 @@ The first of many!
 Learn more about the concepts in this lesson:
 
 * [Layouts reference](/docs/reference/core/layouts/)
-* [Attributes reference](/docs/reference/core/attributes/)
-  * [`ht-content` attribute](/docs/reference/core/ht-content/)
+* [Directives reference](/docs/reference/core/directives/)
+* [`ht-apply` directive](/docs/reference/core/directives/ht-apply/)
+* [Template variables](/docs/reference/core/variables/)
 * [Data reference](/docs/reference/core/data/)
 * [Markdown reference](/docs/reference/core/markdown/)
 * [CLI reference](/docs/reference/cli/)
 
 </doc-quote>
 
-Do you have any questions and/or feedback about `ht-content` or this "Learn HyperTemplates" tutorial? 
+Do you have any questions and/or feedback about `ht-apply` or this "Learn HyperTemplates" tutorial? 
 Join the @hypertexting.community and visit [the "Getting Started" category]. :speech_balloon:
 
 When you're ready, let's go ahead and move on to lesson 2. :point_right:
 
 <tutorial-nav ht-block
-         prev-href='../'
-         prev-label='Lesson Overview'
-         next-href='../lesson-2/' 
-         next-label='Lesson 2: Introducing <code>ht-attrs</code>'></tutorial-nav>
+    prev-href='../'
+    prev-label='Lesson Overview'
+    next-href='../lesson-2/' 
+    next-label='Lesson 2: Introducing <code>ht-apply</code> (part 2)'>
+</tutorial-nav>
 
 
 
 <!-- Links -->
-[`ht-content`]: /docs/reference/core/attributes/ht-content/
-[layouts]: /docs/reference/core/layouts/
+[`ht-apply`]: /docs/reference/core/directives/ht-apply/
 [data]: /docs/reference/core/data/
-[Markdown]: /docs/reference/core/markdown/
-[YAML]: https://yaml.org
 [Introduction to templating]: /docs/#introduction-to-templating
+[layouts]: /docs/reference/core/layouts/
+[Markdown]: /docs/reference/core/markdown/
+[template data property]: /docs/reference/core/data/#template-data-properties
+[template variable]: /docs/reference/core/variables/
+[template variable substitution]: /docs/reference/core/variables/
 [the "Getting Started" category]: https://hypertexting.community/c/hypertemplates/getting-started/
+[the `markdown` function]: /docs/reference/core/variables/#markdown-function
+[YAML]: https://yaml.org

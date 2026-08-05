@@ -34,7 +34,7 @@ Options:
 #### Example
 ------------
 
-Use the `hyperctl data ls` command to list available namespaces.
+Use the `hyperctl cms data ls` command to list available namespaces.
 
 ```plaintext
 $ hyperctl data ls

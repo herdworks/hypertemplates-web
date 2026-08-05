@@ -5,7 +5,7 @@ layout: redirect
 redirect: /docs/reference/cli/commands/dev/server/
 title: hyperctl server
 summary: |
-    `hyperctl server` reference documentation.
+    `hyperctl dev server` reference documentation.
 breadcrumb: server
 ---
 

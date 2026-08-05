@@ -9,7 +9,7 @@ summary: |
 
 ## Link Verification
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Goal
 
@@ -66,11 +66,11 @@ Let's see how to add `rel='me'` link to an entire website or an individual page 
   <html lang='en-US'>
       <head>
           <meta charset='utf-8'>
-          <title ht-content='title'>My Website</title>
-          <meta name='description' ht-attrs='content:description'>
+          <title ht-apply>${ site.title, My Website }</title>
+          <meta ht-apply name='description' content='${ site.description }'>
 
           <!-- Global Links -->
-          <link ht-template='link:site.links' ht-attrs='rel:link.rel; href:link.href'>
+          <link ht-each='link in ${ site.links }' ht-attrs='${ link }'>
       </head>
       <body>
           <header ht-include='fragments/header' id='header'></header>
@@ -85,7 +85,7 @@ Let's see how to add `rel='me'` link to an entire website or an individual page 
   </code-snippet>
 
   That's it!
-  Now run `hyperctl build` or `hyperctl server` to see your `rel='me'` links.
+  Now run `hyperctl build` or `hyperctl dev server` to see your `rel='me'` links.
 
   
 **STEP 2: Verify a single page**
@@ -122,14 +122,14 @@ Let's see how to add `rel='me'` link to an entire website or an individual page 
   <html lang='en-US'>
       <head>
           <meta charset='utf-8'>
-          <title ht-content='title'>My Website</title>
-          <meta name='description' ht-attrs='content:description'>
+          <title ht-apply>${ site.title, "My Website" }</title>
+          <meta ht-apply name='description' content='${ site.description }'>
 
           <!-- Global Links -->
-          <link ht-template='link:site.links' ht-attrs='rel:link.rel; href:link.href'>
+          <link ht-each='link in ${ site.links }' ht-attrs='${ link }'>
 
           <!-- Page Links -->
-          <link ht-template='link:page.links' ht-attrs='rel:link.rel; href:link.href'>
+          <link ht-each='link in ${ page.links }' ht-attrs='${ link }'>
       </head>
       <body>
           <header ht-include='fragments/header' id='header'></header>
@@ -144,7 +144,7 @@ Let's see how to add `rel='me'` link to an entire website or an individual page 
   </code-snippet>
 
   That's it.
-  Now run `hyperctl build` or `hyperctl server` to see your `rel='me'` links.
+  Now run `hyperctl build` or `hyperctl dev server` to see your `rel='me'` links.
 
 ### Discussion
 

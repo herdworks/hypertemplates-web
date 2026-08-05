@@ -6,7 +6,7 @@ summary: The HyperTexting CMS "feeds" reference
 
 # Feeds reference
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Overview
 ------------
@@ -75,7 +75,7 @@ This example shows a feed that will include all pages with the `blog` or `news` 
 
 <!-- Links -->
 [Atom]: https://www.ietf.org/rfc/rfc4287.txt
-[`page.feed`]: /docs/reference/core/page/#page-feed
+[`page.feed`]: /docs/reference/cms/page/#page-feed
 [`site.title`]: /docs/reference/cms/website/#site-title
 [`site.description`]: /docs/reference/cms/website/#site-description
 [`site.byline`]: /docs/reference/cms/website/#site-byline

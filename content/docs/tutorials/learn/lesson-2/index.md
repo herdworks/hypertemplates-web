@@ -1,15 +1,15 @@
 ---
 created_at: 2025-05-25T08:00:00-07:00
-title: "Introducing: ht-attrs"
+title: "Introducing: ht-apply (part 2)"
 description: Learn how attribute templating works in HyperTemplates
 summary: |
     Learn how attribute templating works in HyperTemplates
-breadcrumb: ht-attrs
+breadcrumb: ht-apply (part 2)
 ---
 
 ## Attribute Templating Tutorial
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Goal
 --------
@@ -34,7 +34,7 @@ That's accomplished using the `target` attribute!
 <a href='https://example.com' target='_blank'>click here</a>
 ```
 
-HyperTemplates makes it easy to template HTML element attributes using the `ht-attrs` attribute.
+HyperTemplates makes it easy to template HTML element attributes using the `ht-apply` directive and `${ ... }` formatted [template variables].
 Let's see it in action in the following exercises. 🏋️‍♂️
 
 ### Exercises
@@ -51,17 +51,12 @@ Let's see it in action in the following exercises. 🏋️‍♂️
   <html lang='en-US'>
       <head>
           <meta charset='utf-8'>
-          <title ht-content='title'>Learn HyperTemplates</title>
-          <meta name='description' ht-attrs='content:description'>
+          <title ht-apply>${ title, "Learn HyperTemplates" }</title>
+          <meta ht-apply name='description' content='${ description }'>
       </head>
       <body>
           <main>
-              <article ht-content='markdown:content'>
-                  <h2>Hello, world</h2>
-                  <p>
-                      This is an <a href='https://developer.mozilla.org/en-US/docs/Web/HTML'>HTML</a> layout!
-                  </p>
-              </article>
+              <article ht-apply>${ markdown(content) }</article>
           </main>
       </body>
   </html>
@@ -70,14 +65,14 @@ Let's see it in action in the following exercises. 🏋️‍♂️
   </code-snippet>
 
   [Frontmatter](/docs/reference/core/markdown/#frontmatter) properties in a [Markdown] document are accessible to HyperTemplates as [template data properties](/docs/reference/core/data/#template-data-properties).
-  In this example we have templated the `<meta>` element using the [`ht-attrs` attribute](/docs/reference/core/attributes/ht-attrs/).
-  The `content:description` value tells HyperTemplates to add an attribute named `content` to the `<meta>` element with the value of the `description` property from our page data file (`index.md`).
+  In this example we have templated the `<meta>` description element using the [`ht-apply` directive](/docs/reference/core/directives/ht-apply/) and a [template variable].
+  The `content='${ description }` value tells HyperTemplates to set the `<meta>` element's `content` attribute to the value of `${ description }` property from our template data (`index.md`).
 
   <doc-quote ht-block>
 
   **Small but mighty!** 💪
 
-  The [`ht-attrs`] attribute can be used to add multiple attributes to a single HTML element.
+  The [`ht-apply`] directive can be used to add multiple attributes to a single HTML element.
   This is really helpful because attributes are the primary interface for configuring HTML element appearance and behavior. :boom:
 
   </doc-quote>
@@ -109,7 +104,7 @@ Let's see it in action in the following exercises. 🏋️‍♂️
   Render the page to see the description `<meta>` tag populated, then refresh your browser to see what changed.
   
   ```shell
-  hyperctl render -d content/index.md -l layouts/default.html > index.html
+  hyperctl dev render -d content/index.md -l layouts/default.html > index.html
   ```
   
   To view the description in a browser, hover over the browser tab, or use "view source" to inspect the rendered HTML.
@@ -118,8 +113,8 @@ Let's see it in action in the following exercises. 🏋️‍♂️
 ### Discussion
 --------------
 
-In this lesson, we learned about one of the HyperTemplates power tools: the small but mighty `ht-attrs` attribute.
-We can already build some pretty interesting templates with `ht-content` and `ht-attrs`!
+In this lesson, we learned how to template HTML element attributes using the small but mighty `ht-apply` directive.
+We can already build some pretty interesting templates using only `ht-apply`!
 
 As you start imaging the more complex layout templates you might build with HyperTemplates, you might start to have questions about how to show or hide some content based on the template data.
 And that is exactly what we'll cover in the next lesson!
@@ -130,30 +125,34 @@ And that is exactly what we'll cover in the next lesson!
 
 Learn more about the concepts in this lesson:
 
-* [Attributes reference](/docs/reference/core/attributes/)
-  * [`ht-attrs` attribute](/docs/reference/core/ht-attrs/)
+* [Directives reference](/docs/reference/core/directives/)
+* [`ht-apply` directive](/docs/reference/core/directives/ht-apply/)
+* [Template variables](/docs/reference/core/variables/)
 * [Data reference](/docs/reference/core/data/)
 * [Markdown reference](/docs/reference/core/markdown/)
 * [CLI reference](/docs/reference/cli/)
 
 </doc-quote>
 
-Do you have any questions and/or feedback about `ht-attrs` or this "Learn HyperTemplates" tutorial? 
+Do you have any questions and/or feedback about `ht-apply` or this "Learn HyperTemplates" tutorial? 
 Join the @hypertexting.community and visit [the "Getting Started" category]. :speech_balloon:
 
 When you're ready, let's go ahead and move on to lesson 3. :point_right:
 
 <tutorial-nav ht-block 
-         prev-href='../lesson-1/' 
-         prev-label='Lesson 1: Introducing <code>ht-content</code>' 
-         next-href='../lesson-3/' 
-         next-label='Lesson 3: Introducing <code>ht-if</code>'></tutorial-nav>
+    prev-href='../lesson-1/' 
+    prev-label='Lesson 1: Introducing <code>ht-apply</code> (part 1)' 
+    next-href='../lesson-3/' 
+    next-label='Lesson 3: Introducing <code>ht-if</code>'>
+</tutorial-nav>
 
 
 <!-- Links -->
-[`ht-attrs`]: /docs/reference/core/attributes/ht-attrs/
+[`ht-apply`]: /docs/reference/core/directives/ht-apply/
+[element attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes
 [HTML attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes
 [HTML element]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements
-[element attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes
 [Markdown]: /docs/reference/core/markdown/
+[template variable]: /docs/reference/core/variables/
+[template variables]: /docs/reference/core/variables/
 [the "Getting Started" category]: https://hypertexting.community/c/hypertemplates/getting-started/

@@ -4,5 +4,5 @@
 <meta ht-apply property="og:url" content='${ page.canonical_url }'>
 <meta ht-apply property="og:title" content='${ page.title, site.title }'>
 <meta ht-apply property="og:description" content='${ page.description, site.description }'>
-<meta ht-template='asset:page.assets' ht-if='asset==cover.png' property="og:image" content='/cover.png'>
-<meta ht-apply ht-if='page.video' property='og:video' content='${ page.video }'>
+<meta ht-each='asset in ${ page.assets }' ht-if='${ asset } == cover.png' property="og:image" content='/cover.png'>
+<meta ht-apply ht-if='${ page.video }' property='og:video' content='${ page.video }'>

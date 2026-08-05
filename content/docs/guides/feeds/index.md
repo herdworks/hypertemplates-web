@@ -8,7 +8,7 @@ breadcrumb: Feeds
 
 ## How to create feed pages
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Goal
 
@@ -73,7 +73,7 @@ Let's see how these two components work together in the following guide.
 
   That's it!
   You've just created your first feed. 👏
-  Now run `hyperctl build` or `hyperctl server` and you should see a feed file at `/blog/atom.xml`.
+  Now run `hyperctl build` or `hyperctl dev server` and you should see a feed file at `/blog/atom.xml`.
 
 **STEP 2: Add feed filters**
 : You may have noticed in the first exercise that there are already pages in your shiny new feed.
@@ -104,7 +104,7 @@ Let's see how these two components work together in the following guide.
   </code-snippet>
 
   That's it!
-  Now just run `hyperctl build` or `hyperctl server` and you should only see blog posts in `/blog/atom.xml`.
+  Now just run `hyperctl build` or `hyperctl dev server` and you should only see blog posts in `/blog/atom.xml`.
 
   If you don't see any pages, lets create one by adding a `content/blog/hello-world/index.md` file.
 
@@ -122,7 +122,7 @@ Let's see how these two components work together in the following guide.
 
   </code-snippet>
 
-  Now just run `hyperctl build` or `hyperctl server` and you should see the new "Hello, world!" blog post in the `/blog/atom.xml` feed.
+  Now just run `hyperctl build` or `hyperctl dev server` and you should see the new "Hello, world!" blog post in the `/blog/atom.xml` feed.
 
 **STEP 3: Add/remove pages**
 : So far we've covered how to [create a feed](#step-1-add-a-feed), and how to control what pages are included in feeds with [feed filters](#step-2-add-feed-filters).
@@ -195,18 +195,16 @@ Let's see how these two components work together in the following guide.
       <body>
           <header ht-include='fragments/hero'></header>
           <main>
-              <feed-entry ht-template='entry:page.feed.pages;site:site'>
+              <feed-entry ht-each='page in ${ page.feed.pages }'>
                   <post-meta>
-                      <h2><param ht-param='entry.title' /></h2>
-                      <p ht-if='entry.author,site.byline'>
-                          By <param ht-param='entry.author.name' default='Team HyperTemplates'>,
-                          <time ht-attrs='datetime:entry.updated_at,entry.created_at'></time>
+                      <h2 ht-apply>${ page.title }</h2>
+                      <p ht-apply ht-if='${ page.byline, site.byline }'>
+                          By ${ page.byline.name, "Team HyperTemplates" },
+                          <time ht-apply datetime='${ page.updated_at, page.created_at }'></time>
                       </p>
                   </post-meta>
-                  <post-content>
-                      <param ht-param='markdown:entry.summary,entry.content' />
-                  </post-content>
-                  <a ht-attrs='href:entry.path' ht-if='entry.path'>Continue reading...</a>
+                  <post-content ht-apply>${ markdown(page.summary, page.content) }</post-content>
+                  <a ht-apply ht-if='${ page.more }' href='${ page.path }'>Continue reading...</a>
               </feed-entry>
           </main>
           <footer ht-include='fragments/footer'></footer>
@@ -219,13 +217,11 @@ Let's see how these two components work together in the following guide.
   The `page.feed.pages` [template data property] is a collection of pages matching page feed filters.
   Each page in `page.feed.pages` will contain all [page properties].
 
-  The highlighted portion of this layout uses an `ht-template` attribute to create a nested template for each page as an `entry` variable:
+  The highlighted portion of this layout uses an `ht-each` directive to create a nested template for each page in `page.feed.pages` as an `page` variable:
 
   ```plaintext
-  ht-template='entry:page.feed.pages;site:site'
+  ht-each='page in ${ page.feed.pages }'
   ```
-
-  This example also passes in `site` [template data] to the nested template so that `site.byline.name` can be used as a fallback when no `entry.author.name` is available (see line 22).
 
 **STEP 5: Add a feed page**
 : Let's use our new feed layout to display the contents of our feed, making a feed page.
@@ -250,7 +246,7 @@ Let's see how these two components work together in the following guide.
   </code-snippet>
 
   That's it!
-  Now just run `hyperctl build` or `hyperctl server` and you should see feed contents at `/blog/`.
+  Now just run `hyperctl build` or `hyperctl dev server` and you should see feed contents at `/blog/`.
 
 ### Discussion
 

@@ -14,8 +14,8 @@ breadcrumb: ht-include
 ### Overview
 ------------
 
-The `ht-include` directive replaces target HTML elements with elements from an external source (a local or remote file).
-The `ht-include` directive is one of the most powerful tools in the HyperTemplates toolbox, making it possible to compose complex layouts from reusable components.
+The `ht-include` directive replaces target element with an HTML fragment from the configured theme. 
+Includes are one of the most powerful tools in the HyperTemplates toolbox, making it possible to compose complex layouts from reusable components.
 
 ### Example
 -----------
@@ -51,20 +51,43 @@ The `ht-include` directive in this example will replace the placeholder `<header
 #### Supported elements
 -----------------------
 
-The `ht-include` directive can be used with any HTML element.
+The `ht-include` directive can be used with any HTML element except the `<html>`, `<head>`, and `<body>` elements.
+
+**Example** 
 
 ```html
 <a href='/'>
-    <svg ht-include='img/logo.svg'></svg>
+    <svg ht-include='static/img/logo.svg'></svg>
 </a>
 ```
+
+Even though `ht-include` doesn't support the `<head>` element itself, we strongly recommend using an `ht-include` directive _inside_ the `<head>` element.
+This is an excellent way to ensure that certain `<head>` elements are included in every page across an entire website.
+
+<code-snippet ht-block filename='layouts/default.html' highlight='4'>
+
+```html
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <meta ht-include='fragments/head.html'></meta>
+        <!-- other head elements -->
+    </head>
+    <body>
+        <!-- page content -->
+    </body>
+</html>
+```
+
+</code-snippet>
+
 
 <doc-quote ht-block info>
 
 **A BRIEF ASIDE:** Discovering that we could use `ht-include` to template SVG images was one of the major "aha" moments we experienced early on in the development of HyperTemplates.
 This was a delightful side effect of the "pure-HTML" philosophy behind HyperTemplates.
 We suspect there are yet other unexpected but delightful side effects that we haven't yet discovered. 
-If you encounter any such deligtful surprises, please [let us know](/contact)!
+If you encounter any such deligtful surprises, please join the @hypertexting.community 💬 and let us know!
 
 </doc-quote>
 
@@ -77,7 +100,8 @@ If you encounter any such deligtful surprises, please [let us know](/contact)!
 #### Directive syntax
 ---------------------
 
-The `ht-include` directive provides templating instructions, expressed as a comma-separated list of [include URIs](#include-uris), where each URI contains an [include source](#include-sources). 
+An `ht-include` expression is one theme-relative fragment path. 
+The `.html` extension is optional: `fragments/header` and `fragments/header.html` are equivalent.
 
 ```html
 <header ht-include='fragments/hero'></header>
@@ -112,36 +136,14 @@ In this example the `height` and `width` attributes will be copied to the `<svg>
 
 <doc-quote ht-block notice>
 
-**NOTE:** The `ht-include` directive attribute is excluded from attribute forwarding.
+**NOTE:** The `ht-include` and `ht-block` directive attributes are excluded from attribute forwarding.
 
 </doc-quote>
-
-#### Include URIs
------------------
-
-HyperTemplates `ht-include` directives contain relative URIs that reference [fragments].
-These URIs are referred to as "include URIs".
-The contents of the include URI files are [include sources](#include-sources).
-
-```html
-<button ht-include='path/to/source.html'></button>
-```
-
-In this example, `path/to/source.html` is an include URI.
-
-<doc-quote ht-block>
-
-**PROTIP:** because HyperTemplates is the pure-HTML templating system, it assumes that same-origin include URIs are references to HTML documents with `.html` file extensions.
-
-An include URI of `/path/to/source` is the same as `/path/to/source.html`.
-
-</doc-quote>
-
 
 #### Include sources
 --------------------
 
-An include source is an [HTML `DocumentFragment`] referenced by a `ht-include` attribute.
+An include source is an [HTML `DocumentFragment`] referenced by an `ht-include` directive.
 
 See [fragments] for more information.
 

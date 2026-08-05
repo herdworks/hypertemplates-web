@@ -5,7 +5,7 @@ title: Namespaces
 
 ## Namespaces reference
 
-<auto-toc selectors='h3,h4,h5,h6,dl dt'></auto-toc>
+<auto-toc selectors='h3,h4,h5,h6,dl:not(:has(learn-more)) dt'></auto-toc>
 
 ### Overview
 ------------
@@ -50,6 +50,7 @@ The supported data file formats and extensions are:
 * YAML (`.yaml`, `.yml`)
 * JSON (`.json`)
 * OPML (`.opml`) 
+* CSV (`.csv`)
 * Javascript (`.js`)
 
 Files with unsupported file extensions are ignored.
@@ -67,7 +68,7 @@ The namespace identifier is the [template data key] used to access namespace dat
 
 A data file's namespace identifier is derived from its pathname under the [`site.config.data_dir`], sans file extension. 
 Each path segment becomes a keypath segment, so subdirectories can be used to nest namespaces.
-Namespace data file path segments can use letters, numbers, and underscores (`^[A-Za-z_][A-Za-z0-9_-]*$`).
+Namespace data file path segments can use letters, digits, and underscores (`^[A-Za-z0-9_]+$`).
 Segments with whitespace or any other illegal character will result in build errors.
 
 **Examples**

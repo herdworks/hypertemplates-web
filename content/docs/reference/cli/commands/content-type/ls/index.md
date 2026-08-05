@@ -5,7 +5,7 @@ layout: redirect
 redirect: /docs/reference/cli/commands/cms/content-type/ls/
 title: hyperctl content-type ls
 summary: |
-    `hyperctl content-type ls` reference documentation
+    `hyperctl cms content-type ls` reference documentation
 breadcrumb: ls
 ---
 
